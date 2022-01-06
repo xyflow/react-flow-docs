@@ -62,11 +62,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/wbkd/react-flow',
             label: 'GitHub',
             position: 'right',
           },
