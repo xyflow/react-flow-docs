@@ -56,7 +56,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'examples/basic',
+            docId: 'examples/overview',
             position: 'left',
             label: 'Examples',
           },

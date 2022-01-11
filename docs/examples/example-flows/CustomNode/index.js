@@ -1,19 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-import ReactFlow, {
-  isEdge,
-  removeElements,
-  addEdge,
-  MiniMap,
-  Controls,
-} from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
 
 import ColorSelectorNode from './ColorSelectorNode';
 
 import './index.css';
-
-const onNodeDragStop = (event, node) => console.log('drag stop', node);
-const onElementClick = (event, element) => console.log('click', element);
 
 const initBgColor = '#1A192B';
 
@@ -24,16 +14,16 @@ const nodeTypes = {
 };
 
 const CustomNodeFlow = () => {
-  const [reactflowInstance, setReactflowInstance] = useState(null);
-  const [elements, setElements] = useState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
     const onChange = (event) => {
-      setElements((els) =>
-        els.map((e) => {
-          if (isEdge(e) || e.id !== '2') {
-            return e;
+      setNodes((nds) =>
+        nds.map((node) => {
+          if (node.id !== '2') {
+            return node;
           }
 
           const color = event.target.value;
@@ -41,9 +31,9 @@ const CustomNodeFlow = () => {
           setBgColor(color);
 
           return {
-            ...e,
+            ...node,
             data: {
-              ...e.data,
+              ...node.data,
               color,
             },
           };
@@ -51,7 +41,7 @@ const CustomNodeFlow = () => {
       );
     };
 
-    setElements([
+    setNodes([
       {
         id: '1',
         type: 'input',
@@ -80,7 +70,9 @@ const CustomNodeFlow = () => {
         position: { x: 650, y: 100 },
         targetPosition: 'left',
       },
+    ]);
 
+    setEdges([
       {
         id: 'e1-2',
         source: '1',
@@ -107,49 +99,24 @@ const CustomNodeFlow = () => {
     ]);
   }, []);
 
-  useEffect(() => {
-    if (reactflowInstance && elements.length > 0) {
-      reactflowInstance.fitView();
-    }
-  }, [reactflowInstance, elements.length]);
-
-  const onElementsRemove = useCallback(
-    (elementsToRemove) =>
-      setElements((els) => removeElements(elementsToRemove, els)),
-    []
-  );
   const onConnect = useCallback(
-    (params) =>
-      setElements((els) =>
-        addEdge({ ...params, animated: true, style: { stroke: '#fff' } }, els)
-      ),
+    (params) => setEdges((eds) => addEdge({ ...params, animated: true, style: { stroke: '#fff' } }, eds)),
     []
   );
-
-  const onLoad = useCallback(
-    (rfi) => {
-      if (!reactflowInstance) {
-        setReactflowInstance(rfi);
-        console.log('flow loaded:', rfi);
-      }
-    },
-    [reactflowInstance]
-  );
-
   return (
     <ReactFlow
-      elements={elements}
-      onElementClick={onElementClick}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onNodeDragStop={onNodeDragStop}
       style={{ background: bgColor }}
-      onLoad={onLoad}
       nodeTypes={nodeTypes}
       connectionLineStyle={connectionLineStyle}
       snapToGrid={true}
       snapGrid={snapGrid}
       defaultZoom={1.5}
+      fitViewOnInit
     >
       <MiniMap
         nodeStrokeColor={(n) => {

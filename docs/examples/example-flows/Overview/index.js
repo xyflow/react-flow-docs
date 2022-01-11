@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactFlow, { addEdge, MiniMap, Controls, Background, useNodesState, useEdgesState } from 'react-flow-renderer';
 
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  MiniMap,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
+import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
-import initialElements from './initial-elements';
-
-const onLoad = (reactFlowInstance) => {
-  console.log('flow loaded:', reactFlowInstance);
-  reactFlowInstance.fitView();
-};
+const onPaneReady = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
 const OverviewFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
   return (
     <ReactFlow
-      elements={elements}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onLoad={onLoad}
-      snapToGrid={true}
-      snapGrid={[15, 15]}
+      onPaneReady={onPaneReady}
+      fitViewOnInit
     >
       <MiniMap
         nodeStrokeColor={(n) => {

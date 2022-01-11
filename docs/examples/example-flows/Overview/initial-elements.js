@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default [
+export const nodes = [
   {
     id: '1',
     type: 'input',
@@ -73,6 +73,9 @@ export default [
     data: { label: 'Another output node' },
     position: { x: 400, y: 450 },
   },
+];
+
+export const edges = [
   { id: 'e1-2', source: '1', target: '2', label: 'this is an edge label' },
   { id: 'e1-3', source: '1', target: '3' },
   {
