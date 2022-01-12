@@ -30,3 +30,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .navbar {
   box-shadow: none;
 }
+
+.hide-svg-icon svg {
+  display: none;
+}
