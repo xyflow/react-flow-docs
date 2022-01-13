@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  MiniMap,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
 
 import CustomEdge from './CustomEdge';
 
-const onLoad = (reactFlowInstance) => reactFlowInstance.fitView();
-const onNodeDragStop = (event, node) => console.log('drag stop', node);
-const onElementClick = (event, element) => console.log('click', element);
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'edges-1',
     type: 'input',
@@ -45,6 +35,9 @@ const initialElements = [
     data: { label: 'Output 8' },
     position: { x: 525, y: 600 },
   },
+];
+
+const initialEdges = [
   {
     id: 'edges-e1-2',
     source: 'edges-1',
@@ -122,23 +115,22 @@ const edgeTypes = {
 };
 
 const EdgesFlow = () => {
-  const [elements, setElements] = useState(initialElements);
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
   return (
     <ReactFlow
-      elements={elements}
-      onElementClick={onElementClick}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onNodeDragStop={onNodeDragStop}
-      onLoad={onLoad}
       snapToGrid={true}
       edgeTypes={edgeTypes}
-      key="edges"
+      fitViewOnInit
+      attributionPosition="top-right"
     >
       <MiniMap />
       <Controls />

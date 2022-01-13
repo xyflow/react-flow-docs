@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
 
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  MiniMap,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
+import ButtonEdge from './ButtonEdge.js';
 
-import ButtonEdge from './ButtonEdge';
-
-const onLoad = (reactFlowInstance) => reactFlowInstance.fitView();
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'ewb-1',
     type: 'input',
@@ -20,7 +11,9 @@ const initialElements = [
     position: { x: 250, y: 0 },
   },
   { id: 'ewb-2', data: { label: 'Node 2' }, position: { x: 250, y: 300 } },
+];
 
+const initialEdges = [
   {
     id: 'edge-1-2',
     source: 'ewb-1',
@@ -34,21 +27,21 @@ const edgeTypes = {
 };
 
 const EdgeWithButtonFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) =>
-    setElements((els) => addEdge({ ...params, type: 'buttonedge' }, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds));
 
   return (
     <ReactFlow
-      elements={elements}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       snapToGrid={true}
       edgeTypes={edgeTypes}
-      onLoad={onLoad}
-      key="edge-with-button"
+      fitViewOnInit
+      attributionPosition="top-right"
     >
       <MiniMap />
       <Controls />

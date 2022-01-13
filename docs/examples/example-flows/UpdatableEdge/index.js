@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import ReactFlow, { Controls, updateEdge, addEdge } from 'react-flow-renderer';
+import React from 'react';
+import ReactFlow, { useNodesState, useEdgesState, Controls, updateEdge, addEdge } from 'react-flow-renderer';
 
-const initialElements = [
+const initialNodes = [
   {
     id: '1',
     type: 'input',
@@ -18,26 +18,27 @@ const initialElements = [
     data: { label: 'Node C' },
     position: { x: 400, y: 200 },
   },
-  { id: 'e1-2', source: '1', target: '2', label: 'updatable edge' },
 ];
 
-const onLoad = (reactFlowInstance) => reactFlowInstance.fitView();
+const initialEdges = [{ id: 'e1-2', source: '1', target: '2', label: 'updatable edge' }];
 
 const UpdatableEdge = () => {
-  const [elements, setElements] = useState(initialElements);
-
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   // gets called after end of edge gets dragged to another source or target
-  const onEdgeUpdate = (oldEdge, newConnection) =>
-    setElements((els) => updateEdge(oldEdge, newConnection, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const onEdgeUpdate = (oldEdge, newConnection) => setEdges((els) => updateEdge(oldEdge, newConnection, els));
+  const onConnect = (params) => setEdges((els) => addEdge(params, els));
 
   return (
     <ReactFlow
-      elements={elements}
-      onLoad={onLoad}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       snapToGrid
       onEdgeUpdate={onEdgeUpdate}
       onConnect={onConnect}
+      fitViewOnInit
     >
       <Controls />
     </ReactFlow>

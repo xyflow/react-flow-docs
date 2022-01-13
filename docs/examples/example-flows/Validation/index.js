@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle } from 'react-flow-renderer';
 
-import ReactFlow, { addEdge, Handle } from 'react-flow-renderer';
+import './index.css';
 
-import './validation.css';
-
-const initialElements = [
+const initialNodes = [
   { id: '0', type: 'custominput', position: { x: 0, y: 150 } },
   { id: 'A', type: 'customnode', position: { x: 250, y: 0 } },
   { id: 'B', type: 'customnode', position: { x: 250, y: 150 } },
   { id: 'C', type: 'customnode', position: { x: 250, y: 300 } },
 ];
 
-const onLoad = (reactFlowInstance) => reactFlowInstance.fitView();
 const isValidConnection = (connection) => connection.target === 'B';
 const onConnectStart = (event, { nodeId, handleType }) => console.log('on connect start', { nodeId, handleType });
 const onConnectStop = (event) => console.log('on connect stop', event);
@@ -38,23 +36,29 @@ const nodeTypes = {
 };
 
 const HorizontalFlow = () => {
-  const [elements, setElements] = useState(initialElements);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
   const onConnect = (params) => {
     console.log('on connect', params);
-    setElements((els) => addEdge(params, els));
+    setEdges((eds) => addEdge(params, eds));
   };
 
   return (
     <ReactFlow
-      elements={elements}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       selectNodesOnDrag={false}
-      onLoad={onLoad}
       className="validationflow"
       nodeTypes={nodeTypes}
       onConnectStart={onConnectStart}
       onConnectStop={onConnectStop}
       onConnectEnd={onConnectEnd}
+      fitViewOnInit
+      attributionPosition="bottom-left"
     />
   );
 };

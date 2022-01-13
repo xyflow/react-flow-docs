@@ -117,6 +117,7 @@ const CustomNodeFlow = () => {
       snapGrid={snapGrid}
       defaultZoom={1.5}
       fitViewOnInit
+      attributionPosition="bottom-left"
     >
       <MiniMap
         nodeStrokeColor={(n) => {

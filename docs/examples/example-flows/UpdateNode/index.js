@@ -80,6 +80,7 @@ const UpdateNode = () => {
       defaultZoom={1.5}
       minZoom={0.2}
       maxZoom={4}
+      attributionPosition="bottom-left"
     >
       <div className="updatenode__controls">
         <label>label:</label>

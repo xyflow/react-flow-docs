@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
-import ReactFlow, {
-  ReactFlowProvider,
-  addEdge,
-  removeElements,
-  Controls,
-} from 'react-flow-renderer';
+import React from 'react';
+import ReactFlow, { ReactFlowProvider, useNodesState, useEdgesState, addEdge, Controls } from 'react-flow-renderer';
 
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar.js';
 
-import './provider.css';
+import './index.css';
 
-const onElementClick = (event, element) => console.log('click', element);
-const onLoad = (reactFlowInstance) =>
-  console.log('flow loaded:', reactFlowInstance);
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'provider-1',
     type: 'input',
@@ -24,6 +15,9 @@ const initialElements = [
   { id: 'provider-2', data: { label: 'Node 2' }, position: { x: 100, y: 100 } },
   { id: 'provider-3', data: { label: 'Node 3' }, position: { x: 400, y: 100 } },
   { id: 'provider-4', data: { label: 'Node 4' }, position: { x: 400, y: 200 } },
+];
+
+const initialEdges = [
   {
     id: 'provider-e1-2',
     source: 'provider-1',
@@ -34,26 +28,26 @@ const initialElements = [
 ];
 
 const ProviderFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
   return (
     <div className="providerflow">
       <ReactFlowProvider>
         <div className="reactflow-wrapper">
           <ReactFlow
-            elements={elements}
-            onElementClick={onElementClick}
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
             onConnect={onConnect}
-            onElementsRemove={onElementsRemove}
-            onLoad={onLoad}
+            fitViewOnInit
           >
             <Controls />
           </ReactFlow>
         </div>
-        <Sidebar />
+        <Sidebar nodes={nodes} setNodes={setNodes} />
       </ReactFlowProvider>
     </div>
   );

@@ -22,7 +22,7 @@ html, body, #root {
 
 const customSetup = {
   dependencies: {
-    'react-flow-renderer': '10.0.0-next.31',
+    'react-flow-renderer': '10.0.0-next.32',
   },
 };
 
@@ -42,8 +42,8 @@ export default function ExampleViewer({ example, additionalFiles = [] }) {
       const additional = {};
 
       for (let additionalFile of additionalFiles) {
-        const file = await import(`!raw-loader!../example-flows/${example}${additionalFile}`);
-        additional[additionalFile] = file.default;
+        const file = await import(`!raw-loader!../example-flows/${example}/${additionalFile}`);
+        additional[`/${additionalFile}`] = file.default;
       }
 
       setFiles({
