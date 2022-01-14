@@ -50,20 +50,13 @@ let id = 0;
 const getNodeId = () => `edgetypes-${(id++).toString()}`;
 
 export function getElements() {
-  const initialElements = [];
+  const nodes = [];
+  const edges = [];
 
-  for (
-    let sourceTargetIndex = 0;
-    sourceTargetIndex < sourceTargetPositions.length;
-    sourceTargetIndex++
-  ) {
+  for (let sourceTargetIndex = 0; sourceTargetIndex < sourceTargetPositions.length; sourceTargetIndex++) {
     const currSourceTargetPos = sourceTargetPositions[sourceTargetIndex];
 
-    for (
-      let edgeTypeIndex = 0;
-      edgeTypeIndex < edgeTypes.length;
-      edgeTypeIndex++
-    ) {
+    for (let edgeTypeIndex = 0; edgeTypeIndex < edgeTypes.length; edgeTypeIndex++) {
       const currEdgeType = edgeTypes[edgeTypeIndex];
 
       for (let offsetIndex = 0; offsetIndex < offsets.length; offsetIndex++) {
@@ -103,10 +96,10 @@ export function getElements() {
           targetPosition: currSourceTargetPos.target,
         };
 
-        initialElements.push(sourceNode);
-        initialElements.push(targetNode);
+        nodes.push(sourceNode);
+        nodes.push(targetNode);
 
-        initialElements.push({
+        edges.push({
           id: `${sourceId}-${targetId}`,
           source: sourceId,
           target: targetId,
@@ -116,5 +109,5 @@ export function getElements() {
     }
   }
 
-  return initialElements;
+  return { nodes, edges };
 }

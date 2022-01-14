@@ -1,5 +1,6 @@
 export function getElements(xElements = 10, yElements = 10) {
-  const initialElements = [];
+  const nodes = [];
+  const edges = [];
   let nodeId = 1;
   let recentNodeId = null;
 
@@ -13,10 +14,10 @@ export function getElements(xElements = 10, yElements = 10) {
         data,
         position,
       };
-      initialElements.push(node);
+      nodes.push(node);
 
       if (recentNodeId && nodeId <= xElements * yElements) {
-        initialElements.push({
+        edges.push({
           id: `${x}-${y}`,
           source: `stress-${recentNodeId.toString()}`,
           target: `stress-${nodeId.toString()}`,
@@ -28,5 +29,5 @@ export function getElements(xElements = 10, yElements = 10) {
     }
   }
 
-  return initialElements;
+  return { nodes, edges };
 }

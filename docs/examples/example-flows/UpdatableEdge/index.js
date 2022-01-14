@@ -39,6 +39,7 @@ const UpdatableEdge = () => {
       onEdgeUpdate={onEdgeUpdate}
       onConnect={onConnect}
       fitViewOnInit
+      attributionPosition="top-right"
     >
       <Controls />
     </ReactFlow>

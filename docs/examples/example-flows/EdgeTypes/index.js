@@ -1,32 +1,25 @@
-/**
- * Example for checking the different edge types and source and target positions
- */
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Controls, Background } from 'react-flow-renderer';
 
-import ReactFlow, { removeElements, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
-import { getElements } from './utils';
+import { getElements } from './utils.js';
 
-const onLoad = (reactFlowInstance) => {
-  reactFlowInstance.fitView();
-  console.log(reactFlowInstance.getElements());
-};
-
-const initialElements = getElements();
+const { nodes: initialNodes, edges: initialEdges } = getElements();
 
 const EdgeTypesFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   return (
     <ReactFlow
-      elements={elements}
-      onLoad={onLoad}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
+      fitViewOnInit
       minZoom={0.2}
     >
-      <MiniMap />
       <Controls />
       <Background />
     </ReactFlow>
