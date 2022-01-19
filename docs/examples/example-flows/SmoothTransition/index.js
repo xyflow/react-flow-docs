@@ -1,10 +1,16 @@
-import { animate } from 'popmotion';
-import React, { useCallback, useState } from 'react';
-import ReactFlow, { addEdge, Background } from 'react-flow-renderer';
+import React, { useCallback } from 'react';
+import ReactFlow, {
+  addEdge,
+  useNodesState,
+  useEdgesState,
+  Background,
+  ReactFlowProvider,
+  useZoomPanHelper,
+} from 'react-flow-renderer';
 
-import './transition.css';
+import './index.css';
 
-const initialElements = [
+const initialNodes = [
   {
     id: '1',
     type: 'input',
@@ -18,61 +24,49 @@ const initialElements = [
     position: { x: 100, y: 100 },
   },
   { id: '3', data: { label: 'zoom-out' }, position: { x: 400, y: 100 } },
+];
+
+const initialEdges = [
   { id: 'e1-2', source: '1', target: '2' },
   { id: 'e1-3', source: '1', target: '3' },
 ];
 
 const SmoothTransition = () => {
-  const [rfInstance, setRfInstance] = useState(null);
-  const [elements, setElements] = useState(initialElements);
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
-  const onLoad = useCallback((instance) => {
-    instance.fitView();
-    setRfInstance(instance);
-  }, []);
-
-  const handleZoom = useCallback(
-    (ratio) => () => {
-      const { zoom } = rfInstance.toObject();
-
-      animate({
-        from: zoom,
-        to: zoom * ratio,
-        onUpdate: (nextZoom) => rfInstance.zoomTo(nextZoom),
-      });
-    },
-    [rfInstance]
-  );
+  const { setTransform, zoomIn, zoomOut } = useZoomPanHelper();
 
   const handleTransform = useCallback(
-    (transform) => () => {
-      const {
-        position: [x, y],
-        zoom,
-      } = rfInstance.toObject();
-
-      animate({
-        from: { x: x, y: y, zoom },
-        to: transform,
-        onUpdate: ({ x, y, zoom }) => rfInstance.setTransform({ x, y, zoom }),
-      });
+    () => () => {
+      setTransform({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
     },
-    [rfInstance]
+    []
   );
 
   return (
-    <div className="transition">
-      <ReactFlow elements={elements} onConnect={onConnect} onLoad={onLoad}>
-        <div className="controls">
-          <button onClick={handleZoom(1.2)}>zoom in</button>
-          <button onClick={handleZoom(1 / 1.2)}>zoom out</button>
-          <button onClick={handleTransform({ x: 0, y: 0, zoom: 1 })}>pan to center(0,0,1)</button>
-        </div>
-        <Background />
-      </ReactFlow>
-    </div>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      fitViewOnInit
+      className="transition"
+    >
+      <div className="controls">
+        <button onClick={() => zoomIn({ duration: 800 })}>zoom in</button>
+        <button onClick={() => zoomOut({ duration: 800 })}>zoom out</button>
+        <button onClick={handleTransform()}>pan to center(0,0,1)</button>
+      </div>
+      <Background />
+    </ReactFlow>
   );
 };
 
-export default SmoothTransition;
+export default () => (
+  <ReactFlowProvider>
+    <SmoothTransition />
+  </ReactFlowProvider>
+);

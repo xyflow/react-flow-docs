@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-
-import { Handle, useStoreState } from 'react-flow-renderer';
+import { Handle, useStore } from 'react-flow-renderer';
 
 const Placeholder = () => (
   <div className="placeholder">
@@ -10,8 +9,10 @@ const Placeholder = () => (
   </div>
 );
 
+const zoomSelector = (s) => s.transform[2];
+
 export default memo(({ data }) => {
-  const [, , zoom] = useStoreState((state) => state.transform);
+  const zoom = useStore(zoomSelector);
   const showContent = zoom >= 1.5;
 
   return (

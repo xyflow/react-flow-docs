@@ -1,14 +1,19 @@
-import React from 'react';
-import { useStoreState, useStoreActions } from 'react-flow-renderer';
+import React, { useCallback } from 'react';
+import { useStore } from 'react-flow-renderer';
 
-export default () => {
-  const nodes = useStoreState((store) => store.nodes);
-  const transform = useStoreState((store) => store.transform);
-  const setSelectedElements = useStoreActions((actions) => actions.setSelectedElements);
+const transformSelector = (state) => state.transform;
 
-  const selectAll = () => {
-    setSelectedElements(nodes.map((node) => ({ id: node.id, type: node.type })));
-  };
+export default ({ nodes, setNodes }) => {
+  const transform = useStore(transformSelector);
+
+  const selectAll = useCallback(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        node.selected = true;
+        return node;
+      })
+    );
+  }, [setNodes]);
 
   return (
     <aside>
@@ -22,7 +27,7 @@ export default () => {
       <div className="title">Nodes</div>
       {nodes.map((node) => (
         <div key={node.id}>
-          Node {node.id} - x: {node.__rf.position.x.toFixed(2)}, y: {node.__rf.position.y.toFixed(2)}
+          Node {node.id} - x: {node.position.x.toFixed(2)}, y: {node.position.y.toFixed(2)}
         </div>
       ))}
 

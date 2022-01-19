@@ -6,7 +6,7 @@ import { nodes as initialNodes, edges as initialEdges } from './initial-elements
 const onPaneReady = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
 const OverviewFlow = () => {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
@@ -19,6 +19,7 @@ const OverviewFlow = () => {
       onConnect={onConnect}
       onPaneReady={onPaneReady}
       fitViewOnInit
+      attributionPosition="top-right"
     >
       <MiniMap
         nodeStrokeColor={(n) => {

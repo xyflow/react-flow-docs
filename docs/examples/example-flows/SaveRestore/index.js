@@ -1,58 +1,53 @@
 import React, { useState, useCallback } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  removeElements,
+  useNodesState,
+  useEdgesState,
   addEdge,
   useZoomPanHelper,
 } from 'react-flow-renderer';
-import localforage from 'localforage';
 
-import './save.css';
-
-localforage.config({
-  name: 'react-flow-docs',
-  storeName: 'flows',
-});
+import './index.css';
 
 const flowKey = 'example-flow';
 
 const getNodeId = () => `randomnode_${+new Date()}`;
 
-const initialElements = [
+const initialNodes = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 100, y: 100 } },
   { id: '2', data: { label: 'Node 2' }, position: { x: 100, y: 200 } },
-  { id: 'e1-2', source: '1', target: '2' },
 ];
 
+const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+
 const SaveRestore = () => {
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [rfInstance, setRfInstance] = useState(null);
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const { setTransform } = useZoomPanHelper();
 
-  const { transform } = useZoomPanHelper();
-
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
   const onSave = useCallback(() => {
     if (rfInstance) {
       const flow = rfInstance.toObject();
-      localforage.setItem(flowKey, flow);
+      localStorage.setItem(flowKey, JSON.stringify(flow));
     }
   }, [rfInstance]);
 
   const onRestore = useCallback(() => {
     const restoreFlow = async () => {
-      const flow = await localforage.getItem(flowKey);
+      const flow = JSON.parse(localStorage.getItem(flowKey));
 
       if (flow) {
         const [x = 0, y = 0] = flow.position;
-        setElements(flow.elements || []);
-        transform({ x, y, zoom: flow.zoom || 0 });
+        setNodes(flow.nodes || []);
+        setEdges(flow.edges || []);
+        setTransform({ x, y, zoom: flow.zoom || 0 });
       }
     };
 
     restoreFlow();
-  }, [setElements, transform]);
+  }, [setNodes, setTransform]);
 
   const onAdd = useCallback(() => {
     const newNode = {
@@ -63,25 +58,29 @@ const SaveRestore = () => {
         y: Math.random() * window.innerHeight,
       },
     };
-    setElements((els) => els.concat(newNode));
-  }, [setElements]);
+    setNodes((nds) => nds.concat(newNode));
+  }, [setNodes]);
 
   return (
-    <ReactFlowProvider>
-      <ReactFlow
-        elements={elements}
-        onElementsRemove={onElementsRemove}
-        onConnect={onConnect}
-        onLoad={setRfInstance}
-      >
-        <div className="save__controls">
-          <button onClick={onSave}>save</button>
-          <button onClick={onRestore}>restore</button>
-          <button onClick={onAdd}>add node</button>
-        </div>
-      </ReactFlow>
-    </ReactFlowProvider>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      onPaneReady={setRfInstance}
+    >
+      <div className="save__controls">
+        <button onClick={onSave}>save</button>
+        <button onClick={onRestore}>restore</button>
+        <button onClick={onAdd}>add node</button>
+      </div>
+    </ReactFlow>
   );
 };
 
-export default SaveRestore;
+export default () => (
+  <ReactFlowProvider>
+    <SaveRestore />
+  </ReactFlowProvider>
+);

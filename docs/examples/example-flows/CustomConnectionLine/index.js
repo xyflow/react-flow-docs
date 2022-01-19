@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  Background,
-} from 'react-flow-renderer';
+import React, { useCallback } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Background } from 'react-flow-renderer';
 
 import ConnectionLine from './ConnectionLine';
 
-const initialElements = [
+const initialNodes = [
   {
     id: 'connectionline-1',
     type: 'input',
@@ -17,16 +13,17 @@ const initialElements = [
 ];
 
 const ConnectionLineFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   return (
     <ReactFlow
-      elements={elements}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       connectionLineComponent={ConnectionLine}
-      onElementsRemove={onElementsRemove}
       onConnect={onConnect}
     >
       <Background variant="lines" />

@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import ReactFlow, {
-  ReactFlowProvider,
-  addEdge,
-  removeElements,
-} from 'react-flow-renderer';
+import React from 'react';
+import ReactFlow, { ReactFlowProvider, addEdge, useNodesState, useEdgesState } from 'react-flow-renderer';
 
 import Sidebar from './Sidebar';
 
-import './zoompanhelper.css';
+import './index.css';
 
-const initialElements = [
+const initialNodes = [
   {
     id: '1',
     type: 'input',
@@ -19,6 +15,9 @@ const initialElements = [
   { id: '2', data: { label: 'Node 2' }, position: { x: 100, y: 100 } },
   { id: '3', data: { label: 'Node 3' }, position: { x: 400, y: 100 } },
   { id: '4', data: { label: 'Node 4' }, position: { x: 400, y: 200 } },
+];
+
+const initialEdges = [
   {
     id: 'e1-2',
     source: '1',
@@ -28,19 +27,21 @@ const initialElements = [
 ];
 
 const ProviderFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
   return (
     <div className="zoompanflow">
       <ReactFlowProvider>
         <div className="reactflow-wrapper">
           <ReactFlow
-            elements={elements}
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
             onConnect={onConnect}
-            onElementsRemove={onElementsRemove}
+            fitViewOnInit
           />
         </div>
         <Sidebar />

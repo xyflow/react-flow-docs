@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
 
-import ReactFlow, { addEdge, MiniMap, Controls } from 'react-flow-renderer';
-import { useEffect } from 'react';
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'hidden-1',
     type: 'input',
@@ -13,27 +11,39 @@ const initialElements = [
   { id: 'hidden-2', data: { label: 'Node 2' }, position: { x: 100, y: 100 } },
   { id: 'hidden-3', data: { label: 'Node 3' }, position: { x: 400, y: 100 } },
   { id: 'hidden-4', data: { label: 'Node 4' }, position: { x: 400, y: 200 } },
+];
+
+const initialEdges = [
   { id: 'hidden-e1-2', source: 'hidden-1', target: 'hidden-2' },
   { id: 'hidden-e1-3', source: 'hidden-1', target: 'hidden-3' },
   { id: 'hidden-e3-4', source: 'hidden-3', target: 'hidden-4' },
 ];
 
+const hide = (hidden) => (nodeOrEdge) => {
+  nodeOrEdge.hidden = hidden;
+  return nodeOrEdge;
+};
+
 const HiddenFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const [isHidden, setIsHidden] = useState(false);
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [hidden, setHidden] = useState(false);
+
+  const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   useEffect(() => {
-    setElements((els) =>
-      els.map((e) => {
-        e.isHidden = isHidden;
-        return e;
-      })
-    );
-  }, [isHidden]);
+    setNodes((nds) => nds.map(hide(hidden)));
+    setEdges((eds) => eds.map(hide(hidden)));
+  }, [hidden]);
 
   return (
-    <ReactFlow elements={elements} onConnect={onConnect}>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    >
       <MiniMap />
       <Controls />
 
@@ -44,8 +54,8 @@ const HiddenFlow = () => {
             <input
               id="ishidden"
               type="checkbox"
-              checked={isHidden}
-              onChange={(event) => setIsHidden(event.target.checked)}
+              checked={hidden}
+              onChange={(event) => setHidden(event.target.checked)}
               className="react-flow__ishidden"
             />
           </label>

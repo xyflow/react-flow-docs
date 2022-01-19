@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
 
-import ReactFlow, { addEdge, MiniMap, Controls } from 'react-flow-renderer';
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'interaction-1',
     type: 'input',
@@ -24,6 +23,9 @@ const initialElements = [
     data: { label: 'Node 4' },
     position: { x: 400, y: 200 },
   },
+];
+
+const initialEdges = [
   {
     id: 'interaction-e1-2',
     source: 'interaction-1',
@@ -33,18 +35,25 @@ const initialElements = [
   { id: 'interaction-e1-3', source: 'interaction-1', target: 'interaction-3' },
 ];
 
+const buttonWrapperStyle = {
+  position: 'absolute',
+  left: 10,
+  top: 10,
+  zIndex: 4,
+  textTransform: 'none',
+};
+
 const onNodeDragStart = (event, node) => console.log('drag start', node);
 const onNodeDragStop = (event, node) => console.log('drag stop', node);
-const onElementClick = (event, element) => console.log('click', element);
+const onNodeClick = (event, node) => console.log('click node', node);
 const onPaneClick = (event) => console.log('onPaneClick', event);
 const onPaneScroll = (event) => console.log('onPaneScroll', event);
 const onPaneContextMenu = (event) => console.log('onPaneContextMenu', event);
-const onLoad = (reactFlowInstance) =>
-  reactFlowInstance.fitView({ padding: 0.2 });
 
 const InteractionFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
   const [isSelectable, setIsSelectable] = useState(false);
   const [isDraggable, setIsDraggable] = useState(false);
@@ -60,7 +69,10 @@ const InteractionFlow = () => {
 
   return (
     <ReactFlow
-      elements={elements}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       elementsSelectable={isSelectable}
       nodesConnectable={isConnectable}
       nodesDraggable={isDraggable}
@@ -69,27 +81,20 @@ const InteractionFlow = () => {
       panOnScrollMode={panOnScrollMode}
       zoomOnDoubleClick={zoomOnDoubleClick}
       onConnect={onConnect}
-      onElementClick={captureElementClick ? onElementClick : undefined}
+      onNodeClick={captureElementClick ? onNodeClick : undefined}
       onNodeDragStart={onNodeDragStart}
       onNodeDragStop={onNodeDragStop}
       paneMoveable={paneMoveable}
       onPaneClick={captureZoomClick ? onPaneClick : undefined}
       onPaneScroll={captureZoomScroll ? onPaneScroll : undefined}
       onPaneContextMenu={captureZoomClick ? onPaneContextMenu : undefined}
-      onLoad={onLoad}
+      fitViewOnInit
+      attributionPosition="top-right"
     >
       <MiniMap />
       <Controls />
 
-      <div
-        style={{
-          position: 'absolute',
-          left: 10,
-          top: 10,
-          zIndex: 4,
-          textTransform: 'none',
-        }}
-      >
+      <div style={buttonWrapperStyle}>
         <div>
           <label htmlFor="draggable">
             <input

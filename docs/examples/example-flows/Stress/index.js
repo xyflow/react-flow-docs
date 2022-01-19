@@ -1,61 +1,42 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
 
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  MiniMap,
-  isNode,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
-import { getElements } from './utils';
+import { getElements } from './utils.js';
 
-const onLoad = (reactFlowInstance) => {
-  reactFlowInstance.fitView();
-  console.log(reactFlowInstance.getElements());
-};
-
-const initialElements = getElements(10, 10);
+const { nodes: initialNodes, edges: initialEdges } = getElements(10, 10);
 
 const StressFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
 
-  const updatePos = () => {
-    setElements((elms) => {
-      return elms.map((el) => {
-        if (isNode(el)) {
-          return {
-            ...el,
-            position: {
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            },
-          };
-        }
-
-        return el;
+  const updatePos = useCallback(() => {
+    setNodes((nds) => {
+      return nds.map((node) => {
+        return {
+          ...node,
+          position: {
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+          },
+        };
       });
     });
-  };
+  }, []);
 
   return (
     <ReactFlow
-      elements={elements}
-      onLoad={onLoad}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
     >
       <MiniMap />
       <Controls />
       <Background />
 
-      <button
-        onClick={updatePos}
-        style={{ position: 'absolute', right: 10, top: 30, zIndex: 4 }}
-      >
+      <button onClick={updatePos} style={{ position: 'absolute', right: 10, top: 30, zIndex: 4 }}>
         change pos
       </button>
     </ReactFlow>

@@ -1,18 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge } from 'react-flow-renderer';
 
-import ReactFlow, { removeElements, addEdge } from 'react-flow-renderer';
-
-const onLoad = (reactFlowInstance) => reactFlowInstance.fitView();
-
-const onNodeMouseEnter = (event, node) => console.log('mouse enter:', node);
-const onNodeMouseMove = (event, node) => console.log('mouse move:', node);
-const onNodeMouseLeave = (event, node) => console.log('mouse leave:', node);
-const onNodeContextMenu = (event, node) => {
-  event.preventDefault();
-  console.log('context menu:', node);
-};
-
-const initialElements = [
+const initialNodes = [
   {
     id: 'horizontal-1',
     sourcePosition: 'right',
@@ -70,7 +59,9 @@ const initialElements = [
     data: { label: 'Node 8' },
     position: { x: 750, y: 300 },
   },
+];
 
+const initialEdges = [
   {
     id: 'horizontal-e1-2',
     source: 'horizontal-1',
@@ -122,39 +113,35 @@ const initialElements = [
   },
 ];
 
+const buttonStyle = { position: 'absolute', right: 10, top: 30, zIndex: 4 };
+
 const HorizontalFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
-  const onConnect = (params) => setElements((els) => addEdge(params, els));
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = (params) => setEdges((els) => addEdge(params, els));
   const changeClassName = () => {
-    setElements((elms) =>
-      elms.map((el) => {
-        if (el.type === 'input') {
-          el.className = el.className ? '' : 'dark-node';
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.type === 'input') {
+          node.className = node.className ? '' : 'dark-node';
         }
 
-        return { ...el };
+        return { ...node };
       })
     );
   };
 
   return (
     <ReactFlow
-      elements={elements}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onLoad={onLoad}
-      selectNodesOnDrag={false}
-      onNodeMouseEnter={onNodeMouseEnter}
-      onNodeMouseMove={onNodeMouseMove}
-      onNodeMouseLeave={onNodeMouseLeave}
-      onNodeContextMenu={onNodeContextMenu}
+      fitViewOnInit
+      attributionPosition="bottom-left"
     >
-      <button
-        onClick={changeClassName}
-        style={{ position: 'absolute', right: 10, top: 30, zIndex: 4 }}
-      >
+      <button onClick={changeClassName} style={buttonStyle}>
         change class name
       </button>
     </ReactFlow>

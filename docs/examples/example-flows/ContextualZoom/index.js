@@ -1,13 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
 
-import ReactFlow, {
-  removeElements,
-  addEdge,
-  MiniMap,
-  Controls,
-} from 'react-flow-renderer';
-
-import ZoomNode from './ZoomNode';
+import ZoomNode from './ZoomNode.js';
 
 import './index.css';
 
@@ -16,7 +10,7 @@ const nodeTypes = {
   zoom: ZoomNode,
 };
 
-const initialElements = [
+const initialNodes = [
   {
     id: '1',
     type: 'zoom',
@@ -37,6 +31,9 @@ const initialElements = [
     data: { content: <>this is another node with some more text.</> },
     position: { x: 650, y: 50 },
   },
+];
+
+const initialEdges = [
   {
     id: 'e1-2',
     source: '1',
@@ -51,29 +48,23 @@ const initialElements = [
   },
 ];
 
-const CustomNodeFlow = () => {
-  const [elements, setElements] = useState(initialElements);
-
-  const onElementsRemove = useCallback(
-    (elementsToRemove) =>
-      setElements((els) => removeElements(elementsToRemove, els)),
-    []
-  );
-  const onConnect = useCallback(
-    (params) =>
-      setElements((els) => addEdge({ ...params, animated: true }, els)),
-    []
-  );
+const ContextualZoomFlow = () => {
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge({ ...params, animated: true }, eds)), []);
 
   return (
     <ReactFlow
-      elements={elements}
-      onElementsRemove={onElementsRemove}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       nodeTypes={nodeTypes}
       snapToGrid={true}
       snapGrid={snapGrid}
       defaultZoom={1.5}
+      attributionPosition="top-right"
     >
       <MiniMap />
       <Controls />
@@ -81,4 +72,4 @@ const CustomNodeFlow = () => {
   );
 };
 
-export default CustomNodeFlow;
+export default ContextualZoomFlow;
