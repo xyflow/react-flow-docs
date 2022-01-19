@@ -1,5 +1,6 @@
 ---
-title: Internal State and Actions
+title: useStore
+sidebar_position: 5
 ---
 
 Under the hood React Flow uses [Redux](https://redux.js.org/) for state handling.

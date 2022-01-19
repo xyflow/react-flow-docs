@@ -1,5 +1,6 @@
 ---
-title: Handle Component
+title: Handle
+sidebar_position: 5
 ---
 
 We export a `Handle` component as a helper for your custom nodes:

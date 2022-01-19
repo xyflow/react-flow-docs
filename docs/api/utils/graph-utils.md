@@ -1,16 +1,11 @@
 ---
-title: Helper Functions
+title: Graph Utils
 ---
 
 If you want to remove a node or connect two nodes with each other you need to pass a function to `onElementsRemove` and `onConnect`. In order to simplify this process there are some helper functions you can use:
 
 ```javascript
-import ReactFlow, {
-  isNode,
-  isEdge,
-  removeElements,
-  addEdge,
-} from 'react-flow-renderer';
+import ReactFlow, { isNode, isEdge, removeElements, addEdge } from 'react-flow-renderer';
 ```
 
 ### `isEdge`

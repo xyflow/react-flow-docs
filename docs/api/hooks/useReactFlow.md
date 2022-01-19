@@ -1,5 +1,6 @@
 ---
-title: Hooks
+title: useReactFlow
+sidebar_position: 1
 ---
 
 The following hooks can only be used if the component that uses it is a children of a [`ReactFlowProvider`](/docs/api/components/provider/).
@@ -14,11 +15,7 @@ import { useZoomPanHelper } from 'react-flow-renderer';
 export default () => {
   const { fitView } = useZoomPanHelper();
 
-  return (
-    <button
-      onClick={() => fitView({ padding: 0.2, includeHiddenNodes: true })}
-    ></button>
-  );
+  return <button onClick={() => fitView({ padding: 0.2, includeHiddenNodes: true })}></button>;
 };
 ```
 

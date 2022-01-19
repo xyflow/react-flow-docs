@@ -1,8 +1,8 @@
 ---
-title: Instance
+title: React Flow Instance
 ---
 
-You can receive a `reactFlowInstance` by using the `onLoad` callback:
+You can receive a `reactFlowInstance` by using the `onLoad` callback or with `useReactFlow` hook:
 
 ```javascript
 import React from 'react';

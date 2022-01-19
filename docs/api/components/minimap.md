@@ -1,5 +1,6 @@
 ---
-title: Mini Map
+title: MiniMap
+sidebar_position: 4
 ---
 
 You can use the mini map plugin by passing it as a children to the `ReactFlow` component:

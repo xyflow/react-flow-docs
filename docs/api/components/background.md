@@ -1,5 +1,6 @@
 ---
 title: Background
+sidebar_position: 3
 ---
 
 React Flow comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component:
@@ -11,15 +12,10 @@ import ReactFlow, { Background } from 'react-flow-renderer';
 
 const FlowWithBackground = () => (
   <ReactFlow elements={elements}>
-    <Background
-      variant="dots"
-      gap={12}
-      size={4}
-    />
+    <Background variant="dots" gap={12} size={4} />
   </ReactFlow>
 );
 ```
-
 
 ### Prop Types
 

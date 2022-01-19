@@ -53,6 +53,7 @@
   --ifm-font-family-base: 'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Ubuntu, Arial, sans-serif;
   --ifm-font-family-monospace: 'jetbrains-mono', monospace;
+  --ifm-heading-font-weight: 900;
 }
 
 .docusaurus-highlight-code-line {

@@ -1,5 +1,6 @@
 ---
-title: Prop Types
+title: ReactFlow Props
+sidebar_position: 1
 ---
 
 This is the list of prop types you can pass to the main `ReactFlow` component.
