@@ -18,7 +18,7 @@ const OverviewFlow = () => {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       onPaneReady={onPaneReady}
-      fitViewOnInit
+      fitView
       attributionPosition="top-right"
     >
       <MiniMap

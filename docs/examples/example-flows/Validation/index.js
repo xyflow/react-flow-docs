@@ -57,7 +57,7 @@ const HorizontalFlow = () => {
       onConnectStart={onConnectStart}
       onConnectStop={onConnectStop}
       onConnectEnd={onConnectEnd}
-      fitViewOnInit
+      fitView
       attributionPosition="bottom-left"
     />
   );

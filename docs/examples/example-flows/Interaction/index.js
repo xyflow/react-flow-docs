@@ -88,7 +88,7 @@ const InteractionFlow = () => {
       onPaneClick={captureZoomClick ? onPaneClick : undefined}
       onPaneScroll={captureZoomScroll ? onPaneScroll : undefined}
       onPaneContextMenu={captureZoomClick ? onPaneContextMenu : undefined}
-      fitViewOnInit
+      fitView
       attributionPosition="top-right"
     >
       <MiniMap />

@@ -116,7 +116,7 @@ const CustomNodeFlow = () => {
       snapToGrid={true}
       snapGrid={snapGrid}
       defaultZoom={1.5}
-      fitViewOnInit
+      fitView
       attributionPosition="bottom-left"
     >
       <MiniMap

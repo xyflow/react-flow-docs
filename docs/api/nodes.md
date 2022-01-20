@@ -1,9 +1,9 @@
 ---
 title: Nodes
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-You create nodes by adding them to the `elements` array of the `ReactFlow` component.
+You create nodes by adding them to the `nodes` or `defaultNodes` array of the `ReactFlow` component.
 
 Node example:
 
@@ -20,13 +20,16 @@ Node example:
 
 - `id`: string _(required)_
 - `position`: { x: number, y: number } _(required)_
-- `data`: {} _(required if you are using a standard type, otherwise depends on your implementation)_
+- `data`: {} _(required)_
 - `type`: 'input' | 'output' | 'default' or a custom one you implemented
 - `style`: css properties
 - `className`: additional class name
 - `targetPosition`: 'left' | 'right' | 'top' | 'bottom' handle position - default: 'top'
 - `sourcePosition`: 'left' | 'right' | 'top' | 'bottom' handle position - default: 'bottom'
-- `isHidden`: if `true`, the node will not be rendered
+- `parentNode`: id of the parent node
+- `expandParent`: boolean
+- `extent`: extent (for example `[0,0,200,200]`) or `'parent'` if it's a child that shouln't leave the parent node
+- `hidden`: boolean - if `true`, the node will not be rendered
 - `draggable`: boolean - if option is not set, the node is draggable (overwrites general `nodesDraggable` option)
 - `connectable`: boolean - if option is not set, the node is connectable (overwrites general `nodesConnectable` option)
 - `selectable`: boolean - if option is not set, the node is selectable (overwrites general `elementsSelectable` option)
@@ -67,9 +70,15 @@ Your custom nodes are wrapped so that the basic functions like dragging or selec
 - `id`: string
 - `data`: object
 - `type`: string
+- `xPos`: number
+- `yPos`: number
+- `zIndex`: number
 - `selected`: boolean
 - `sourcePosition`: string
 - `targetPosition`: string
+- `dragging`: boolean
+- `isConnectable`: boolean
+- `dragHandle`: string
 
 ### Styling
 

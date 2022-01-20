@@ -93,7 +93,7 @@ export default () => {
         preventScrolling={false}
         zoomOnScroll={false}
         nodeTypes={nodeTypes}
-        fitViewOnInit
+        fitView
         defaultNodes={nodes}
         defaultEdges={edges}
       >

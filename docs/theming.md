@@ -28,13 +28,13 @@ import 'react-flow-renderer/dist/theme-default.css';
 
 ## Overwrite Default Styles
 
-When you are using the default styles there are two ways how you can style the graph pane and the elements.
+When you are using the default styles there are two ways how you can style the flow pane and the nodes and edges.
 You can create your own CSS rules or pass style properties to the components.
 
 ## Using Class Names
 
 Since we are rendering DOM nodes you can simply overwrite the styles with your own CSS rules.
-The React Flow wrapper has the className `react-flow`. If you want to change the graph background for example you can do:
+The React Flow wrapper has the className `react-flow`. If you want to change the background for example you can do:
 
 ```css
 .react-flow {
@@ -86,5 +86,5 @@ const style = {
   height: 300,
 };
 
-const FlowWithRedBg = <ReactFlow elements={elements} style={style} />;
+const FlowWithRedBg = <ReactFlow nodes={nodes} style={style} />;
 ```

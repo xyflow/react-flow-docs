@@ -42,7 +42,7 @@ const ProviderFlow = () => {
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
-            fitViewOnInit
+            fitView
           >
             <Controls />
           </ReactFlow>

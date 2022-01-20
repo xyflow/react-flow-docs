@@ -1,9 +1,9 @@
 ---
 title: Edges
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-You create edges by adding them to your `elements` array of the `ReactFlow` component.
+You create edges by adding them to your `edges` or `defaultEdges` array of the `ReactFlow` component.
 
 Edge example:
 
@@ -29,6 +29,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 - `targetHandle`: string (an id of a handle - you only need this when you have multiple handles)
 - `type`: 'default' (bezier), 'straight', 'step' and 'smoothstep' or a custom one depending on your implementation
 - `animated`: boolean
+- `data`: {} you can use this to pass data to your custom edges.
 - `style`: css properties for the edge line path
 - `className`: additional class name
 - `label`: string
@@ -37,12 +38,16 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 - `labelBgStyle`: css properties for the text background
 - `labelBgPadding`: [number, number] background rectangle padding - default: `[2, 4]`
 - `labelBgBorderRadius`: number - default 2
-- `arrowHeadType`: 'arrow' or 'arrowclosed' - defines the arrowhead of the edge
-- `markerEndId`: custom marker end url - if this is used `arrowHeadType` gets ignored
-- `isHidden`: if `true`, the edge will not be rendered
-- `data`: {} you can use this to pass data to your custom edges.
+- `hidden`: if `true`, the edge will not be rendered
+- `markerStart`: string (id for a svg marker that you need to define yourself) or a [marker configuration object](#markerstart--markerend-options)
+- `markerEnd`: see `markerStart`
 
 You can find an example with different edges in the [edges example](/examples/edges/).
+
+### `markerStart` / `markerEnd` options
+
+- `type`: string: default `'arrow'` or `'arrowclosed'`
+- `color`: arrow fill color
 
 ## Edge Types
 
@@ -88,11 +93,12 @@ Custom edges are wrapped. They receive the following props:
 - `labelBgBorderRadius`: number
 - `data`: object
 - `style`: svg attributes
-- `arrowHeadType`: 'arrow' | 'arrowclosed'
+- `arrowHeadType`: 'arrow' | 'arrowclosed'
 - `sourceX`: number
 - `sourceY`: number
 - `targetX`: number
 - `targetY`: number
-- `sourcePosition`: 'left' | 'top' | 'right' | 'bottom'
-- `targetPosition`: 'left' | 'top' | 'right' | 'bottom'
-- `markerEndId`: string
+- `sourcePosition`: 'left' | 'top' | 'right' | 'bottom'
+- `targetPosition`: 'left' | 'top' | 'right' | 'bottom'
+- `markerStart`: string or [marker config](#markerstart--markerend-options)
+- `markerEnd`: string or [marker config](#markerstart--markerend-options)

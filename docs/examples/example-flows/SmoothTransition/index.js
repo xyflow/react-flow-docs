@@ -52,7 +52,7 @@ const SmoothTransition = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      fitViewOnInit
+      fitView
       className="transition"
     >
       <div className="controls">

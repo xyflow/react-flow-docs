@@ -28,7 +28,7 @@ const NodeAsHandleFlow = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        fitViewOnInit
+        fitView
         edgeTypes={edgeTypes}
         connectionLineComponent={FloatingConnectionLine}
       >

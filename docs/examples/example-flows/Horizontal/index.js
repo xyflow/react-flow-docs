@@ -138,7 +138,7 @@ const HorizontalFlow = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      fitViewOnInit
+      fitView
       attributionPosition="bottom-left"
     >
       <button onClick={changeClassName} style={buttonStyle}>
