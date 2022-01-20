@@ -22,7 +22,7 @@ html, body, #root {
 
 const customSetup = {
   dependencies: {
-    'react-flow-renderer': '10.0.0-next.32',
+    'react-flow-renderer': '10.0.0-next.33',
   },
 };
 

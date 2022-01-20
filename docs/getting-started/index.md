@@ -20,49 +20,17 @@ yarn add react-flow-renderer
 
 ## Usage
 
-This is a very basic example of how to use React Flow. A flow consists of nodes and edges (or just nodes). Together we call them elements. You can pass a set of elements as a prop to the ReactFlow component. Hereby all elements need unique ids. A node needs a position and a label and an edge needs a source (node id) and a target (node id). This is the most basic for a flow. A simple flow could look like this:
+This is a basic example of how you can use React Flow. A flow consists of nodes and edges (or just nodes). You can pass arrays of nodes and edges as props to the ReactFlow component. Hereby all node and edge ids need to be unique. A node needs a position and a label and an edge needs a source (node id) and a target (node id). This is the most basic setup for a flow:
 
-```jsx
-import React from 'react';
-import ReactFlow from 'react-flow-renderer';
+import ExampleViewer from '../examples/ExampleViewer';
 
-const elements = [
-  {
-    id: '1',
-    type: 'input', // input node
-    data: { label: 'Input Node' },
-    position: { x: 250, y: 25 },
-  },
-  // default node
-  {
-    id: '2',
-    // you can also pass a React component as a label
-    data: { label: <div>Default Node</div> },
-    position: { x: 100, y: 125 },
-  },
-  {
-    id: '3',
-    type: 'output', // output node
-    data: { label: 'Output Node' },
-    position: { x: 250, y: 250 },
-  },
-  // animated edge
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3' },
-];
+<ExampleViewer example="IntroductionFlow" />
 
-export default () => (
-  <div style={{ height: 300 }}>
-    <ReactFlow elements={elements} />
-  </div>
-);
-```
+:::caution
 
-import Flow from './Basic';
+The dimensions of your React Flow component depend on the parents dimensions.
 
-<Flow />
-
-<InfoBox title="Attention!" text="The dimensions of your React Flow component depend on the parents dimensions."/>
+:::
 
 ## Basic Functionality
 
@@ -88,8 +56,7 @@ const initialElements = [
 
 export default () => {
   const [elements, setElements] = useState(initialElements);
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
+  const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
   const onConnect = (params) => setElements((els) => addEdge(params, els));
 
   return (
@@ -106,9 +73,5 @@ export default () => {
 ```
 
 In this example you can connect nodes and remove selected nodes and edges with the backspace key.
-
-import Basic from './BasicFunctions';
-
-<Basic />
 
 You can find more advanced examples in the [examples](/examples/) section.
