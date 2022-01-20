@@ -38,7 +38,7 @@ const UpdatableEdge = () => {
       snapToGrid
       onEdgeUpdate={onEdgeUpdate}
       onConnect={onConnect}
-      fitViewOnInit
+      fitView
       attributionPosition="top-right"
     >
       <Controls />

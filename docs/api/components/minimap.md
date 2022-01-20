@@ -10,25 +10,26 @@ You can use the mini map plugin by passing it as a children to the `ReactFlow` c
 ```jsx
 import ReactFlow, { MiniMap } from 'react-flow-renderer';
 
-const FlowWithMiniMap = () => (
-  <ReactFlow elements={elements}>
-    <MiniMap
-      nodeColor={(node) => {
-        switch (node.type) {
-          case 'input':
-            return 'red';
-          case 'default':
-            return '#00ff00';
-          case 'output':
-            return 'rgb(0,0,255)';
-          default:
-            return '#eee';
-        }
-      }}
-      nodeStrokeWidth={3}
-    />
-  </ReactFlow>
-);
+const nodeColor = (node) => {
+  switch (node.type) {
+    case 'input':
+      return 'red';
+    case 'default':
+      return '#00ff00';
+    case 'output':
+      return 'rgb(0,0,255)';
+    default:
+      return '#eee';
+  }
+};
+
+function FlowWithMiniMap() {
+  return (
+    <ReactFlow defaultNodes={[]}>
+      <MiniMap nodeColor={nodeColor} nodeStrokeWidth={3} />
+    </ReactFlow>
+  );
+}
 ```
 
 ### Prop Types

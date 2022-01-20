@@ -3,16 +3,30 @@ title: ReactFlowProvider
 sidebar_position: 1
 ---
 
-If you have **multiple flows** on a page or if you need **access to the internal state and actions** of React Flow outside of the `ReactFlow` component you need to wrap it with the `ReactFlowProvider` component:
+You need to wrap your flow with a `ReactFlowProvider`:
+
+- if you want to use one of these **React Flow hooks** `useReactFlow`, `useNodes`, `useEdges`, `useViewport` or `useUpdateNodeInternals`
+- if you have **multiple flows** on a page
+- if you need **access to the internal state and actions**
 
 ```jsx
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
 
-const FlowWithProvider = () => (
-  <ReactFlowProvider>
-    <ReactFlow elements={elements} onElementClick={onElementClick} onConnect={onConnect} />
-  </ReactFlowProvider>
-);
+const nodes = [{ id: 'node-1', position: { x: 0, y: 0 }, data: { label: 'node 1' } }];
+
+function Flow() {
+  const reactFlowInstance = useReactFlow();
+
+  return <ReactFlow defaultNodes={nodes} />;
+}
+
+function FlowWithProvider() {
+  return (
+    <ReactFlowProvider>
+      <Flow />
+    </ReactFlowProvider>
+  );
+}
 ```
 
 It is used in the [provider example](/examples/provider/).

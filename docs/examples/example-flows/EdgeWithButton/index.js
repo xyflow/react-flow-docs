@@ -40,7 +40,7 @@ const EdgeWithButtonFlow = () => {
       onConnect={onConnect}
       snapToGrid={true}
       edgeTypes={edgeTypes}
-      fitViewOnInit
+      fitView
       attributionPosition="top-right"
     >
       <MiniMap />

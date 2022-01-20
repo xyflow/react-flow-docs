@@ -41,7 +41,7 @@ const ProviderFlow = () => {
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
-            fitViewOnInit
+            fitView
           />
         </div>
         <Sidebar />

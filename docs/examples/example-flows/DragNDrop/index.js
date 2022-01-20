@@ -65,7 +65,7 @@ const DnDFlow = () => {
             onPaneReady={setReactFlowInstance}
             onDrop={onDrop}
             onDragOver={onDragOver}
-            fitViewOnInit
+            fitView
           >
             <Controls />
           </ReactFlow>

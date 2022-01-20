@@ -17,7 +17,7 @@ const EdgeTypesFlow = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      fitViewOnInit
+      fitView
       minZoom={0.2}
     >
       <Controls />
