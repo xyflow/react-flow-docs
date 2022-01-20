@@ -8,7 +8,7 @@ export default function FAQ() {
         <h2>
           <AccordionButton>
             <Box flex="1" textAlign="left">
-              Section 1 title
+              Is React Flow MIT licensed?
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -24,7 +24,7 @@ export default function FAQ() {
         <h2>
           <AccordionButton>
             <Box flex="1" textAlign="left">
-              Section 2 title
+              Do you track users?
             </Box>
             <AccordionIcon />
           </AccordionButton>

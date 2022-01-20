@@ -24,7 +24,7 @@ export default function Home() {
         <Flex my={5}>
           <ProCard
             title="Free"
-            description="React Flow is free and licensed under MIT License"
+            description="React Flow is free and published under MIT License"
             color="gray.700"
             features={['Use React Flow on unlimited projects', 'Join the public <a href="">Discord Server</a>']}
             buttonText="Sponsor"
