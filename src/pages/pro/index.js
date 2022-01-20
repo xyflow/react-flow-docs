@@ -20,18 +20,40 @@ export default function Home() {
         </Box>
 
         <Flex my={5}>
-          <ProCard title="Free" description="For evaluation and private projects" color="gray.700" />
+          <ProCard
+            title="Free"
+            description="React Flow is free and licensed under MIT License"
+            color="gray.700"
+            features={['Use React Flow on unlimited projects', 'Join the public <a href="">Discord Server</a>']}
+            buttonText="Sponsor"
+          />
           <ProCard
             title="Pro"
             description="Commercial version for small and medium sized companies"
             bgColor="red.500"
             color="white"
+            features={[
+              'Use React Flow on unlimited projects',
+              'Remove attribution from React Flow pane',
+              'Private Discord channel with the creators of React Flow (48hrs answer rate)',
+              'Invitation to private repository with 20+ advanced React Flow examples',
+              'Invitation to private Datablocks repository ',
+              'You are ensuring the further development and maintenance of React Flow',
+            ]}
+            buttonText="Sign Up"
           />
           <ProCard
             title="Custom"
             description="Custom pricing for large companies and special use cases"
             bgColor="purple.400"
             color="white"
+            features={[
+              'All features of the Pro plan',
+              'Guaranteed support hours per month from the React Flow team',
+              'Your company name in the readme',
+              'Your company logo on the React Flow website (20k+ visitors per month)',
+            ]}
+            buttonText="Contact Us"
           />
         </Flex>
       </Box>
