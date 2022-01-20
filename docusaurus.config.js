@@ -112,7 +112,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} webkid GmbH`,
+        copyright: `React Flow is developed and maintained by webkid. Copyright © ${new Date().getFullYear()} <a href="https://webkid.io">webkid GmbH</a>`,
       },
       prism: {
         theme: lightCodeTheme,
