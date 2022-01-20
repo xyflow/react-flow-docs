@@ -3,6 +3,11 @@ title: useStore
 sidebar_position: 5
 ---
 
+- useStore -> zustand api
+- useStoreApi -> without triggering rerenders
+
+---
+
 Under the hood React Flow uses [Redux](https://redux.js.org/) for state handling.
 If you need to access the internal state you can use the `useStoreState` hook inside a child component of the `ReactFlow` component:
 

@@ -3,6 +3,11 @@ title: Controls
 sidebar_position: 2
 ---
 
+- Controls component
+- ControlButton component
+
+---
+
 The control panel contains a zoom-in, zoom-out, fit-view and a lock/unlock button. You can use it by passing it as a children to the `ReactFlow` component:
 
 ### Usage

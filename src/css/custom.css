@@ -54,6 +54,7 @@
     'Helvetica Neue', Ubuntu, Arial, sans-serif;
   --ifm-font-family-monospace: 'jetbrains-mono', monospace;
   --ifm-heading-font-weight: 900;
+  --ifm-navbar-item-padding-horizontal: 20px;
 }
 
 .docusaurus-highlight-code-line {
@@ -67,10 +68,56 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.navbar {
-  box-shadow: none;
+.navbar__brand {
+  font-size: 1.5rem;
+}
+
+.navbar__title {
+  font-weight: 900;
+}
+
+.navbar__logo {
+  height: 40px;
+}
+
+.navbar__brand:hover {
+  color: var(--ifm-navbar-link-color);
+}
+
+.navbar__item {
+  font-weight: 700;
 }
 
 .hide-svg-icon svg {
   display: none;
+}
+
+.button__rfpro {
+  color: #ffffff;
+  border: 1px solid #ff0072;
+  background: #ff0072;
+  padding: 12px 20px;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  -webkit-transition: 0.075s all ease-in-out;
+  transition: 0.075s all ease-in-out;
+  padding-right: 20px !important;
+  margin-left: 15px;
+}
+
+.button__rfpro:hover {
+  color: #fff;
+}
+
+.menu__link {
+  font-weight: 700;
+}
+
+.theme-doc-sidebar-item-category > .menu__link {
+  font-weight: 900;
+  color: var(--ifm-navbar-link-color);
 }
