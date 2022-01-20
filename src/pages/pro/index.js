@@ -17,7 +17,7 @@ export default function Home() {
             Unlimited Possibilities With React Flow Pro
           </Heading>
           <Heading color="gray.400" fontWeight="normal" mt={5} textAlign="center" size="lg">
-            Choose the right plan for your needs to get the most out of React Flow.
+            With a paid subscription you are ensuring the maintenance and further development of the React Flow library
           </Heading>
         </Box>
 
