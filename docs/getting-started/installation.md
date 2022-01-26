@@ -17,14 +17,20 @@ yarn add react-flow-renderer
 
 ## Usage
 
-The `react-flow-renderer` package exports the `ReactFlow` React component as the default export and some aditional components (like [`MiniMap`](/docs/api/components/minimap) and [`Controls`](/docs/api/components/controls)) and [util functions](/docs/api/utils/graph-utils).
+The `react-flow-renderer` package exports the `ReactFlow` React component as the default export and some aditional components (like [`MiniMap`](/docs/api/components/minimap) and [`Controls`](/docs/api/components/controls)) and [util functions](/docs/api/utils/graph-utils). The bundle also imports the default styles. If you don't want to load the styles, you can find more information in the [theming section](/docs/theming).
 
 ```jsx
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
 
-function Flow({ nodes, edges, onNodesChange, onEdgesChange }) {
+function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
   return (
-    <ReactFlow nodes={nodes} edges={edges} onNodesChange={onNodesChange} onEdgesChange={onEdgesChange}>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    >
       <MiniMap />
       <Controls />
     </ReactFlow>
@@ -32,15 +38,20 @@ function Flow({ nodes, edges, onNodesChange, onEdgesChange }) {
 }
 ```
 
-## Default Styles
-
-React Flow comes with some default styles. If you don't want them to load you can import the ReactFlow component from `react-flow-renderer/nocss`:
+React Flow also supports usage as an uncontrolled component without external state management. An example usage looks like this:
 
 ```jsx
-import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer/nocss';
-```
+import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
 
-You can find more information about the styles in the [theming section](/docs/theming).
+function Flow({ nodes, edges }) {
+  return (
+    <ReactFlow defaultNodes={nodes} defaultEdges={edges}>
+      <MiniMap />
+      <Controls />
+    </ReactFlow>
+  );
+}
+```
 
 ## Terms
 

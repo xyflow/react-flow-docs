@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactFlow, { ReactFlowProvider, Background, Controls } from 'react-flow-renderer';
+import { Box, Flex, Heading, Button } from '@chakra-ui/react';
 
 import HeroNode from './HeroNode';
 
@@ -89,6 +90,25 @@ const edges = [
 export default () => {
   return (
     <ReactFlowProvider>
+      <Box
+        position="absolute"
+        right={['5%', null, null, '50%']}
+        top="45%"
+        left="5%"
+        transform="translate(0, -50%)"
+        maxWidth="container.md"
+      >
+        <Heading size="4xl" fontWeight="black">
+          Wire Your Ideas With React Flow
+        </Heading>
+        <Heading color="gray.400" fontWeight="normal" size="ml" mx="auto">
+          A highly customizable React component for building node-based editors and diagrams
+        </Heading>
+        <Flex>
+          <Button colorScheme="red">Get Started</Button>
+          <Button variant="ghost">Examples</Button>
+        </Flex>
+      </Box>
       <ReactFlow
         preventScrolling={false}
         zoomOnScroll={false}

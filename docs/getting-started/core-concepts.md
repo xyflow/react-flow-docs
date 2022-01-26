@@ -1,5 +1,5 @@
 ---
-title: Interactive Flow
+title: Core Concepts
 sidebar_position: 3
 ---
 
@@ -27,7 +27,7 @@ By default React Flow doesn't do any internal state updates besides handling the
 
 <ExampleViewer example="IntroductionFlow2" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
-What is happeing here? Whenever React Flow triggers a change (node drag, edge select, etc.), the `onNodesChange` handler gets called. We export an `applyNodeChanges` handler so that you don't need to handle the changes by yourself. The `applyNodeChanges` handler returns an updated array of nodes that is your new nodes state. You now have an interactive flow with the following kinds of interactions:
+What is happening here? Whenever React Flow triggers a change (node drag, edge select, etc.), the `onNodesChange` handler gets called. We export an `applyNodeChanges` handler so that you don't need to handle the changes by yourself. The `applyNodeChanges` handler returns an updated array of nodes that is your new nodes state. You now have an interactive flow with the following kinds of interactions:
 
 - selectable nodes and edges
 - draggable nodes

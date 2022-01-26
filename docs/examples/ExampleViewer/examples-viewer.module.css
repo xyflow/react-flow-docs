@@ -2,11 +2,9 @@
   .wrapper {
     margin-left: calc((100vw - var(--ifm-container-width-xl) - var(--doc-sidebar-width)) / -2);
     margin-right: calc((100vw - var(--ifm-container-width-xl) - var(--doc-sidebar-width)) / -2);
-    min-height: 700px;
   }
 
   .placeholder {
-    background: red;
-    height: 500px;
+    min-height: 800px;
   }
 }

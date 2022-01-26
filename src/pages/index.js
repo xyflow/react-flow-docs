@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
-      <Box height="80vh">
+      <Box height="80vh" position="relative">
         <HeroFlow />
       </Box>
 
