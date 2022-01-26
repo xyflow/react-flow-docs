@@ -9,19 +9,19 @@ React Flow comes with additional components. In this guide we show you how to us
 
 If your flow gets bigger, you might want to get an overview quickly. For this we are exporting the [`MiniMap` component](/docs/api/components/minimap). You can easily add it to your flow by adding it as a children:
 
-import ExampleViewer from '../examples/ExampleViewer';
+import CodeViewer from '/src/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
-<ExampleViewer example="IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+<CodeViewer codePath="api-flows/IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
 ### Controls
 
 React Flow comes with a customizable controls bar, that you can use by importing the [`Controls` component](/docs/api/components/controls)
 
-<ExampleViewer example="IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+<CodeViewer codePath="api-flows/IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
 ### Background
 
 If you want to display the pattern background, you can use the [`Background` component](/docs/api/components/background)
 
-<ExampleViewer example="IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+<CodeViewer codePath="api-flows/IntroductionFlow4" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />

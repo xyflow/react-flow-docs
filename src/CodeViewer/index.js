@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
 
-import styles from './examples-viewer.module.css';
+import styles from './code-viewer.module.css';
 
 const hiddenBaseStyles = {
   '/styles.css': {
@@ -33,18 +33,28 @@ const defaultOptions = {
   wrapContent: true,
 };
 
-export default function ExampleViewer({ example, additionalFiles = [], applyStyles = true, options = defaultOptions }) {
+export default function CodeViewer({
+  codePath,
+  additionalFiles = [],
+  applyStyles = true,
+  options = defaultOptions,
+  activeFile = null,
+}) {
   const [files, setFiles] = useState(null);
 
   useEffect(() => {
     const loadFiles = async () => {
-      const res = await import(`!raw-loader!../example-flows/${example}/index.js`);
+      const res = await import(`!raw-loader!./${codePath}/index.js`);
 
       const additional = {};
 
       for (let additionalFile of additionalFiles) {
-        const file = await import(`!raw-loader!../example-flows/${example}/${additionalFile}`);
-        additional[`/${additionalFile}`] = file.default;
+        const file = await import(`!raw-loader!./${codePath}/${additionalFile}`);
+        additional[`/${additionalFile}`] = { code: file.default };
+
+        if (additionalFile === activeFile) {
+          additional[`/${additionalFile}`].active = true;
+        }
       }
 
       setFiles({
