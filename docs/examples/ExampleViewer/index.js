@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import clsx from 'clsx';
 import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
 
@@ -56,7 +57,7 @@ export default function ExampleViewer({ example, additionalFiles = [] }) {
   }, []);
 
   if (!files) {
-    return null;
+    return <div className={clsx(styles.wrapper, styles.placeholder)} />;
   }
 
   return (

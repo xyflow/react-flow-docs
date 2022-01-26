@@ -39,8 +39,8 @@ const theme = extendTheme({
   fonts: {
     body: "'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;",
     mono: "'jetbrains-mono', monospace;",
-    heading:
-      "'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;",
+    // heading:
+    //   "'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;",
   },
   fontWeights: {
     normal: 400,
