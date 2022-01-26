@@ -1,10 +1,10 @@
+import { useCallback } from 'react';
 import ReactFlow, { ReactFlowProvider, useReactFlow } from 'react-flow-renderer';
 
 import defaultNodes from './nodes.js';
 import defaultEdges from './edges.js';
 
 import './button.css';
-import { useCallback } from 'react';
 
 const edgeOptions = {
   animated: true,
@@ -23,7 +23,7 @@ function Flow() {
         y: Math.random() * 500,
       },
       data: {
-        label: `NOde ${id}`,
+        label: `Node ${id}`,
       },
     };
     reactFlowInstance.addNodes(newNode);
