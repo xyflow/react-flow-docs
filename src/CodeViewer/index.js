@@ -57,7 +57,7 @@ export default function CodeViewer({
       }
 
       setFiles({
-        '/Flow.js': res.default,
+        '/App.js': res.default,
         ...additional,
       });
     };
