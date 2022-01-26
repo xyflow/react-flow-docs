@@ -10,10 +10,10 @@ This is a basic example of how you can setup a flow. A flow consists of nodes an
 With React Flow you have two ways to setup a flow. You can either create a [controlled or an uncontrolled one](/docs/controlled-vs-uncontrolled).
 We recommend to use a controlled one but for simpler use cases you can also setup an uncontrolled flow. **In the following part we will setup a controlled flow.** Let's start by adding some nodes and edges to the ReactFlow component:
 
-import ExampleViewer from '../examples/ExampleViewer';
+import CodeViewer from '/src/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
-<ExampleViewer example="IntroductionFlow" applyStyles={false} options={editorOptions} />
+<CodeViewer codePath="api-flows/IntroductionFlow" applyStyles={false} options={editorOptions} />
 
 :::caution
 
@@ -25,7 +25,7 @@ The dimensions of your React Flow component depend on the parent dimensions. Tha
 
 By default React Flow doesn't do any internal state updates besides handling the viewport when you setup a controlled flow. Like with an `<input />` component you need to pass handlers to apply the changes that are triggered by React Flow to your nodes and egdes. In order to **select**, **drag** and **remove** nodes and edges you need to implement an `onNodesChange` and an `onEdgesChange` handler:
 
-<ExampleViewer example="IntroductionFlow2" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+<CodeViewer codePath="api-flows/IntroductionFlow2" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
 What is happeing here? Whenever React Flow triggers a change (node drag, edge select, etc.), the `onNodesChange` handler gets called. We export an `applyNodeChanges` handler so that you don't need to handle the changes by yourself. The `applyNodeChanges` handler returns an updated array of nodes that is your new nodes state. You now have an interactive flow with the following kinds of interactions:
 
@@ -47,7 +47,7 @@ const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
 The last piece that is missing to get the full interactivity is the `onConnect` handler. You need to implement it, in order to handle new connections.
 
-<ExampleViewer example="IntroductionFlow3" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+<CodeViewer codePath="api-flows/IntroductionFlow3" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
 In this example we are using the `addEdge` handler that returns an array of edges with the newly created one. If you want set a certain edge option whenever an edge gets created you can hook into the handler:
 
