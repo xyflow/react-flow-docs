@@ -1,7 +1,6 @@
 ---
-sidebar_position: 2
-hide_table_of_contents: true
 title: Theming
+sidebar_position: 3
 ---
 
 React Flow offers two bundles. One comes with styles included and the other without.

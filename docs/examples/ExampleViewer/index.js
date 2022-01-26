@@ -27,13 +27,13 @@ const customSetup = {
   },
 };
 
-const options = {
+const defaultOptions = {
   editorHeight: 800,
   editorWidthPercentage: 45,
   wrapContent: true,
 };
 
-export default function ExampleViewer({ example, additionalFiles = [] }) {
+export default function ExampleViewer({ example, additionalFiles = [], applyStyles = true, options = defaultOptions }) {
   const [files, setFiles] = useState(null);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function ExampleViewer({ example, additionalFiles = [] }) {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={applyStyles ? styles.wrapper : null}>
       <Sandpack
         template="react"
         files={{
