@@ -3,9 +3,9 @@ title: Theming
 sidebar_position: 3
 ---
 
-React Flow offers two bundles. One comes with styles included and the other without.
+React Flow offers two bundles. One imports styles automatically and the other doesn't.
 
-### Load bundle with styles
+### Import Bundle with Styles
 
 ```js
 import ReactFlow from 'react-flow-renderer';
@@ -13,7 +13,7 @@ import ReactFlow from 'react-flow-renderer';
 // no need to import styles
 ```
 
-### Load bundle without styles
+### Import Bundle without Styles
 
 ```js
 import ReactFlow from 'react-flow-renderer/nocss';
@@ -27,10 +27,10 @@ import 'react-flow-renderer/dist/theme-default.css';
 
 ## Overwrite Default Styles
 
-When you are using the default styles there are two ways how you can style the flow pane and the nodes and edges.
+When you are using the default styles there are two ways to style the flow pane and the nodes and edges.
 You can create your own CSS rules or pass style properties to the components.
 
-## Using Class Names
+### Using Class Names
 
 Since we are rendering DOM nodes you can simply overwrite the styles with your own CSS rules.
 The React Flow wrapper has the className `react-flow`. If you want to change the background for example you can do:
@@ -41,7 +41,24 @@ The React Flow wrapper has the className `react-flow`. If you want to change the
 }
 ```
 
-### React Flow Class Names
+### Using Style Prop
+
+Since we are rendering DOM nodes you can simply overwrite the styles with your own CSS rules.
+The React Flow wrapper has the className `react-flow`. If you want to change the background for example you can do:
+
+```jsx
+const reactFlowStyle = {
+  background: 'red',
+  width: '100%',
+  height: 300,
+};
+...
+<ReactFlow style={reactFlowStyle} />;
+```
+
+## React Flow Class Names
+
+The following class names are used for the different elements that could occur inside a flow:
 
 - `.react-flow` - Outer container
 - `.react-flow__renderer` - Inner container
@@ -73,17 +90,3 @@ The React Flow wrapper has the className `react-flow`. If you want to change the
 - `.react-flow__background` - Background component
 - `.react-flow__minimap` - Mini map component
 - `.react-flow__controls` - Controls component
-
-## Using Properties
-
-You could achieve the same effect by passing a style prop to the `ReactFlow` component:
-
-```jsx
-const style = {
-  background: 'red',
-  width: '100%',
-  height: 300,
-};
-
-const FlowWithRedBg = <ReactFlow nodes={nodes} style={style} />;
-```
