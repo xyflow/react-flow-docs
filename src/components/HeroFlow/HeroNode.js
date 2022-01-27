@@ -1,22 +1,19 @@
 import React from 'react';
-import { Heading, Box, Flex, Button } from '@chakra-ui/react';
-import { Handle } from 'react-flow-renderer';
+import { Box } from '@chakra-ui/react';
 
-export default function HeroNode() {
+import Fiber from './Fiber';
+import Handle from './Handle';
+import Wrapper from './NodeWrapper';
+
+export default function HeroNode({ data }) {
+  const { label = '' } = data;
+
   return (
-    <Box
-      width="container.md"
-      borderRadius="base"
-      borderColor="gray.200"
-      borderWidth="1px"
-      borderStyle="solid"
-      bgColor="white"
-      p={5}
-    >
-      <Handle type="target" position="left" id="fontSize" />
-      <Handle type="target" position="bottom" id="text" />
-      <Handle style={{ marginLeft: -100 }} type="target" position="top" id="bgColor" />
-      <Handle style={{ marginLeft: 100 }} type="target" position="top" id="darkMode" />
-    </Box>
+    <Wrapper label={label}>
+      <Box height="100%" width="100%">
+        <Fiber {...data} />
+        <Handle type="target" position="left" />
+      </Box>
+    </Wrapper>
   );
 }
