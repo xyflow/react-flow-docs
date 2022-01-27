@@ -1,6 +1,6 @@
 ---
 title: Controls
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 - Controls component
