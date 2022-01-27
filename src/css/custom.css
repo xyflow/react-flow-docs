@@ -6,7 +6,8 @@
 @font-face {
   font-family: 'nt-dapper';
   src: url('../../static/fonts/NTDapper-regular.woff2') format('woff2'),
-    url('../../static/fonts/NTDapper-regular.woff') format('woff'), url('../../static/fonts/NTDapper-regular.eot');
+    url('../../static/fonts/NTDapper-regular.woff') format('woff'),
+    url('../../static/fonts/NTDapper-regular.eot');
   font-weight: 400;
   font-style: normal;
   font-display: auto;
@@ -15,7 +16,8 @@
 @font-face {
   font-family: 'nt-dapper';
   src: url('../../static/fonts/NTDapper-bold.woff2') format('woff2'),
-    url('../../static/fonts/NTDapper-bold.woff') format('woff'), url('../../static/fonts/NTDapper-bold.eot');
+    url('../../static/fonts/NTDapper-bold.woff') format('woff'),
+    url('../../static/fonts/NTDapper-bold.eot');
   font-weight: 700;
   font-style: normal;
   font-display: auto;
@@ -24,7 +26,8 @@
 @font-face {
   font-family: 'nt-dapper';
   src: url('../../static/fonts/NTDapper-black.woff2') format('woff2'),
-    url('../../static/fonts/NTDapper-black.woff') format('woff'), url('../../static/fonts/NTDapper-black.eot');
+    url('../../static/fonts/NTDapper-black.woff') format('woff'),
+    url('../../static/fonts/NTDapper-black.eot');
   font-weight: 900;
   font-style: normal;
   font-display: auto;
@@ -50,8 +53,8 @@
   --ifm-color-primary-lighter: #ffb8d8;
   --ifm-color-primary-lightest: #ffe5f1;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: 'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Ubuntu, Arial, sans-serif;
+  --ifm-font-family-base: 'nt-dapper', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
   --ifm-font-family-monospace: 'jetbrains-mono', monospace;
   --ifm-heading-font-weight: 900;
   --ifm-navbar-item-padding-horizontal: 20px;
@@ -150,4 +153,14 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .footer__links {
   margin-bottom: 2.5rem;
+}
+
+.DocSearch-Button-Container .DocSearch-Button-Placeholder {
+  font-size: 14px;
+}
+
+.DocSearch-Button .DocSearch-Button-Container .DocSearch-Search-Icon {
+  width: 18px;
+  height: 18px;
+  color: var(--chakra-colors-gray-400);
 }
