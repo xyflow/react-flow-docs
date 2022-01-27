@@ -11,7 +11,7 @@ import ReactFlow from 'react-flow-renderer';
 
 :::info Typescript
 
-The interface of the ReactFlow Prop types are exported as `ReactFlowProps`. You can use it in your code as follows:
+The interface of the ReactFlow Prop types is exported as `ReactFlowProps`. You can use it in your code as follows:
 
 ```javascript
 import { ReactFlowProps } from 'react-flow-renderer';
@@ -52,6 +52,12 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Event Handlers
 
+#### General
+
+- `onInit(reactFlowInstance)`: called as soon as React Flow is initialized
+
+#### Nodes
+
 - `onNodeClick(event, node)`: called when user clicks a node
 - `onNodeDragStart(event, node)`: node drag start
 - `onNodeDrag(event, node)`: node drag
@@ -61,10 +67,9 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `onNodeMouseLeave(event, node)`: node mouse leave
 - `onNodeContextMenu(event, node)`: node context menu
 - `onNodeDoubleClick(event, node)`: node double click
-- `onConnect({ source, target })`: called when user connects two nodes
-- `onConnectStart(event, { nodeId, handleType })`: called when user starts to drag connection line
-- `onConnectStop(event)`: called when user stops to drag connection line
-- `onConnectEnd(event)`: called after user stops or connects nodes
+
+#### Edges
+
 - `onEdgeClick(event, edge)`: called when user clicks a edge
 - `onEdgeUpdate(oldEdge, newConnection)`: called when the end of an edge gets dragged to another source or target
 - `onEdgeMouseEnter(event, edge)`: edge mouse enter
@@ -73,7 +78,16 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `onEdgeContextMenu(event, edge)`: called when user does a right-click on an edge
 - `onEdgeUpdateStart(event, edge)`: called when user starts to update an edge
 - `onEdgeUpdateEnd(event, edge)`: called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones).
-- `onInit(reactFlowInstance)`: called as soon as React Flow is initialized
+
+#### Connections
+
+- `onConnect({ source, target })`: called when user connects two nodes
+- `onConnectStart(event, { nodeId, handleType })`: called when user starts to drag connection line
+- `onConnectStop(event)`: called when user stops to drag connection line
+- `onConnectEnd(event)`: called after user stops or connects nodes
+
+#### Pane
+
 - `onMove(flowTransform)`: called when user is panning or zooming
 - `onMoveStart(flowTransform)`: called when user starts panning or zooming
 - `onMoveEnd(flowTransform)`: called when user ends panning or zooming
@@ -116,4 +130,4 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Pro
 
-- `pro`: `object` - options to sepecify license and hide attribution
+- `proOptions`: `object` - options to sepecify license and hide attribution
