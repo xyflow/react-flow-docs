@@ -36,7 +36,8 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Flow View
 
-- `fitViewOnInit`: default: `false` fits the view once intially to make all nodes visible
+- `fitView`: default: `false` fits the view once intially to make all nodes visible
+- `fitViewOptions`: options that are passed to the fitView function on init
 - `minZoom`: default: `0.5`
 - `maxZoom`: default: `2`
 - `defaultZoom`: default: `1`
@@ -72,7 +73,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `onEdgeContextMenu(event, edge)`: called when user does a right-click on an edge
 - `onEdgeUpdateStart(event, edge)`: called when user starts to update an edge
 - `onEdgeUpdateEnd(event, edge)`: called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones).
-- `onPaneReady(reactFlowInstance)`: called after flow is ready
+- `onInit(reactFlowInstance)`: called as soon as React Flow is initialized
 - `onMove(flowTransform)`: called when user is panning or zooming
 - `onMoveStart(flowTransform)`: called when user starts panning or zooming
 - `onMoveEnd(flowTransform)`: called when user ends panning or zooming
