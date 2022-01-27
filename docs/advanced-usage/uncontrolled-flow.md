@@ -1,6 +1,6 @@
 ---
 title: Uncontrolled Flow
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 There are two ways to use React Flow - controlled or uncontrolled. Controlled means, that you are in control of the state of the nodes and edges. In an uncontrolled flow the state of the nodes and edges is handled by React Flow. In this part we will show you how to work with an uncontrolled flow.

@@ -1,6 +1,6 @@
 ---
 title: Theming
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 React Flow offers two bundles. One imports styles automatically and the other doesn't.
