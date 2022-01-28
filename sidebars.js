@@ -30,7 +30,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Guides',
-      collapsed: true,
+      collapsed: false,
       collapsible: true,
       items: [
         {
