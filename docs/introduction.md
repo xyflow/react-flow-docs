@@ -7,7 +7,7 @@ React Flow is a library for building node-based applications. These can be simpl
 
 ## Key Features
 
-- **Easy to use:** Seamless zooming & panning behaviour and single and multi-selections of elements
+- **Easy to use:** Seamless zooming & panning behaviour and single and multi-selections of nodes and edges
 - **Customizable:** Different [node](/docs/api/node-types/) and [edge types](/docs/api/edge-types) and support for custom nodes with multiple handles and custom edges
 - **Fast rendering:** Only nodes that have changed are re-rendered and only those that are in the viewport are displayed
 - **Hooks and Utils:** [Hooks](/docs/api/hooks/useReactFlow) for handling nodes, edges and the viewport and graph [helper functions](/docs/api/helper-functions/)

@@ -42,7 +42,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 - `markerStart`: string (id for a svg marker that you need to define yourself) or a [marker configuration object](#markerstart--markerend-options)
 - `markerEnd`: see `markerStart`
 
-You can find an example with different edges in the [edges example](/examples/edges/).
+You can find an example with different edges in the [edges example](/docs/examples/edges/).
 
 ### `markerStart` / `markerEnd` options
 

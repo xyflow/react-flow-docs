@@ -27,4 +27,4 @@ function Flow() {
 }
 ```
 
-You can find an example of how to use it here: [useZoomPanHelper example](/examples/use-zoom-pan-helper-hook/)
+You can find an example of how to use it here: [useZoomPanHelper example](/docs/examples/use-zoom-pan-helper-hook/)

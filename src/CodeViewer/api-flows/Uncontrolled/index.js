@@ -13,7 +13,7 @@ export default function Flow() {
       defaultNodes={defaultNodes}
       defaultEdges={defaultEdges}
       defaultEdgeOptions={edgeOptions}
-      fitViewOnInit
+      fitView
     />
   );
 }

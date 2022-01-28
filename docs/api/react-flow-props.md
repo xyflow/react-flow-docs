@@ -119,7 +119,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 - `connectionLineType`: connection line type = `default` (bezier), `straight`, `step`, `smoothstep`
 - `connectionLineStyle`: connection style as svg attributes
-- `connectionLineComponent`: [custom connection line component](/examples/custom-connectionline/)
+- `connectionLineComponent`: [custom connection line component](/docs/examples/custom-connectionline/)
 
 ### Keys
 

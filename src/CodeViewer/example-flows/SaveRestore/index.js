@@ -68,7 +68,7 @@ const SaveRestore = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onPaneReady={setRfInstance}
+      onInit={setRfInstance}
     >
       <div className="save__controls">
         <button onClick={onSave}>save</button>

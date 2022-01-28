@@ -1,9 +1,15 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, Controls, Background } from 'react-flow-renderer';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  Controls,
+  Background,
+} from 'react-flow-renderer';
 
-import { getElements } from './utils.js';
+import { getNodesAndEdges } from './utils.js';
 
-const { nodes: initialNodes, edges: initialEdges } = getElements();
+const { nodes: initialNodes, edges: initialEdges } = getNodesAndEdges();
 
 const EdgeTypesFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);

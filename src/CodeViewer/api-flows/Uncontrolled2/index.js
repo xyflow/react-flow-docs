@@ -35,7 +35,7 @@ function Flow() {
         defaultNodes={defaultNodes}
         defaultEdges={defaultEdges}
         defaultEdgeOptions={edgeOptions}
-        fitViewOnInit
+        fitView
       />
       <button onClick={onClick} className="btn-add">
         add node

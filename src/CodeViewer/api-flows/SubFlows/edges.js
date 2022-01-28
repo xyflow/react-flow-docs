@@ -1,1 +1,1 @@
-export default initialEdges = [{ id: 'b-c', source: 'B', target: 'C' }];
+export default [{ id: 'b-c', source: 'B', target: 'C' }];

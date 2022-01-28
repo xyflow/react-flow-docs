@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactFlow, { addEdge, MiniMap, Controls, Background, useNodesState, useEdgesState } from 'react-flow-renderer';
+import ReactFlow, {
+  addEdge,
+  MiniMap,
+  Controls,
+  Background,
+  useNodesState,
+  useEdgesState,
+} from 'react-flow-renderer';
 
 import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
-const onPaneReady = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
+const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
 const OverviewFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -17,7 +24,7 @@ const OverviewFlow = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
-      onPaneReady={onPaneReady}
+      onInit={onInit}
       fitView
       attributionPosition="top-right"
     >

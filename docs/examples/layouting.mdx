@@ -1,0 +1,16 @@
+---
+sidebar_position: 100
+title: Layouting
+---
+
+import CodeViewer from '/src/CodeViewer';
+const dependencies = { dagre: 'latest' };
+const files = ['nodes-edges.js', 'index.css'];
+
+React Flow has no built in layouting but it can be achieved with a third party library like elkjs or dagre.
+
+<CodeViewer
+  codePath="example-flows/Layouting"
+  additionalFiles={files}
+  dependencies={dependencies}
+/>

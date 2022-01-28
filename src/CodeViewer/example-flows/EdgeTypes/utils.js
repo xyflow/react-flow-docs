@@ -49,11 +49,15 @@ const offsets = [
 let id = 0;
 const getNodeId = () => `edgetypes-${(id++).toString()}`;
 
-export function getElements() {
+export function getNodesAndEdges() {
   const nodes = [];
   const edges = [];
 
-  for (let sourceTargetIndex = 0; sourceTargetIndex < sourceTargetPositions.length; sourceTargetIndex++) {
+  for (
+    let sourceTargetIndex = 0;
+    sourceTargetIndex < sourceTargetPositions.length;
+    sourceTargetIndex++
+  ) {
     const currSourceTargetPos = sourceTargetPositions[sourceTargetIndex];
 
     for (let edgeTypeIndex = 0; edgeTypeIndex < edgeTypes.length; edgeTypeIndex++) {

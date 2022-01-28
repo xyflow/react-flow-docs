@@ -46,7 +46,7 @@ When you create a new node type you also need to implement some styling. Your cu
 
 ### Prevent dragging & selecting
 
-If you have controls or other elements inside your custom node that should not drag the node you can add the class name `nodrag`. This also prevents the selection of a node.
+If you have controls (like a slider) or other elements inside your custom node that should not drag the node you can add the class name `nodrag`. This also prevents the selection of a node.
 
 ### Allow scrolling inside a node
 

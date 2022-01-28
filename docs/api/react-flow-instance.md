@@ -3,7 +3,7 @@ title: ReactFlow Instance
 sidebar_position: 2
 ---
 
-You can receive a `reactFlowInstance` by using the [`onPaneReady` callback](/docs/api/reactflow#event-handlers) or the [`useReactFlow` hook](/docs/api/hooks/useReactFlow):
+You can receive a `reactFlowInstance` by using the [`onInit` callback](/docs/api/reactflow#event-handlers) or the [`useReactFlow` hook](/docs/api/hooks/useReactFlow):
 
 The `reactFlowInstance` has the following functions:
 

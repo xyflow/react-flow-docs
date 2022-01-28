@@ -28,7 +28,7 @@ const defaultEdges = [
 ];
 
 function Flow() {
-  return <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitViewOnInit />;
+  return <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitView />;
 }
 
 export default Flow;

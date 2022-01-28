@@ -10,11 +10,13 @@ React Flow comes with two background variants: **dots** and **lines**. You can u
 ```jsx
 import ReactFlow, { Background } from 'react-flow-renderer';
 
-const FlowWithBackground = () => (
-  <ReactFlow elements={elements}>
-    <Background variant="dots" gap={12} size={4} />
-  </ReactFlow>
-);
+function FlowWithBackground() {
+  return (
+    <ReactFlow nodes={[]} edges={[]}>
+      <Background variant="dots" gap={12} size={4} />
+    </ReactFlow>
+  );
+}
 ```
 
 ### Prop Types
