@@ -1,9 +1,9 @@
 ---
 title: MiniMap
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-You can use the mini map plugin by passing it as a children to the `ReactFlow` component:
+You can use the `MiniMap` component by passing it as a children to the `ReactFlow` component:
 
 ### Usage
 

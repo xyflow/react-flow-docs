@@ -5,6 +5,10 @@ import TextUpdaterNode from './TextUpdaterNode.js';
 
 import './text-updater-node.css';
 
+const rfStyle = {
+  backgroundColor: '#B8CEFF',
+};
+
 const initialNodes = [
   { id: 'node-1', type: 'textUpdater', position: { x: 0, y: 0 }, data: { value: 123 } },
   {
@@ -58,6 +62,7 @@ function Flow() {
       onConnect={onConnect}
       nodeTypes={nodeTypes}
       fitView
+      style={rfStyle}
     />
   );
 }

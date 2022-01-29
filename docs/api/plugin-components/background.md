@@ -1,6 +1,6 @@
 ---
 title: Background
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 React Flow comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component:
