@@ -14,7 +14,7 @@ function Flow({ nodes, edges }) {
 ```
 
 You can now use the type `special` for a node.
-The `default`, `input` and `output` types would still be available, except you overwrote one of them.
+The `default`, `input`, `output` and `group` types would still be available, except you overwrote one of them.
 There is a more advanced example of a custom node implementation in the [custom node example](/docs/examples/custom-node).
 
 :::info
@@ -23,7 +23,7 @@ You can find detailed information on how to implement and use a custom node in t
 
 :::
 
-## Prop Types
+### Prop Types
 
 Your custom nodes are wrapped so that the basic functions like dragging or selecting work. Custom nodes receive the following props:
 

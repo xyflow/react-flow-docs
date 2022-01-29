@@ -17,7 +17,7 @@ Now you can use the new type `special` for an edge.
 The `straight`, `default` and `step` types would still be available unless you overwrote one of them.
 There is an implementation of a custom edge in the [edges example](/docs/examples/edges/).
 
-## Prop Types
+### Prop Types
 
 Custom edges are wrapped. They receive the following props:
 

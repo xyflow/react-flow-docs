@@ -1,8 +1,9 @@
 ---
-title: Graph Utils
+title: Graph Util Functions
+sidebar_position: 4
 ---
 
-If you working with a controlled flow and you want to apply the changes to select, drag or remove a node or edge or if you want to connect two nodes with each other you need to pass the `onNodesChange`/ `onEdgesChange` and `onConnect` handlers. In order to simplify this process there are some helper functions you can use:
+If you are working with a controlled flow and you want to apply the changes to select, drag or remove a node or edge or if you want to connect two nodes with each other you need to pass the `onNodesChange`/ `onEdgesChange` and `onConnect` handlers. In order to simplify this process there are some helper functions you can use:
 
 ```javascript
 import ReactFlow, {
