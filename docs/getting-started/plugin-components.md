@@ -1,9 +1,9 @@
 ---
-title: Built-in Components
+title: Plugin Components
 sidebar_position: 4
 ---
 
-React Flow comes with additional components. In this guide we show you how to use them. We are using our [previous example code](/docs/getting-started/interactive-flow#connecting-nodes) here.
+React Flow comes with additional components. In this guide we show you how to use them. We are using our [previous example code](/docs/getting-started/core-concepts) here.
 
 ### MiniMap
 

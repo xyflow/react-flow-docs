@@ -4,7 +4,7 @@ sidebar_position: 2
 ---
 
 React Flow comes with four edge types (`default`, `straight`, `step`, `smoothstep`). As the names indicate, the edges differ in the representation. The default type is a bezier edge.
-The basic edge types are `default` (bezier), `straight`, `step` and `smoothstep`. You can read about how to add custom types in the [custom edge types section](/docs/api/nodes/custom-edges).
+The basic edge types are `default` (bezier), `straight`, `step` and `smoothstep`. You can read about how to add custom types in the [custom edge types section](/docs/api/edges/custom-edges).
 
 ### Built-in Edge Types
 

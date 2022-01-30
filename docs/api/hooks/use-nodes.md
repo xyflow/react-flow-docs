@@ -7,7 +7,7 @@ This hook returns the ndes. The component that uses this hook re-renders wheneve
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/components/provider/).
+Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
 
 :::
 

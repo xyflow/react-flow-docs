@@ -7,7 +7,7 @@ When you are **programatically changing the number or the position of handles in
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/components/provider/).
+Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
 
 :::
 

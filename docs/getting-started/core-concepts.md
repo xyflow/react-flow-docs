@@ -3,11 +3,11 @@ title: Core Concepts
 sidebar_position: 3
 ---
 
-In the following part we will introduce you to the core concepts of React Flow and explain how to create an interactive flow. A flow consists of nodes and edges (or just nodes). You can pass arrays of `nodes` and `edges` as props to the ReactFlow component. Hereby all node and edge ids need to be unique. A node needs a position and a label and an edge needs a source (node id) and a target (node id). You can read more about the options in the [Node options](/docs/api/nodes#options) and [Edge options](/docs/api/edges#options) sections.
+In the following part we will introduce you to the core concepts of React Flow and explain how to create an interactive flow. A flow consists of nodes and edges (or just nodes). You can pass arrays of `nodes` and `edges` as props to the ReactFlow component. Hereby all node and edge ids need to be unique. A node needs a position and a label and an edge needs a source (node id) and a target (node id). You can read more about the options in the [Node options](/docs/api/nodes/node-options) and [Edge options](/docs/api/edges/edge-options) sections.
 
 ### Controlled or Uncontrolled
 
-With React Flow you have two ways to setup a flow. You can either create a [controlled or an uncontrolled one](/docs/controlled-vs-uncontrolled).
+With React Flow you have two ways to setup a flow. You can either create a [controlled or an uncontrolled one](/docs/guides/uncontrolled-flow).
 We recommend to use a controlled one but for simpler use cases you can also setup an uncontrolled flow. **In the following part we will setup a controlled flow.** Let's start by adding some nodes and edges to the ReactFlow component:
 
 import CodeViewer from '/src/CodeViewer';

@@ -21,15 +21,15 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Basic Props
 
-- `defaultNodes`: array of [nodes](/docs/api/nodes/) (for an uncontrolled flow)
-- `defaultEdges`: array of [edges](/docs/api/edges/) (for an uncontrolled flow)
-- `defaultEdgeOptions`: object of [edge options](/docs/api/edges/) that should be apllied to all edges
-- `nodes`: array of [nodes](/docs/api/nodes/) (for a controlled flow)
-- `edges`: array of [edges](/docs/api/edges/) (for a controlled flow)
+- `defaultNodes`: array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow)
+- `defaultEdges`: array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow)
+- `defaultEdgeOptions`: object of [edge options](/docs/api/edges/edge-options) that should be apllied to all edges
+- `nodes`: array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)
+- `edges`: array of [edges](/docs/api/edges/edge-options) (for a controlled flow)
 - `onNodesChange(nodeChanges)`: handler for adding interactivity for a controlled flow
 - `onEdgesChange(edgeChanges)`: handler for adding interactivity for a controlled flow
-- `nodeTypes`: object with [node types](/docs/api/node-types/)
-- `edgeTypes`: object with [edge types](/docs/api/edge-types/)
+- `nodeTypes`: object with [node types](/docs/api/nodes/node-types/)
+- `edgeTypes`: object with [edge types](/docs/api/edges/edge-types/)
 - `defaultMarkerColor`: default: `'#b1b1b7'`
 - `style`: css properties
 - `className`: additional class name

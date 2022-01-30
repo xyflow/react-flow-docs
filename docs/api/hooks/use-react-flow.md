@@ -7,7 +7,7 @@ The `useReactFlow` hook returns the [React Flow instance](/docs/api/react-flow-i
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/components/provider/).
+Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
 
 :::
 

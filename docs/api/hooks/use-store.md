@@ -4,7 +4,7 @@ sidebar_position: 5
 ---
 
 Under the hood React Flow uses [Zustand](https://github.com/pmndrs/zustand) for the internal state management.
-If you need to access the internal state you can use the `useStore` hook inside a child component of the `ReactFlow` component or if you flow is wrapped with a [ReactFlowProvider](/docs/api/components/provider).
+If you need to access the internal state you can use the `useStore` hook inside a child component of the `ReactFlow` component or if you flow is wrapped with a [ReactFlowProvider](/docs/api/react-flow-provider/).
 
 The hooks are exported directly from Zustand. You can check the [Zustand docs](https://github.com/pmndrs/zustand#readme) for more detailed information.
 

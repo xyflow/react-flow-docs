@@ -19,7 +19,7 @@ The default `nodeTypes` object looks like this:
 ```
 
 The keys represent the type names and the values are the components that get rendered.
-You can add new types by creating a [custom node](/docs/api/nodes/custom-node).
+You can add new types by creating a [custom node](/docs/api/nodes/custom-nodes).
 
 ### Node Types Overview
 
