@@ -1,7 +1,7 @@
 const position = { x: 0, y: 0 };
 const edgeType = 'smoothstep';
 
-export default [
+export const initialNodes = [
   {
     id: '1',
     type: 'input',
@@ -55,6 +55,9 @@ export default [
     position,
   },
   { id: '7', type: 'output', data: { label: 'output' }, position },
+];
+
+export const initialEdges = [
   { id: 'e12', source: '1', target: '2', type: edgeType, animated: true },
   { id: 'e13', source: '1', target: '3', type: edgeType, animated: true },
   { id: 'e22a', source: '2', target: '2a', type: edgeType, animated: true },

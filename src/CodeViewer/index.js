@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import clsx from 'clsx';
 import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
@@ -21,9 +21,9 @@ html, body, #root {
   },
 };
 
-const customSetup = {
+const defaultSetup = {
   dependencies: {
-    'react-flow-renderer': '10.0.0-next.33',
+    'react-flow-renderer': '10.0.0-next.37',
   },
 };
 
@@ -36,6 +36,7 @@ const defaultOptions = {
 export default function CodeViewer({
   codePath,
   additionalFiles = [],
+  dependencies = {},
   applyStyles = true,
   options = defaultOptions,
   activeFile = null,
@@ -65,6 +66,17 @@ export default function CodeViewer({
 
     loadFiles();
   }, []);
+
+  const customSetup = useMemo(
+    () => ({
+      ...defaultSetup,
+      dependencies: {
+        ...defaultSetup.dependencies,
+        ...dependencies,
+      },
+    }),
+    []
+  );
 
   if (!files) {
     return <div className={clsx(styles.wrapper, styles.placeholder)} />;

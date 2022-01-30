@@ -1,9 +1,9 @@
 import React from 'react';
-import { useStoreApi, useZoomPanHelper } from 'react-flow-renderer';
+import { useStoreApi, useReactFlow } from 'react-flow-renderer';
 
 export default () => {
   const store = useStoreApi();
-  const { zoomIn, zoomOut, setCenter } = useZoomPanHelper();
+  const { zoomIn, zoomOut, setCenter } = useReactFlow();
 
   const focusNode = () => {
     const { nodeInternals } = store.getState();
@@ -22,7 +22,9 @@ export default () => {
 
   return (
     <aside>
-      <div className="description">This is an example of how you can use the zoom pan helper hook</div>
+      <div className="description">
+        This is an example of how you can use the zoom pan helper hook
+      </div>
       <button onClick={focusNode}>focus node</button>
       <button onClick={zoomIn}>zoom in</button>
       <button onClick={zoomOut}>zoom out</button>

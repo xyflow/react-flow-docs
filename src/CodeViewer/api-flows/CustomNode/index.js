@@ -3,8 +3,14 @@ import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges } from 'react-fl
 
 import TextUpdaterNode from './TextUpdaterNode.js';
 
+import './text-updater-node.css';
+
+const rfStyle = {
+  backgroundColor: '#B8CEFF',
+};
+
 const initialNodes = [
-  { id: 'a', type: 'textUpdater', position: { x: 0, y: 0 }, data: { value: 123 } },
+  { id: 'node-1', type: 'textUpdater', position: { x: 0, y: 0 }, data: { value: 123 } },
 ];
 // we define the nodeTypes outside of the component to prevent re-renderings
 // you could also use useMemo inside the component
@@ -35,7 +41,8 @@ function Flow() {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       nodeTypes={nodeTypes}
-      fitViewOnInit
+      fitView
+      style={rfStyle}
     />
   );
 }

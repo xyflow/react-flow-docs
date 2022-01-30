@@ -1,11 +1,11 @@
-export function getElements(xElements = 10, yElements = 10) {
+export function createNodesAndEdges(xNodes = 10, yNodes = 10) {
   const nodes = [];
   const edges = [];
   let nodeId = 1;
   let recentNodeId = null;
 
-  for (let y = 0; y < yElements; y++) {
-    for (let x = 0; x < xElements; x++) {
+  for (let y = 0; y < yNodes; y++) {
+    for (let x = 0; x < xNodes; x++) {
       const position = { x: x * 100, y: y * 50 };
       const data = { label: `Node ${nodeId}` };
       const node = {
@@ -16,7 +16,7 @@ export function getElements(xElements = 10, yElements = 10) {
       };
       nodes.push(node);
 
-      if (recentNodeId && nodeId <= xElements * yElements) {
+      if (recentNodeId && nodeId <= xNodes * yNodes) {
         edges.push({
           id: `${x}-${y}`,
           source: `stress-${recentNodeId.toString()}`,

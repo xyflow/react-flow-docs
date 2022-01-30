@@ -5,7 +5,12 @@ import defaultEdges from './edges.js';
 
 const edgeOptions = {
   animated: true,
+  style: {
+    stroke: 'white',
+  },
 };
+
+const connectionLineStyle = { stroke: 'white' };
 
 export default function Flow() {
   return (
@@ -13,7 +18,11 @@ export default function Flow() {
       defaultNodes={defaultNodes}
       defaultEdges={defaultEdges}
       defaultEdgeOptions={edgeOptions}
-      fitViewOnInit
+      fitView
+      style={{
+        backgroundColor: '#D3D2E5',
+      }}
+      connectionLineStyle={connectionLineStyle}
     />
   );
 }

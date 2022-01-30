@@ -1,11 +1,6 @@
 ---
-title: Controls
+title: <Controls />
 sidebar_position: 2
----
-
-- Controls component
-- ControlButton component
-
 ---
 
 The control panel contains a zoom-in, zoom-out, fit-view and a lock/unlock button. You can use it by passing it as a children to the `ReactFlow` component:
@@ -40,10 +35,10 @@ function FlowWithControls() {
 
 ## Extended Controls
 
-You can add buttons to the control panel by using the `ControlsButton` component and pass it as a children to the `Controls` component:
+You can add buttons to the control panel by using the `ControlButton` component and pass it as a children to the `Controls` component:
 
 ```jsx
-import Controls, ControlButton } from 'react-flow-renderer';
+import { Controls, ControlButton } from 'react-flow-renderer';
 
 function CustomControls() {
   return (
@@ -59,6 +54,6 @@ function CustomControls() {
 }
 ```
 
-### ControlsButton Prop Types
+### ControlButton Prop Types
 
-All props get forwarded to the `ControlsButton` component.
+All props get forwarded to the `ControlButton` component.

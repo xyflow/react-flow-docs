@@ -1,9 +1,16 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+  Background,
+} from 'react-flow-renderer';
 
-import { getElements } from './utils.js';
+import { createNodesAndEdges } from './utils.js';
 
-const { nodes: initialNodes, edges: initialEdges } = getElements(10, 10);
+const { nodes: initialNodes, edges: initialEdges } = createNodesAndEdges(10, 10);
 
 const StressFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);

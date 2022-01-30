@@ -72,7 +72,7 @@ export function getEdgeParams(source, target) {
   };
 }
 
-export function createElements() {
+export function createNodesAndEdges() {
   const nodes = [];
   const edges = [];
   const center = { x: window.innerWidth / 2, y: window.innerHeight / 2 };

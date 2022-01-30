@@ -3,8 +3,6 @@ title: Custom Nodes
 sidebar_position: 3
 ---
 
-# Custom Nodes
-
 If you want to add new node types, you need to pass a `nodeTypes` object to the `ReactFlow` component:
 
 ```jsx
@@ -16,10 +14,16 @@ function Flow({ nodes, edges }) {
 ```
 
 You can now use the type `special` for a node.
-The `default`, `input` and `output` types would still be available, except you overwrote one of them.
+The `default`, `input`, `output` and `group` types would still be available, except you overwrote one of them.
 There is a more advanced example of a custom node implementation in the [custom node example](/docs/examples/custom-node).
 
-## Prop Types
+:::info
+
+You can find detailed information on how to implement and use a custom node in the [custom nodes guide](/docs/guides/custom-nodes)
+
+:::
+
+### Prop Types
 
 Your custom nodes are wrapped so that the basic functions like dragging or selecting work. Custom nodes receive the following props:
 
@@ -42,57 +46,8 @@ When you create a new node type you also need to implement some styling. Your cu
 
 ### Prevent dragging & selecting
 
-If you have controls or other elements inside your custom node that should not drag the node you can add the class name `nodrag`. This also prevents the selection of a node.
+If you have controls (like a slider) or other elements inside your custom node that should not drag the node you can add the class name `nodrag`. This also prevents the selection of a node.
 
 ### Allow scrolling inside a node
 
 If you want to allow scrolling inside a node or inside an element of a node you can add the class name `nowheel` to the node or the element.
-
-## Basic Implementation
-
-A basic implementation of a custom node could look like this:
-
-```jsx
-import React from 'react';
-import ReactFlow, { Handle } from 'react-flow-renderer';
-
-const elements = [
-  {
-    id: '2',
-    type: 'special',
-    position: { x: 100, y: 100 },
-    data: { text: 'A custom node' },
-  },
-];
-
-const customNodeStyles = {
-  background: '#9CA8B3',
-  color: '#FFF',
-  padding: 10,
-};
-
-const CustomNodeComponent = ({ data }) => {
-  return (
-    <div style={customNodeStyles}>
-      <Handle type="target" position="left" style={{ borderRadius: 0 }} />
-      <div>{data.text}</div>
-      <Handle type="source" position="right" id="a" style={{ top: '30%', borderRadius: 0 }} />
-      <Handle type="source" position="right" id="b" style={{ top: '70%', borderRadius: 0 }} />
-    </div>
-  );
-};
-
-const nodeTypes = {
-  special: CustomNodeComponent,
-};
-
-const CustomNodeExample = () => {
-  return (
-    <div style={{ height: 300 }}>
-      <ReactFlow elements={elements} nodeTypes={nodeTypes} />
-    </div>
-  );
-};
-
-export default CustomNodeExample;
-```

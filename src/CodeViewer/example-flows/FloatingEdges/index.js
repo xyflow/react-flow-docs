@@ -3,11 +3,11 @@ import ReactFlow, { addEdge, Background, useNodesState, useEdgesState } from 're
 
 import FloatingEdge from './FloatingEdge.js';
 import FloatingConnectionLine from './FloatingConnectionLine.js';
-import { createElements } from './utils.js';
+import { createNodesAndEdges } from './utils.js';
 
 import './index.css';
 
-const { nodes: initialNodes, edges: initialEdges } = createElements();
+const { nodes: initialNodes, edges: initialEdges } = createNodesAndEdges();
 
 const edgeTypes = {
   floating: FloatingEdge,

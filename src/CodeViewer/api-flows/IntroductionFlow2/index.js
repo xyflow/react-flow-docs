@@ -23,7 +23,7 @@ function Flow() {
       edges={edges}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
-      fitViewOnInit
+      fitView
     />
   );
 }

@@ -6,14 +6,18 @@ sidebar_position: 3
 If you want to introduce a new edge type you can pass an `edgeTypes` object to the `ReactFlow` component:
 
 ```jsx
-const Flow = <ReactFlow edgeTypes={{ special: CustomEdgeComponent }} elements={elements} />;
+function Flow({ nodes, edges }) {
+  const edgeTypes = useMemo(() => ({ special: CustomEdgeComponent }), []);
+
+  return <ReactFlow edgeTypes={edgeTypes} nodes={nodes} edges={edges} />;
+}
 ```
 
-Now you could use the new type `special` for an edge.
+Now you can use the new type `special` for an edge.
 The `straight`, `default` and `step` types would still be available unless you overwrote one of them.
-There is an implementation of a custom edge in the [edges example](/examples/edges/).
+There is an implementation of a custom edge in the [edges example](/docs/examples/edges/).
 
-## Prop Types
+### Prop Types
 
 Custom edges are wrapped. They receive the following props:
 

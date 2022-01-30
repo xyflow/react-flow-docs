@@ -23,10 +23,4 @@ export default [
     data: { label: 'Output 7' },
     position: { x: 250, y: 550 },
   },
-  {
-    id: 'edges-8',
-    type: 'output',
-    data: { label: 'Output 8' },
-    position: { x: 525, y: 600 },
-  },
 ];

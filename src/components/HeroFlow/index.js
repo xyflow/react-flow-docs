@@ -22,7 +22,7 @@ const nodeTypes = {
 
 const nodeStyle = {};
 
-const HERO_NODE_SIZE = 400;
+const HERO_NODE_SIZE = 350;
 
 function getHeroNodePosition() {
   if (typeof window !== 'undefined') {
@@ -108,7 +108,7 @@ function FlowViz({ headlineRef }) {
           x: window.innerWidth - 500,
           y: headlineDimensions.top - 50,
         },
-        style: { width: 350, ...nodeStyle },
+        style: { width: 300, ...nodeStyle },
         data: { color, zoom, shape, label: 'Output' },
       },
       {

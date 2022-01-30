@@ -8,7 +8,12 @@ import './button.css';
 
 const edgeOptions = {
   animated: true,
+  style: {
+    stroke: 'white',
+  },
 };
+
+const connectionLineStyle = { stroke: 'white' };
 
 let nodeId = 0;
 
@@ -35,7 +40,11 @@ function Flow() {
         defaultNodes={defaultNodes}
         defaultEdges={defaultEdges}
         defaultEdgeOptions={edgeOptions}
-        fitViewOnInit
+        fitView
+        style={{
+          backgroundColor: '#D3D2E5',
+        }}
+        connectionLineStyle={connectionLineStyle}
       />
       <button onClick={onClick} className="btn-add">
         add node

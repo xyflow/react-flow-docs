@@ -1,8 +1,9 @@
 ---
 title: Edge Utils
+sidebar_position: 5
 ---
 
-There are several utils that help you to create a custom edge. Some are used in the [edges example](/examples/edges).
+There are several utils that help you to create a custom edge. Some are used in the [edges example](/docs/examples/edges).
 
 ### `getBezierPath`
 
@@ -67,24 +68,3 @@ import { getMarkerEnd } from 'react-flow-renderer';
 
 getMarkerEnd(arrowHeadType?: ArrowHeadType, markerEndId?: string): string
 ```
-
-### `EdgeText`
-
-The internal component that is used for displaying the edge label:
-
-```js
-import { EdgeText } from 'react-flow-renderer';
-
-<EdgeText
-  x={100}
-  y={100}
-  label="a label"
-  labelStyle={{ fill: 'white' }}
-  labelShowBg
-  labelBgStyle={{ fill: 'red' }}
-  labelBgPadding={[2, 4]}
-  labelBgBorderRadius={2}
-/>;
-```
-
-Besides the mentioned props you can pass all standard React HTML attributes like `onClick`, `className` and so on.

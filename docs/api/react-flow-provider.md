@@ -1,6 +1,6 @@
 ---
-title: ReactFlowProvider
-sidebar_position: 1
+title: <ReactFlowProvider />
+sidebar_position: 3
 ---
 
 You need to wrap your flow with a `ReactFlowProvider`:
@@ -29,4 +29,4 @@ function FlowWithProvider() {
 }
 ```
 
-It is used in the [provider example](/examples/provider/).
+It is used in the [provider example](/docs/examples/provider/).
