@@ -10,14 +10,18 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />"
+    >
       <Box maxWidth="container.xl" mx="auto" p={3}>
         <Box maxWidth="container.md" mt={50} mb={20} mx="auto">
-          <Heading fontWeight="black" textAlign="center" size="4xl">
+          <Heading fontWeight="black" textAlign="center" size="3xl">
             Unlimited Possibilities With React Flow Pro
           </Heading>
           <Heading color="gray.400" fontWeight="normal" mt={5} textAlign="center" size="lg">
-            With a paid subscription you are ensuring the maintenance and further development of the React Flow library
+            With a paid subscription you are ensuring the maintenance and further development of the
+            React Flow library
           </Heading>
         </Box>
 
@@ -26,7 +30,10 @@ export default function Home() {
             title="Free"
             description="React Flow is free and published under MIT License"
             color="gray.700"
-            features={['Use React Flow on unlimited projects', 'Join the public <a href="">Discord Server</a>']}
+            features={[
+              'Use React Flow on unlimited projects',
+              'Join the public <a href="">Discord Server</a>',
+            ]}
             buttonText="Sponsor"
             flex={0.3}
           />
@@ -43,7 +50,7 @@ export default function Home() {
               'Invitation to private Datablocks repository ',
               'You are ensuring the further development and maintenance of React Flow',
             ]}
-            pricing="Starting from 299$/mo"
+            pricing="500$ per month"
             buttonText="Sign Up"
             flex={0.4}
             transform="scale(1.05)"
@@ -59,7 +66,6 @@ export default function Home() {
               'Your company name in the readme',
               'Your company logo on the React Flow website (20k+ visitors per month)',
             ]}
-            pricing="Starting from 1999$/mo"
             buttonText="Contact Us"
             flex={0.3}
           />
