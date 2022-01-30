@@ -10,7 +10,10 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />"
+    >
       <Box height="80vh" position="relative">
         <HeroFlow />
       </Box>
@@ -21,8 +24,8 @@ export default function Home() {
             Getting Started
           </Heading>
           <Heading size="ml" mx="auto" fontWeight="normal" textAlign="center" color="gray.300">
-            React Flow enables you to build node-based applications. From simple static diagrams to complex interactive
-            editors.
+            React Flow enables you to build node-based applications. From simple static diagrams to
+            complex interactive editors.
           </Heading>
         </Box>
       </Box>
@@ -37,8 +40,8 @@ export default function Home() {
             Example Flow 1
           </Heading>
           <Heading size="ml" mx="auto" size="ml" color="gray.300" fontWeight="normal">
-            React Flow enables you to build node-based applications. From simple static diagrams to complex interactive
-            editors.
+            React Flow enables you to build node-based applications. From simple static diagrams to
+            complex interactive editors.
           </Heading>
         </Box>
         <Box flex="1">
@@ -55,8 +58,8 @@ export default function Home() {
             Example Flow 2
           </Heading>
           <Heading size="ml" mx="auto" size="ml" color="gray.300" fontWeight="normal">
-            React Flow enables you to build node-based applications. From simple static diagrams to complex interactive
-            editors.
+            React Flow enables you to build node-based applications. From simple static diagrams to
+            complex interactive editors.
           </Heading>
         </Box>
       </Flex>
@@ -67,8 +70,8 @@ export default function Home() {
             Example Flow 3
           </Heading>
           <Heading size="ml" mx="auto" size="ml" color="gray.300" fontWeight="normal">
-            React Flow enables you to build node-based applications. From simple static diagrams to complex interactive
-            editors.
+            React Flow enables you to build node-based applications. From simple static diagrams to
+            complex interactive editors.
           </Heading>
         </Box>
         <Box flex="1">
