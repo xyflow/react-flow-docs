@@ -5,15 +5,25 @@ sidebar_position: 1
 
 Before you can start to use React Flow you need to install `react-flow-renderer`. It's published on [npm](https://www.npmjs.com/package/react-flow-renderer) and installable via:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
 ```bash
 npm install react-flow-renderer
 ```
 
-or
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
 
 ```bash
 yarn add react-flow-renderer
 ```
+
+  </TabItem>
+</Tabs>
 
 ## Usage
 

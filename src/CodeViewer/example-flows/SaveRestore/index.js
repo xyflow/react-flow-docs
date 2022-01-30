@@ -4,7 +4,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   addEdge,
-  useZoomPanHelper,
+  useReactFlow,
 } from 'react-flow-renderer';
 
 import './index.css';
@@ -24,7 +24,7 @@ const SaveRestore = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [rfInstance, setRfInstance] = useState(null);
-  const { setTransform } = useZoomPanHelper();
+  const { setViewport } = useReactFlow();
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
   const onSave = useCallback(() => {
@@ -42,12 +42,12 @@ const SaveRestore = () => {
         const [x = 0, y = 0] = flow.position;
         setNodes(flow.nodes || []);
         setEdges(flow.edges || []);
-        setTransform({ x, y, zoom: flow.zoom || 0 });
+        setViewport({ x, y, zoom: flow.zoom || 0 });
       }
     };
 
     restoreFlow();
-  }, [setNodes, setTransform]);
+  }, [setNodes, setViewport]);
 
   const onAdd = useCallback(() => {
     const newNode = {

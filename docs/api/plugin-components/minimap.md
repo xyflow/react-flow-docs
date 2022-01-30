@@ -1,5 +1,5 @@
 ---
-title: MiniMap
+title: <MiniMap />
 sidebar_position: 3
 ---
 

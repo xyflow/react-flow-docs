@@ -5,7 +5,7 @@ import ReactFlow, {
   useEdgesState,
   Background,
   ReactFlowProvider,
-  useZoomPanHelper,
+  useReactFlow,
 } from 'react-flow-renderer';
 
 import './index.css';
@@ -36,11 +36,11 @@ const SmoothTransition = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
-  const { setTransform, zoomIn, zoomOut } = useZoomPanHelper();
+  const { setViewport, zoomIn, zoomOut } = useReactFlow();
 
   const handleTransform = useCallback(
     () => () => {
-      setTransform({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
+      setViewport({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
     },
     []
   );

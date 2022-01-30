@@ -1,5 +1,5 @@
 ---
-title: ReactFlowProvider
+title: <ReactFlowProvider />
 sidebar_position: 3
 ---
 
