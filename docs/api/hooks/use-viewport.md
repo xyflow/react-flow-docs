@@ -3,7 +3,7 @@ title: useViewport
 sidebar_position: 4
 ---
 
-This hook returns the ndes. The component that uses this hook re-renders whenever a node changes.
+This hook returns the viewport (`{ x: number, y: number, zoom: number }`). The component that uses this hook re-renders whenever the viewport changes.
 
 :::caution
 
@@ -26,3 +26,7 @@ function ViewportLogger() {
   return null;
 }
 ```
+
+### Typescript
+
+`useViewport(): Viewport`

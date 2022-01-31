@@ -7,7 +7,7 @@ This hook returns the edges. The component that uses this hook re-renders whenev
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
+This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a children of the `<ReactFlow />` component.
 
 :::
 
@@ -26,3 +26,7 @@ function EdgeLogger() {
   return null;
 }
 ```
+
+### Typescript
+
+`useEdges(): Edge[]`

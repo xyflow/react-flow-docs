@@ -1,6 +1,6 @@
 ---
 title: useStore
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 Under the hood React Flow uses [Zustand](https://github.com/pmndrs/zustand) for the internal state management.

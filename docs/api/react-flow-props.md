@@ -105,12 +105,12 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `nodesDraggable`: default: `true`. This applies to all nodes. You can also change the behavior of a specific node with the `draggable` node option. If this option is set to `false` and you have **clickable elements** inside your node, you need to set `pointer-events:all` explicitly for these elements
 - `nodesConnectable`: default: `true`. This applies to all nodes. You can also change the behavior of a specific node with the `connectable` node option
 - `elementsSelectable`: default: `true`. This applies to all elements. You can also change the behavior of a specific node with the `selectable` node option. If this option is set to `false` and you have **clickable elements** inside your node, you need to set `pointer-events:all` explicitly for these elements
-- `zoomOnScroll`: default: `true`. Zoom the graph in and out using the mousewheel or trackpad
-- `zoomOnPinch`: default: `true`. Zoom the graph in and out using pinch
+- `panOnDrag`: default: `true` - If set to `false`, panning is disabled
 - `panOnScroll`: default: `false`. Move the graph while keeping the zoomlevel using mousewheel or trackpad. Overwrites `zoomOnScroll`
 - `panOnScrollSpeed`: default: `0.5`. Controls how fast the canvas is moved while using the mousewheel. Only has an effect if `panOnScroll` is enabled
 - `panOnScrollMode`: default: `'free'`. Possible values are `'free'` (all directions), `'vertical'` (only vertical) or `'horizontal'` (only horizontal)
-- `panOnDrag`: default: `true` - If set to `false`, panning is disabled
+- `zoomOnScroll`: default: `true`. Zoom the graph in and out using the mousewheel or trackpad
+- `zoomOnPinch`: default: `true`. Zoom the graph in and out using pinch
 - `zoomOnDoubleClick`: default: `true`
 - `selectNodesOnDrag`: default: `true`
 - `connectionMode`: default: `'strict'`. Possible values are `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed)

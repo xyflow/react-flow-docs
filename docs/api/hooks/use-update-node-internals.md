@@ -1,13 +1,13 @@
 ---
 title: useUpdateNodeInternals
-sidebar_position: 6
+sidebar_position: 5
 ---
 
-When you are **programatically changing the number or the position of handles inside a custom node** you need to notify React Flow about it with the `useUpdateNodeInternals` hook. It also updates the internal dimensions of a node.
+When you are **programatically changing the number or the position of handles inside a custom node** you need to notify React Flow about it with the `useUpdateNodeInternals` hook. It also updates the internal dimensions of a node. The hook returns a function that expects a `string` (node id) as a parameter.
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
+This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a children of the `<ReactFlow />` component.
 
 :::
 
@@ -22,3 +22,9 @@ function UpdateNodeButton() {
   return <button onClick={() => updateNodeInternals('node-id')}></button>;
 }
 ```
+
+### Typescript
+
+The returned function has the type `UpdateNodeInternal`. Which is `(nodeId: string) => void;`:
+
+`useUpdateNodeInternals(): UpdateNodeInternals`

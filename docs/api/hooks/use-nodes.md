@@ -7,7 +7,7 @@ This hook returns the ndes. The component that uses this hook re-renders wheneve
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
+This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a children of the `<ReactFlow />` component.
 
 :::
 
@@ -26,3 +26,7 @@ function NodesLogger() {
   return null;
 }
 ```
+
+### Typescript
+
+`useNodes<NodeData = any>(): Node<NodeData>[]`
