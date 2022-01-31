@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+} from 'react-flow-renderer';
 
 const initialNodes = [
   {
@@ -62,7 +68,7 @@ const InteractionFlow = () => {
   const [panOnScroll, setPanOnScroll] = useState(false);
   const [panOnScrollMode, setPanOnScrollMode] = useState('free');
   const [zoomOnDoubleClick, setZoomOnDoubleClick] = useState(false);
-  const [paneMoveable, setPaneMoveable] = useState(true);
+  const [panOnDrag, setpanOnDrag] = useState(true);
   const [captureZoomClick, setCaptureZoomClick] = useState(false);
   const [captureZoomScroll, setCaptureZoomScroll] = useState(false);
   const [captureElementClick, setCaptureElementClick] = useState(false);
@@ -84,7 +90,7 @@ const InteractionFlow = () => {
       onNodeClick={captureElementClick ? onNodeClick : undefined}
       onNodeDragStart={onNodeDragStart}
       onNodeDragStop={onNodeDragStop}
-      paneMoveable={paneMoveable}
+      panOnDrag={panOnDrag}
       onPaneClick={captureZoomClick ? onPaneClick : undefined}
       onPaneScroll={captureZoomScroll ? onPaneScroll : undefined}
       onPaneContextMenu={captureZoomClick ? onPaneContextMenu : undefined}
@@ -183,15 +189,15 @@ const InteractionFlow = () => {
           </label>
         </div>
         <div>
-          <label htmlFor="panemoveable">
+          <label htmlFor="panOnDrag">
             <input
-              id="panemoveable"
+              id="panOnDrag"
               type="checkbox"
-              checked={paneMoveable}
-              onChange={(event) => setPaneMoveable(event.target.checked)}
-              className="react-flow__panemoveable"
+              checked={panOnDrag}
+              onChange={(event) => setpanOnDrag(event.target.checked)}
+              className="react-flow__panOnDrag"
             />
-            paneMoveable
+            panOnDrag
           </label>
         </div>
         <div>

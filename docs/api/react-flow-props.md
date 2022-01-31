@@ -110,9 +110,9 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `panOnScroll`: default: `false`. Move the graph while keeping the zoomlevel using mousewheel or trackpad. Overwrites `zoomOnScroll`
 - `panOnScrollSpeed`: default: `0.5`. Controls how fast the canvas is moved while using the mousewheel. Only has an effect if `panOnScroll` is enabled
 - `panOnScrollMode`: default: `'free'`. Possible values are `'free'` (all directions), `'vertical'` (only vertical) or `'horizontal'` (only horizontal)
+- `panOnDrag`: default: `true` - If set to `false`, panning is disabled
 - `zoomOnDoubleClick`: default: `true`
 - `selectNodesOnDrag`: default: `true`
-- `paneMoveable`: default: `true` - If set to `false`, panning is disabled
 - `connectionMode`: default: `'strict'`. Possible values are `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed)
 
 ### Connection Line Options
