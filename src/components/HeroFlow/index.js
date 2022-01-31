@@ -41,6 +41,7 @@ const defaultEdges = [
     id: 'color->hero',
     source: 'color',
     target: 'hero',
+    targetHandle: 'color',
     style: {
       stroke: '#111',
       strokeWidth: 2.5,
@@ -51,6 +52,7 @@ const defaultEdges = [
     id: 'zoom->hero',
     source: 'zoom',
     target: 'hero',
+    targetHandle: 'zoom',
     style: {
       stroke: '#111',
       strokeWidth: 2.5,
@@ -61,6 +63,7 @@ const defaultEdges = [
     id: 'shape->hero',
     source: 'shape',
     target: 'hero',
+    targetHandle: 'shape',
     style: {
       stroke: '#111',
       strokeWidth: 2.5,
@@ -95,13 +98,15 @@ function FlowViz({ headlineRef }) {
       return;
     }
 
+    const headlineBoundRight = headlineDimensions.left + headlineDimensions.width;
+
     setNodes([
       {
         id: 'hero',
         type: 'hero',
         position: {
-          x: headlineDimensions.left + headlineDimensions.width,
-          y: headlineDimensions.top,
+          x: window.innerWidth - 500,
+          y: headlineDimensions.top - 50,
         },
         style: { width: 300, ...nodeStyle },
         data: { color, zoom, shape, label: 'Output' },
@@ -111,14 +116,17 @@ function FlowViz({ headlineRef }) {
         type: 'colorpicker',
         data: { color, onChange: setColor, label: 'Shape Color' },
         style: { ...nodeStyle, width: 150 },
-        position: { x: 0, y: 200 },
+        position: { x: headlineBoundRight + 100, y: headlineDimensions.top + 20 },
       },
       {
         id: 'zoom',
         type: 'slider',
         data: { value: zoom, min: 0, max: 40, onChange: setZoom, label: 'Zoom Level' },
         style: { ...nodeStyle, width: 150 },
-        position: { x: 0, y: 400 },
+        position: {
+          x: headlineBoundRight + 15,
+          y: headlineDimensions.top + headlineDimensions.height + 20,
+        },
       },
       {
         id: 'shape',
@@ -130,7 +138,7 @@ function FlowViz({ headlineRef }) {
           label: 'Shape Type',
         },
         style: { ...nodeStyle },
-        position: { x: 0, y: 0 },
+        position: { x: headlineBoundRight + 15, y: headlineDimensions.top - 150 },
       },
     ]);
   }, [headlineDimensions]);
@@ -199,14 +207,14 @@ export default () => {
     <ReactFlowProvider>
       <Box
         position="absolute"
-        right={['5%', null, null, '50%']}
+        right={['5%', null, null, 'auto']}
         top="50%"
         left="5%"
         transform="translate(0, -50%)"
-        maxWidth="container.md"
+        maxWidth="container.sm"
         ref={headlineRef}
       >
-        <Heading size="4xl" fontWeight="black">
+        <Heading size="3xl" fontWeight="black">
           Wire Your Ideas With React Flow
         </Heading>
         <Heading color="gray.400" fontWeight="normal" size="ml" mx="auto">

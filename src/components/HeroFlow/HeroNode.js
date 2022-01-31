@@ -12,7 +12,9 @@ export default function HeroNode({ data }) {
     <Wrapper label={label}>
       <Box height="100%" width="100%">
         <Fiber {...data} />
-        <Handle type="target" position="left" />
+        <Handle type="target" position="left" style={{ top: 20 }} id="shape" />
+        <Handle type="target" position="left" style={{ top: 40 }} id="color" />
+        <Handle type="target" position="left" style={{ top: 60 }} id="zoom" />
       </Box>
     </Wrapper>
   );
