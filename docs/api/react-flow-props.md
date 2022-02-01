@@ -113,6 +113,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 - `zoomOnPinch`: default: `true`. Zoom the graph in and out using pinch
 - `zoomOnDoubleClick`: default: `true`
 - `selectNodesOnDrag`: default: `true`
+- `connectOnClick`: default: `true` - enables to create connections on touch devices and via mouse click
 - `connectionMode`: default: `'strict'`. Possible values are `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed)
 
 ### Connection Line Options

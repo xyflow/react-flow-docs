@@ -18,10 +18,14 @@ const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapConten
 
 <CodeViewer codePath="api-flows/SubFlows" applyStyles={false} options={editorOptions} activeFile="nodes.js" additionalFiles={['nodes.js','edges.js']} />
 
+### Using Child Specific Options
+
 When you move the parent node you can see that the child nodes move too. Adding nodes to another node with the `parentNode` option just does one things: It positions it relatively to its parent. The children is not really a child markup-wise. You can drag or position the child outside of its parent (when the `extent: 'parent'` option is not set) but when you move the parent, the child moves with it.
 In the example above we are using the `group` type for the parent node but you can use any type you want. Now we are going to some more nodes and edges:
 
 <CodeViewer codePath="api-flows/SubFlows2" applyStyles={false} options={editorOptions} activeFile="nodes.js" additionalFiles={['nodes.js','edges.js']} />
+
+### Using a Normal Node Type as a Parent
 
 Let's remove the label of node B and add some child nodes. In this example you can see that you can use non-group nodes as parent nodes as well. We also set the child nodes to `draggable: false` so that you can't move them.
 
