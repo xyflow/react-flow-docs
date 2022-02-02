@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import CodeBlock from '@theme/CodeBlock';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Box, Heading, Flex } from '@chakra-ui/react';
 
@@ -19,14 +20,31 @@ export default function Home() {
       </Box>
 
       <Box bgColor="bgDark">
-        <Box maxWidth="container.lg" mx="auto" px={3} py={130}>
-          <Heading fontWeight="black" textAlign="center" size="2xl" color="white">
+        <Box maxWidth="container.md" mx="auto" px={3} py={100}>
+          <Heading
+            mb={5}
+            fontFamily="body"
+            fontWeight="black"
+            textAlign="center"
+            size="2xl"
+            color="white"
+          >
             Getting Started
           </Heading>
-          <Heading size="ml" mx="auto" fontWeight="normal" textAlign="center" color="gray.300">
+          <Heading
+            fontFamily="body"
+            fontWeight="bold"
+            size="md"
+            mx="auto"
+            textAlign="center"
+            color="gray.300"
+          >
             React Flow enables you to build node-based applications. From simple static diagrams to
-            complex interactive editors.
+            complex interactive editors. To get started, you can install it from npm.
           </Heading>
+          <Box mt={10}>
+            <CodeBlock language="bash">npm install react-flow-renderer</CodeBlock>
+          </Box>
         </Box>
       </Box>
 

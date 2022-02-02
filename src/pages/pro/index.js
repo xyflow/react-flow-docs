@@ -30,6 +30,7 @@ export default function Home() {
             features={['Use React Flow in your non-commercial project']}
             pricing="0$"
             buttonText="Sponsor Us"
+            buttonLink="https://github.com/sponsors/wbkd"
             flex={1}
           />
           <ProCard
@@ -47,6 +48,7 @@ export default function Home() {
             ]}
             pricing="129$"
             buttonText="Sign Up"
+            buttonLink="https://pro.reactflow.dev/signup"
             flex={1}
           />
           <ProCard
@@ -67,15 +69,15 @@ export default function Home() {
             ]}
             pricing="449$"
             buttonText="Sign Up"
+            buttonLink="https://pro.reactflow.dev/signup"
             flex={1}
           />
         </Flex>
 
         <Box maxWidth="container.md" mt={30} mb={20} mx="auto">
           <Heading size="md" color="gray.400" fontWeight="normal" mt={5} textAlign="center">
-            There is even more. If you need custom development services or want your company be
-            listed as sponsor on our website or readme (80k views per month), please contact us for
-            custom pricing.
+            For any questions about our pro subscriptions and inquiries for custom support or
+            development services, please contact us at info[at]webkid.io.
           </Heading>
         </Box>
 

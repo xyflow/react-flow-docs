@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListIcon, Box, Heading, Text, Flex, Button } from '@chakra-ui/react';
+import { List, ListItem, ListIcon, Box, Heading, Text, Flex, Button, Link } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 export default function ProCard({
@@ -9,6 +9,7 @@ export default function ProCard({
   color,
   features = [],
   buttonText = '',
+  buttonLink,
   flex = 1,
   transform,
   pricing,
@@ -51,9 +52,12 @@ export default function ProCard({
           <Button
             maxWidth="250px"
             width="100%"
-            variant="solid"
-            colorScheme={borderColor.split('.')[0]}
+            variant="primary"
+            bgColor={borderColor}
             ml="auto"
+            as={Link}
+            href={buttonLink}
+            target="_blank"
           >
             {buttonText}
           </Button>

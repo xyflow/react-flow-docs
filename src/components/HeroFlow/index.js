@@ -273,7 +273,7 @@ export default () => {
         <Heading mb={6} size="2xl" fontWeight="black">
           Wire Your Ideas With React Flow
         </Heading>
-        <Heading mb={5} color="gray.400" fontWeight="normal" size="md" mx="auto">
+        <Heading fontFamily="body" mb={5} color="gray.400" fontWeight="bold" size="md" mx="auto">
           A highly customizable React component for building node-based editors and interactive
           diagrams
         </Heading>
