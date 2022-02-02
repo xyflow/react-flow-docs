@@ -21,70 +21,81 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Basic Props
 
-- `defaultNodes`: array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow)
-- `defaultEdges`: array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow)
-- `defaultEdgeOptions`: object of [edge options](/docs/api/edges/edge-options) that should be apllied to all edges
-- `nodes`: array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)
-- `edges`: array of [edges](/docs/api/edges/edge-options) (for a controlled flow)
-- `onNodesChange(nodeChanges)`: handler for adding interactivity for a controlled flow
-- `onEdgesChange(edgeChanges)`: handler for adding interactivity for a controlled flow
-- `nodeTypes`: object with [node types](/docs/api/nodes/node-types/)
-- `edgeTypes`: object with [edge types](/docs/api/edges/edge-types/)
-- `defaultMarkerColor`: default: `'#b1b1b7'`
-- `style`: css properties
-- `className`: additional class name
+| Name                         | Type             | Default      | Description                                                                |
+| ---------------------------- | ---------------- | ------------ | -------------------------------------------------------------------------- |
+| `defaultNodes`               |  `Node[]`        |  `[]`        |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
+| `defaultEdges`               |  `Edge[]`        |  `[]`        |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
+| `nodes`                      |  `Node[]`        |  `[]`        |  array of [nodes](/docs/api/nodes/node-options) (for an controlled flow)   |
+| `edges`                      |  `Edge[]`        |  `[]`        |  array of [edges](/docs/api/edges/edge-options) (for an controlled flow)   |
+| `onNodesChange(nodeChanges)` |  `handler`       |  `undefined` |  handler for adding interactivity for a controlled flow                    |
+| `onEdgesChange(edgeChanges)` |  `handler`       |  `undefined` |  handler for adding interactivity for a controlled flow                    |
+| `nodeTypes`                  |  `Node[]`        |  `[]`        |  object with [node types](/docs/api/nodes/node-types/)                     |
+| `edgeTypes`                  |  `Node[]`        |  `[]`        |  object with [edge types](/docs/api/edges/edge-types/)                     |
+| `defaultMarkerColor`         |  `string`        |  `#b1b1b7`   |  default marker color                                                      |
+| `style`                      |  `CSSProperties` |  `undefined` |  css properties                                                            |
+| `className`                  |  `string`        |  `undefined` |  additional class name                                                     |
 
 ### Flow View
 
-- `fitView`: default: `false` fits the view once intially to make all nodes visible
-- `fitViewOptions`: options that are passed to the fitView function on init
-- `minZoom`: default: `0.5`
-- `maxZoom`: default: `2`
-- `defaultZoom`: default: `1`
-- `defaultPosition`: default: `[0, 0]`
-- `snapToGrid`: default: `false`
-- `snapGrid`: [x, y] array - default: `[15, 15]`
-- `onlyRenderVisibleElements`: default: `false`
-- `translateExtent`: [default: `[[-∞, -∞], [+∞, +∞]]`](https://github.com/d3/d3-zoom#zoom_translateExtent)
-- `nodeExtent`: default: `[[-∞, -∞], [+∞, +∞]]` defines the extent for the node positions
-- `preventScrolling`: default: `true` if true default browser scroll behaviour is prevented
-- `attributionPosition`: `'top-left'`, `'top-center'`, `'top-right'`, `'bottom-right'`, `'bottom-center'`, `'bottom-left'` - default: `'bottom-right'`
+| Name                        | Type                                                           | Default                 | Description                                                                                        |
+| --------------------------- | -------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
+| `fitView`                   |  `boolean`                                                     |  `false`                | fits the view once to make all nodes visible                                                       |
+| `fitViewOptions`            |  `FitViewOptions`                                              |  `undefined`            | options that are passed to the initial fitView                                                     |
+| `minZoom`                   |  `number`                                                      |  `0.5`                  | min zoom level                                                                                     |
+| `maxZoom`                   |  `number`                                                      |  `2`                    | max zoom level                                                                                     |
+| `defaultZoom`               |  `number`                                                      |  `1`                    | default zoom level                                                                                 |
+| `defaultPosition`           |  `number[]`                                                    |  `[0, 0]`               | default viewport position                                                                          |
+| `snapGrid`                  |  `number[]`                                                    |  `[15, 15]`             | snap grid gap                                                                                      |
+| `snapToGrid`                |  `boolean`                                                     |  `false`                | snap grid enabled                                                                                  |
+| `onlyRenderVisibleElements` |  `boolean`                                                     |  `false`                | if true only nodes and edges inside the viewport get rendered                                      |
+| `translateExtent`           | `number[number[], number[]]`                                   |  `[[-∞, -∞], [+∞, +∞]]` | passed to the [d3-zoom translateExtent option](https://github.com/d3/d3-zoom#zoom_translateExtent) |
+| `nodeExtent`                |  `number[number[], number[]]`                                  |  `[[-∞, -∞], [+∞, +∞]]` | defines the extent for the node positions                                                          |
+| `preventScrolling`          |  `boolean`                                                     |  `true`                 | if true default browser scroll behaviour is prevented                                              |
+| `attributionPosition`       |  `'top-left'`, `'top-center'`, `'top-right'`, `'bottom-right'` |  `'bottom-right'`       | position of the "React Flow" attribution                                                           |
 
 ### Event Handlers
 
 #### General
 
-- `onInit(reactFlowInstance)`: called as soon as React Flow is initialized
+| Name                        | Type       | Default      | Description                                 |
+| --------------------------- | ---------- | ------------ | ------------------------------------------- |
+| `onInit(reactFlowInstance)` |  `handler` |  `undefined` | called as soon as React Flow is initialized |
 
 #### Nodes
 
-- `onNodeClick(event, node)`: called when user clicks a node
-- `onNodeDragStart(event, node)`: node drag start
-- `onNodeDrag(event, node)`: node drag
-- `onNodeDragStop(event, node)`: node drag stop
-- `onNodeMouseEnter(event, node)`: node mouse enter
-- `onNodeMouseMove(event, node)`: node mouse move
-- `onNodeMouseLeave(event, node)`: node mouse leave
-- `onNodeContextMenu(event, node)`: node context menu
-- `onNodeDoubleClick(event, node)`: node double click
+| Name                             | Type       | Default      | Description                    |
+| -------------------------------- | ---------- | ------------ | ------------------------------ |
+| `onNodeClick(event, node)`       |  `handler` |  `undefined` | called when user clicks a node |
+| `onNodeDragStart(event, node)`   |  `handler` |  `undefined` | node drag start                |
+| `onNodeDrag(event, node)`        |  `handler` |  `undefined` | node drag                      |
+| `onNodeDragStop(event, node)`    |  `handler` |  `undefined` | node drag stop                 |
+| `onNodeMouseEnter(event, node)`  |  `handler` |  `undefined` | node mouse enter               |
+| `onNodeMouseMove(event, node)`   |  `handler` |  `undefined` | node mouse move                |
+| `onNodeMouseLeave(event, node)`  |  `handler` |  `undefined` | node mouse leave               |
+| `onNodeContextMenu(event, node)` |  `handler` |  `undefined` | node context menu              |
+| `onNodeDoubleClick(event, node)` |  `handler` |  `undefined` | node double click              |
 
 #### Edges
 
-- `onEdgeClick(event, edge)`: called when user clicks a edge
-- `onEdgeUpdate(oldEdge, newConnection)`: called when the end of an edge gets dragged to another source or target
-- `onEdgeMouseEnter(event, edge)`: edge mouse enter
-- `onEdgeMouseMove(event, edge)`: edge mouse move
-- `onEdgeMouseLeave(event, edge)`: edge mouse leave
-- `onEdgeContextMenu(event, edge)`: called when user does a right-click on an edge
-- `onEdgeUpdateStart(event, edge)`: called when user starts to update an edge
-- `onEdgeUpdateEnd(event, edge)`: called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones).
+| Name                                   | Type       | Default      | Description                                                                                                                          |
+| -------------------------------------- | ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `onEdgeClick(event, edge)`             |  `handler` |  `undefined` | called when user clicks an edge                                                                                                      |
+| `onEdgeMouseEnter(event, edge)`        |  `handler` |  `undefined` | edge mouse enter                                                                                                                     |
+| `onEdgeMouseMove(event, edge)`         |  `handler` |  `undefined` | edge mouse move                                                                                                                      |
+| `onEdgeMouseLeave(event, edge)`        |  `handler` |  `undefined` | edge mouse leave                                                                                                                     |
+| `onEdgeContextMenu(event, edge)`       |  `handler` |  `undefined` | called when user does a right-click on an edge                                                                                       |
+| `onEdgeUpdate(oldEdge, newConnection)` |  `handler` |  `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
+| `onEdgeUpdateStart(event, edge)`       |  `handler` |  `undefined` | called when user starts to update an edge                                                                                            |
+| `onEdgeUpdateEnd(event, edge)`         |  `handler` |  `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
 
 #### Connections
 
-- `onConnect({ source, target })`: called when user connects two nodes
-- `onConnectStart(event, { nodeId, handleType })`: called when user starts to drag connection line
-- `onConnectStop(event)`: called when user stops to drag connection line
-- `onConnectEnd(event)`: called after user stops or connects nodes
+| Name                                            | Type       | Default      | Description                                     |
+| ----------------------------------------------- | ---------- | ------------ | ----------------------------------------------- |
+| `onConnect({ source, target })`                 |  `handler` |  `undefined` | called when user connects two nodes             |
+| `onConnectStart(event, { nodeId, handleType })` |  `handler` |  `undefined` | called when user starts to drag connection line |
+| `onConnectStop(event)`                          |  `handler` |  `undefined` | called when user stops to drag connection line  |
+| `onConnectEnd(event)`                           |  `handler` |  `undefined` | called after user stops or connects nodes       |
 
 #### Pane
 
@@ -131,4 +142,4 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Pro
 
-- `proOptions`: `object` - options to sepecify license and hide attribution
+- `proOptions`: `object` - options to specify license and hide attribution (you can find more information on the [pro page](/pro))
