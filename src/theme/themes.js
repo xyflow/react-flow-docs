@@ -2,12 +2,14 @@ import { extendTheme } from '@chakra-ui/react';
 
 const Button = {
   baseStyle: {
+    fontFamily: 'body',
     fontWeight: 'bold',
     borderRadius: 'full',
     outline: 'none',
     boxShadow: 'none',
     border: 'none',
     cursor: 'pointer',
+    padding: '12px 20px',
   },
   sizes: {
     sm: {
@@ -22,11 +24,25 @@ const Button = {
     },
   },
   variants: {
+    primary: {
+      transition: 'none',
+      background: 'primary',
+      color: 'white',
+      ':hover': {
+        background: '#000',
+        color: '#fff',
+      },
+    },
     outline: {},
     solid: {},
     ghost: {
       bg: 'none',
       color: 'primary',
+      transition: 'none',
+      ':hover': {
+        background: 'none',
+        color: 'black',
+      },
     },
   },
   defaultProps: {

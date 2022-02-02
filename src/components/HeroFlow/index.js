@@ -6,13 +6,20 @@ import ReactFlow, {
   Controls,
   useReactFlow,
 } from 'react-flow-renderer';
-import { Box, Flex, Heading, Button } from '@chakra-ui/react';
+import styled from '@emotion/styled';
+import { Box, Flex, Heading, Button, Text } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 import HeroNode from './HeroNode';
 import ColorPickerNode from './ColorPickerNode';
 import SliderNode from './SliderNode';
 import SwitcherNode from './SwitcherNode';
 import SwoopyNode from './SwoopyNode';
+
+const ExamplesButton = styled(Button)`
+  &:hover {
+  }
+`;
 
 const nodeTypes = {
   hero: HeroNode,
@@ -261,17 +268,30 @@ export default () => {
         transform={[null, null, null, 'translate(0, -50%)']}
         maxWidth={500}
         ref={headlineRef}
+        zIndex={1000}
       >
-        <Heading size="2xl" fontWeight="black">
+        <Heading mb={6} size="2xl" fontWeight="black">
           Wire Your Ideas With React Flow
         </Heading>
-        <Heading color="gray.400" fontWeight="normal" size="md" mx="auto">
+        <Heading mb={5} color="gray.400" fontWeight="normal" size="md" mx="auto">
           A highly customizable React component for building node-based editors and interactive
           diagrams
         </Heading>
         <Flex>
-          <Button colorScheme="red">Get Started</Button>
-          <Button variant="ghost">Examples</Button>
+          <Button mr={2} variant="primary" as="a" href="/docs/introduction" colorScheme="red">
+            <Text as="span" fontFamily="mono" mr={2}>
+              {'{}'}
+            </Text>
+            Documentation
+          </Button>
+          <Button
+            _hover={{ svg: { transform: 'translate(5px, 0)' } }}
+            variant="ghost"
+            as="a"
+            href="/docs/examples/overview"
+          >
+            Examples <ArrowForwardIcon transition="transform .2s" fontSize={19} ml={2} />
+          </Button>
         </Flex>
       </Box>
       <BrowserOnly>{() => <FlowViz headlineRef={headlineRef} />}</BrowserOnly>
