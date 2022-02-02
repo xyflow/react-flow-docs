@@ -70,8 +70,17 @@ export default function Home() {
             flex={1}
           />
         </Flex>
+
         <Box maxWidth="container.md" mt={100} mb={20} mx="auto">
-          <Heading textAlign="center">Frequently Asked Questions</Heading>
+          <Heading size="xl" textAlign="center">
+            Frequently Asked Questions
+          </Heading>
+          <Box maxWidth="container.sm" mx="auto">
+            <Heading size="md" color="gray.400" fontWeight="normal" mt={5} textAlign="center">
+              If you need help finding the right subscription or have questions, feel free to
+              contact us via Discord.
+            </Heading>
+          </Box>
           <Box my={10}>
             <FAQ />
           </Box>

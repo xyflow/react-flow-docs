@@ -12,7 +12,7 @@ import {
 function FAQItem({ title, text }) {
   return (
     <AccordionItem>
-      <AccordionButton size="md" as={Heading}>
+      <AccordionButton cursor="pointer" userSelect="none" size="md" as={Heading}>
         <Box flex="1" textAlign="left">
           {title}
         </Box>
@@ -25,7 +25,7 @@ function FAQItem({ title, text }) {
 
 export default function FAQ() {
   return (
-    <Accordion allowToggle defaultIndex={0}>
+    <Accordion allowToggle allowMultiple reduceMotion defaultIndex={[0]}>
       <FAQItem
         title="Why should I pay for an open source library?"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
