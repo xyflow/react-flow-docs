@@ -59,8 +59,6 @@ export default function Home() {
             features={[
               'Use React Flow in your company projects',
               'Remove the attribution from the React Flow renderer',
-              'Use React Flow in your company projects',
-              'Remove the attribution from the React Flow renderer',
               'Onboarding call with one of the creators of React Flow',
               'Invitation to private Discord channel with the creators of React Flow',
               'Invitation to private Datablocks repository',

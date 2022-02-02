@@ -67,11 +67,11 @@ export default function ProCard({
         <Text textTransform="uppercase" fontWeight="bold" color="gray.400" fontSize={14}>
           Included Features
         </Text>
-        <List p={0} m={0} spacing={2}>
+        <List p={0} m={0} spacing={3}>
           {features.map((feature) => (
             <ListItem display="flex" key={feature}>
               <ListIcon as={CheckCircleIcon} mt={1} mr={4} fontSize={22} color="#6EDE87" />
-              <Text color="gray.600">
+              <Text mb={0} color="gray.600">
                 <span dangerouslySetInnerHTML={{ __html: feature }} />
               </Text>
             </ListItem>
