@@ -20,7 +20,7 @@ Welcome to React Flow v10! With our latest major version update there are coming
 
 TLDR:
 
-- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/api/guides/core-concepts)).
+- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/api/getting-started/core-concepts)).
 
 * rename `onLoad` to `onInit`
 * rename `paneMoveable` to `panOnDrag`
