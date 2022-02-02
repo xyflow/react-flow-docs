@@ -3,28 +3,20 @@ import { Flex, Box } from '@chakra-ui/react';
 
 export default function NodeWrapper({ label, children }) {
   return (
-    <Flex
-      flexDirection="column"
-      height="100%"
-      border="1px solid"
-      borderColor="gray.600"
-      borderRadius={4}
-      overflow="hidden"
-    >
+    <Flex flexDirection="column" height="100%" borderRadius={8} overflow="hidden">
       <Box
-        backgroundColor="gray.600"
-        color="white"
-        fontWeight="bold"
+        bgColor="gray.900"
+        color="gray.100"
+        fontWeight="normal"
         textTransform="uppercase"
         fontFamily="mono"
-        fontSize={12}
-        padding={1}
-        border="1px solid"
-        borderColor="gray.600"
+        fontSize={10}
+        px={2}
+        py={1}
       >
         {label}
       </Box>
-      <Box flex="1" position="relative" padding={1} backgroundColor="#fff">
+      <Box flex="1" position="relative" p={2} bgColor="bgDark">
         {children}
       </Box>
     </Flex>

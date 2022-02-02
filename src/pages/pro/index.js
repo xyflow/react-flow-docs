@@ -63,6 +63,7 @@ export default function Home() {
               'Invitation to private Discord channel with the creators of React Flow',
               'Invitation to private Datablocks repository',
               'You are ensuring the development and maintenance of React Flow',
+              'Your company name on the React Flow homepage (80k views per month)',
             ]}
             pricing="449$"
             buttonText="Sign Up"

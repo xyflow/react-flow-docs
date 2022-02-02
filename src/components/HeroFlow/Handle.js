@@ -4,6 +4,8 @@ import { Handle as RfHandle } from 'react-flow-renderer';
 const defaultStyle = {
   width: 10,
   height: 10,
+  backgroundColor: '#BDC4CC',
+  border: 'none',
 };
 
 export default function Handle({ style, ...props }) {

@@ -12,26 +12,49 @@ import HeroNode from './HeroNode';
 import ColorPickerNode from './ColorPickerNode';
 import SliderNode from './SliderNode';
 import SwitcherNode from './SwitcherNode';
+import SwoopyNode from './SwoopyNode';
 
 const nodeTypes = {
   hero: HeroNode,
   colorpicker: ColorPickerNode,
   slider: SliderNode,
   switcher: SwitcherNode,
+  swoopy: SwoopyNode,
 };
 
 const nodeStyle = {};
+const isMobileFlow = typeof window !== 'undefined' && window.innerWidth < 992;
 
-const HERO_NODE_SIZE = 350;
+function getNodePositions(headlineBounds) {
+  const px = window.innerWidth * 0.05;
+  const rfHeight = window.innerHeight * 0.8;
+  const rfWidth = window.innerWidth;
 
-function getHeroNodePosition() {
-  if (typeof window !== 'undefined') {
-    const x = window.innerWidth / 2 + (window.innerWidth / 2 - HERO_NODE_SIZE) / 2;
-    const y = window.innerHeight * 0.4 - 200;
+  if (isMobileFlow) {
+    const offsetY =
+      headlineBounds.top + headlineBounds.height + (rfHeight - headlineBounds.height) / 2 - 125;
 
-    return { x, y };
+    return {
+      hero: { x: rfWidth - 190 - px, y: offsetY + 15 },
+      shape: { x: px + px / 4, y: offsetY - 4 },
+      color: { x: px / 2, y: offsetY + 96 },
+      zoom: { x: px, y: offsetY + 181 },
+      swoopy1: { x: 40, y: -40 },
+      swoopy2: { x: 160, y: 40 },
+    };
   }
-  return { x: 0, y: 0 };
+
+  const offsetX = headlineBounds.left + headlineBounds.width + px;
+  const offsetY = rfHeight / 2 - 150;
+
+  return {
+    hero: { x: rfWidth - px - 300, y: offsetY + 20 },
+    shape: { x: offsetX, y: offsetY - 10 },
+    color: { x: offsetX, y: offsetY + 100 },
+    zoom: { x: offsetX, y: offsetY + 200 },
+    swoopy1: { x: 75, y: -35 },
+    swoopy2: { x: 160, y: 40 },
+  };
 }
 
 const defaultNodes = [];
@@ -43,8 +66,8 @@ const defaultEdges = [
     target: 'hero',
     targetHandle: 'color',
     style: {
-      stroke: '#111',
-      strokeWidth: 2.5,
+      stroke: '#A3ADB8',
+      strokeWidth: 1.5,
     },
     animated: true,
   },
@@ -54,8 +77,8 @@ const defaultEdges = [
     target: 'hero',
     targetHandle: 'zoom',
     style: {
-      stroke: '#111',
-      strokeWidth: 2.5,
+      stroke: '#A3ADB8',
+      strokeWidth: 1.5,
     },
     animated: true,
   },
@@ -65,8 +88,8 @@ const defaultEdges = [
     target: 'hero',
     targetHandle: 'shape',
     style: {
-      stroke: '#111',
-      strokeWidth: 2.5,
+      stroke: '#A3ADB8',
+      strokeWidth: 1.5,
     },
     animated: true,
   },
@@ -76,8 +99,8 @@ function FlowViz({ headlineRef }) {
   const { setNodes } = useReactFlow();
   const reactFlowRef = useRef(null);
   const [headlineDimensions, setHeadlineDimensions] = useState(null);
-  const [color, setColor] = useState('#FF0072');
-  const [zoom, setZoom] = useState(13);
+  const [color, setColor] = useState('#FF5CA5');
+  const [zoom, setZoom] = useState(12);
   const [shape, setShape] = useState('cube');
 
   useEffect(() => {
@@ -98,17 +121,14 @@ function FlowViz({ headlineRef }) {
       return;
     }
 
-    const headlineBoundRight = headlineDimensions.left + headlineDimensions.width;
+    const nodePositions = getNodePositions(headlineDimensions);
 
     setNodes([
       {
         id: 'hero',
         type: 'hero',
-        position: {
-          x: window.innerWidth - 500,
-          y: headlineDimensions.top - 50,
-        },
-        style: { width: 300, ...nodeStyle },
+        position: nodePositions.hero,
+        style: { width: isMobileFlow ? 180 : 300, ...nodeStyle },
         data: { color, zoom, shape, label: 'Output' },
       },
       {
@@ -116,17 +136,14 @@ function FlowViz({ headlineRef }) {
         type: 'colorpicker',
         data: { color, onChange: setColor, label: 'Shape Color' },
         style: { ...nodeStyle, width: 150 },
-        position: { x: headlineBoundRight + 100, y: headlineDimensions.top + 20 },
+        position: nodePositions.color,
       },
       {
         id: 'zoom',
         type: 'slider',
         data: { value: zoom, min: 0, max: 40, onChange: setZoom, label: 'Zoom Level' },
         style: { ...nodeStyle, width: 150 },
-        position: {
-          x: headlineBoundRight + 15,
-          y: headlineDimensions.top + headlineDimensions.height + 20,
-        },
+        position: nodePositions.zoom,
       },
       {
         id: 'shape',
@@ -137,8 +154,24 @@ function FlowViz({ headlineRef }) {
           onChange: setShape,
           label: 'Shape Type',
         },
-        style: { ...nodeStyle },
-        position: { x: headlineBoundRight + 15, y: headlineDimensions.top - 150 },
+        style: { ...nodeStyle, width: 150 },
+        position: nodePositions.shape,
+      },
+      {
+        id: 'swoopy1',
+        type: 'swoopy',
+        draggable: false,
+        data: { label: 'custom node' },
+        position: nodePositions.swoopy1,
+        parentNode: 'shape',
+      },
+      {
+        id: 'swoopy2',
+        type: 'swoopy',
+        draggable: false,
+        data: { label: 'animated edge', swoopyDir: 'top' },
+        position: nodePositions.swoopy2,
+        parentNode: 'zoom',
       },
     ]);
   }, [headlineDimensions]);
@@ -208,16 +241,16 @@ export default () => {
       <Box
         position="absolute"
         right={['5%', null, null, 'auto']}
-        top="50%"
+        top={['20px', null, null, '50%']}
         left="5%"
-        transform="translate(0, -50%)"
-        maxWidth="container.sm"
+        transform={[null, null, null, 'translate(0, -50%)']}
+        maxWidth={500}
         ref={headlineRef}
       >
-        <Heading size="3xl" fontWeight="black">
+        <Heading size="2xl" fontWeight="black">
           Wire Your Ideas With React Flow
         </Heading>
-        <Heading color="gray.400" fontWeight="normal" size="ml" mx="auto">
+        <Heading color="gray.400" fontWeight="normal" size="md" mx="auto">
           A highly customizable React component for building node-based editors and interactive
           diagrams
         </Heading>

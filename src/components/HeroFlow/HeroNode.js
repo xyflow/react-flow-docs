@@ -7,7 +7,6 @@ import Wrapper from './NodeWrapper';
 
 export default function HeroNode({ data }) {
   const { label = '' } = data;
-
   return (
     <Wrapper label={label}>
       <Box height="100%" width="100%">

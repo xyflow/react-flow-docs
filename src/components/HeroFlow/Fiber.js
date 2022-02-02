@@ -55,11 +55,11 @@ export default function App({ color, zoom, shape, count = 150 }) {
   );
 
   return (
-    <ChakraBox height={275}>
+    <ChakraBox height={180}>
       <Canvas resize={canvasResize}>
         <Cam zoom={zoom} />
         <ambientLight intensity={0.5} />
-        <directionalLight intensity={1} position={[5, 25, 20]} />
+        <directionalLight intensity={1} position={[0, 25, 20]} />
         <Suspense fallback={null}>
           {randomData.map((props, i) => (
             <Shape key={i} {...props} color={color} type={shape} />
