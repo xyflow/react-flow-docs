@@ -27,7 +27,14 @@ export default function ProCard({
       flexDirection="column"
       transform={transform}
     >
-      <Box color="gray.800" borderBottom="1px solid transparent" borderColor={borderColor} p={6}>
+      <Flex
+        flexDir="column"
+        minHeight={250}
+        color="gray.800"
+        borderBottom="1px solid transparent"
+        borderColor={borderColor}
+        p={6}
+      >
         <Heading>{title}</Heading>
         <Text color="gray.600">{description}</Text>
         <Flex mt="auto">
@@ -51,7 +58,7 @@ export default function ProCard({
             {buttonText}
           </Button>
         </Flex>
-      </Box>
+      </Flex>
       <Box p={6}>
         <Text textTransform="uppercase" fontWeight="bold" color="gray.400" fontSize={14}>
           Included Features
