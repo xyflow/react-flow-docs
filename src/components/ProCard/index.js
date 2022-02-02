@@ -21,35 +21,51 @@ export default function ProCard({
       borderStyle="solid"
       borderColor={borderColor}
       flex={flex}
-      mx={3}
-      borderRadius="base"
+      m={5}
+      borderRadius="xl"
       overflow="hidden"
       flexDirection="column"
       transform={transform}
     >
-      <Box color={color} borderBottom="1px solid transparent" bgColor={bgColor} borderColor={borderColor} p={4}>
+      <Box color="gray.800" borderBottom="1px solid transparent" borderColor={borderColor} p={6}>
         <Heading>{title}</Heading>
-        <Text>{description}</Text>
+        <Text color="gray.600">{description}</Text>
+        <Flex mt="auto">
+          {pricing && (
+            <Flex flexShrink="0" mr={5} alignItems="center">
+              <Text mb={0} fontSize="2xl" fontWeight="bold" fontWeight="bold">
+                {pricing}{' '}
+                <Text mb={0} fontSize="md" as="span" color="gray.400">
+                  / month
+                </Text>
+              </Text>
+            </Flex>
+          )}
+          <Button
+            maxWidth="250px"
+            width="100%"
+            variant="solid"
+            colorScheme={borderColor.split('.')[0]}
+            ml="auto"
+          >
+            {buttonText}
+          </Button>
+        </Flex>
       </Box>
-      <Box p={4}>
+      <Box p={6}>
+        <Text textTransform="uppercase" fontWeight="bold" color="gray.400" fontSize={14}>
+          Included Features
+        </Text>
         <List p={0} m={0} spacing={2}>
           {features.map((feature) => (
             <ListItem display="flex" key={feature}>
-              <ListIcon as={CheckCircleIcon} mt={1} color={borderColor} />
-              <span dangerouslySetInnerHTML={{ __html: feature }} />
+              <ListIcon as={CheckCircleIcon} mt={1} mr={4} fontSize={22} color="#6EDE87" />
+              <Text color="gray.600">
+                <span dangerouslySetInnerHTML={{ __html: feature }} />
+              </Text>
             </ListItem>
           ))}
         </List>
-      </Box>
-      <Box p={4} mt="auto">
-        {pricing && (
-          <Text textAlign="center" fontWeight="bold">
-            {pricing}
-          </Text>
-        )}
-        <Button width="100%" variant="solid" colorScheme={borderColor.split('.')[0]}>
-          {buttonText}
-        </Button>
       </Box>
     </Flex>
   );

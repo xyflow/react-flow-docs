@@ -10,14 +10,11 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title="React Flow Pro" description="Description will go into a meta tag in <head />">
       <Box maxWidth="container.xl" mx="auto" p={3}>
         <Box maxWidth="container.md" mt={50} mb={20} mx="auto">
           <Heading fontWeight="black" textAlign="center" size="3xl">
-            Unlimited Possibilities With React Flow Pro
+            React Flow Pro
           </Heading>
           <Heading color="gray.400" fontWeight="normal" mt={5} textAlign="center" size="lg">
             With a paid subscription you are ensuring the maintenance and further development of the
@@ -25,49 +22,52 @@ export default function Home() {
           </Heading>
         </Box>
 
-        <Flex my={5}>
+        <Flex flexWrap="wrap" my={5} flexDirection={['column', null, null, 'row']}>
           <ProCard
             title="Free"
-            description="React Flow is free and published under MIT License"
+            description="Free usage of React Flow in non-profit projects. If you want to support us, we would appreciate your sponsorship."
             color="gray.700"
-            features={[
-              'Use React Flow on unlimited projects',
-              'Join the public <a href="">Discord Server</a>',
-            ]}
-            buttonText="Sponsor"
-            flex={0.3}
+            features={['Use React Flow in your non-commercial project']}
+            pricing="0$"
+            buttonText="Sponsor Us"
+            flex={1}
           />
           <ProCard
-            title="Pro"
-            description="Commercial version for small and medium sized companies."
+            title="Professional"
+            description="Recommended for Small and Medium-sized companies."
             bgColor="red.500"
             color="white"
             features={[
-              'Use React Flow on unlimited projects',
-              'Remove attribution from React Flow pane',
-              'Private Discord channel with the creators of React Flow (48hrs answer rate)',
-              'Invitation to private repository with 20+ advanced React Flow examples',
-              'Invitation to private Datablocks repository ',
-              'You are ensuring the further development and maintenance of React Flow',
+              'Use React Flow in your company projects',
+              'Remove the attribution from the React Flow renderer',
+              'Onboarding call with one of the creators of React Flow',
+              'Invitation to private Datablocks repository',
+              'Invitation to #insiders Discord channel',
+              'You are ensuring the development and maintenance of React Flow',
             ]}
-            pricing="500$ per month"
+            pricing="129$"
             buttonText="Sign Up"
-            flex={0.4}
-            transform="scale(1.05)"
+            flex={1}
           />
           <ProCard
-            title="Custom"
-            description="Custom pricing for large companies and special use cases"
+            title="Enterprise"
+            description="Recommended for heavy users of React Flow"
             bgColor="purple.400"
             color="white"
             features={[
-              'All features of the Pro plan',
-              'Guaranteed support hours per month from the React Flow team',
-              'Your company name in the readme',
-              'Your company logo on the React Flow website (20k+ visitors per month)',
+              'Use React Flow in your company projects',
+              'Remove the attribution from the React Flow renderer',
+              'Use React Flow in your company projects',
+              'Remove the attribution from the React Flow renderer',
+              'Onboarding call with one of the creators of React Flow',
+              'Invitation to private Discord channel with the creators of React Flow',
+              'Invitation to private Datablocks repository',
+              'Invitation to advanced examples repository',
+              'You are ensuring the development and maintenance of React Flow',
             ]}
-            buttonText="Contact Us"
-            flex={0.3}
+            pricing="449$"
+            buttonText="Sign Up"
+            flex={1}
           />
         </Flex>
         <Box maxWidth="container.md" mt={100} mb={20} mx="auto">
