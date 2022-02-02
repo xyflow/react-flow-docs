@@ -24,6 +24,7 @@ const nodeTypes = {
 
 const nodeStyle = {};
 const isMobileFlow = typeof window !== 'undefined' && window.innerWidth < 992;
+const isLargeFlow = typeof window !== 'undefined' && window.innerWidth > 1250;
 
 function getNodePositions(headlineBounds) {
   const px = window.innerWidth * 0.05;
@@ -40,6 +41,20 @@ function getNodePositions(headlineBounds) {
       color: { x: px / 2, y: offsetY + 96 },
       zoom: { x: px, y: offsetY + 181 },
       swoopy1: { x: 40, y: -40 },
+      swoopy2: { x: 160, y: 40 },
+    };
+  }
+
+  if (isLargeFlow) {
+    const offsetX = window.innerWidth / 2;
+    const offsetY = headlineBounds.top;
+
+    return {
+      hero: { x: offsetX + 340, y: offsetY },
+      shape: { x: offsetX + 10, y: offsetY - 60 },
+      color: { x: offsetX - 50, y: offsetY + 60 },
+      zoom: { x: offsetX + 30, y: offsetY + 190 },
+      swoopy1: { x: 75, y: -35 },
       swoopy2: { x: 160, y: 40 },
     };
   }
