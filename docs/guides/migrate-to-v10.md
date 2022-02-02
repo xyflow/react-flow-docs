@@ -20,12 +20,12 @@ Welcome to React Flow v10! With our latest major version update there are coming
 
 TLDR:
 
-- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/api/getting-started/core-concepts)).
-
-* rename `onLoad` to `onInit`
-* rename `paneMoveable` to `panOnDrag`
-* rename `useZoomPanHelper` to `useReactFlow` (and `setTransform` to `setViewport`)
-* rename node and edge option `isHidden` to `hidden`
+- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/api/getting-started/core-concepts))
+- Memoize your custom `nodeTypes` and `edgeTypes`
+- Rename `onLoad` to `onInit`
+- Rename `paneMoveable` to `panOnDrag`
+- Rename `useZoomPanHelper` to `useReactFlow` (and `setTransform` to `setViewport`)
+- Rename node and edge option `isHidden` to `hidden`
 
 Detailed explanation of breaking changes:
 
@@ -136,7 +136,45 @@ export default BasicFlow;
 
 If you want to add, remove or update a node or edge you can only do this by using the ReactFlow instance that you can receive either with the new `useReactFlow` hook or by using the `onPaneReady` handler that gets the instance as a function param.
 
-### 4. ~~Redux~~  - Zustand
+### 2. Memoize your custom `nodeTypes` and `edgeTypes`
+
+Whenever you pass new types, we are creating new Component types in the background. This means that you should create a new object on every render. **Memoize your nodeTypes and edgeTypes or define them outside of the component when they don't change**.
+
+**Don't do this:**
+
+This creates a new object on every render and leads to bugs and performance issues:
+
+```jsx
+// this is bad! Don't do it.
+<ReactFlow
+  nodes={[]}
+  nodeTypes={{
+    specialType: SpecialNode, // bad!
+  }}
+/>
+```
+
+**Do this:**
+
+```jsx
+function Flow() {
+  const nodeTypes = useMemo(() => ({ specialType: SpecialNode }), []);
+
+  return <ReactFlow nodes={[]} nodeTypes={nodeTypes} />;
+}
+```
+
+or create the types outside of the component when they don't change:
+
+```jsx
+const nodeTypes = { specialType: SpecialNode };
+
+function Flow() {
+  return <ReactFlow nodes={[]} nodeTypes={nodeTypes} />;
+}
+```
+
+### 3. ~~Redux~~ - Zustand
 
 We switched our state management library from Redux to Zustand. With this change we removed ~300LOC from our state related code :) The internal store and actions were not documented, but a lot of you used them. If you still need access, you can use the `useStore` hook:
 
@@ -177,7 +215,7 @@ const store = useStoreApi();
 const [x, y, zoom] = store.getState().transform;
 ```
 
-### 5. ~~onLoad~~ - onInit
+### 4. ~~onLoad~~ - onInit
 
 The `onLoad` callback has been renamed to `onInit` and now fires when the nodes are initialized.
 
@@ -203,11 +241,11 @@ const onInit = (reactFlowInstance: ReactFlowInstance) => reactFlowInstance.zoomT
 />
 ```
 
-### 6. ~~paneMoveable~~ - panOnDrag
+### 5. ~~paneMoveable~~ - panOnDrag
 
 This is more consistent with the rest of the API (`panOnScroll`, `zoomOnScroll`, etc.)
 
-### 7. ~~useZoomPanHelper transform~~ - unified in `useReactFlow`
+### 6. ~~useZoomPanHelper transform~~ - unified in `useReactFlow`
 
 Since "transform" is also the variable name of the transform in the store and it's not clear that `transform` is a setter we renamed it to `setViewport`. This is also more consistent with the other functions. Also, all `useZoomPanHelper` functions have been moved to the React Flow instance that you get from the `useReactFlow` hook or the `onPaneReady` handler.
 
@@ -232,7 +270,7 @@ New viewport functions:
 - `getZoom`
 - `getViewport`
 
-### 8. ~~isHidden~~ - hidden
+### 7. ~~isHidden~~ - hidden
 
 We mixed prefixed (`is...`) and non-prefixed boolean options. All node and edge options are not prefixed anymore. So it's `hidden`, `animated` and `selected`, `draggable`, `selectable` and `connectable`.
 
@@ -248,7 +286,7 @@ const hiddenNode = { id: '1', isHidden: true, position: { x: 50, y: 50 } };
 const hiddenNode = { id: '1', hidden: true, position: { x: 50, y: 50 } };
 ```
 
-### 9. ~~arrowHeadType~~ ~~markerEndId~~ - markerStart / markerEnd
+### 8. ~~arrowHeadType~~ ~~markerEndId~~ - markerStart / markerEnd
 
 We improved the API for customizing the markers for an edge. With the new api you are able to set individual markers at the start and the end of an edge as well as customizing them with colors, strokeWidth etc. You still have the ability to set a markerEndId but instead of using different properties, the `markerStart` and `markerEnd` property accepts either a string (id for the svg marker that you need to define yourself) or a configuration object for using the built in arrowclosed or arrow markers.
 
@@ -269,7 +307,7 @@ const markerEdge = {
 };
 ```
 
-### 10. ~~ArrowHeadType~~ - MarkerType
+### 9. ~~ArrowHeadType~~ - MarkerType
 
 This is just a wording change for making the marker api more consistent. As we are now able to set markers for the start of the edge, the name type ArrowHeadType has been renamed to MarkerType. In the future, this can also not only contain arrow shapes but others like circles, diamonds etc.
 
@@ -281,6 +319,6 @@ We are not memoizing `nodeTypes` and `edgeTypes` anymore. In v9 we introduced a 
 const nodeTypes = useMemo(() => ({ custom: CustomNode }), []);
 ```
 
-### 11. Attribution
+### 10. Attribution
 
 This is not really a breaking change to the API but a little change in the general appearance of React Flow. We added a tiny "React Flow" attribution to the bottom left (the position is configurable). We want to focus on the development of React Flow and for this we will add the possibility to create a paid account in order to remove the attribution. When everything is ready we will publish a blog post with further details.
