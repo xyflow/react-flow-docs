@@ -261,38 +261,40 @@ export default () => {
   return (
     <ReactFlowProvider>
       <Box
+        width={'100%'}
+        top={[0, 0, 0, 150]}
+        left={0}
+        right={0}
+        mx="auto"
         position="absolute"
-        right={['5%', null, null, 'auto']}
-        top={['20px', null, null, '50%']}
-        left="5%"
-        transform={[null, null, null, 'translate(0, -50%)']}
-        maxWidth={500}
-        ref={headlineRef}
-        zIndex={5}
+        maxWidth={1500}
+        zIndex={10}
       >
-        <Heading mb={6} size="2xl" fontWeight="black">
-          Wire Your Ideas With React Flow
-        </Heading>
-        <Heading fontFamily="body" mb={5} color="gray.400" fontWeight="bold" size="md" mx="auto">
-          A highly customizable React component for building node-based editors and interactive
-          diagrams
-        </Heading>
-        <Flex>
-          <Button mr={2} variant="primary" as="a" href="/docs/introduction" colorScheme="red">
-            <Text as="span" fontFamily="mono" mr={2}>
-              {'{}'}
-            </Text>
-            Documentation
-          </Button>
-          <Button
-            _hover={{ svg: { transform: 'translate(5px, 0)' } }}
-            variant="ghost"
-            as="a"
-            href="/docs/examples/overview"
-          >
-            Examples <ArrowForwardIcon transition="transform .2s" fontSize={19} ml={2} />
-          </Button>
-        </Flex>
+        <Box p={3} maxWidth={500} ref={headlineRef}>
+          <Heading mb={6} size="2xl" fontWeight="black">
+            Wire Your Ideas With React Flow
+          </Heading>
+          <Heading fontFamily="body" mb={5} color="gray.400" fontWeight="bold" size="md" mx="auto">
+            A highly customizable React component for building node-based editors and interactive
+            diagrams
+          </Heading>
+          <Flex>
+            <Button mr={2} variant="primary" as="a" href="/docs/introduction" colorScheme="red">
+              <Text as="span" fontFamily="mono" mr={2}>
+                {'{}'}
+              </Text>
+              Documentation
+            </Button>
+            <Button
+              _hover={{ svg: { transform: 'translate(5px, 0)' } }}
+              variant="ghost"
+              as="a"
+              href="/docs/examples/overview"
+            >
+              Examples <ArrowForwardIcon transition="transform .2s" fontSize={19} ml={2} />
+            </Button>
+          </Flex>
+        </Box>
       </Box>
       <BrowserOnly>{() => <FlowViz headlineRef={headlineRef} />}</BrowserOnly>
     </ReactFlowProvider>

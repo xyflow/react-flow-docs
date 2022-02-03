@@ -3,7 +3,6 @@ import { Flex, Box, Heading } from '@chakra-ui/react';
 
 export default function ExampleFlow({ title, text, Flow, rtl = false, color = 'gray' }) {
   const borderColor = `${color}.500`;
-  const backgroundColor = `${color}.50`;
 
   return (
     <Flex
@@ -26,10 +25,8 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, color = 'g
       <Box
         width={['100%', null, null, '60%']}
         border="1px solid"
-        borderColor={borderColor}
-        backgroundColor={backgroundColor}
         height={420}
-        borderRadius="lg"
+        borderRadius="md"
         overflow="hidden"
         order={rtl ? 0 : 1}
       >
