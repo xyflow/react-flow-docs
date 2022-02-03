@@ -268,7 +268,7 @@ export default () => {
         transform={[null, null, null, 'translate(0, -50%)']}
         maxWidth={500}
         ref={headlineRef}
-        zIndex={100}
+        zIndex={5}
       >
         <Heading mb={6} size="2xl" fontWeight="black">
           Wire Your Ideas With React Flow

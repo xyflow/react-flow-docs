@@ -61,7 +61,6 @@
   --ifm-navbar-height: 80px;
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: none;
-  --ifm-z-index-fixed: 2000;
 }
 
 .docusaurus-highlight-code-line {
@@ -168,4 +167,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .docs-wrapper table {
   width: 100%;
+}
+
+.react-flow__attribution {
+  z-index: 6;
 }
