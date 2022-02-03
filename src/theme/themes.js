@@ -10,6 +10,12 @@ const Button = {
     border: 'none',
     cursor: 'pointer',
     padding: '12px 20px',
+    ':hover': {
+      textDecoration: 'none',
+    },
+    ':focus': {
+      boxShadow: 'none',
+    },
   },
   sizes: {
     sm: {
@@ -31,6 +37,7 @@ const Button = {
       ':hover': {
         background: '#000',
         color: '#fff',
+        textDecoration: 'none',
       },
     },
     outline: {},

@@ -28,7 +28,7 @@ function Shape({ type, random, color, ...props }) {
 
   return (
     <ShapeComponent ref={ref} args={[1]} {...props}>
-      <meshPhongMaterial color={color} />
+      <meshNormalMaterial wireframe color="#000000" />
     </ShapeComponent>
   );
 }
@@ -59,7 +59,7 @@ export default function App({ color, zoom, shape, count = 150 }) {
       <Canvas resize={canvasResize}>
         <Cam zoom={zoom} />
         <ambientLight intensity={0.5} />
-        <directionalLight intensity={1} position={[0, 25, 20]} />
+        {/* <directionalLight intensity={1} position={[0, 25, 20]} /> */}
         <Suspense fallback={null}>
           {randomData.map((props, i) => (
             <Shape key={i} {...props} color={color} type={shape} />
