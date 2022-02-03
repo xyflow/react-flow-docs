@@ -169,6 +169,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   width: 100%;
 }
 
-.react-flow__attribution {
+.react-flow .react-flow__attribution {
   z-index: 6;
 }
