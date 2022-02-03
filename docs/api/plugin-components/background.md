@@ -21,11 +21,13 @@ function FlowWithBackground() {
 
 ### Prop Types
 
-- `variant`: string - has to be 'dots' or 'lines' - default: `dots`
-- `gap`: number - the gap between the dots or lines - default: `16`
-- `size`: number - the radius of the dots or the stroke width of the lines - default: `0.5`
-- `color`: string - the color of the dots or lines - default: `#81818a` for dots, `#eee` for lines
-- `style`: css properties
-- `className`: additional class name
+| Name        | Type              | Default     | Description                                         |
+| ----------- | ----------------- | ----------- | --------------------------------------------------- |
+| `variant`   | `'lines', 'dots'` | `'dots'`    | Background pattern type                             |
+| `gap`       | `number`          | `16`        | Gap between the patterns                            |
+| `size`      | `number`          | `0.5`       | Radius of the dots or the stroke width of the lines |
+| `color`     | `string`          | `#81818a`   | Pattern color                                       |
+| `style`     | `CSSProperties`   | `undefined` | Background style attributes                         |
+| `className` | `string`          | `undefined` | Additional class name                               |
 
 **Typescript:** The interface of the Background Prop Types are exported as `BackgroundProps`.

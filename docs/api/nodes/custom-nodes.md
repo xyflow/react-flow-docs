@@ -23,7 +23,7 @@ You can find detailed information on how to implement and use a custom node in t
 
 :::
 
-### Prop Types
+### Passed Prop Types
 
 Your custom nodes are wrapped so that the basic functions like dragging or selecting work. Custom nodes receive the following props:
 

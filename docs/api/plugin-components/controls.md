@@ -21,17 +21,19 @@ function FlowWithControls() {
 
 ### Prop Types
 
-- `showZoom`: boolean - default: true
-- `showFitView`: boolean - default: true
-- `showInteractive`: boolean - default: true
-- `style`: css properties
-- `className`: additional class name
-- `onZoomIn`: callback function that gets triggered when the zoom in button is pressed
-- `onZoomOut`: callback function that gets triggered when the zoom out button is pressed
-- `onFitView`: callback function that gets triggered when the fit-to-view button is pressed
-- `onInteractiveChange`: callback function that gets triggered when the lock button is pressed - passes the new value
+| Name                                 | Type            | Default     | Description                                    |
+| ------------------------------------ | --------------- | ----------- | ---------------------------------------------- |
+| `showZoom`                           | `boolean`       | `true`      | Display zoom button                            |
+| `showFitView`                        | `boolean`       | `true`      | Display fit view button                        |
+| `showInteractive`                    | `boolean`       | `true`      | Display interactive button                     |
+| `onZoomIn`                           | `function`      | `undefined` | callback when the zoom-in button gets pressed  |
+| `onZoomOut`                          | `function`      | `undefined` | callback when the zoom-out button gets pressed |
+| `onFitView`                          | `function`      | `undefined` | callback when the fit-view button gets pressed |
+| `onInteractiveChange(isInteractive)` | `function`      | `undefined` | callback when the lock button is pressed       |
+| `style`                              | `CSSProperties` | `undefined` | Controls style attributes                      |
+| `className`                          | `string`        | `undefined` | Additional class name                          |
 
-**Typescript:** The interface of the Controls Prop Types are exported as `ControlProps`.
+- `**Typescript:** The interface of the Controls Prop Types are exported as`ControlProps`.
 
 ## Extended Controls
 

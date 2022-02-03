@@ -21,14 +21,16 @@ const targetHandleWithValidation = (
 
 ### Prop Types
 
-- `type`: 'source' or 'target'
-- `id`: string - you only need this when you have multiple source or target handles (otherwise the node id is used)
-- `position`: 'left', 'right', 'top' or 'bottom' handle position - default: 'top' for type target, 'bottom' for type source
-- `onConnect`: function that gets triggered on connect. This callback only gets executed on source handles.
-- `isValidConnection`: function receives a connection `{ target: 'some-id', source: 'another-id', sourceHandle: 'source handle id or null', targetHandle: 'target handle id or null' }` as param, returns a boolean - default: `true`.
-- `isConnectable` boolean (this prop gets passed to your custom node component)
-- `style`: css properties
-- `className`: additional class name
+| Name                | Type                                       | Default                                             | Description                                                                                                                                                                         |
+| ------------------- | ------------------------------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`              | `'source'` or `'target'`                   | undefined                                           | Defines the handle type                                                                                                                                                             |
+| `id`                | `string`                                   | `undefined`                                         | You only need this when you have multiple source or target handles (otherwise the node id is used)                                                                                  |
+| `position`          | `'left'`, `'right'`, `'top'` or `'bottom'` | `'top'` for type target, `'bottom'` for type source | Handle position                                                                                                                                                                     |
+| `onConnect`         | `function`                                 | `undefined`                                         | Gets triggered on connect. This callback only gets executed on source handles.                                                                                                      |
+| `isValidConnection` | `function`                                 | `undefined`                                         | Receives a connection `{ target: 'some-id', source: 'another-id', sourceHandle: 'source handle id or null', targetHandle: 'target handle id or null' }` as param, returns a boolean |
+| `isConnectable`     | `boolean`                                  | `true`                                              | boolean (this prop gets passed to your custom node component)                                                                                                                       |
+| `style`             | `CSSProperties`                            | `undefined`                                         | Controls style attributes                                                                                                                                                           |
+| `className`         | `string`                                   | `undefined`                                         | Additional class name                                                                                                                                                               |
 
 **Typescript:** The interface of the Handle Prop Types are exported as `HandleProps`.
 

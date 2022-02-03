@@ -34,12 +34,14 @@ function FlowWithMiniMap() {
 
 ### Prop Types
 
-- `nodeColor`: string or function - If you pass a color as a string all nodes will get that color. If you pass a function you can return a color depending on the passed node.
-- `nodeBorderRadius`: number
-- `nodeStrokeWidth`: number
-- `nodeClassName`: string or function for adding an additional class to the nodes inside the mini map
-- `maskColor`: string
-- `style`: css properties
-- `className`: additional class name
+| Name               | Type                   | Default     | Description                                                                                                                      |
+| ------------------ | ---------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `nodeColor`        | `string` or `function` | `undefined` | If you pass a color string, all nodes get that color. If you pass a function you can return a color depending on the passed node |
+| `nodeBorderRadius` | `number`               | `0`         | Node border radius                                                                                                               |
+| `nodeStrokeWidth`  | `number`               | `1`         | Node stroke width                                                                                                                |
+| `nodeClassName`    | `function`             | `undefined` | Node class name                                                                                                                  |
+| `maskColor`        | `function`             | `undefined` | Mini map mask color                                                                                                              |
+| `style`            | `CSSProperties`        | `undefined` | Mini map style attributes                                                                                                        |
+| `className`        | `string`               | `undefined` | Additional class name                                                                                                            |
 
 **Typescript:** The interface of the MiniMap Prop Types are exported as `MiniMapProps`.

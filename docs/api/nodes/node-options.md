@@ -18,22 +18,24 @@ Node example:
 
 ## Options
 
-- `id`: string _(required)_
-- `position`: { x: number, y: number } _(required)_
-- `data`: {} _(required)_
-- `type`: 'input' | 'output' | 'default' or a custom one you implemented
-- `style`: css properties
-- `className`: additional class name
-- `targetPosition`: 'left' | 'right' | 'top' | 'bottom' handle position - default: 'top'
-- `sourcePosition`: 'left' | 'right' | 'top' | 'bottom' handle position - default: 'bottom'
-- `parentNode`: id of the parent node
-- `expandParent`: boolean
-- `extent`: extent (for example `[0,0,200,200]`) or `'parent'` if it's a child that shouln't leave the parent node
-- `hidden`: boolean - if `true`, the node will not be rendered
-- `draggable`: boolean - if option is not set, the node is draggable (overwrites general `nodesDraggable` option)
-- `connectable`: boolean - if option is not set, the node is connectable (overwrites general `nodesConnectable` option)
-- `selectable`: boolean - if option is not set, the node is selectable (overwrites general `elementsSelectable` option)
-- `dragHandle`: string - selector for specifying an element as a drag handle
+| Name                      | Type                                                     | Description                                                                                            |
+| ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `id` **(required)**       | `string`                                                 | Unique identifier                                                                                      |
+| `position` **(required)** | `{ x: number, y: number }`                               | For child nodes this position is relative to their parent                                              |
+| `data` **(required)**     | `object`                                                 |                                                                                                        |
+| `type`                    | `'input'`, `'output'` or `'default'` + your custom types | Defines the node type                                                                                  |
+| `targetPosition`          | `'left'`, `'right'`, `'top'` or `'bottom'`               | Target position is `'top'` by default                                                                  |
+| `targetPosition`          | `'left'`, `'right'`, `'top'` or `'bottom'`               | Source position is `'bottom'` by default                                                               |
+| `parentNode`              | `string`                                                 | Node od of the parent node                                                                             |
+| `expandParent`            | `boolean`                                                | If this is true the parent node gets expanded when you drag the child to the outer bounds              |
+| `extent`                  | `[number, number, number, number]` or `'parent'`         | The moving range for a node. If it's a child that shouln't leave the parent node, set it to `'parent'` |
+| `hidden`                  | `boolean`                                                | if `true`, the node will not be rendered                                                               |
+| `draggable`               | `boolean`                                                | If option is not set, the node is draggable (overwrites general `nodesDraggable` option)               |
+| `connectable`             | `boolean`                                                | If option is not set, the node is connectable (overwrites general `nodesConnectable` option)           |
+| `selectable`              | `boolean`                                                | If option is not set, the node is selectable (overwrites general `elementsSelectable` option)          |
+| `dragHandle`              | `string`                                                 | Selector for specifying an element as a drag handle                                                    |
+| `style`                   | `CSSProperties`                                          |                                                                                                        |
+| `className`               | `string`                                                 |                                                                                                        |
 
 ## Update Node Options
 

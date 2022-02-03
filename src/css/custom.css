@@ -165,3 +165,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   height: 18px;
   color: var(--chakra-colors-gray-400);
 }
+
+.docs-wrapper table {
+  width: 100%;
+}
