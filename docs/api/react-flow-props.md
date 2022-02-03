@@ -21,19 +21,19 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 ### Basic Props
 
-| Name                         | Type            | Default     | Description                                                                |
-| ---------------------------- | --------------- | ----------- | -------------------------------------------------------------------------- |
-| `defaultNodes`               | `Node[]`        | `[]`        |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
-| `defaultEdges`               | `Edge[]`        | `[]`        |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
-| `nodes`                      | `Node[]`        | `[]`        |  array of [nodes](/docs/api/nodes/node-options) (for an controlled flow)   |
-| `edges`                      | `Edge[]`        | `[]`        |  array of [edges](/docs/api/edges/edge-options) (for an controlled flow)   |
-| `onNodesChange(nodeChanges)` | `function`      | `undefined` |  handler for adding interactivity for a controlled flow                    |
-| `onEdgesChange(edgeChanges)` | `function`      | `undefined` |  handler for adding interactivity for a controlled flow                    |
-| `nodeTypes`                  | `Node[]`        | `[]`        |  object with [node types](/docs/api/nodes/node-types/)                     |
-| `edgeTypes`                  | `Node[]`        | `[]`        |  object with [edge types](/docs/api/edges/edge-types/)                     |
-| `defaultMarkerColor`         | `string`        | `#b1b1b7`   |  default marker color                                                      |
-| `style`                      | `CSSProperties` | `undefined` |  css properties                                                            |
-| `className`                  | `string`        | `undefined` |  additional class name                                                     |
+| Name                         | Type            | Default                                                                                       | Description                                                                |
+| ---------------------------- | --------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `defaultNodes`               | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
+| `defaultEdges`               | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
+| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an controlled flow)   |
+| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an controlled flow)   |
+| `onNodesChange(nodeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
+| `onEdgesChange(edgeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
+| `nodeTypes`                  | `object`        | `{input: InputNode,default: DefaultNode,output: OutputNodegroup: GroupNode}`                  |  object with [node types](/docs/api/nodes/node-types/)                     |
+| `edgeTypes`                  | `object`        | `{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }` |  object with [edge types](/docs/api/edges/edge-types/)                     |
+| `defaultMarkerColor`         | `string`        | `#b1b1b7`                                                                                     |  default marker color                                                      |
+| `style`                      | `CSSProperties` | `undefined`                                                                                   |  css properties                                                            |
+| `className`                  | `string`        | `undefined`                                                                                   |  additional class name                                                     |
 
 ### Flow View
 
