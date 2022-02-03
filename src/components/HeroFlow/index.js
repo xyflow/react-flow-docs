@@ -157,14 +157,14 @@ function FlowViz({ headlineRef }) {
         id: 'color',
         type: 'colorpicker',
         data: { color, onChange: setColor, label: 'Shape Color' },
-        style: { ...nodeStyle, width: 150 },
+        style: { ...nodeStyle, width: 160 },
         position: nodePositions.color,
       },
       {
         id: 'zoom',
         type: 'slider',
         data: { value: zoom, min: 0, max: 40, onChange: setZoom, label: 'Zoom Level' },
-        style: { ...nodeStyle, width: 150 },
+        style: { ...nodeStyle, width: 160 },
         position: nodePositions.zoom,
       },
       {
@@ -176,7 +176,7 @@ function FlowViz({ headlineRef }) {
           onChange: setShape,
           label: 'Shape Type',
         },
-        style: { ...nodeStyle, width: 150 },
+        style: { ...nodeStyle, width: 160 },
         position: nodePositions.shape,
       },
       {

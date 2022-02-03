@@ -53,13 +53,13 @@ export default function Home() {
       </Flex>
 
       <Flex alignItems="center" maxWidth="container.xl" mx="auto" flexWrap="wrap" px={3} py={130}>
-        <Box flex="1">
-          <Heading fontWeight="black" size="2xl">
-            Example Flow 1
+        <Box p={2} flex="1">
+          <Heading fontFamily="body" fontWeight="black" size="xl">
+            Feature-rich
           </Heading>
-          <Heading size="ml" mx="auto" size="ml" color="gray.300" fontWeight="normal">
-            React Flow enables you to build node-based applications. From simple static diagrams to
-            complex interactive editors.
+          <Heading fontFamily="body" size="md" mx="auto" color="gray.300" fontWeight="bold">
+            React Flow comes with seamless zooming & panning, different edge and node types, single
+            and multi-selection, controls, several event handlers and more.
           </Heading>
         </Box>
         <Box flex="1">

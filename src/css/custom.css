@@ -98,9 +98,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   display: none;
 }
 
-.button__rfpro {
+.navbar__items .button__rfpro {
   color: #ffffff;
-  border: 1px solid var(--ifm-color-primary);
   background: var(--ifm-color-primary);
   padding: 12px 20px;
   border-radius: 25px;
@@ -115,8 +114,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin-left: 15px;
 }
 
-.button__rfpro:hover {
+.navbar__items .button__rfpro:hover {
   color: #fff;
+  background: #000;
 }
 
 .menu__link {
