@@ -67,6 +67,7 @@ export default function Home() {
         Flow={ExampleFlowB}
         rtl
         color="yellow"
+        dark
       />
 
       <ExampleFlow

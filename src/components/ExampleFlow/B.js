@@ -76,7 +76,7 @@ const edges = [
 
 export default function ExampleFlow() {
   return (
-    <ReactFlow fitView defaultNodes={nodes} defaultEdges={edges}>
+    <ReactFlow preventScrolling={false} fitView defaultNodes={nodes} defaultEdges={edges}>
       <Background />
     </ReactFlow>
   );
