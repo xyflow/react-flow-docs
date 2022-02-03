@@ -26,7 +26,7 @@ export default function NodeWrapper({ label, children }) {
       >
         {label}
       </Box>
-      <Box flex="1" position="relative" bgColor="white">
+      <Box p={2} flex="1" position="relative" bgColor="white">
         {children}
       </Box>
     </Flex>

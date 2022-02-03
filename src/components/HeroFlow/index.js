@@ -70,7 +70,7 @@ function getNodePositions(headlineBounds) {
   const offsetY = rfHeight / 2 - 150;
 
   return {
-    hero: { x: rfWidth - px - 300, y: offsetY + 20 },
+    hero: { x: rfWidth - px - 180, y: offsetY + 20 },
     shape: { x: offsetX, y: offsetY - 10 },
     color: { x: offsetX, y: offsetY + 100 },
     zoom: { x: offsetX, y: offsetY + 200 },
@@ -150,7 +150,7 @@ function FlowViz({ headlineRef }) {
         id: 'hero',
         type: 'hero',
         position: nodePositions.hero,
-        style: { width: isMobileFlow ? 180 : 300, ...nodeStyle },
+        style: { width: isLargeFlow ? 300 : 180, ...nodeStyle },
         data: { color, zoom, shape, label: 'Output' },
       },
       {

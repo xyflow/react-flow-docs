@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Tetrahedron, Box } from '@react-three/drei';
+import { Tetrahedron, Box, MeshWobbleMaterial } from '@react-three/drei';
 import { Box as ChakraBox } from '@chakra-ui/react';
 
 const randomVector = (r) => [
@@ -28,7 +28,7 @@ function Shape({ type, random, color, ...props }) {
 
   return (
     <ShapeComponent ref={ref} args={[1]} {...props}>
-      <meshNormalMaterial wireframe color="#000000" />
+      <MeshWobbleMaterial color={color} />
     </ShapeComponent>
   );
 }
@@ -59,7 +59,7 @@ export default function App({ color, zoom, shape, count = 150 }) {
       <Canvas resize={canvasResize}>
         <Cam zoom={zoom} />
         <ambientLight intensity={0.5} />
-        {/* <directionalLight intensity={1} position={[0, 25, 20]} /> */}
+        <directionalLight intensity={1} position={[0, 25, 20]} />
         <Suspense fallback={null}>
           {randomData.map((props, i) => (
             <Shape key={i} {...props} color={color} type={shape} />

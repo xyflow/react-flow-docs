@@ -15,7 +15,7 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <Box height="80vh" position="relative">
+      <Box height={['80vh', null, null, 580]} position="relative">
         <HeroFlow />
       </Box>
 
@@ -40,7 +40,7 @@ export default function Home() {
             color="gray.300"
           >
             React Flow enables you to build node-based applications. From simple static diagrams to
-            complex interactive editors. To get started, you can install it from npm.
+            complex interactive editors. To get started, you can install it via npm.
           </Heading>
           <Box mt={10}>
             <CodeBlock language="bash">npm install react-flow-renderer</CodeBlock>
