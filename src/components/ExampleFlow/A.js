@@ -5,6 +5,7 @@ import { rgba } from '../../utils/css-utils';
 const nodes = [
   {
     id: 'ReactFlow',
+    type: 'input',
     position: {
       x: 300,
       y: 100,
@@ -93,6 +94,7 @@ const nodes = [
       border: '1px solid #FF5CA5',
       fontWeight: 'bold',
     },
+    type: 'output',
   },
   {
     id: 'MarkerDefinitions',
@@ -123,6 +125,7 @@ const nodes = [
       border: '1px solid #FF8ABE',
       fontWeight: 'bold',
     },
+    type: 'output',
   },
   {
     id: 'Handle',
@@ -138,6 +141,7 @@ const nodes = [
       border: '1px solid #FF8ABE',
       fontWeight: 'bold',
     },
+    type: 'output',
   },
   {
     id: 'Edge',
@@ -153,6 +157,7 @@ const nodes = [
       border: '1px solid #FF8ABE',
       fontWeight: 'bold',
     },
+    type: 'output',
   },
   {
     id: 'Marker',
@@ -168,6 +173,7 @@ const nodes = [
       border: '1px solid #FF8ABE',
       fontWeight: 'bold',
     },
+    type: 'output',
   },
 ];
 

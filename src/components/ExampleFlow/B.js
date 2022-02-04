@@ -36,7 +36,7 @@ const leaveStyles = {
 const nodes = [
   {
     id: 'react-flow-renderer',
-    type: 'default',
+    type: 'input',
     position: { x: 240, y: 0 },
     data: { label: 'react-flow-renderer' },
     style: { ...rootStyles },
