@@ -1,82 +1,239 @@
 import React from 'react';
 import ReactFlow, { Background } from 'react-flow-renderer';
+import { rgba } from '../../utils/css-utils';
 
 const nodes = [
   {
-    id: '1',
-    type: 'input',
+    id: 'ReactFlow',
     position: {
-      x: 200,
-      y: 5,
+      x: 300,
+      y: 100,
     },
     data: {
-      label: 'Input',
+      label: 'ReactFlow',
+    },
+    style: {
+      backgroundColor: '#FF0072',
+      border: '1px solid #CC005B',
+      color: 'white',
+      fontWeight: 'bold',
     },
   },
   {
-    id: '2',
+    id: 'NodeRenderer',
     position: {
-      x: 0,
-      y: 150,
+      x: 100,
+      y: 200,
     },
     data: {
-      label: 'Default',
+      label: 'NodeRenderer',
+    },
+    style: {
+      backgroundColor: '#FF5CA5',
+      border: '1px solid #FF0072',
+      fontWeight: 'bold',
     },
   },
   {
-    id: '3',
+    id: 'EdgeRenderer',
     position: {
-      x: 400,
-      y: 150,
+      x: 500,
+      y: 200,
     },
     data: {
-      label: 'Default',
+      label: 'EdgeRenderer',
+    },
+    style: {
+      backgroundColor: '#FF5CA5',
+      border: '1px solid #FF0072',
+      fontWeight: 'bold',
     },
   },
   {
-    id: '4',
-    type: 'output',
+    id: 'NodeComponent',
     position: {
-      x: 200,
+      x: 100,
       y: 300,
     },
     data: {
-      label: 'Output',
+      label: 'NodeComponent',
+    },
+    style: {
+      backgroundColor: '#FF8ABE',
+      border: '1px solid #FF5CA5',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'EdgeComponent',
+    position: {
+      x: 500,
+      y: 300,
+    },
+    data: {
+      label: 'EdgeComponent',
+    },
+    style: {
+      backgroundColor: '#FF8ABE',
+      border: '1px solid #FF5CA5',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'ConnectionLine',
+    position: {
+      x: 300,
+      y: 300,
+    },
+    data: {
+      label: 'ConnectionLine',
+    },
+    style: {
+      backgroundColor: '#FF8ABE',
+      border: '1px solid #FF5CA5',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'MarkerDefinitions',
+    position: {
+      x: 700,
+      y: 300,
+    },
+    data: {
+      label: 'MarkerDefinitions',
+    },
+    style: {
+      backgroundColor: '#FF8ABE',
+      border: '1px solid #FF5CA5',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'Node',
+    position: {
+      x: 0,
+      y: 400,
+    },
+    data: {
+      label: 'Node',
+    },
+    style: {
+      backgroundColor: '#FFB8D8',
+      border: '1px solid #FF8ABE',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'Handle',
+    position: {
+      x: 200,
+      y: 400,
+    },
+    data: {
+      label: 'Handle',
+    },
+    style: {
+      backgroundColor: '#FFB8D8',
+      border: '1px solid #FF8ABE',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'Edge',
+    position: {
+      x: 500,
+      y: 400,
+    },
+    data: {
+      label: 'Edge',
+    },
+    style: {
+      backgroundColor: '#FFB8D8',
+      border: '1px solid #FF8ABE',
+      fontWeight: 'bold',
+    },
+  },
+  {
+    id: 'Marker',
+    position: {
+      x: 700,
+      y: 400,
+    },
+    data: {
+      label: 'Marker',
+    },
+    style: {
+      backgroundColor: '#FFB8D8',
+      border: '1px solid #FF8ABE',
+      fontWeight: 'bold',
     },
   },
 ];
 
 const edges = [
   {
-    id: 'e1',
-    source: '1',
-    target: '2',
-    label: 'default edge',
+    id: 'ReactFlow->EdgeRenderer',
+    source: 'ReactFlow',
+    target: 'EdgeRenderer',
+    label: 'Default Edge',
   },
   {
-    id: 'e2',
-    source: '1',
-    target: '3',
+    id: 'ReactFlow->NodeRenderer',
+    source: 'ReactFlow',
+    target: 'NodeRenderer',
     animated: true,
-    label: 'animated edge',
+    label: 'Animated Edge',
   },
   {
-    id: 'e3',
-    source: '2',
-    target: '4',
-    type: 'default',
+    id: 'NodeRenderer->NodeComponent',
+    source: 'NodeRenderer',
+    target: 'NodeComponent',
   },
   {
-    id: 'e4',
-    source: '3',
-    target: '4',
-    type: 'step',
+    id: 'EdgeRenderer->EdgeComponent',
+    source: 'EdgeRenderer',
+    target: 'EdgeComponent',
+    type: 'smoothstep',
+  },
+  {
+    id: 'EdgeRenderer->ConnectionLine',
+    source: 'EdgeRenderer',
+    target: 'ConnectionLine',
+    type: 'smoothstep',
+    label: 'Step Edge',
+  },
+  {
+    id: 'EdgeRenderer->MarkerDefinitions',
+    source: 'EdgeRenderer',
+    target: 'MarkerDefinitions',
+    type: 'smoothstep',
+  },
+  {
+    id: 'NodeComponent->Node',
+    source: 'NodeComponent',
+    target: 'Node',
+  },
+  {
+    id: 'NodeComponent->Handle',
+    source: 'NodeComponent',
+    target: 'Handle',
+  },
+  {
+    id: 'EdgeComponent->Edge',
+    source: 'EdgeComponent',
+    target: 'Edge',
+  },
+  {
+    id: 'MarkerDefinitions->Marker',
+    source: 'MarkerDefinitions',
+    target: 'Marker',
   },
 ];
 
 export default function ExampleFlow() {
   return (
-    <ReactFlow preventScrolling={false} fitView defaultNodes={nodes} defaultEdges={edges}>
+    <ReactFlow hpreventScrolling={false} fitView defaultNodes={nodes} defaultEdges={edges}>
       <Background />
     </ReactFlow>
   );

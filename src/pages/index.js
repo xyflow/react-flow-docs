@@ -8,6 +8,7 @@ import HeroFlow from '../components/HeroFlow';
 import ExampleFlow from '../components/ExampleFlow';
 import ExampleFlowA from '../components/ExampleFlow/A';
 import ExampleFlowB from '../components/ExampleFlow/B';
+import ExampleFlowC from '../components/ExampleFlow/C';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -73,7 +74,7 @@ export default function Home() {
       <ExampleFlow
         title="Additional Components"
         text="React Flow includes a MiniMap, Controls, Background and a FlowProvider you can use to access internal state outside the ReactFlow component."
-        Flow={ExampleFlowA}
+        Flow={ExampleFlowC}
         color="red"
       />
     </Layout>
