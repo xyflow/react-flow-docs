@@ -172,6 +172,7 @@ export default function ExampleFlow() {
     <ReactFlow
       defaultEdgeOptions={{ type: 'smoothstep', style: { strokeWidth: 1.5, stroke: '#f2f7ff' } }}
       preventScrolling={false}
+      zoomOnScroll={false}
       fitView
       defaultNodes={nodes}
       defaultEdges={edges}

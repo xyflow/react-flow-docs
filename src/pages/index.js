@@ -77,6 +77,35 @@ export default function Home() {
         Flow={ExampleFlowC}
         color="red"
       />
+
+      <Box bgColor="bgDark">
+        <Box maxWidth="container.md" mx="auto" px={3} py={100}>
+          <Heading
+            mb={5}
+            fontFamily="body"
+            fontWeight="black"
+            textAlign="center"
+            size="2xl"
+            color="white"
+          >
+            Getting Started
+          </Heading>
+          <Heading
+            fontFamily="body"
+            fontWeight="bold"
+            size="md"
+            mx="auto"
+            textAlign="center"
+            color="gray.300"
+          >
+            React Flow enables you to build node-based applications. From simple static diagrams to
+            complex interactive editors. To get started, you can install it via npm.
+          </Heading>
+          <Box mt={10}>
+            <CodeBlock language="bash">npm install react-flow-renderer</CodeBlock>
+          </Box>
+        </Box>
+      </Box>
     </Layout>
   );
 }

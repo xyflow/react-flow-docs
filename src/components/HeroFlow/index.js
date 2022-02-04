@@ -269,8 +269,9 @@ export default () => {
         position="absolute"
         maxWidth={1500}
         zIndex={10}
+        pointerEvents="none"
       >
-        <Box p={3} maxWidth={500} ref={headlineRef}>
+        <Box pointerEvents="all" p={3} maxWidth={500} ref={headlineRef}>
           <Heading mb={6} size="2xl" fontWeight="black">
             Wire Your Ideas With React Flow
           </Heading>
