@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Box, Heading } from '@chakra-ui/react';
+import { Flex, Box, Heading, Button } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 export default function ExampleFlow({ title, text, Flow, rtl = false, dark = false }) {
   return (
@@ -19,6 +20,9 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, dark = fal
         <Heading fontFamily="body" size="md" mx="auto" color="gray.300" fontWeight="bold">
           {text}
         </Heading>
+        <Button variant="link" as="a" href="/docs/introduction">
+          Documentation <ArrowForwardIcon fontSize={19} ml={2} />
+        </Button>
       </Box>
       <Box
         width={['100%', null, null, '60%']}

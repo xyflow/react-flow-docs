@@ -25,7 +25,7 @@ export default function Home() {
         <Flex flexWrap="wrap" my={5} flexDirection={['column', null, null, 'row']}>
           <ProCard
             title="Free"
-            description="Free usage of React Flow in non-profit projects. If you want to support us, we would appreciate your sponsorship."
+            description="Free usage of React Flow for non-commercial projects and testing purposes."
             color="gray.700"
             features={['Use React Flow in your non-commercial project']}
             pricing="0$"
@@ -34,39 +34,62 @@ export default function Home() {
             flex={1}
           />
           <ProCard
-            title="Professional"
-            description="Recommended for Small and Medium-sized companies."
+            title="Startup"
+            description="This plan is for 1-2 developers who are working with React Flow."
             bgColor="red.500"
             color="white"
             features={[
+              'Get access to React Flow Pro for up to 2 developers',
               'Use React Flow in your company projects',
               'Remove the attribution from the React Flow renderer',
               'Onboarding call with one of the creators of React Flow',
-              'Invitation to private Datablocks repository',
-              'Invitation to #insiders Discord channel',
+              'Up to 2 invitations to private Datablocks repository',
+              'Up to 2 invitations to #insiders Discord channel',
               'You are ensuring the development and maintenance of React Flow',
             ]}
             pricing="129$"
+            unit="month"
             buttonText="Sign Up"
             buttonLink="https://pro.reactflow.dev/signup"
             flex={1}
           />
           <ProCard
             title="Enterprise"
-            description="Recommended for heavy users of React Flow"
+            description="For teams that are building commercial products with React Flow"
             bgColor="purple.400"
             color="white"
             features={[
-              'Use React Flow in your company projects',
+              'Up to 5 developers',
+              'Use React Flow in your commercial project',
               'Remove the attribution from the React Flow renderer',
               'Onboarding call with one of the creators of React Flow',
-              'Invitation to private Discord channel with the creators of React Flow',
-              'Invitation to private Datablocks repository',
+              '5 Invitations for your developers to a private Discord channel with the creators of React Flow',
+              '5 Invitations for your developers to the private Datablocks repository',
               'You are ensuring the development and maintenance of React Flow',
               'Your company name on the React Flow homepage (80k views per month)',
             ]}
             pricing="449$"
+            unit="month"
             buttonText="Sign Up"
+            buttonLink="https://pro.reactflow.dev/signup"
+            flex={1}
+          />
+          <ProCard
+            title="Custom"
+            description="For teams that are building commercial products with React Flow"
+            bgColor="purple.400"
+            color="white"
+            features={[
+              'Up to 5 developers',
+              'Use React Flow in your commercial project',
+              'Remove the attribution from the React Flow renderer',
+              'Onboarding call with one of the creators of React Flow',
+              '5 Invitations for your developers to a private Discord channel with the creators of React Flow',
+              '5 Invitations for your developers to the private Datablocks repository',
+              'You are ensuring the development and maintenance of React Flow',
+              'Your company name on the React Flow homepage (80k views per month)',
+            ]}
+            buttonText="Talk to us"
             buttonLink="https://pro.reactflow.dev/signup"
             flex={1}
           />

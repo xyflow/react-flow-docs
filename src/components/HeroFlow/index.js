@@ -285,13 +285,8 @@ export default () => {
               </Text>
               Documentation
             </Button>
-            <Button
-              _hover={{ svg: { transform: 'translate(5px, 0)' } }}
-              variant="ghost"
-              as="a"
-              href="/docs/examples/overview"
-            >
-              Examples <ArrowForwardIcon transition="transform .2s" fontSize={19} ml={2} />
+            <Button ml={4} variant="link" as="a" href="/docs/examples/overview">
+              Examples <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>
           </Flex>
         </Box>

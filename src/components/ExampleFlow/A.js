@@ -64,13 +64,13 @@ const edges = [
     id: 'e3',
     source: '2',
     target: '4',
-    type: 'smoothstep',
+    type: 'default',
   },
   {
     id: 'e4',
     source: '3',
     target: '4',
-    type: 'smoothstep',
+    type: 'step',
   },
 ];
 

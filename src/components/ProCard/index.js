@@ -13,6 +13,7 @@ export default function ProCard({
   flex = 1,
   transform,
   pricing,
+  unit,
 }) {
   const borderColor = bgColor || 'gray.500';
 
@@ -43,9 +44,11 @@ export default function ProCard({
             <Flex flexShrink="0" mr={5} alignItems="center">
               <Text mb={0} fontSize="2xl" fontWeight="bold" fontWeight="bold">
                 {pricing}{' '}
-                <Text mb={0} fontSize="md" as="span" color="gray.400">
-                  / month
-                </Text>
+                {unit && (
+                  <Text mb={0} fontSize="md" as="span" color="gray.400">
+                    / {unit}
+                  </Text>
+                )}
               </Text>
             </Flex>
           )}

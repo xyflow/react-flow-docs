@@ -51,6 +51,22 @@ const Button = {
         color: 'black',
       },
     },
+    link: {
+      bg: 'none',
+      color: 'primary',
+      transition: 'none',
+      '&': {
+        padding: 0,
+      },
+      ':hover': {
+        background: 'none',
+        color: 'black',
+        svg: { transform: 'translate(5px, 0)' },
+      },
+      svg: {
+        transition: 'transform .2s',
+      },
+    },
   },
   defaultProps: {
     size: 'md',

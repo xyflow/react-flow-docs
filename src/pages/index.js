@@ -56,14 +56,14 @@ export default function Home() {
 
       <ExampleFlow
         title="Feature-rich"
-        text="React Flow comes with seamless zooming & panning, different edge and node types, single and multi-selection, controls, several event handlers and more."
+        text="React Flow comes with seamless zooming & panning, customizable node and edge types, single and multi-selection, several event handlers and more."
         Flow={ExampleFlowA}
         color="purple"
       />
 
       <ExampleFlow
         title="Nested Graphs"
-        text="React Flow comes with seamless zooming & panning, different edge and node types, single and multi-selection, controls, several event handlers and more."
+        text="React Flow has built-in support for rendering sub graphs and nested nodes."
         Flow={ExampleFlowB}
         rtl
         color="yellow"
