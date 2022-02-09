@@ -151,7 +151,7 @@ export default function Home() {
             <Flex flexWrap="wrap" justifyContent="space-between">
               <Box mb={12} width="48%">
                 <Box
-                  backgroundImage="url(/img/datablocks.png)"
+                  backgroundImage="url(/img/bitdev.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
@@ -164,7 +164,7 @@ export default function Home() {
                   color="white"
                   mt={4}
                   as="a"
-                  href="https://datablocks.pro"
+                  href="https://bit.dev"
                   target="_blank"
                   variant="link"
                   _hover={{ color: 'primary' }}
@@ -174,7 +174,7 @@ export default function Home() {
               </Box>
               <Box mb={12} width="48%">
                 <Box
-                  backgroundImage="url(/img/datablocks.png)"
+                  backgroundImage="url(/img/getbasis.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
@@ -187,7 +187,7 @@ export default function Home() {
                   color="white"
                   mt={4}
                   as="a"
-                  href="https://datablocks.pro"
+                  href="https://getbasis.com"
                   target="_blank"
                   variant="link"
                   _hover={{ color: 'primary' }}
@@ -197,7 +197,7 @@ export default function Home() {
               </Box>
               <Box mb={12} width="48%">
                 <Box
-                  backgroundImage="url(/img/datablocks.png)"
+                  backgroundImage="url(/img/circles360.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
@@ -210,12 +210,12 @@ export default function Home() {
                   color="white"
                   mt={4}
                   as="a"
-                  href="https://datablocks.pro"
+                  href="https://circles360.github.io"
                   target="_blank"
                   variant="link"
                   _hover={{ color: 'primary' }}
                 >
-                  some-other-project.com <ArrowForwardIcon fontSize={19} ml={2} />
+                  circles360.github.io <ArrowForwardIcon fontSize={19} ml={2} />
                 </Button>
               </Box>
               <Box mb={9} width="48%">
