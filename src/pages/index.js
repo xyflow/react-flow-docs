@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import CodeBlock from '@theme/CodeBlock';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Box, Heading, Flex, Text, Button, Image } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -10,6 +9,9 @@ import ExampleFlow from '../components/ExampleFlow';
 import ExampleFlowA from '../components/ExampleFlow/A';
 import ExampleFlowB from '../components/ExampleFlow/B';
 import ExampleFlowC from '../components/ExampleFlow/C';
+
+import { shortNumberFormat } from '../utils';
+import stats from '../../static/data/stats.json';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -37,8 +39,14 @@ export default function Home() {
                 >
                   Github Stars
                 </Text>
-                <Text mb={0} lineHeight="1" fontWeight="black" fontSize={40}>
-                  9.1K
+                <Text
+                  mb={0}
+                  lineHeight="1"
+                  fontWeight="black"
+                  fontSize={40}
+                  textTransform="uppercase"
+                >
+                  {shortNumberFormat(stats.stars)}
                 </Text>
               </Box>
               <Box flex={1} mx={3} px={3}>
@@ -51,8 +59,14 @@ export default function Home() {
                 >
                   NPM Downloads
                 </Text>
-                <Text mb={0} lineHeight="1" fontWeight="black" fontSize={40}>
-                  2.6M
+                <Text
+                  mb={0}
+                  lineHeight="1"
+                  fontWeight="black"
+                  textTransform="uppercase"
+                  fontSize={40}
+                >
+                  {shortNumberFormat(stats.downloads)}
                 </Text>
               </Box>
               <Box mx={3} px={3} flex={1}>
@@ -144,7 +158,7 @@ export default function Home() {
               target="_blank"
               variant="link"
             >
-              Learn More <ArrowForwardIcon fontSize={19} ml={2} />
+              datablocks.pro <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>
           </Box>
           <Box width={['100%', null, null, '48%']}>
