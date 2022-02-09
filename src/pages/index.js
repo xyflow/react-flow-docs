@@ -38,7 +38,7 @@ export default function Home() {
                   Github Stars
                 </Text>
                 <Text mb={0} lineHeight="1" fontWeight="black" fontSize={40}>
-                  8.2K
+                  9.1K
                 </Text>
               </Box>
               <Box flex={1} mx={3} px={3}>
@@ -49,13 +49,13 @@ export default function Home() {
                   color="gray.300"
                   textTransform="uppercase"
                 >
-                  Last Commit
+                  NPM Downloads
                 </Text>
                 <Text mb={0} lineHeight="1" fontWeight="black" fontSize={40}>
-                  2h ago
+                  2.6M
                 </Text>
               </Box>
-              <Box flex={1} mx={3} px={3}>
+              <Box mx={3} px={3} flex={1}>
                 <Text
                   mb={2}
                   fontSize={12}
@@ -63,10 +63,10 @@ export default function Home() {
                   color="gray.300"
                   textTransform="uppercase"
                 >
-                  Discord Members
+                  License
                 </Text>
                 <Text mb={0} lineHeight="1" fontWeight="black" fontSize={40}>
-                  324
+                  MIT
                 </Text>
               </Box>
             </Flex>
@@ -117,14 +117,17 @@ export default function Home() {
             Learning Modeling, Conversational UIs.
           </Heading>
         </Box>
-        <Flex justifyContent="space-between" maxWidth="container.xl" mx="auto">
-          <Box flex={1} width="48%">
+        <Flex flexWrap="wrap" justifyContent="space-between" maxWidth="container.xl" mx="auto">
+          <Box width={['100%', null, null, '48%']}>
             <Box
               backgroundImage="url(/img/datablocks.png)"
               h={350}
               backgroundSize="cover"
               backgroundPosition="center"
               borderRadius="md"
+              _hover={{ transform: 'scale(1.025)' }}
+              cursor="pointer"
+              transition="transform .2s"
             />
             <Heading mb={5} mt={6} fontFamily="body" fontWeight="black" size="lg" color="white">
               Datablocks
@@ -133,44 +136,87 @@ export default function Home() {
               A node-based editor for exploring, analyzing and transforming data without code. React
               Flow was originally build for this project and later open sourced seperately.
             </Heading>
+            <Button
+              color="white"
+              _hover={{ color: 'primary' }}
+              as="a"
+              href="https://datablocks.pro"
+              target="_blank"
+              variant="link"
+            >
+              Learn More <ArrowForwardIcon fontSize={19} ml={2} />
+            </Button>
           </Box>
-          <Box flex={1} width="48%">
+          <Box width={['100%', null, null, '48%']}>
             <Flex flexWrap="wrap" justifyContent="space-between">
-              <Box mb={9} width="48%">
+              <Box mb={12} width="48%">
                 <Box
                   backgroundImage="url(/img/datablocks.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
                   borderRadius="md"
+                  _hover={{ transform: 'scale(1.025)' }}
+                  cursor="pointer"
+                  transition="transform .2s"
                 />
-                <Heading mb={3} mt={4} fontFamily="body" fontWeight="black" size="md" color="white">
-                  Datablocks
-                </Heading>
+                <Button
+                  color="white"
+                  mt={4}
+                  as="a"
+                  href="https://datablocks.pro"
+                  target="_blank"
+                  variant="link"
+                  _hover={{ color: 'primary' }}
+                >
+                  bit.dev <ArrowForwardIcon fontSize={19} ml={2} />
+                </Button>
               </Box>
-              <Box mb={9} width="48%">
+              <Box mb={12} width="48%">
                 <Box
                   backgroundImage="url(/img/datablocks.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
                   borderRadius="md"
+                  _hover={{ transform: 'scale(1.025)' }}
+                  cursor="pointer"
+                  transition="transform .2s"
                 />
-                <Heading mb={3} mt={4} fontFamily="body" fontWeight="black" size="md" color="white">
-                  Datablocks
-                </Heading>
+                <Button
+                  color="white"
+                  mt={4}
+                  as="a"
+                  href="https://datablocks.pro"
+                  target="_blank"
+                  variant="link"
+                  _hover={{ color: 'primary' }}
+                >
+                  getbasis.com <ArrowForwardIcon fontSize={19} ml={2} />
+                </Button>
               </Box>
-              <Box mb={9} width="48%">
+              <Box mb={12} width="48%">
                 <Box
                   backgroundImage="url(/img/datablocks.png)"
                   h={180}
                   backgroundSize="cover"
                   backgroundPosition="center"
                   borderRadius="md"
+                  _hover={{ transform: 'scale(1.025)' }}
+                  cursor="pointer"
+                  transition="transform .2s"
                 />
-                <Heading mb={3} mt={4} fontFamily="body" fontWeight="black" size="md" color="white">
-                  Datablocks
-                </Heading>
+                <Button
+                  color="white"
+                  mt={4}
+                  as="a"
+                  href="https://datablocks.pro"
+                  target="_blank"
+                  variant="link"
+                  _hover={{ color: 'primary' }}
+                >
+                  some-other-project.com <ArrowForwardIcon fontSize={19} ml={2} />
+                </Button>
               </Box>
               <Box mb={9} width="48%">
                 <Flex
@@ -187,6 +233,17 @@ export default function Home() {
                 >
                   your project here
                 </Flex>
+                <Button
+                  color="white"
+                  _hover={{ color: 'primary' }}
+                  mt={4}
+                  as="a"
+                  href="https://datablocks.pro"
+                  target="_blank"
+                  variant="link"
+                >
+                  contact us <ArrowForwardIcon fontSize={19} ml={2} />
+                </Button>
               </Box>
             </Flex>
           </Box>
@@ -196,11 +253,10 @@ export default function Home() {
       <Box px={3} py={24}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl">
-            Showcase
+            Trusted By Many
           </Heading>
           <Heading mb={20} fontFamily="body" size="md" mx="auto" color="gray.300" fontWeight="bold">
-            React Flow can be used for a wide range of applications: Music Synthesizers, Machine
-            Learning Modeling, Conversational UIs.
+            React Flow is used by Startups, NGO's, Universities and large companies.
           </Heading>
         </Box>
       </Box>

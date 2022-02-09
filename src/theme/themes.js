@@ -52,13 +52,14 @@ const Button = {
       },
     },
     link: {
+      fontWeight: 'black',
       bg: 'none',
       color: 'primary',
       transition: 'none',
       '&': {
         padding: 0,
       },
-      ':hover': {
+      _hover: {
         background: 'none',
         color: 'black',
         svg: { transform: 'translate(5px, 0)' },
