@@ -49,8 +49,8 @@ export default function Home() {
             ]}
             pricing="129$"
             unit="month"
-            buttonText="Sign Up"
-            buttonLink="https://pro.reactflow.dev/signup"
+            buttonText="Subscribe"
+            buttonLink="https://react-flow-platform.netlify.app/subscribe/startup"
             flex={1}
           />
           <ProCard
@@ -70,8 +70,8 @@ export default function Home() {
             ]}
             pricing="449$"
             unit="month"
-            buttonText="Sign Up"
-            buttonLink="https://pro.reactflow.dev/signup"
+            buttonText="Subscribe"
+            buttonLink="https://react-flow-platform.netlify.app/subscribe/enterprise"
             flex={1}
           />
           <ProCard
@@ -90,7 +90,7 @@ export default function Home() {
               'Your company name on the React Flow homepage (80k views per month)',
             ]}
             buttonText="Talk to us"
-            buttonLink="https://pro.reactflow.dev/signup"
+            buttonLink="mailto:info@webkid.io"
             flex={1}
           />
         </Flex>
