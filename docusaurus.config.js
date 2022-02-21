@@ -7,6 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Flow',
+
   tagline: 'Wire Your Ideas With React Flow',
   url: 'https://reactflow.dev',
   baseUrl: '/',
@@ -15,7 +16,10 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'wbkd', // Usually your GitHub org/user name.
   projectName: 'react-flow', // Usually your repo name.
-
+  customFields: {
+    description:
+      'Highly customizable React.js library for building interactive node-based editors, flow charts and diagrams.',
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
