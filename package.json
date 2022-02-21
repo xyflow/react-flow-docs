@@ -24,8 +24,8 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mdx-js/react": "^1.6.21",
-    "@react-three/drei": "^8.7.3",
-    "@react-three/fiber": "^7.0.25",
+    "@react-three/drei": "^8.10.6",
+    "@react-three/fiber": "^7.0.26",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
@@ -34,6 +34,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-flow-renderer": "^10.0.0-next.38",
+    "three": "^0.137.5",
     "url-loader": "^4.1.1"
   },
   "browserslist": {
