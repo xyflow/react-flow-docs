@@ -175,6 +175,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .docs-wrapper table {
   width: 100%;
+  display: table;
 }
 
 .react-flow .react-flow__attribution {

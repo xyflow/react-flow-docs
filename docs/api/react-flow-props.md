@@ -3,19 +3,23 @@ title: ReactFlow Props
 sidebar_position: 1
 ---
 
-This is the list of prop types you can pass to the `<ReactFlow />` component.
+This is the list of props you can pass to the `<ReactFlow />` component.
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
 ```
 
-:::info Typescript
+#### Typescript
 
 The interface of the ReactFlow Prop types is exported as `ReactFlowProps`. You can use it in your code as follows:
 
 ```javascript
 import { ReactFlowProps } from 'react-flow-renderer';
 ```
+
+:::caution
+
+When you pass an array or an object as a prop (examples: `nodeTypes`, `edgeTypes`, `deleteKeyCode`, `snapGrid`) you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
 
 :::
 
@@ -74,6 +78,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 | `onNodeMouseLeave(event, node)`  | `function` | `undefined` | node mouse leave               |
 | `onNodeContextMenu(event, node)` | `function` | `undefined` | node context menu              |
 | `onNodeDoubleClick(event, node)` | `function` | `undefined` | node double click              |
+| `onNodesDelete(nodes)`           | `function` | `undefined` | called when nodes get deleted  |
 
 #### Edges
 
@@ -87,6 +92,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 | `onEdgeUpdate(oldEdge, newConnection)` | `function` | `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
 | `onEdgeUpdateStart(event, edge)`       | `function` | `undefined` | called when user starts to update an edge                                                                                            |
 | `onEdgeUpdateEnd(event, edge)`         | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
+| `onEdgesDelete(edges)`                 | `function` | `undefined` | called when edges get deleted                                                                                                        |
 
 #### Connections
 
@@ -143,7 +149,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 | Name                    | Type                   | Default       | Description                                                                                                        |
 | ----------------------- | ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `deleteKeyCode`         | `string` or `string[]` | `'Backspace'` | When the user presses the deleteKeyCode an remove event gets triggered                                             |
+| `deleteKeyCode`         | `string` or `string[]` | `'Backspace'` | Key(s) that trigger a remove handler (when you pass an array, memoize or define it outside the component)          |
 | `selectionKeyCode`      | `string` or `string[]` | `'Shift'`     | While pressing the selectionKeyCode and dragging the mouse you can create a selection for multiple nodes and edges |
 | `multiSelectionKeyCode` | `string` or `string[]` | `'Meta'`      | While pressing the multiSelectionKeyCode you can select multiple nodes and edges with a click                      |
 | `zoomActivationKeyCode` | `string` or `string[]` | `'Meta'`      | While pressing the zoomActivationKeyCode you can zoom even if `panOnScroll=true` or `zoomOnScroll=false`           |
