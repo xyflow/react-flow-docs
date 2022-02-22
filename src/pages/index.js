@@ -145,7 +145,7 @@ export default function Home() {
             </Heading>
             <Heading fontFamily="body" fontWeight="bold" size="md" mx="auto" color="gray.300">
               A node-based editor for exploring, analyzing and transforming data without code. React
-              Flow was originally build for this project and later open sourced seperately.
+              Flow was initially built for datablocks and later open sourced separately.
             </Heading>
             <Button
               color="white"
