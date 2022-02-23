@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { Box, Heading, Flex, Text, Button, Image } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 import HeroFlow from '../components/HeroFlow';
@@ -17,10 +17,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title="Home" description={siteConfig.customFields.description}>
       <Box height={['80vh', null, null, 580]} position="relative">
         <HeroFlow />
       </Box>
@@ -148,7 +145,7 @@ export default function Home() {
             </Heading>
             <Heading fontFamily="body" fontWeight="bold" size="md" mx="auto" color="gray.300">
               A node-based editor for exploring, analyzing and transforming data without code. React
-              Flow was originally build for this project and later open sourced seperately.
+              Flow was initially built for datablocks and later open sourced separately.
             </Heading>
             <Button
               color="white"

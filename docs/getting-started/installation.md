@@ -27,7 +27,7 @@ yarn add react-flow-renderer
 
 ## Usage
 
-The `react-flow-renderer` package exports the `ReactFlow` React component as the default export and some aditional components (like [`MiniMap`](/docs/api/plugin-components/minimap) and [`Controls`](/docs/api/plugin-components/controls)) and [util functions](/docs/api/graph-utils). The bundle also imports the default styles. If you don't want to load the styles, you can find more information in the [theming section](/docs/guides/theming).
+The `react-flow-renderer` package exports the `ReactFlow` React component as the default export and some aditional components (like [`MiniMap`](/docs/api/plugin-components/minimap) and [`Controls`](/docs/api/plugin-components/controls)) and [util functions](/docs/api/graph-util-functions). The bundle also imports the default styles. If you don't want to load the styles, you can find more information in the [theming section](/docs/guides/theming).
 
 ```jsx
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
