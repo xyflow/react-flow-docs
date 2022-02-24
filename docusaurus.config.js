@@ -93,10 +93,6 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
               },
@@ -110,17 +106,21 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'React Flow Pro',
+                href: 'https://pro.reactflow.dev',
+              },
+              {
                 label: 'Blog',
                 to: '/blog',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/wbkd/react-flow',
               },
             ],
           },
         ],
-        copyright: `React Flow is developed and maintained by webkid. <br/> Copyright © ${new Date().getFullYear()} <a href="https://webkid.io">webkid GmbH</a>`,
+        copyright: `<a href="mailto:info@webkid.io">info@webkid.io</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
