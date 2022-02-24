@@ -72,7 +72,7 @@ const config = {
           {
             href: 'https://react-flow-platform.netlify.app/subscribe',
             position: 'right',
-            label: 'React Flow Pro 💎',
+            label: 'React Flow Pro',
             className: 'button__rfpro hide-svg-icon',
           },
         ],
