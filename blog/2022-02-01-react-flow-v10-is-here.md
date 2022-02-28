@@ -9,7 +9,7 @@ After several months of hard work, we can finally announce the release of React 
 
 ## Recap: Two Years React Flow
 
-Almost two years ago we [open sourced React Flow](https://webkid.io/blog/react-flow-node-based-graph-library/). We've built it for our flow-based data processing tool [Datablocks](https//datablocks.pro), that we launched a year later. Since then we put more and more time into React Flow and related projects and it got a lot of traction (100k+ visitors per month, 9k+ stars on Github, 1k+ Discord members, 100k+ weekly downloads on npm). We are super happy about the community that has developed around React Flow and we want to secure the further existence and development with React Flow Pro.
+Almost two years ago we [open sourced React Flow](https://webkid.io/blog/react-flow-node-based-graph-library/). We've built it for our flow-based data processing tool [Datablocks](https://datablocks.pro), that we launched a year later. Since then we put more and more time into React Flow and related projects and it got a lot of traction (100k+ visitors per month, 9k+ stars on Github, 1k+ Discord members, 100k+ weekly downloads on npm). We are super happy about the community that has developed around React Flow and we want to secure the further existence and development with React Flow Pro.
 
 ## New Features
 
