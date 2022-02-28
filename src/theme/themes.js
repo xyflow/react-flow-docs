@@ -91,6 +91,7 @@ const fontMono = `'jetbrains-mono', monospace;`;
 
 const fonts = {
   body: fontSans,
+  // heading: fontSans,
   mono: fontMono,
 };
 

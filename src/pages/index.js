@@ -35,7 +35,7 @@ export default function Home() {
                 rightIcon={<ArrowForwardIcon fontSize={19} />}
                 variant="link"
                 as="a"
-                href="/pro"
+                href="https://pro.reactflow.dev"
                 _hover={{ color: 'white' }}
               >
                 React Flow Pro

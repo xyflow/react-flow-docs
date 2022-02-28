@@ -70,7 +70,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://react-flow-platform.netlify.app/subscribe',
+            href: 'https://pro.reactflow.dev/plans',
             position: 'right',
             label: 'React Flow Pro',
             className: 'button__rfpro hide-svg-icon',
@@ -98,7 +98,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/reactflow',
               },
             ],
           },
