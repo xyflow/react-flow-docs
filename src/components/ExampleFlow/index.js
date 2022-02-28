@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Heading, Button } from '@chakra-ui/react';
+import { Flex, Box, Heading, Text, Button } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 export default function ExampleFlow({ title, text, Flow, rtl = false, dark = false }) {
@@ -17,9 +17,9 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, dark = fal
         <Heading fontFamily="body" fontWeight="black" size="xl">
           {title}
         </Heading>
-        <Heading fontFamily="body" size="md" mx="auto" color="gray.300" fontWeight="bold">
+        <Text fontSize="lg" color="gray.600">
           {text}
-        </Heading>
+        </Text>
         <Button variant="link" as="a" href="/docs/introduction">
           Documentation <ArrowForwardIcon fontSize={19} ml={2} />
         </Button>
@@ -27,12 +27,12 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, dark = fal
       <Box
         width={['100%', null, null, '60%']}
         border="1px solid"
-        borderColor={dark ? 'bgDark' : 'gray.100'}
+        borderColor={dark ? 'silver.900' : 'gray.100'}
         height={420}
         borderRadius="md"
         overflow="hidden"
         order={rtl ? 0 : 1}
-        bgColor={dark ? 'bgDark' : 'white'}
+        bgColor={dark ? 'silver.900' : 'white'}
         boxShadow="rgb(26 25 43 / 2%) 0px 2.8px 2.2px, rgb(26 25 43 / 2%) 0px 12.5px 10px, rgb(26 25 43 / 2%) 0px 22.3px 17.9px, rgb(26 25 43 / 3%) 0px 41.8px 33.4px, rgb(26 25 43 / 2%) 0px 100px 80px;"
       >
         <Flow />

@@ -271,14 +271,14 @@ export default () => {
         zIndex={7}
         pointerEvents="none"
       >
-        <Box pointerEvents="all" p={3} maxWidth={500} ref={headlineRef}>
-          <Heading mb={6} size="2xl" fontWeight="black">
+        <Box pointerEvents="all" p={3} pl={[3, 3, 3, 10, 10]} maxWidth={500} ref={headlineRef}>
+          <Heading color="silver.900" mb={6} size="2xl" fontWeight="black">
             Wire Your Ideas With React Flow
           </Heading>
-          <Heading fontFamily="body" mb={5} color="gray.400" fontWeight="bold" size="md" mx="auto">
+          <Text mb={5} color="gray.600" fontSize="xl" mx="auto">
             A highly customizable React component for building node-based editors and interactive
             diagrams
-          </Heading>
+          </Text>
           <Flex>
             <Button mr={2} variant="primary" as="a" href="/docs/introduction" colorScheme="red">
               <Text as="span" fontFamily="mono" mr={2}>

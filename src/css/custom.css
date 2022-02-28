@@ -137,7 +137,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .footer--dark {
-  --ifm-footer-background-color: #222138;
+  --ifm-footer-background-color: #1a192b;
   --ifm-footer-color: #eef0f2;
   --ifm-footer-link-color: #c5cbd2;
 }
