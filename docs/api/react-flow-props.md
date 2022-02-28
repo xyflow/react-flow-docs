@@ -156,6 +156,6 @@ When you pass an array or an object as a prop (examples: `nodeTypes`, `edgeTypes
 
 ### Pro
 
-| Name         | Type     | Default     | Description                                                                                             |
-| ------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------------- |
-| `proOptions` | `object` | `undefined` | options to specify license and hide attribution (you can find more information on the [pro page](/pro)) |
+| Name         | Type     | Default     | Description                                                                                                                  |
+| ------------ | -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `proOptions` | `object` | `undefined` | options to specify license and hide attribution (you can find more information on the [pro page](https://pro.reactflow.dev)) |
