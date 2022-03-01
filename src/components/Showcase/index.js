@@ -4,7 +4,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 function Showcase() {
   return (
-    <SimpleGrid columns={2} spacing={10} maxWidth="container.xl" mx="auto">
+    <SimpleGrid columns={[1, 1, 2]} spacing={10} maxWidth="container.xl" mx="auto">
       <Box>
         <Box
           backgroundImage="url(/img/datablocks.png)"
@@ -32,7 +32,7 @@ function Showcase() {
         </Button>
       </Box>
       <Box>
-        <SimpleGrid columns={2} spacing={5}>
+        <SimpleGrid columns={[1, 2, 2]} spacing={5}>
           <Box>
             <Box
               backgroundImage="url(/img/bitdev.png)"

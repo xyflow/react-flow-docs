@@ -19,7 +19,7 @@ The version 10 comes with lots of new features. Besides a complete rewrite of th
 
 When you look at the [Github disscussion section](https://github.com/wbkd/react-flow/discussions/1024), this was the most awaited feature. While developing flow-based editors it's very common, that you want to separate a part of your logic, or want to group nodes for examples. This is now possible by using the `parentNode` option:
 
-import CodeViewer from '/src/CodeViewer'
+import CodeViewer from '/src/components/CodeViewer'
 const editorOptions = { editorHeight: 400, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/SubFlows3" options={editorOptions} additionalFiles={['nodes.js','edges.js']} />

@@ -272,7 +272,7 @@ export default () => {
         pointerEvents="none"
       >
         <Box pointerEvents="all" p={3} pl={[3, 3, 3, 10, 10]} maxWidth={500} ref={headlineRef}>
-          <Heading color="silver.900" mb={6} size="2xl" fontWeight="black">
+          <Heading color="black" mb={6} size="2xl" fontWeight="black">
             Wire Your Ideas With React Flow
           </Heading>
           <Text mb={5} color="gray.600" fontSize="xl" mx="auto">

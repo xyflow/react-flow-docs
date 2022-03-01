@@ -13,7 +13,7 @@ It's important that your parent nodes appear before their children in the `nodes
 
 If you want to add a node to another node you need to use the `parentNode` option (you can find a list of all options in the [node options section](/docs/api/nodes/node-options)). In this example we are passing width and height via the style option and also set the child extent to `'parent'` so that we can't move them out of the parent node. Child nodes are positioned relative to its parent. A postion of `{ x: 0, y: 0 }` is the top left corner in the parent.
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/SubFlows" applyStyles={false} options={editorOptions} activeFile="nodes.js" additionalFiles={['nodes.js','edges.js']} />

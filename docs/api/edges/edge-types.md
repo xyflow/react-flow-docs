@@ -23,7 +23,7 @@ The keys represent the type names and the values are the edge components.
 
 ### Edge Types Overview
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/EdgeTypes" applyStyles={false} options={editorOptions} activeFile="edges.js" additionalFiles={['nodes.js', 'edges.js']} />

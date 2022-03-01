@@ -56,7 +56,7 @@ const nodes = [
 
 After putting all together and adding some basic styles we get a custom node that prints text to the console:
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/CustomNode" applyStyles={false} options={editorOptions} additionalFiles={['TextUpdaterNode.js', 'text-updater-node.css']} />

@@ -27,12 +27,12 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, dark = fal
       <Box
         width={['100%', null, null, '60%']}
         border="1px solid"
-        borderColor={dark ? 'silver.900' : 'gray.100'}
+        borderColor={dark ? 'purple.900' : 'gray.100'}
         height={420}
         borderRadius="md"
         overflow="hidden"
         order={rtl ? 0 : 1}
-        bgColor={dark ? 'silver.900' : 'white'}
+        bgColor={dark ? 'purple.900' : 'white'}
         boxShadow="rgb(26 25 43 / 2%) 0px 2.8px 2.2px, rgb(26 25 43 / 2%) 0px 12.5px 10px, rgb(26 25 43 / 2%) 0px 22.3px 17.9px, rgb(26 25 43 / 3%) 0px 41.8px 33.4px, rgb(26 25 43 / 2%) 0px 100px 80px;"
       >
         <Flow />

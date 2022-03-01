@@ -7,7 +7,7 @@ There are two ways to use React Flow - controlled or uncontrolled. Controlled me
 
 An implementation of an uncontrolled flow is simpler, because you don't need to pass any handlers:
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/Uncontrolled" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />

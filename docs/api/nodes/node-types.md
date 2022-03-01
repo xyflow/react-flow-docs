@@ -23,7 +23,7 @@ You can add new types by creating a [custom node](/docs/api/nodes/custom-nodes).
 
 ### Node Types Overview
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/NodeTypes" applyStyles={false} options={editorOptions} />

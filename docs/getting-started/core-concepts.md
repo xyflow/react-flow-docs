@@ -10,7 +10,7 @@ In the following part we will introduce you to the core concepts of React Flow a
 With React Flow you have two ways to setup a flow. You can either create a [controlled or an uncontrolled one](/docs/guides/uncontrolled-flow).
 We recommend to use a controlled one but for simpler use cases you can also setup an uncontrolled flow. **In the following part we will setup a controlled flow.** Let's start by adding some nodes and edges to the ReactFlow component:
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/IntroductionFlow" applyStyles={false} options={editorOptions} />

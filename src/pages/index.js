@@ -12,6 +12,7 @@ import ExampleFlowC from '../components/ExampleFlow/C';
 
 import Stats from '../components/Stats';
 import Showcase from '../components/Showcase';
+import UsedBy from '../components/UsedBy';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -22,7 +23,7 @@ export default function Home() {
         <HeroFlow />
       </Box>
 
-      <Box color="white" bgColor="silver.800">
+      <Box color="white" bgColor="purple.800">
         <Box maxWidth="container.xl" mx="auto" px={3} py={8}>
           <SimpleGrid columns={[1, null, 2]}>
             <Stats />
@@ -49,7 +50,6 @@ export default function Home() {
         title="Feature-rich"
         text="React Flow comes with seamless zooming & panning, customizable node and edge types, single and multi-selection, several event handlers and more."
         Flow={ExampleFlowA}
-        color="purple"
       />
 
       <ExampleFlow
@@ -57,7 +57,6 @@ export default function Home() {
         text="React Flow has built-in support for rendering sub graphs and nested nodes."
         Flow={ExampleFlowB}
         rtl
-        color="yellow"
         dark
       />
 
@@ -65,10 +64,9 @@ export default function Home() {
         title="Additional Components"
         text="React Flow includes a MiniMap, Controls, Background and a FlowProvider you can use to access internal state outside the ReactFlow component."
         Flow={ExampleFlowC}
-        color="red"
       />
 
-      <Box bgColor="silver.800" px={3} py={24}>
+      <Box bgColor="purple.800" px={3} py={24}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
             Showcase
@@ -79,6 +77,15 @@ export default function Home() {
           </Text>
         </Box>
         <Showcase />
+      </Box>
+
+      <Box px={3} py={24}>
+        <Box textAlign="center" m="0 auto" maxWidth="container.md">
+          <Heading mb={14} fontFamily="body" fontWeight="black" size="2xl">
+            Used By
+          </Heading>
+          <UsedBy />
+        </Box>
       </Box>
     </Layout>
   );

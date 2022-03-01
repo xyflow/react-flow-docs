@@ -9,7 +9,7 @@ React Flow comes with additional components. In this guide we show you how to us
 
 If your flow gets bigger, you might want to get an overview quickly. For this we are exporting the [`MiniMap` component](/docs/api/plugin-components/minimap). You can easily add it to your flow by adding it as a children:
 
-import CodeViewer from '/src/CodeViewer';
+import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
 
 <CodeViewer codePath="api-flows/MiniMap" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
