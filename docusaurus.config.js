@@ -76,7 +76,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://pro.reactflow.dev/plans',
+            href: 'https://pro.reactflow.dev/pricing',
             position: 'right',
             label: 'React Flow Pro',
             className: 'button__rfpro hide-svg-icon',
@@ -136,8 +136,8 @@ const config = {
                 href: 'https://pro.reactflow.dev',
               },
               {
-                label: 'Plans & Pricing',
-                href: 'https://pro.reactflow.dev/plans',
+                label: 'Pricing',
+                href: 'https://pro.reactflow.dev/pricing',
               },
               {
                 label: 'Signup',
