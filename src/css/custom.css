@@ -124,7 +124,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .navbar__items .button__rfpro:hover {
   color: #fff;
-  background: #000;
+  background: #cc005b;
 }
 
 .menu__link {
@@ -137,7 +137,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .footer--dark {
-  --ifm-footer-background-color: #1a192b;
+  --ifm-footer-background-color: #222138;
   --ifm-footer-color: #eef0f2;
   --ifm-footer-link-color: #c5cbd2;
 }
@@ -155,8 +155,17 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .footer__copyright {
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ifm-footer-color);
+}
+
+.footer__copyright > a {
   color: var(--ifm-footer-link-color);
+}
+
+.footer__copyright > a:hover {
+  text-decoration: underline;
 }
 
 .footer__links {

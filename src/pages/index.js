@@ -80,8 +80,8 @@ export default function Home() {
       </Box>
 
       <Box px={3} py={24}>
-        <Box textAlign="center" m="0 auto" maxWidth="container.md">
-          <Heading mb={14} fontFamily="body" fontWeight="black" size="2xl">
+        <Box m="0 auto" maxWidth="container.md">
+          <Heading textAlign="center" textTransform="uppercase" fontSize={18} mb={10}>
             Used By
           </Heading>
           <UsedBy />

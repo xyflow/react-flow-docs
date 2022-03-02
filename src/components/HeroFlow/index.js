@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Link from '@docusaurus/Link';
 import ReactFlow, {
   ReactFlowProvider,
   Background,
@@ -272,7 +273,7 @@ export default () => {
         pointerEvents="none"
       >
         <Box pointerEvents="all" p={3} pl={[3, 3, 3, 10, 10]} maxWidth={500} ref={headlineRef}>
-          <Heading color="black" mb={6} size="2xl" fontWeight="black">
+          <Heading color="purple.800" mb={6} size="2xl" fontWeight="black">
             Wire Your Ideas With React Flow
           </Heading>
           <Text mb={5} color="gray.600" fontSize="xl" mx="auto">
@@ -280,13 +281,13 @@ export default () => {
             diagrams
           </Text>
           <Flex>
-            <Button mr={2} variant="primary" as="a" href="/docs/introduction" colorScheme="red">
+            <Button mr={2} variant="primary" as={Link} to="/docs/introduction" colorScheme="pink">
               <Text as="span" fontFamily="mono" mr={2}>
                 {'{}'}
               </Text>
               Documentation
             </Button>
-            <Button ml={4} variant="link" as="a" href="/docs/examples/overview">
+            <Button ml={4} variant="link" as={Link} to="/docs/examples/overview">
               Examples <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>
           </Flex>

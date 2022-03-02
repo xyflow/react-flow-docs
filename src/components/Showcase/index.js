@@ -106,7 +106,7 @@ function Showcase() {
               alignItems="center"
               justifyContent="center"
             >
-              your project here
+              your open source project here
             </Flex>
             <Button
               color="white"

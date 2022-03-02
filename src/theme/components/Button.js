@@ -33,7 +33,7 @@ const Button = {
       background: 'pink.500',
       color: 'white',
       ':hover': {
-        background: 'black',
+        background: 'pink.600',
         color: 'white',
         textDecoration: 'none',
       },
@@ -42,24 +42,24 @@ const Button = {
     solid: {},
     ghost: {
       bg: 'none',
-      color: 'primary',
+      color: 'pink.500',
       transition: 'none',
       ':hover': {
         background: 'none',
-        color: 'black',
+        color: 'pink.600',
       },
     },
     link: {
       fontWeight: 'black',
       bg: 'none',
-      color: 'primary',
+      color: 'pink.500',
       transition: 'none',
       '&': {
         padding: 0,
       },
       _hover: {
         background: 'none',
-        color: 'black',
+        color: 'pink.600',
         svg: { transform: 'translate(5px, 0)' },
       },
       svg: {

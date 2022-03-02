@@ -66,6 +66,12 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'right' },
           {
+            href: 'https://github.com/wbkd/react-flow',
+            position: 'right',
+            label: 'Github',
+            className: 'hide-svg-icon',
+          },
+          {
             type: 'search',
             position: 'right',
           },
@@ -87,11 +93,27 @@ const config = {
                 label: 'Introduction',
                 to: '/docs/introduction',
               },
+              {
+                label: 'Guides',
+                to: '/docs/guides/custom-nodes',
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/api/react-flow-props',
+              },
+              {
+                label: 'Examples',
+                to: '/docs/examples/overview',
+              },
             ],
           },
           {
             title: 'Community',
             items: [
+              {
+                label: 'Github',
+                href: 'https://github.com/wbkd/react-flow',
+              },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
@@ -100,22 +122,51 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/reactflow',
               },
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/react-flow',
+              },
             ],
           },
           {
-            title: 'More',
+            title: 'React Flow Pro',
             items: [
               {
-                label: 'React Flow Pro',
+                label: 'Dashboard',
                 href: 'https://pro.reactflow.dev',
               },
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Plans & Pricing',
+                href: 'https://pro.reactflow.dev/plans',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/wbkd/react-flow',
+                label: 'Signup',
+                to: 'https://pro.reactflow.dev/signup',
+              },
+              {
+                label: 'Login',
+                to: 'https://pro.reactflow.dev/login',
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Contact',
+                href: 'https://pro.reactflow.dev/contact',
+              },
+              {
+                label: 'Privacy Policy',
+                href: 'https://pro.reactflow.dev/privacy',
+              },
+              {
+                label: 'Terms of Service',
+                to: 'https://pro.reactflow.dev/terms-and-conditions',
+              },
+              {
+                label: 'Imprint',
+                to: 'https://pro.reactflow.dev/imprint',
               },
             ],
           },
