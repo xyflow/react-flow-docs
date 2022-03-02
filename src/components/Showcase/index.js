@@ -7,7 +7,7 @@ function Showcase() {
     <SimpleGrid columns={[1, 1, 2]} spacing={10} maxWidth="container.xl" mx="auto">
       <Box>
         <Box
-          backgroundImage="url(/img/datablocks.png)"
+          backgroundImage="url(/img/showcase/datablocks.png)"
           h={350}
           backgroundSize="cover"
           backgroundPosition="center"
@@ -35,7 +35,7 @@ function Showcase() {
         <SimpleGrid columns={[1, 2, 2]} spacing={5}>
           <Box>
             <Box
-              backgroundImage="url(/img/bitdev.png)"
+              backgroundImage="url(/img/showcase/bitdev.png)"
               h={180}
               backgroundSize="cover"
               backgroundPosition="center"
@@ -55,7 +55,7 @@ function Showcase() {
           </Box>
           <Box>
             <Box
-              backgroundImage="url(/img/getbasis.png)"
+              backgroundImage="url(/img/showcase/getbasis.png)"
               h={180}
               backgroundSize="cover"
               backgroundPosition="center"
@@ -75,7 +75,7 @@ function Showcase() {
           </Box>
           <Box>
             <Box
-              backgroundImage="url(/img/circles360.png)"
+              backgroundImage="url(/img/showcase/circles360.png)"
               h={180}
               backgroundSize="cover"
               backgroundPosition="center"
@@ -113,7 +113,7 @@ function Showcase() {
               _hover={{ color: 'primary' }}
               mt={4}
               as="a"
-              href="https://datablocks.pro"
+              href="https://pro.reactflow.dev/contact"
               target="_blank"
               variant="link"
             >
