@@ -79,9 +79,9 @@ export default function Home() {
         <Showcase />
       </Box>
 
-      <Box px={3} py={24}>
+      <Box px={3} pt={8} pb={16}>
         <Box m="0 auto" maxWidth="container.xl">
-          <Heading textAlign="center" textTransform="uppercase" fontSize={18} mb={10}>
+          <Heading textAlign="left" textTransform="uppercase" fontSize={12} mb={6}>
             Used By
           </Heading>
           <UsedBy />
