@@ -17,11 +17,6 @@ import SliderNode from './SliderNode';
 import SwitcherNode from './SwitcherNode';
 import SwoopyNode from './SwoopyNode';
 
-const ExamplesButton = styled(Button)`
-  &:hover {
-  }
-`;
-
 const nodeTypes = {
   hero: HeroNode,
   colorpicker: ColorPickerNode,
@@ -55,13 +50,13 @@ function getNodePositions(headlineBounds) {
 
   if (isLargeFlow) {
     const offsetX = window.innerWidth / 2;
-    const offsetY = headlineBounds.top;
+    const offsetY = headlineBounds.top + 20;
 
     return {
       hero: { x: offsetX + 340, y: offsetY },
-      shape: { x: offsetX + 10, y: offsetY - 60 },
-      color: { x: offsetX - 50, y: offsetY + 60 },
-      zoom: { x: offsetX + 30, y: offsetY + 190 },
+      shape: { x: offsetX - 50, y: offsetY - 60 },
+      color: { x: offsetX - 150, y: offsetY + 80 },
+      zoom: { x: offsetX - 20, y: offsetY + 220 },
       swoopy1: { x: 75, y: -35 },
       swoopy2: { x: 160, y: 40 },
     };
@@ -250,7 +245,7 @@ function FlowViz({ headlineRef }) {
       defaultEdges={defaultEdges}
       ref={reactFlowRef}
     >
-      <Background variant="dots" />
+      <Background />
       <Controls showInteractive={false} />
     </ReactFlow>
   );
@@ -262,9 +257,9 @@ export default () => {
   return (
     <ReactFlowProvider>
       <Box
-        width={'100%'}
-        top={[0, 0, 0, 150]}
-        left={0}
+        width="100%"
+        top={[0, 0, 0, 120]}
+        left={[0, 0, 0, '20px']}
         right={0}
         mx="auto"
         position="absolute"

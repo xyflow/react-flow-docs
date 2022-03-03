@@ -8,6 +8,6 @@ const defaultStyle = {
   border: 'none',
 };
 
-export default function Handle({ style, ...props }) {
+export default function Handle({ style, label, ...props }) {
   return <RfHandle style={{ ...defaultStyle, ...style }} {...props} />;
 }
