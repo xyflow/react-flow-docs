@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import ReactFlowRenderer, { Background } from 'react-flow-renderer';
 import { rgba } from '../../utils/css-utils';
@@ -35,142 +35,76 @@ const leaveStyles = {
 
 const nodes = [
   {
-    id: 'react-flow-renderer',
+    id: 'Outer',
     type: 'input',
-    position: { x: 240, y: 0 },
-    data: { label: 'react-flow-renderer' },
+    position: { x: 160, y: 0 },
+    data: { label: 'Outer Node' },
     style: { ...rootStyles },
   },
   {
-    id: 'classcat',
+    id: 'Parent',
     type: 'default',
-    position: { x: 0, y: 100 },
-    data: { label: 'classcat' },
-    style: { ...leaveStyles },
-  },
-  {
-    id: 'd3-zoom',
-    type: 'default',
-    position: { x: 40, y: 250 },
-    data: { label: 'd3-zoom' },
+    position: { x: 40, y: 100 },
+    data: { label: 'Sub Flow' },
     style: {
-      width: 600,
-      height: 200,
+      width: 380,
+      height: 160,
       ...parentStyles,
     },
   },
   {
-    id: 'd3-selection',
+    id: 'Child1',
     type: 'default',
-    position: { x: 20, y: 50 },
-    data: { label: 'd3-selection' },
-    parentNode: 'd3-zoom',
+    position: { x: 20, y: 35 },
+    data: { label: 'Child Node' },
+    parentNode: 'Parent',
     zIndex: 1,
     style: {
       ...leaveStyles,
     },
   },
   {
-    id: 'd3-dispatch',
+    id: 'Child2',
     type: 'default',
-    position: { x: 220, y: 50 },
-    data: { label: 'd3-dispatch' },
+    position: { x: 200, y: 35 },
+    data: { label: 'Child Node' },
     extent: 'parent',
-    parentNode: 'd3-zoom',
+    parentNode: 'Parent',
     style: {
       ...leaveStyles,
     },
   },
   {
-    id: 'd3-drag',
+    id: 'Child3',
     type: 'default',
-    position: { x: 420, y: 50 },
-    data: { label: 'd3-drag' },
+    position: { x: 110, y: 100 },
+    data: { label: 'Child Node' },
     extent: 'parent',
-    parentNode: 'd3-zoom',
+    parentNode: 'Parent',
     style: {
       ...leaveStyles,
     },
   },
   {
-    id: 'd3-transition',
-    type: 'default',
-    position: { x: 320, y: 130 },
-    data: { label: 'd3-transition' },
-    extent: 'parent',
-    parentNode: 'd3-zoom',
-    style: {
-      ...leaveStyles,
-    },
-  },
-  {
-    id: 'd3-interpolate',
-    type: 'default',
-    position: { x: 120, y: 130 },
-    data: { label: 'd3-interpolate' },
-    extent: 'parent',
-    parentNode: 'd3-zoom',
-    style: {
-      ...leaveStyles,
-    },
-  },
-  {
-    id: 'react-draggable',
-    type: 'default',
-    position: { x: 370, y: 100 },
-    data: { label: 'react-draggable' },
-    style: {
-      width: 190,
-      height: 110,
-      ...parentStyles,
-    },
-  },
-  {
-    id: 'clsx',
-    type: 'default',
-    position: { x: 20, y: 50 },
-    data: { label: 'clsx' },
-    extent: 'parent',
-    parentNode: 'react-draggable',
-    style: {
-      ...leaveStyles,
-    },
-  },
-  {
-    id: 'zustand',
-    type: 'default',
-    position: { x: 600, y: 100 },
-    data: { label: 'zustand' },
-    style: {
-      ...leaveStyles,
-    },
+    id: 'Outer2',
+    type: 'output',
+    position: { x: 155, y: 300 },
+    data: { label: 'Outer Node' },
+    style: { ...rootStyles },
   },
 ];
 
 const edges = [
-  { id: 'react-flow-renderer->classcat', source: 'react-flow-renderer', target: 'classcat' },
-  {
-    id: 'react-flow-renderer->d3-selection',
-    source: 'react-flow-renderer',
-    target: 'd3-selection',
-  },
-  { id: 'react-flow-renderer->d3-zoom', source: 'react-flow-renderer', target: 'd3-zoom' },
-  {
-    id: 'react-flow-renderer->react-draggable',
-    source: 'react-flow-renderer',
-    target: 'react-draggable',
-  },
-  {
-    id: 'react-flow-renderer->zustand',
-    source: 'react-flow-renderer',
-    target: 'zustand',
-  },
+  { id: 'Outer->Child1', source: 'Outer', target: 'Child1' },
+  { id: 'Parent->Outer2', source: 'Parent', target: 'Outer2' },
 ];
+
+const defaultEdgeOptions = { type: 'smoothstep', style: { strokeWidth: 1.5, stroke: '#f2f7ff' } };
 
 export default function ExampleFlow() {
   return (
     <ReactFlow
-      defaultEdgeOptions={{ type: 'smoothstep', style: { strokeWidth: 1.5, stroke: '#f2f7ff' } }}
+      defaultEdgeOptions={defaultEdgeOptions}
       preventScrolling={false}
       zoomOnScroll={false}
       fitView

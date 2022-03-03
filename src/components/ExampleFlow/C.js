@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
-import { rgba } from '../../utils/css-utils';
 
 const defaultNodeOptions = {
   targetPosition: 'left',
@@ -219,10 +218,13 @@ const edges = [
   },
 ];
 
+const defaultEdgeOptions = { style: { strokeWidth: 2, stroke: '#BDC4CC' } };
+const nodeColor = ({ id }) => nodes.find((n) => n.id === id).style.backgroundColor;
+
 export default function ExampleFlow() {
   return (
     <ReactFlow
-      defaultEdgeOptions={{ style: { strokeWidth: 2, stroke: '#BDC4CC' } }}
+      defaultEdgeOptions={defaultEdgeOptions}
       preventScrolling={false}
       zoomOnScroll={false}
       fitView
@@ -230,11 +232,7 @@ export default function ExampleFlow() {
       defaultEdges={edges}
     >
       <Background />
-      <MiniMap
-        nodeBorderRadius={8}
-        nodeStrokeColor="#fff"
-        nodeColor={({ id }) => nodes.find((n) => n.id === id).style.backgroundColor}
-      />
+      <MiniMap nodeBorderRadius={8} nodeStrokeColor="#fff" nodeColor={nodeColor} />
       <Controls />
     </ReactFlow>
   );
