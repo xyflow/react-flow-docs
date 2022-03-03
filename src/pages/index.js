@@ -80,7 +80,7 @@ export default function Home() {
       </Box>
 
       <Box px={3} py={24}>
-        <Box m="0 auto" maxWidth="container.md">
+        <Box m="0 auto" maxWidth="container.xl">
           <Heading textAlign="center" textTransform="uppercase" fontSize={18} mb={10}>
             Used By
           </Heading>

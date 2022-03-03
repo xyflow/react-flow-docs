@@ -19,7 +19,7 @@ export default function UsedBy() {
     <SimpleGrid
       textAlign="center"
       filter="contrast(0) brightness(1.4) saturate(0)"
-      columns={[2, 3, 3]}
+      columns={[2, 3, 3, 3, 6]}
       spacing={7}
     >
       <CompanyLogo title="linkedin.com" Logo={LinkedInLogo} />
