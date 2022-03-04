@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { Box, Heading, Flex, Text, Button, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, Center, Text, Button, SimpleGrid } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { FiMail } from 'react-icons/fi';
 
 import HeroFlow from '../components/HeroFlow';
 import ExampleFlow from '../components/ExampleFlow';
@@ -81,10 +82,33 @@ export default function Home() {
 
       <Box px={3} pt={8} pb={16}>
         <Box m="0 auto" maxWidth="container.xl">
-          <Heading textAlign="left" textTransform="uppercase" fontSize={12} mb={6}>
+          <Heading textAlign="center" textTransform="uppercase" fontSize={16} mb={6}>
             Used By
           </Heading>
           <UsedBy />
+        </Box>
+      </Box>
+
+      <Box bgColor="purple.800" px={3} py={24}>
+        <Box textAlign="center" m="0 auto" maxWidth="container.md">
+          <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
+            Get in Contact
+          </Heading>
+          <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300" mb={12}>
+            If you have any questions about React Flow or our Pro plans, please get in touch.
+          </Text>
+          <Center>
+            <Button
+              leftIcon={<FiMail />}
+              variant="primary"
+              as="a"
+              colorScheme="pink"
+              href="https://pro.reactflow.dev/contact"
+              _hover={{ color: 'white' }}
+            >
+              Contact Us
+            </Button>
+          </Center>
         </Box>
       </Box>
     </Layout>
