@@ -7,7 +7,6 @@ import ReactFlow, {
   Controls,
   useReactFlow,
 } from 'react-flow-renderer';
-import styled from '@emotion/styled';
 import { Box, Flex, Heading, Button, Text } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
