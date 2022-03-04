@@ -39,6 +39,7 @@ function Flow() {
       onConnect={onConnect}
       fitView
       style={rfStyle}
+      attributionPosition="top-right"
     >
       <Background />
     </ReactFlow>
