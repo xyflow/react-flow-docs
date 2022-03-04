@@ -92,10 +92,10 @@ export default function Home() {
       <Box bgColor="purple.800" px={3} py={24}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
-            Get in Contact
+            Contact Us
           </Heading>
           <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300" mb={12}>
-            If you have any questions about React Flow or our Pro plans, please get in touch.
+            If you have questions about React Flow or our Pro plans, please get in touch.
           </Text>
           <Center>
             <Button
