@@ -256,7 +256,6 @@ export default () => {
   return (
     <ReactFlowProvider>
       <Box
-        width="100%"
         top={[0, 0, 0, 120]}
         left={[0, 0, 0, '20px']}
         right={0}
