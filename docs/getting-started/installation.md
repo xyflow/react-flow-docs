@@ -27,7 +27,7 @@ yarn add react-flow-renderer
 
 ## Usage
 
-The `react-flow-renderer` package exports the `ReactFlow` React component as the default export and some aditional components (like [`MiniMap`](/docs/api/plugin-components/minimap) and [`Controls`](/docs/api/plugin-components/controls)) and [util functions](/docs/api/graph-util-functions). The bundle also imports the default styles. If you don't want to load the styles, you can find more information in the [theming section](/docs/guides/theming).
+The `react-flow-renderer` package exports the `<ReactFlow />` React component as the default export and additional components (like [`MiniMap`](/docs/api/plugin-components/minimap)), hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions). When you are importing the `<ReactFlow />` component, the default styles get injected to the head. If you don't want to inject the styles, you can load the component via `react-flow-renderer/nocss` (more information in the [theming section](/docs/guides/theming)).
 
 ```jsx
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
@@ -48,7 +48,7 @@ function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
 }
 ```
 
-React Flow also supports usage as an uncontrolled component without external state management. An example usage looks like this:
+React Flow can also be used as an uncontrolled component without external state management:
 
 ```jsx
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
@@ -65,7 +65,7 @@ function Flow({ nodes, edges }) {
 
 ## Terms
 
-In the docs we are using the following terms for the components of a flow:
+In the docs we are using the following terms for the parts of a flow:
 
 - **Node:** A node is a draggable block that can be connected with other nodes.
 - **Edge:** An edge is a connection between two nodes.

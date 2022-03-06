@@ -3,17 +3,17 @@ title: Custom Nodes
 sidebar_position: 1
 ---
 
-A powerful feature of React Flow is the ability to add custom nodes. Within your custom nodes you can render everything you want. You can define multiple input and output handles and render form inputs or charts for example. In this section we will implement a node with an input field that updates some text in another part of the application.
+A powerful feature of React Flow is the ability to add custom nodes. Within your custom nodes you can render everything you want. You can define multiple source and target handles and render form inputs or charts for example. In this section we will implement a node with an input field that updates some text in another part of the application.
 
 ## Implementing the Custom Node
 
-A custom node is a React component that is wrapped to provide basic functionality like selecting or dragging. From the wrapper component we are passing props like the position or the data besides [other props](/docs/api/nodes/custom-nodes#prop-types). Let's start to implement the `TextUpdaterNode`:
+A custom node is a React component that is wrapped to provide basic functionality like selecting or dragging. From the wrapper component we are passing props like the position or the data besides [other props](/docs/api/nodes/custom-nodes#prop-types). Let's start to implement the `TextUpdaterNode`. We are using the [`Handle` component](/docs/api/nodes/handle) to be able to connect our custom node with other nodes and add an input field to the node:
 
 ```jsx
 import { useCallback } from 'react';
 import { Handle, Position } from 'react-flow-renderer';
 
-const handleStyle = { top: 10 };
+const handleStyle = { left: 10 };
 
 function TextUpdaterNode({ data }) {
   const onChange = useCallback((evt) => {
@@ -22,23 +22,21 @@ function TextUpdaterNode({ data }) {
 
   return (
     <>
-      <Handle type="target" position={Position.Left} />
+      <Handle type="target" position={Position.Top} />
       <div>
         <label htmlFor="text">Text:</label>
         <input id="text" name="text" onChange={onChange} />
       </div>
-      <Handle type="source" position={Position.Right} id="a" />
-      <Handle type="source" position={Position.Right} id="b" style={handleStyle} />
+      <Handle type="source" position={Position.Bottom} id="a" />
+      <Handle type="source" position={Position.Bottom} id="b" style={handleStyle} />
     </>
   );
 }
 ```
 
-We are importing the `Handle` component and use it as
-
 ## Adding the Node Type
 
-You can add a new node type to React Flow by adding it to the `nodeTypes`. It's important that the `nodeTypes` you pass is memoized or defined outside of the component. Otherwise React creates a new object on every render which leads to performance issues and bugs.
+You can add a new node type to React Flow by adding it to the `nodeTypes` prop. **It's important that the `nodeTypes` are memoized or defined outside of the component.** Otherwise React creates a new object on every render which leads to performance issues and bugs.
 
 ```jsx
 const nodeTypes = useMemo(() => ({ textUpdater: TextUpdaterNode }), []);
@@ -63,7 +61,7 @@ const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapConten
 
 ## Using Multiple Handles
 
-As you can see we added two source handles to the node so that it has two outputs. If you want to connect other nodes with these specific handles the node id is not enough anymore but you also need to pass the specific handle id. In this case one handle has the id `"a"` and the other one `"b"`. Handle specific edges use the `sourceHandle` or `targetHandle` options:
+As you can see we added two source handles to the node so that it has two outputs. If you want to connect other nodes with these specific handles, the node id is not enough but you also need to pass the specific handle id. In this case one handle has the id `"a"` and the other one `"b"`. Handle specific edges use the `sourceHandle` or `targetHandle` options:
 
 ```js
 const initialEdges = [
@@ -72,8 +70,8 @@ const initialEdges = [
 ];
 ```
 
-In this case the source node is `node-1` for both handles but the handle ids are different. One comes from handle id `"a"` and the other one from `"b"`. Both go edges have also different target nodes:
+In this case the source node is `node-1` for both handles but the handle ids are different. One comes from handle id `"a"` and the other one from `"b"`. Both edges also have different target nodes:
 
 <CodeViewer codePath="api-flows/CustomNode2" applyStyles={false} options={editorOptions} additionalFiles={['TextUpdaterNode.js', 'text-updater-node.css']} />
 
-From here you should be able to build your custom nodes. In most cases we recommend to only use custom nodes. The built-ones are just basic examples. You can find a list of the passed props and more information in the [custom node API section](/docs/api/nodes/custom-nodes).
+From here you should be able to build your custom nodes. In most cases we recommend to use custom nodes only. The built-in ones are just basic examples. You can find a list of the passed props and more information in the [custom node API section](/docs/api/nodes/custom-nodes).
