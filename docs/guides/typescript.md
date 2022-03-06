@@ -3,7 +3,7 @@ title: Usage with Typescript
 sidebar_position: 5
 ---
 
-React Flow is written in Typescript, so you don't need to install the types separately. In this section we setup a basic flow with regarding types.
+React Flow is written in Typescript, so you don't need to install the types separately. In this section we setup a basic flow with the regarding types.
 
 ## Usage
 
@@ -66,9 +66,15 @@ When you are working with [custom nodes](/docs/api/nodes/custom-nodes) you can d
 ```ts
 import { Node } from 'react-flow-renderer';
 
-type CustomNodeData = {
+type NodeData = {
   value: number;
 };
 
-type CustomNode = Node<CustomNodeData>;
+type CustomNode = Node<NodeData>;
+```
+
+You can also pass your custom node data type to any function or hook that returns nodes, for example the `useReactFlow` hook:
+
+```ts
+const { getNodes, getEdges } = useReactFlow<NodeData, EdgeData>();
 ```

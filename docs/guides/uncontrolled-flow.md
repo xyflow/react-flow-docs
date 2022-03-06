@@ -16,7 +16,7 @@ As you can see, we are passing `defaultEdgeOptions` to define that edges are ani
 
 ## Updating Nodes and Edges
 
-Since you don't have the nodes and edges in your local state, you can't update them by altering the `nodes` or `edges` array. To do so, you need to use the [React Flow instance](/docs/api/react-flow-instance) that comes with functions for updating the internal state. You can receive the instance via the `onReady` callback or better by using the [`useReactFlow` hook](/docs/api/hooks/use-react-flow). Let's create a button that adds a new node on a random position. For this, we are wrapping our flow with the [`ReactFlowProvider`](/docs/api/react-flow-provider) and use the [`addNodes` function](/docs/api/react-flow-instance#nodes-and-edges).
+Since you don't have nodes and edges in your local state, you can't update them directly. To do so, you need to use the [React Flow instance](/docs/api/react-flow-instance) that comes with functions for updating the internal state. You can receive the instance via the `onInit` callback or better by using the [`useReactFlow` hook](/docs/api/hooks/use-react-flow). Let's create a button that adds a new node at a random position. For this, we are wrapping our flow with the [`ReactFlowProvider`](/docs/api/react-flow-provider) and use the [`addNodes` function](/docs/api/react-flow-instance#nodes-and-edges).
 
 :::info
 

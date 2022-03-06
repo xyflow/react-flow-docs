@@ -3,7 +3,7 @@ title: Theming
 sidebar_position: 6
 ---
 
-React Flow offers two bundles. One imports styles automatically and the other doesn't.
+React Flow offers two bundles. The normal bundle injects styles to the head, the other one comes unstyled.
 
 ### Import Bundle with Styles
 
@@ -11,6 +11,7 @@ React Flow offers two bundles. One imports styles automatically and the other do
 import ReactFlow from 'react-flow-renderer';
 
 // no need to import styles
+// the base styles and the default theme get injected
 ```
 
 ### Import Bundle without Styles
@@ -25,6 +26,12 @@ import 'react-flow-renderer/dist/style.css';
 import 'react-flow-renderer/dist/theme-default.css';
 ```
 
+:::caution
+
+When you are using the `react-flow-renderer/nocss` bundle you also need to use it for other imports in other files. You can't mix the default and the nocss bundle!
+
+:::
+
 ## Overwrite Default Styles
 
 When you are using the default styles there are two ways to style the flow pane and the nodes and edges.
@@ -33,7 +40,7 @@ You can create your own CSS rules or pass style properties to the components.
 ### Using Class Names
 
 Since we are rendering DOM nodes you can simply overwrite the styles with your own CSS rules.
-The React Flow wrapper has the className `react-flow`. If you want to change the background for example you can do:
+The React Flow wrapper has the class name `react-flow`. If you want to change the background for example you can do:
 
 ```css
 .react-flow {
@@ -43,8 +50,7 @@ The React Flow wrapper has the className `react-flow`. If you want to change the
 
 ### Using Style Prop
 
-Since we are rendering DOM nodes you can simply overwrite the styles with your own CSS rules.
-The React Flow wrapper has the className `react-flow`. If you want to change the background for example you can do:
+You can also pass css properties via the `style` prop:
 
 ```jsx
 const reactFlowStyle = {

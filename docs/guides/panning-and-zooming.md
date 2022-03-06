@@ -13,7 +13,7 @@ The default pan and zoom behaviour of React Flow feels like a web map. You pan b
 - `zoomOnPinch`: default: `true`
 - `zoomOnDoubleClick`: default: `true`
 
-If you prefer figma/sketch/design tool controls (panning = press space + drag or trackpad, zooming = cmd + scrolling) you can set `panOnScroll={true}` and `panOnDrag={keyCondition}` if a certain key is pressed. Here we are using the [`useKeyPress` util hook](/docs/api/hooks/use-key-press) from React Flow in order to be able to drag the pane when the space key is pressed:
+If you prefer figma/sketch/design tool controls (panning = press space + drag or trackpad, zooming = cmd + scrolling) you can set `panOnScroll={true}` and `panOnDrag={keyCondition}`. In this example we are using the [`useKeyPress` hook](/docs/api/hooks/use-key-press) from React Flow in order to be able to drag the pane when the space key is pressed:
 
 ```jsx
 import ReactFlow, { useKeyPress } from 'react-flow-renderer';

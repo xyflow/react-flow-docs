@@ -3,18 +3,19 @@ title: Migrate to v10
 sidebar_position: 8
 ---
 
-Welcome to React Flow v10! With our latest major version update there are coming lots of new features but also some breaking changes.
+Welcome to React Flow v10! With the latest major version update, there are coming many new features but also some breaking changes.
 
 ## New Features
 
 - [**Sub Flows**](/docs/guides/sub-flows): You can now add nodes to a parent node and create groups and nested flows
-- **Node Type 'group'**: A new node type without handles that can be used for a group node
+- **Node Type 'group'**: A new node type without handles that can be used as a group node
 - **Touch Device Support**: It is now possible to connect nodes on touch devices
-- **Fit View on Init**: You can use the new prop `fitView` to fit the initial view
-- **Key Handling**: You can now not only pass single keys but also multiple keys and key combinations
+- **Fit View on Init**: You can use the new `fitView` prop to fit the initial view
+- **Key Handling**: Not only single keys but also multiple keys and key combinations are possible now
 - [**useKeyPress hook**](/docs/api/hooks/use-key-press): A util hook for handling keyboard events
-- [**useReactFlow hook**](/docs/api/hooks/use-react-flow): Returns a React Flow instance that exposes functions to manipulate the graph
-- **[useNodes](/docs/api/hooks/use-nodes), [useEdges](/docs/api/hooks/use-edges) and [useViewport](/docs/api/hooks/use-viewport) hooks**: Hooks for receiving nodes, edges and the viewport.
+- [**useReactFlow hook**](/docs/api/hooks/use-react-flow): Returns a React Flow instance that exposes functions to manipulate the flow
+- **[useNodes](/docs/api/hooks/use-nodes), [useEdges](/docs/api/hooks/use-edges) and [useViewport](/docs/api/hooks/use-viewport) hooks**: Hooks for receiving nodes, edges and the viewport
+- **Edge Marker**: More options to configure the start and end markers of an edge
 
 ## Breaking Changes
 
@@ -31,16 +32,17 @@ Detailed explanation of breaking changes:
 
 ### 1. ~~Elements~~ - Nodes and Edges
 
-We saw that a lot of people struggle with the semi controlled `elements`. It was always a bit messy to sync the local user state with the internal state of React Flow. Some of you used the internal store that was never documented and always a kind of hacky solution. For the new version we offer two ways to use React Flow - uncontrolled and controlled.
+We saw that a lot of people struggle with the semi controlled `elements` prop. It was always a bit messy to sync the local user state with the internal state of React Flow. Some of you used the internal store that was never documented and always a kind of hacky solution. For the new version we offer two ways to use React Flow - uncontrolled and controlled.
 
 ### 1.1. Controlled `nodes` and `edges`
 
-If you want to have the full control and use the nodes and edges from local state, you can use the `nodes`, `edges` props in combination with `onNodesChange` and `onEdgesChange`. You need to implement these handlers for an interactive flow (if you are fine with just pan and zoom you don't need them). You'll receive a change when a node(s) gets initialized, dragged, selected or removed. This means that you always know the exact position and dimensions of a node or if it's selected for example. We export the helper functions `applyNodeChanges` and `applyEdgeChanges` that you can/should use to apply the changes.
+If you want to have the full control and use nodes and edges from your local state or your store, you can use the `nodes`, `edges` props in combination with the `onNodesChange` and `onEdgesChange` handlers. You need to implement these handlers for an interactive flow (if you are fine with just pan and zoom you don't need them). You'll receive a change when a node(s) gets initialized, dragged, selected or removed. This means that you always know the exact position and dimensions of a node or if it's selected for example. We export the helper functions `applyNodeChanges` and `applyEdgeChanges` that you should use to apply the changes.
 
 #### Old API
 
 ```jsx
-import ReactFlow, { removeElements } from 'react-flow-renderer';
+import { useState, useCallback } from 'react';
+import ReactFlow, { removeElements, addEdge } from 'react-flow-renderer';
 
 const initialElements = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 250, y: 0 } },
@@ -54,8 +56,11 @@ const BasicFlow = () => {
     (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els)),
     []
   );
+  const onConnect = useCallback((connection) => setElements((es) => addEdge(connection, es)));
 
-  return <ReactFlow elements={elements} onElementsRemove={onElementsRemove} />;
+  return (
+    <ReactFlow elements={elements} onElementsRemove={onElementsRemove} onConnect={onConnect} />
+  );
 };
 
 export default BasicFlow;
@@ -64,7 +69,8 @@ export default BasicFlow;
 #### New API
 
 ```jsx
-import ReactFlow, { applyNodeChanges, applyEdgeChanges } from 'react-flow-renderer';
+import { useState, useCallback } from 'react';
+import ReactFlow, { applyNodeChanges, applyEdgeChanges, addEdge } from 'react-flow-renderer';
 
 const initialNodes = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 250, y: 0 } },
@@ -85,6 +91,7 @@ const BasicFlow = () => {
     (changes) => setEdges((es) => applyEdgeChanges(changes, es)),
     []
   );
+  const onConnect = useCallback((connection) => setEdges((eds) => addEdge(connection, eds)));
 
   return (
     <ReactFlow
@@ -92,6 +99,7 @@ const BasicFlow = () => {
       edges={edges}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
     />
   );
 };
@@ -113,7 +121,7 @@ related changes:
 
 ### 1.2 Uncontrolled `defaultNodes` and `defaultEdges`
 
-The easiest way to get started is to use the `defaultNodes and `defaultEdges` props. When you set these props, all actions are handled internally. You don't need to add any other handlers to get a fully interactive flow with dragging nodes, removing nodes and edges and connecting nodes:
+The easiest way to get started is to use the `defaultNodes` and `defaultEdges` props. When you set these props, all actions are handled internally. You don't need to add any other handlers to get a fully interactive flow with the ability to drag nodes, connect nodes and remove nodes and edges:
 
 #### New API
 
@@ -134,11 +142,11 @@ const BasicFlow = () => {
 export default BasicFlow;
 ```
 
-If you want to add, remove or update a node or edge you can only do this by using the ReactFlow instance that you can receive either with the new `useReactFlow` hook or by using the `onPaneReady` handler that gets the instance as a function param.
+If you want to add, remove or update a node or edge you can only do this by using the [ReactFlow instance](/docs/api/react-flow-instance/) that you can receive either with the new `useReactFlow` hook or by using the `onInit` handler that gets the instance as a function param.
 
 ### 2. Memoize your custom `nodeTypes` and `edgeTypes`
 
-Whenever you pass new types, we are creating new Component types in the background. This means that you should create a new object on every render. **Memoize your nodeTypes and edgeTypes or define them outside of the component when they don't change**.
+Whenever you pass new node or edge types, we create wrapped node or edge component types in the background. This means that you should not create a new `nodeType` or `edgeType` object on every render. **Memoize your nodeTypes and edgeTypes or define them outside of the component when they don't change**.
 
 **Don't do this:**
 
@@ -176,7 +184,7 @@ function Flow() {
 
 ### 3. ~~Redux~~ - Zustand
 
-We switched our state management library from Redux to Zustand. With this change we removed ~300LOC from our state related code :) The internal store and actions were not documented, but a lot of you used them. If you still need access, you can use the `useStore` hook:
+We switched our state management library from Redux to [Zustand](https://github.com/pmndrs/zustand). With this change we could remove about 300LOC from our state related code. If you need to access the internal store, you can use the [`useStore` hook](/docs/api/hooks/use-store):
 
 #### Old API
 
@@ -186,7 +194,6 @@ import { useStoreState, useStoreActions } from 'react-flow-renderer';
 ...
 
 const transform = useStoreState((store) => store.transform);
-const setSelectedElements = useStoreActions((actions) => actions.setSelectedElements);
 ```
 
 #### New API
@@ -196,12 +203,11 @@ import { useStore } from 'react-flow-renderer';
 
 ...
 const transform = useStore((store) => store.transform);
-const setSelectedElements = useStore((store) => store.setSelectedElements);
 ```
 
-You still need to wrap your component with a `ReactFlowProvider` if you want to access the internal store.
+You still need to wrap your component with the `<ReactFlowProvider />` if you want to access the internal store.
 
-We are also exporting `useStoreApi` if you need to get the store in an eventhandler for example without triggering re-renders.
+We are also exporting `useStoreApi` if you need to get the store in an event handler for example without triggering re-renders.
 
 ```js
 import { useStoreApi } from 'react-flow-renderer';
@@ -221,7 +227,7 @@ The `onLoad` callback has been renamed to `onInit` and now fires when the nodes 
 
 #### Old API
 
-```js
+```jsx
 const onLoad = (reactFlowInstance: OnLoadParams) => reactFlowInstance.zoomTo(2);
 ...
 <ReactFlow
@@ -232,7 +238,7 @@ const onLoad = (reactFlowInstance: OnLoadParams) => reactFlowInstance.zoomTo(2);
 
 #### New API
 
-```js
+```jsx
 const onInit = (reactFlowInstance: ReactFlowInstance) => reactFlowInstance.zoomTo(2);
 ...
 <ReactFlow
@@ -245,14 +251,32 @@ const onInit = (reactFlowInstance: ReactFlowInstance) => reactFlowInstance.zoomT
 
 This is more consistent with the rest of the API (`panOnScroll`, `zoomOnScroll`, etc.)
 
+#### Old API
+
+```jsx
+<ReactFlow
+   ...
+  paneMoveable={false}
+/>
+```
+
+#### Old API
+
+```jsx
+<ReactFlow
+   ...
+  panOnDrag={false}
+/>
+```
+
 ### 6. ~~useZoomPanHelper transform~~ - unified in `useReactFlow`
 
-Since "transform" is also the variable name of the transform in the store and it's not clear that `transform` is a setter we renamed it to `setViewport`. This is also more consistent with the other functions. Also, all `useZoomPanHelper` functions have been moved to the React Flow instance that you get from the `useReactFlow` hook or the `onPaneReady` handler.
+As "transform" is also the variable name of the transform in the store and it's not clear that `transform` is a setter we renamed it to `setViewport`. This is also more consistent with the other functions. Also, all `useZoomPanHelper` functions have been moved to the [React Flow instance](/docs/api/react-flow-instance) that you get from the [`useReactFlow` hook](/docs/api/hooks/use-react-flow) or the `onInit` handler.
 
 #### Old API
 
 ```js
-const { transform } = useZoomPanHelper();
+const { transform, setCenter, setZoom  } = useZoomPanHelper();
 ...
 transform({ x: 100, y: 100, zoom: 2 });
 ```
@@ -260,7 +284,7 @@ transform({ x: 100, y: 100, zoom: 2 });
 #### New API
 
 ```js
-const { setViewport } = useReactFlow();
+const { setViewport, setCenter, setZoom } = useReactFlow();
 ...
 setViewport({ x: 100, y: 100, zoom: 2 });
 ```
@@ -272,7 +296,7 @@ New viewport functions:
 
 ### 7. ~~isHidden~~ - hidden
 
-We mixed prefixed (`is...`) and non-prefixed boolean options. All node and edge options are not prefixed anymore. So it's `hidden`, `animated` and `selected`, `draggable`, `selectable` and `connectable`.
+We mixed prefixed (`is...`) and non-prefixed boolean option names. All node and edge options are not prefixed anymore. So it's `hidden`, `animated`, `selected`, `draggable`, `selectable` and `connectable`.
 
 #### Old API
 
@@ -288,7 +312,7 @@ const hiddenNode = { id: '1', hidden: true, position: { x: 50, y: 50 } };
 
 ### 8. ~~arrowHeadType~~ ~~markerEndId~~ - markerStart / markerEnd
 
-We improved the API for customizing the markers for an edge. With the new api you are able to set individual markers at the start and the end of an edge as well as customizing them with colors, strokeWidth etc. You still have the ability to set a markerEndId but instead of using different properties, the `markerStart` and `markerEnd` property accepts either a string (id for the svg marker that you need to define yourself) or a configuration object for using the built in arrowclosed or arrow markers.
+We improved the API for customizing the markers for an edge. With the new API you are able to set individual markers at the start and the end of an edge as well as customizing them with colors, strokeWidth etc. You still have the ability to set a markerEndId but instead of using different properties, the `markerStart` and `markerEnd` property accepts either a string (id for the svg marker that you need to define yourself) or a configuration object for using the built in arrowclosed or arrow markers.
 
 #### Old API
 
@@ -309,16 +333,8 @@ const markerEdge = {
 
 ### 9. ~~ArrowHeadType~~ - MarkerType
 
-This is just a wording change for making the marker api more consistent. As we are now able to set markers for the start of the edge, the name type ArrowHeadType has been renamed to MarkerType. In the future, this can also not only contain arrow shapes but others like circles, diamonds etc.
-
-## nodeTypes and edgeTypes
-
-We are not memoizing `nodeTypes` and `edgeTypes` anymore. In v9 we introduced a way to update the node/edge types via `nodeTypesId`/`edgeTypesId`. This seems unnecessary and we want the these props to behave like the other props too. This means that it is important that you are memoizing your node and edge types or simply define them outside of your component:
-
-```js
-const nodeTypes = useMemo(() => ({ custom: CustomNode }), []);
-```
+This is just a wording change for making the marker API more consistent. As we are now able to set markers for the start of the edge, the name type ArrowHeadType has been renamed to MarkerType. In the future, this can also not only contain arrow shapes but others like circles, diamonds etc.
 
 ### 10. Attribution
 
-This is not really a breaking change to the API but a little change in the general appearance of React Flow. We added a tiny "React Flow" attribution to the bottom left (the position is configurable). We want to focus on the development of React Flow and for this we will add the possibility to create a paid account in order to remove the attribution. When everything is ready we will publish a blog post with further details.
+This is not really a breaking change to the API but a little change in the general appearance of React Flow. We added a tiny "React Flow" attribution to the bottom right (the position is configurable via the `attributionPosition` prop). This change comes with the new "React Flow Pro" subscription model. If you want to remove the attribution please get a ["React Flow Pro" subscription](https://pro.reactflow.dev) or [sponsor us on Github](https://github.com/sponsors/wbkd).
