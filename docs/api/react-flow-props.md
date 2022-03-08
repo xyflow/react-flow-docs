@@ -19,7 +19,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 :::caution
 
-When you pass an array or an object as a prop (examples: `nodeTypes`, `edgeTypes`, `deleteKeyCode`, `snapGrid`) you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
+When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as an array), `selectionKeyCode` (as an array), `mutliselectionKeyCode` (as an array) or `snapGrid`, you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
 
 :::
 
@@ -61,63 +61,63 @@ When you pass an array or an object as a prop (examples: `nodeTypes`, `edgeTypes
 
 #### General
 
-| Name                        | Type       | Default     | Description                                 |
-| --------------------------- | ---------- | ----------- | ------------------------------------------- |
-| `onInit(reactFlowInstance)` | `function` | `undefined` | called as soon as React Flow is initialized |
+| Name                                           | Type       | Default     | Description                                 |
+| ---------------------------------------------- | ---------- | ----------- | ------------------------------------------- |
+| `onInit(reactFlowInstance: ReactFlowInstance)` | `function` | `undefined` | called as soon as React Flow is initialized |
 
 #### Nodes
 
-| Name                             | Type       | Default     | Description                    |
-| -------------------------------- | ---------- | ----------- | ------------------------------ |
-| `onNodeClick(event, node)`       | `function` | `undefined` | called when user clicks a node |
-| `onNodeDragStart(event, node)`   | `function` | `undefined` | node drag start                |
-| `onNodeDrag(event, node)`        | `function` | `undefined` | node drag                      |
-| `onNodeDragStop(event, node)`    | `function` | `undefined` | node drag stop                 |
-| `onNodeMouseEnter(event, node)`  | `function` | `undefined` | node mouse enter               |
-| `onNodeMouseMove(event, node)`   | `function` | `undefined` | node mouse move                |
-| `onNodeMouseLeave(event, node)`  | `function` | `undefined` | node mouse leave               |
-| `onNodeContextMenu(event, node)` | `function` | `undefined` | node context menu              |
-| `onNodeDoubleClick(event, node)` | `function` | `undefined` | node double click              |
-| `onNodesDelete(nodes)`           | `function` | `undefined` | called when nodes get deleted  |
+| Name                                                     | Type       | Default     | Description                    |
+| -------------------------------------------------------- | ---------- | ----------- | ------------------------------ |
+| `onNodeClick(event: React.MouseEvent, node: Node)`       | `function` | `undefined` | called when user clicks a node |
+| `onNodeDragStart(event: React.MouseEvent, node: Node)`   | `function` | `undefined` | node drag start                |
+| `onNodeDrag(event: React.MouseEvent, node: Node)`        | `function` | `undefined` | node drag                      |
+| `onNodeDragStop(event: React.MouseEvent, node: Node)`    | `function` | `undefined` | node drag stop                 |
+| `onNodeMouseEnter(event: React.MouseEvent, node: Node)`  | `function` | `undefined` | node mouse enter               |
+| `onNodeMouseMove(event: React.MouseEvent, node: Node)`   | `function` | `undefined` | node mouse move                |
+| `onNodeMouseLeave(event: React.MouseEvent, node: Node)`  | `function` | `undefined` | node mouse leave               |
+| `onNodeContextMenu(event: React.MouseEvent, node: Node)` | `function` | `undefined` | node context menu              |
+| `onNodeDoubleClick(event: React.MouseEvent, node: Node)` | `function` | `undefined` | node double click              |
+| `onNodesDelete(nodes)`                                   | `function` | `undefined` | called when nodes get deleted  |
 
 #### Edges
 
-| Name                                   | Type       | Default     | Description                                                                                                                          |
-| -------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `onEdgeClick(event, edge)`             | `function` | `undefined` | called when user clicks an edge                                                                                                      |
-| `onEdgeMouseEnter(event, edge)`        | `function` | `undefined` | edge mouse enter                                                                                                                     |
-| `onEdgeMouseMove(event, edge)`         | `function` | `undefined` | edge mouse move                                                                                                                      |
-| `onEdgeMouseLeave(event, edge)`        | `function` | `undefined` | edge mouse leave                                                                                                                     |
-| `onEdgeContextMenu(event, edge)`       | `function` | `undefined` | called when user does a right-click on an edge                                                                                       |
-| `onEdgeUpdate(oldEdge, newConnection)` | `function` | `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
-| `onEdgeUpdateStart(event, edge)`       | `function` | `undefined` | called when user starts to update an edge                                                                                            |
-| `onEdgeUpdateEnd(event, edge)`         | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
-| `onEdgesDelete(edges)`                 | `function` | `undefined` | called when edges get deleted                                                                                                        |
+| Name                                                     | Type       | Default     | Description                                                                                                                          |
+| -------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `onEdgeClick(event: React.MouseEvent, edge: Edge)`       | `function` | `undefined` | called when user clicks an edge                                                                                                      |
+| `onEdgeMouseEnter(event: React.MouseEvent, edge: Edge)`  | `function` | `undefined` | edge mouse enter                                                                                                                     |
+| `onEdgeMouseMove(event: React.MouseEvent, edge: Edge)`   | `function` | `undefined` | edge mouse move                                                                                                                      |
+| `onEdgeMouseLeave(event: React.MouseEvent, edge: Edge)`  | `function` | `undefined` | edge mouse leave                                                                                                                     |
+| `onEdgeContextMenu(event: React.MouseEvent, edge: Edge)` | `function` | `undefined` | called when user does a right-click on an edge                                                                                       |
+| `onEdgeUpdate(oldEdge, newConnection)`                   | `function` | `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
+| `onEdgeUpdateStart(event: React.MouseEvent, edge: Edge)` | `function` | `undefined` | called when user starts to update an edge                                                                                            |
+| `onEdgeUpdateEnd(event: React.MouseEvent, edge: Edge)`   | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
+| `onEdgesDelete(edges: Edge[])`                           | `function` | `undefined` | called when edges get deleted                                                                                                        |
 
 #### Connections
 
-| Name                                            | Type       | Default     | Description                                     |
-| ----------------------------------------------- | ---------- | ----------- | ----------------------------------------------- |
-| `onConnect({ source, target })`                 | `function` | `undefined` | called when user connects two nodes             |
-| `onConnectStart(event, { nodeId, handleType })` | `function` | `undefined` | called when user starts to drag connection line |
-| `onConnectStop(event)`                          | `function` | `undefined` | called when user stops to drag connection line  |
-| `onConnectEnd(event)`                           | `function` | `undefined` | called after user stops or connects nodes       |
+| Name                                                                                    | Type       | Default     | Description                                     |
+| --------------------------------------------------------------------------------------- | ---------- | ----------- | ----------------------------------------------- |
+| `onConnect({ source, target }: Connection)`                                             | `function` | `undefined` | called when user connects two nodes             |
+| `onConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)` | `function` | `undefined` | called when user starts to drag connection line |
+| `onConnectStop(event: React.MouseEvent)`                                                | `function` | `undefined` | called when user stops to drag connection line  |
+| `onConnectEnd(event: React.MouseEvent)`                                                 | `function` | `undefined` | called after user stops or connects nodes       |
 
 #### Pane
 
-| Name                                   | Type       | Default     | Description                                                                     |
-| -------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------- |
-| `onMove(flowTransform)`                | `function` | `undefined` | called when user is panning or zooming                                          |
-| `onMoveStart(flowTransform)`           | `function` | `undefined` | called when user starts panning or zooming                                      |
-| `onMoveEnd(flowTransform)`             | `function` | `undefined` | called when user ends panning or zooming                                        |
-| `onSelectionChange(elements)`          | `function` | `undefined` | called when user selects one or multiple elements                               |
-| `onSelectionDragStart(event, nodes)`   | `function` | `undefined` | called when user starts to drag a selection                                     |
-| `onSelectionDrag(event, nodes)`        | `function` | `undefined` | called when user drags a selection                                              |
-| `onSelectionDragStop(event, nodes)`    | `function` | `undefined` | called when user stops to drag a selection                                      |
-| `onSelectionContextMenu(event, nodes)` | `function` | `undefined` | called when user does a right-click on a selection                              |
-| `onPaneClick(event)`                   | `function` | `undefined` | called when user clicks directly on the canvas                                  |
-| `onPaneContextMenu(event)`             | `function` | `undefined` | called when user does a right-click on the canvas                               |
-| `onPaneScroll(event)`                  | `function` | `undefined` | called when user scrolls pane (only works when `zoomOnScroll` is set to `false) |
+| Name                                                             | Type       | Default     | Description                                                                     |
+| ---------------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------- |
+| `onMove(event: MouseEvent, viewport: Viewport)`                  | `function` | `undefined` | called when user is panning or zooming                                          |
+| `onMoveStart(event: MouseEvent, viewport: Viewport)`             | `function` | `undefined` | called when user starts panning or zooming                                      |
+| `onMoveEnd(event: MouseEvent, viewport: Viewport)`               | `function` | `undefined` | called when user ends panning or zooming                                        |
+| `onSelectionChange({ node, edges }: OnSelectionChangeParams)`    | `function` | `undefined` | called when user selects one or multiple elements                               |
+| `onSelectionDragStart(event: React.MouseEvent, nodes: Node[])`   | `function` | `undefined` | called when user starts to drag a selection                                     |
+| `onSelectionDrag(event: React.MouseEvent, nodes: Node[])`        | `function` | `undefined` | called when user drags a selection                                              |
+| `onSelectionDragStop(event: React.MouseEvent, nodes: Node[])`    | `function` | `undefined` | called when user stops to drag a selection                                      |
+| `onSelectionContextMenu(event: React.MouseEvent, nodes: Node[])` | `function` | `undefined` | called when user does a right-click on a selection                              |
+| `onPaneClick(event: React.MouseEvent)`                           | `function` | `undefined` | called when user clicks directly on the canvas                                  |
+| `onPaneContextMenu(event: React.MouseEvent)`                     | `function` | `undefined` | called when user does a right-click on the canvas                               |
+| `onPaneScroll(event: React.MouseEvent)`                          | `function` | `undefined` | called when user scrolls pane (only works when `zoomOnScroll` is set to `false) |
 
 ### Interaction
 
