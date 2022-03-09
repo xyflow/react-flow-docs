@@ -61,7 +61,7 @@ Returns all direct child nodes of the passed node.
 
 Returns all direct incoming nodes of the passed node.
 
-`getIncomers(node: Node, , nodes: Node[], edges: Edge[]): Node[]`
+`getIncomers(node: Node, nodes: Node[], edges: Edge[]): Node[]`
 
 ### `getConnectedEdges`
 
