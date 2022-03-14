@@ -170,9 +170,6 @@ const config = {
         ],
         copyright: `<a href="mailto:info@webkid.io">info@webkid.io</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
       },
-      fathomAnalytics: {
-        siteId: 'LXMRMWLB',
-      },
       prism: {
         theme: require('prism-react-renderer/themes/github'),
       },
@@ -187,6 +184,14 @@ const config = {
         indexName: 'reactflow',
       },
     }),
+  scripts: [
+    {
+      src: 'https://cdn.usefathom.com/script.js',
+      async: true,
+      defer: true,
+      'data-site': 'LXMRMWLB',
+    },
+  ],
 };
 
 module.exports = config;
