@@ -190,7 +190,7 @@ const config = {
       'data-site': 'LXMRMWLB',
     },
   ],
-  trailingSlash: false,
+  trailingSlash: true,
 };
 
 module.exports = config;
