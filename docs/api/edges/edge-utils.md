@@ -44,6 +44,25 @@ getSmoothStepPath({
 }: GetSmoothStepPathParams): string
 ```
 
+### `getSimpleBezierPath`
+
+Returns the path of a simple bezier edge.
+
+```
+import { getSimpleBezierPath } from 'react-flow-renderer';
+
+getSimpleBezierPath({
+  sourceX,
+  sourceY,
+  sourcePosition = Position.Bottom, // optional
+  targetX,
+  targetY,
+  targetPosition = Position.Top, // optional
+  centerX, // optional
+  centerY, // optional
+}: GetBezierPathParams): string
+```
+
 ### `getEdgeCenter`
 
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of the edge.
