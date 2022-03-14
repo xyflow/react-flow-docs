@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+# Algolia-Crawler-Verif: A05FB6174A97CD02
+
+User-agent: *
+Disallow:
