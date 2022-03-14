@@ -1,7 +1,9 @@
 {
-  "name": "react-flow-docusaurus",
-  "version": "0.0.0",
-  "private": true,
+  "name": "react-flow-docs",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
