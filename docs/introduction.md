@@ -21,3 +21,7 @@ We are working full time on React Flow and related projects. If you are using Re
 ## Migrate to v10
 
 If you want to migrate to v10 you can check out the ["Migrate to v10 Guide"](/docs/guides/migrate-to-v10).
+
+## v9 Docs
+
+If you are looking for the old docs, you can find them on the [React Flow v9 site](https://v9.reactflow.dev).
