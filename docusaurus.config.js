@@ -111,7 +111,7 @@ const config = {
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/Bqt6xrs',
               },
               {
                 label: 'Twitter',
@@ -153,15 +153,15 @@ const config = {
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://pro.reactflow.dev/privacy',
+                href: 'https://webkid.io/privacy',
               },
               {
                 label: 'Terms of Service',
-                to: 'https://pro.reactflow.dev/terms-and-conditions',
+                to: 'https://pro.reactflow.dev/terms',
               },
               {
                 label: 'Imprint',
-                to: 'https://pro.reactflow.dev/imprint',
+                to: 'https://webkid.io/imprint',
               },
             ],
           },
