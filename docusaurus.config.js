@@ -176,11 +176,11 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
-      algolia: {
-        appId: '6J7SBG6VXX',
-        apiKey: '46361401824ee0e359945db0a9d72669',
-        indexName: 'reactflow',
-      },
+      // algolia: {
+      //   appId: '6J7SBG6VXX',
+      //   apiKey: '46361401824ee0e359945db0a9d72669',
+      //   indexName: 'reactflow',
+      // },
     }),
   scripts: [
     {
