@@ -47,27 +47,29 @@ export default function Home() {
         </Box>
       </Box>
 
-      <ExampleFlow
-        title="Feature-rich"
-        text="React Flow comes with seamless zooming & panning, customizable node and edge types, single and multi-selection, several event handlers and more."
-        Flow={ExampleFlowA}
-      />
+      <Box py={8}>
+        <ExampleFlow
+          title="Feature-rich"
+          text="React Flow comes with seamless zooming & panning, customizable node and edge types, single and multi-selection, several event handlers and more."
+          Flow={ExampleFlowA}
+        />
 
-      <ExampleFlow
-        title="Nested Graphs"
-        text="React Flow has built-in support for rendering sub graphs and nested nodes."
-        Flow={ExampleFlowB}
-        rtl
-        dark
-      />
+        <ExampleFlow
+          title="Nested Graphs"
+          text="React Flow has built-in support for rendering sub graphs and nested nodes."
+          Flow={ExampleFlowB}
+          rtl
+          dark
+        />
 
-      <ExampleFlow
-        title="Additional Components"
-        text="React Flow includes a MiniMap, Controls, Background and a FlowProvider you can use to access internal state outside the ReactFlow component."
-        Flow={ExampleFlowC}
-      />
+        <ExampleFlow
+          title="Additional Components"
+          text="React Flow includes a MiniMap, Controls, Background and a FlowProvider you can use to access internal state outside the ReactFlow component."
+          Flow={ExampleFlowC}
+        />
+      </Box>
 
-      <Box bgColor="purple.800" px={3} py={24}>
+      <Box bgColor="purple.800" px={3} py={28}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
             Showcase
@@ -80,7 +82,7 @@ export default function Home() {
         <Showcase />
       </Box>
 
-      <Box px={3} pt={8} pb={16}>
+      <Box px={3} pt={12} pb={20}>
         <Box m="0 auto" maxWidth="container.xl">
           <Heading textAlign="center" textTransform="uppercase" fontSize={16} mb={6}>
             Used By
@@ -89,13 +91,14 @@ export default function Home() {
         </Box>
       </Box>
 
-      <Box bgColor="purple.800" px={3} py={24}>
+      <Box bgColor="purple.800" px={3} py={32}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
-            Contact Us
+            Get in Contact
           </Heading>
           <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300" mb={12}>
-            If you have questions about React Flow or our Pro plans, please get in touch.
+            If you have any questions about React Flow or our monthly subscription plans, please get
+            in touch.
           </Text>
           <Center>
             <Button
