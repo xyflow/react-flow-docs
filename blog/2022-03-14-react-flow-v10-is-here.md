@@ -4,6 +4,7 @@ title: Releasing React Flow 10 and React Flow Pro
 authors: ['moritz', 'christopher']
 tags: ['react-flow', 'announcement']
 hide_table_of_contents: true
+draft: true
 ---
 
 After several months of hard work, we can finally announce the release of React Flow version 10. Together with the new library version, we are also releasing a fully revised documentation that is now powered by [Docusaurus](https://docusaurus.io/). Last but not least, we are releasing [React Flow Pro](https://pro.reactflow.dev), our new subscription model for React Flow. This post is meant to explain the details about everything that is new in React Flow version 10. If you want to migrate from v9 to v10, please read the [migration guide](/docs/guides/migrate-to-v10).
@@ -47,7 +48,7 @@ There is more! You can find a list with detailed explanations of the new feature
 
 ## React Flow Pro
 
-Together with the new library version, we are also releasing our subscription model for React Flow. During the past two years we spent a lot of time on improving the library, adding new features, organizing issues and fixing bugs. As it is with early stage open source projects, much of this time was unpaid. For cross-financing the development of React Flow, we started working as contractors on different projects that were related to React Flow. Unfortunately, that did not work for us in the long run as we needed more time to work on the core library and on features that the community considered useful. We also needed more time to answer issues, mails and messages on the Discord server. So, we were asking ourselves: What can we do to finance our work on React Flow more reliably?
+Together with the new library version, we are also releasing a subscription model for React Flow. During the past two years we spent a lot of time on improving the library, adding new features, organizing issues and fixing bugs. As it is with early stage open source projects, much of this time was unpaid. For cross-financing the development of React Flow, we started working as contractors on different React Flow related projects. Unfortunately, that did not work for us in the long run as we needed more time to work on the core library and on features that the community considered useful. We also needed more time to answer issues, mails and messages on the Discord server. So, we were asking ourselves: What can we do to finance our work on React Flow more reliably?
 
 Since we wanted to keep the open source MIT license, a proprietary license wouldn't work out for us. Pro features like layouting or copy/paste wouldn't either, because these features would be closed source or proprietary software as well. We already had some Github sponsors so the idea about React Flow Pro is to communicate it more openly that we want to work on the library full time and give advantages for subscribers and sponsors. With a subscription you can now support our work, you are allowed to remove the attribution, you get access to an internal Discord server and you can schedule support calls. We are excited about this change and we hope that it will be well received and will secure our work on React Flow. You can check out the plans and features on the [React Flow Pro site](https://pro.reactflow.dev).
 

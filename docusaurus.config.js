@@ -24,14 +24,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/docs/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -61,7 +59,7 @@ const config = {
             position: 'right',
             label: 'Examples',
           },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          // { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/wbkd/react-flow',
             position: 'right',
@@ -178,11 +176,11 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
-      algolia: {
-        appId: '6J7SBG6VXX',
-        apiKey: '46361401824ee0e359945db0a9d72669',
-        indexName: 'reactflow',
-      },
+      // algolia: {
+      //   appId: '6J7SBG6VXX',
+      //   apiKey: '46361401824ee0e359945db0a9d72669',
+      //   indexName: 'reactflow',
+      // },
     }),
   scripts: [
     {
