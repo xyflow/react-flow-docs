@@ -32,95 +32,31 @@ function Showcase() {
         </Button>
       </Box>
       <Box>
-        <SimpleGrid columns={[1, 2, 2]} spacing={5}>
-          <Box>
-            <Box
-              backgroundImage="url(/img/showcase/bitdev.png)"
-              h={180}
-              backgroundSize="cover"
-              backgroundPosition="center"
-              borderRadius="md"
-            />
-            <Button
-              color="white"
-              mt={4}
-              as="a"
-              href="https://bit.dev"
-              target="_blank"
-              variant="link"
-              _hover={{ color: 'primary' }}
-            >
-              bit.dev <ArrowForwardIcon fontSize={19} ml={2} />
-            </Button>
-          </Box>
-          <Box>
-            <Box
-              backgroundImage="url(/img/showcase/getbasis.png)"
-              h={180}
-              backgroundSize="cover"
-              backgroundPosition="center"
-              borderRadius="md"
-            />
-            <Button
-              color="white"
-              mt={4}
-              as="a"
-              href="https://getbasis.com"
-              target="_blank"
-              variant="link"
-              _hover={{ color: 'primary' }}
-            >
-              getbasis.com <ArrowForwardIcon fontSize={19} ml={2} />
-            </Button>
-          </Box>
-          <Box>
-            <Box
-              backgroundImage="url(/img/showcase/circles360.png)"
-              h={180}
-              backgroundSize="cover"
-              backgroundPosition="center"
-              borderRadius="md"
-            />
-            <Button
-              color="white"
-              mt={4}
-              as="a"
-              href="https://circles360.github.io"
-              target="_blank"
-              variant="link"
-              _hover={{ color: 'primary' }}
-            >
-              circles360.github.io <ArrowForwardIcon fontSize={19} ml={2} />
-            </Button>
-          </Box>
-          <Box>
-            <Flex
-              border="1px dashed"
-              borderColor="gray.700"
-              h={180}
-              backgroundSize="cover"
-              backgroundPosition="center"
-              borderRadius="md"
-              color="gray.300"
-              fontWeight="bold"
-              alignItems="center"
-              justifyContent="center"
-            >
-              your open source project here
-            </Flex>
-            <Button
-              color="white"
-              _hover={{ color: 'primary' }}
-              mt={4}
-              as="a"
-              href="https://pro.reactflow.dev/contact"
-              target="_blank"
-              variant="link"
-            >
-              contact us <ArrowForwardIcon fontSize={19} ml={2} />
-            </Button>
-          </Box>
-        </SimpleGrid>
+        <Flex
+          border="1px dashed"
+          borderColor="gray.700"
+          h={350}
+          backgroundSize="cover"
+          backgroundPosition="center"
+          borderRadius="md"
+          color="gray.300"
+          fontWeight="bold"
+          alignItems="center"
+          justifyContent="center"
+        >
+          your open source project here
+        </Flex>
+        <Button
+          color="white"
+          _hover={{ color: 'primary' }}
+          mt={4}
+          as="a"
+          href="https://pro.reactflow.dev/contact"
+          target="_blank"
+          variant="link"
+        >
+          contact us <ArrowForwardIcon fontSize={19} ml={2} />
+        </Button>
       </Box>
     </SimpleGrid>
   );
