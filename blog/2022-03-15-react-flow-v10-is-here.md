@@ -4,6 +4,7 @@ title: Releasing React Flow 10 and React Flow Pro
 authors: ['moritz', 'christopher']
 tags: ['react-flow', 'announcement']
 hide_table_of_contents: true
+image: /img/blog/v10-header.png
 ---
 
 Almost two years ago we [open sourced React Flow](https://webkid.io/blog/react-flow-node-based-graph-library/) that was built for our flow-based data processing tool [Datablocks](https://datablocks.pro). Since then we invested more and more time in React Flow and it got a lot of traction (25k+ website visitors per month, 9k+ stars on Github, 1k+ Discord members, 100k+ weekly downloads on npm).
