@@ -182,6 +182,29 @@ const config = {
         indexName: 'reactflow',
         contextualSearch: false,
       },
+      metadata: [
+        {
+          name: 'description',
+          content:
+            'A highly customizable library for building interactive node-based UIs, editors, flow charts and diagrams.',
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:site',
+          content: '@reactflowdev',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://reactflow.dev/img/social/social.jpeg',
+        },
+        {
+          name: 'og:image',
+          content: 'https://reactflow.dev/img/social/social.jpeg',
+        },
+      ],
     }),
   trailingSlash: true,
 };
