@@ -183,14 +183,6 @@ const config = {
         contextualSearch: false,
       },
     }),
-  scripts: [
-    {
-      src: 'https://cdn.usefathom.com/script.js',
-      async: true,
-      defer: true,
-      'data-site': 'LXMRMWLB',
-    },
-  ],
   trailingSlash: true,
 };
 
