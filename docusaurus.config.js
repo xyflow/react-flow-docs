@@ -26,10 +26,10 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
-        // },
+        blog: {
+          showReadingTime: true,
+          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -59,7 +59,7 @@ const config = {
             position: 'right',
             label: 'Examples',
           },
-          // { to: '/blog', label: 'Blog', position: 'right' },
+          { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/wbkd/react-flow',
             position: 'right',
@@ -115,7 +115,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/reactflow',
+                href: 'https://twitter.com/reactflowdev',
               },
               {
                 label: 'Stack Overflow',

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import clsx from 'clsx';
 import {
   SandpackProvider,
   SandpackLayout,
@@ -7,8 +6,6 @@ import {
   SandpackPreview,
 } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
-
-import styles from './code-viewer.module.css';
 
 const hiddenBaseStyles = {
   '/styles.css': {
@@ -42,7 +39,6 @@ export default function CodeViewer({
   codePath,
   additionalFiles = [],
   dependencies = {},
-  applyStyles = true,
   options = defaultOptions,
   activeFile = null,
   showEditor = true,
@@ -86,13 +82,13 @@ export default function CodeViewer({
   );
 
   if (!files) {
-    return <div className={clsx(styles.wrapper, styles.placeholder)} />;
+    return <div />;
   }
 
   const editorHeight = options?.editorHeight || 800;
 
   return (
-    <div className={applyStyles ? styles.wrapper : null}>
+    <div>
       <SandpackProvider
         template="react"
         customSetup={{
