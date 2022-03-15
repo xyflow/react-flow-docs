@@ -25,7 +25,7 @@ Node example:
 | `data` **(required)**     | `object`                                                 |                                                                                                        |
 | `type`                    | `'input'`, `'output'` or `'default'` + your custom types | Defines the node type                                                                                  |
 | `targetPosition`          | `'left'`, `'right'`, `'top'` or `'bottom'`               | Target position is `'top'` by default                                                                  |
-| `targetPosition`          | `'left'`, `'right'`, `'top'` or `'bottom'`               | Source position is `'bottom'` by default                                                               |
+| `sourcePosition`          | `'left'`, `'right'`, `'top'` or `'bottom'`               | Source position is `'bottom'` by default                                                               |
 | `parentNode`              | `string`                                                 | Node od of the parent node                                                                             |
 | `expandParent`            | `boolean`                                                | If this is true the parent node gets expanded when you drag the child to the outer bounds              |
 | `extent`                  | `[number, number, number, number]` or `'parent'`         | The moving range for a node. If it's a child that shouln't leave the parent node, set it to `'parent'` |
