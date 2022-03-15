@@ -15,7 +15,7 @@ export default function Root({ children }) {
 
     return history.listen((location) => {
       if (location.pathname !== pathname.current) {
-        Fathom.trackPageview();
+        Fathom.trackPageview({ url: `https://reactflow.dev${location.pathname}` });
       }
       pathname.current = location.pathname;
     });
