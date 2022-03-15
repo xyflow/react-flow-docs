@@ -15,7 +15,7 @@ const config = {
   projectName: 'react-flow', // Usually your repo name.
   customFields: {
     description:
-      'Highly customizable React.js library for building interactive node-based editors, flow charts and diagrams.',
+      'A highly customizable library for building interactive node-based UIs, editors, flow charts and diagrams.',
   },
   presets: [
     [

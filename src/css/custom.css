@@ -114,12 +114,22 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   outline: none;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 900;
   letter-spacing: 0.5px;
   line-height: 1;
   -webkit-transition: 0.075s all ease-in-out;
   transition: 0.075s all ease-in-out;
-  padding-right: 20px !important;
+  padding-right: 45px !important;
   margin-left: 15px;
+  position: relative;
+}
+
+.navbar__items .button__rfpro:after {
+  content: url('/img/diamond.svg');
+  position: absolute;
+  width: 26px;
+  right: 12px;
+  top: 6px;
 }
 
 .navbar__items .button__rfpro:hover {
