@@ -3,6 +3,8 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Tetrahedron, Box, MeshWobbleMaterial } from '@react-three/drei';
 import { Box as ChakraBox } from '@chakra-ui/react';
 
+const isMobileFlow = typeof window !== 'undefined' && window.innerWidth < 992;
+
 const randomVector = (r) => [
   r / 2 - Math.random() * r,
   r / 2 - Math.random() * r,
@@ -55,7 +57,7 @@ export default function App({ color, zoom, shape, count = 150 }) {
   );
 
   return (
-    <ChakraBox height={180}>
+    <ChakraBox height={isMobileFlow ? 130 : 180}>
       <Canvas resize={canvasResize} dpr={2}>
         <Cam zoom={zoom} />
         <ambientLight intensity={0.5} />

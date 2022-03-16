@@ -96,7 +96,6 @@ export default function ExampleFlow() {
     <ReactFlow
       preventScrolling={false}
       zoomOnScroll={false}
-      hpreventScrolling={false}
       fitView
       defaultNodes={nodes}
       defaultEdges={edges}

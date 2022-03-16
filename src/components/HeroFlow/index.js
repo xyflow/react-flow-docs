@@ -38,10 +38,10 @@ function getNodePositions(headlineBounds) {
       headlineBounds.top + headlineBounds.height + (rfHeight - headlineBounds.height) / 2 - 125;
 
     return {
-      hero: { x: rfWidth - 190 - px, y: offsetY + 15 },
-      shape: { x: px + px / 4, y: offsetY - 4 },
-      color: { x: px / 2, y: offsetY + 96 },
-      zoom: { x: px, y: offsetY + 181 },
+      hero: { x: rfWidth - 150 - px, y: offsetY + 15 },
+      shape: { x: px + px / 4, y: offsetY + 15 },
+      color: { x: px / 2, y: offsetY + 90 },
+      zoom: { x: px, y: offsetY + 170 },
       swoopy1: { x: 40, y: -40 },
       swoopy2: { x: 160, y: 40 },
     };
@@ -145,21 +145,21 @@ function FlowViz({ headlineRef }) {
         id: 'hero',
         type: 'hero',
         position: nodePositions.hero,
-        style: { width: isLargeFlow ? 300 : 180, ...nodeStyle },
+        style: { width: isLargeFlow ? 300 : 160, ...nodeStyle },
         data: { color, zoom, shape, label: 'Output' },
       },
       {
         id: 'color',
         type: 'colorpicker',
         data: { color, onChange: setColor, label: 'Shape Color' },
-        style: { ...nodeStyle, width: 160 },
+        style: { ...nodeStyle, width: 150 },
         position: nodePositions.color,
       },
       {
         id: 'zoom',
         type: 'slider',
         data: { value: zoom, min: 0, max: 40, onChange: setZoom, label: 'Zoom Level' },
-        style: { ...nodeStyle, width: 160 },
+        style: { ...nodeStyle, width: 150 },
         position: nodePositions.zoom,
       },
       {
@@ -171,7 +171,7 @@ function FlowViz({ headlineRef }) {
           onChange: setShape,
           label: 'Shape Type',
         },
-        style: { ...nodeStyle, width: 160 },
+        style: { ...nodeStyle, width: 150 },
         position: nodePositions.shape,
       },
       {
