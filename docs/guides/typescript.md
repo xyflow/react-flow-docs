@@ -53,8 +53,11 @@ function Flow() {
 
   return (
     <ReactFlow
-      nodes={initialNodes}
-      edges={initialEdges}
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
       fitView
       fitViewOptions={fitViewOptions}
     >
