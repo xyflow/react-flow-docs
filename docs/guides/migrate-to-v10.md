@@ -337,4 +337,4 @@ This is just a wording change for making the marker API more consistent. As we a
 
 ### 10. Attribution
 
-This is not really a breaking change to the API but a little change in the general appearance of React Flow. We added a tiny "React Flow" attribution to the bottom right (the position is configurable via the `attributionPosition` prop). This change comes with the new "React Flow Pro" subscription model. If you want to remove the attribution please get a ["React Flow Pro" subscription](https://pro.reactflow.dev) or [sponsor us on Github](https://github.com/sponsors/wbkd).
+This is not really a breaking change to the API but a little change in the general appearance of React Flow. We added a tiny "React Flow" attribution to the bottom right (the position is configurable via the `attributionPosition` prop). This change comes with the new "React Flow Pro" subscription model. If you want to remove the attribution in a commercial application, please subscribe to ["React Flow Pro"](https://pro.reactflow.dev).

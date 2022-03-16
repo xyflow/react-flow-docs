@@ -14,13 +14,15 @@ React Flow is a library for building node-based applications. These can be simpl
 - **Plugin Components:** [Background](/docs/api/plugin-components/background), [MiniMap](/docs/api/plugin-components/minimap) and [Controls](/docs/api/plugin-components/controls)
 - **Reliable**: Written in [Typescript](https://www.typescriptlang.org/) and tested with [cypress](https://www.cypress.io/)
 
-## Pro Subscription
+## React Flow Pro
 
-We are working full time on React Flow and related projects. If you are using React Flow commercially, please consider to do a monthly [pro subscription](https://pro.reactflow.dev/pricing) or a [sponsorship](https://github.com/sponsors/wbkd). By subscribing to React Flow Pro you are helping us to secure the further maintenance and development of the library.
+We are working full time on React Flow and related projects. If you are using React Flow commercially, please consider to do a monthly [pro subscription](https://pro.reactflow.dev/pricing). By subscribing to React Flow Pro you are helping us to secure the further maintenance and development of the library.
 
 ## Attribution
 
-React Flow includes a small attribution that links to the React Flow website. We expect you to only remove the attribution if you are subscribed to one of our React Flow [Pro plans](https://pro.reactflow.dev/pricing) or [sponsor us](https://github.com/sponsors/wbkd) on Github with at least 129$ per month. You can find more information regarding the attribution in our [FAQs](https://pro.reactflow.dev/faq).
+React Flow includes a small attribution that links to the React Flow website. Per default, the attribution is displayed in the bottom right corner. With the attribution we want to achieve that companies who are using React Flow in commercial applications finance the development of the library.
+
+We expect users who are using React Flow commercially to subscribe to [React Flow Pro](https://pro.reactflow.dev) if they want to remove the attribution. In non-commercial applications you may hide the attribution without subscribing but are welcome to [sponsor us on Github](https://github.com/sponsors/wbkd).
 
 ## Migrate to v10
 
