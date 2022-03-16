@@ -16,7 +16,11 @@ React Flow is a library for building node-based applications. These can be simpl
 
 ## Pro Subscription
 
-We are working full time on React Flow and related projects. If you are using React Flow commercially, please consider to do a monthly [pro subscription](https://pro.reactflow.dev) or a [sponsorship](https://github.com/sponsors/wbkd). With the pro subscription you are allowed to remove the "React Flow" attribution and you can get support through our private discord channel. And most importantly, you secure further development of the library.
+We are working full time on React Flow and related projects. If you are using React Flow commercially, please consider to do a monthly [pro subscription](https://pro.reactflow.dev/pricing) or a [sponsorship](https://github.com/sponsors/wbkd). By subscribing to React Flow Pro you are helping us to secure the further maintenance and development of the library.
+
+## Attribution
+
+React Flow includes a small attribution that links to the React Flow website. We expect you to only remove the attribution if you are subscribed to one of our React Flow [Pro plans](https://pro.reactflow.dev/pricing) or [sponsor us](https://github.com/sponsors/wbkd) on Github with at least 129$ per month. You can find more information regarding the attribution in our [FAQs](https://pro.reactflow.dev/faq).
 
 ## Migrate to v10
 
