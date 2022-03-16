@@ -8,7 +8,10 @@ React Flow is written in Typescript, so you don't need to install the types sepa
 ## Usage
 
 ```tsx
+import { useState, useCallback } from 'react';
 import ReactFlow, {
+  addEdge,
+  FitViewOptions,
   applyNodeChanges,
   applyEdgeChanges,
   Node,
