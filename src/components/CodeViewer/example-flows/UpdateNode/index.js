@@ -54,7 +54,7 @@ const UpdateNode = () => {
       nds.map((node) => {
         if (node.id === '1') {
           // when you update a simple type you can just update the value
-          node.isHidden = nodeHidden;
+          node.hidden = nodeHidden;
         }
 
         return node;
@@ -63,7 +63,7 @@ const UpdateNode = () => {
     setEdges((eds) =>
       eds.map((edge) => {
         if (edge.id === 'e1-2') {
-          edge.isHidden = nodeHidden;
+          edge.hidden = nodeHidden;
         }
 
         return edge;
@@ -91,7 +91,11 @@ const UpdateNode = () => {
 
         <div className="updatenode__checkboxwrapper">
           <label>hidden:</label>
-          <input type="checkbox" checked={nodeHidden} onChange={(evt) => setNodeHidden(evt.target.checked)} />
+          <input
+            type="checkbox"
+            checked={nodeHidden}
+            onChange={(evt) => setNodeHidden(evt.target.checked)}
+          />
         </div>
       </div>
     </ReactFlow>
