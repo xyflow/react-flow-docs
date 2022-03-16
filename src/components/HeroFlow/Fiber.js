@@ -56,7 +56,7 @@ export default function App({ color, zoom, shape, count = 150 }) {
 
   return (
     <ChakraBox height={180}>
-      <Canvas resize={canvasResize}>
+      <Canvas resize={canvasResize} dpr={2}>
         <Cam zoom={zoom} />
         <ambientLight intensity={0.5} />
         <directionalLight intensity={1} position={[0, 25, 20]} />
