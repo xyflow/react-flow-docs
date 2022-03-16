@@ -3,7 +3,7 @@ title: useNodes
 sidebar_position: 2
 ---
 
-This hook returns the ndes. The component that uses this hook re-renders whenever a node changes.
+This hook returns the nodes. The component that uses this hook re-renders whenever a node changes.
 
 :::caution
 
