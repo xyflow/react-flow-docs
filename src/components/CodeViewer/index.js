@@ -5,6 +5,8 @@ import {
   SandpackCodeEditor,
   SandpackPreview,
 } from '@codesandbox/sandpack-react';
+import { useTheme } from '@chakra-ui/react';
+
 import '@codesandbox/sandpack-react/dist/index.css';
 
 const hiddenBaseStyles = {
@@ -81,14 +83,14 @@ export default function CodeViewer({
     []
   );
 
-  if (!files) {
-    return <div />;
-  }
-
   const editorHeight = options?.editorHeight || 800;
 
+  if (!files) {
+    return <div style={{ minHeight: editorHeight }} />;
+  }
+
   return (
-    <div>
+    <div style={{ minHeight: editorHeight }}>
       <SandpackProvider
         template="react"
         customSetup={{
