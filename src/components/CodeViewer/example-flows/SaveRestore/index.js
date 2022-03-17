@@ -39,10 +39,10 @@ const SaveRestore = () => {
       const flow = JSON.parse(localStorage.getItem(flowKey));
 
       if (flow) {
-        const [x = 0, y = 0] = flow.position;
+        const { x = 0, y = 0, zoom = 1 } = flow.viewport;
         setNodes(flow.nodes || []);
         setEdges(flow.edges || []);
-        setViewport({ x, y, zoom: flow.zoom || 0 });
+        setViewport({ x, y, zoom });
       }
     };
 
