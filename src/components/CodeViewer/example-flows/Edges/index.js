@@ -1,6 +1,14 @@
 import React from 'react';
 
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+  Background,
+  MarkerType,
+} from 'react-flow-renderer';
 
 import CustomEdge from './CustomEdge';
 
@@ -88,7 +96,9 @@ const initialEdges = [
     target: 'edges-6',
     label: 'styled label',
     labelStyle: { fill: 'red', fontWeight: 700 },
-    arrowHeadType: 'arrow',
+    markerEnd: {
+      type: MarkerType.Arrow,
+    },
   },
   {
     id: 'edges-e5-7',
@@ -98,7 +108,9 @@ const initialEdges = [
     labelBgPadding: [8, 4],
     labelBgBorderRadius: 4,
     labelBgStyle: { fill: '#FFCC00', color: '#fff', fillOpacity: 0.7 },
-    arrowHeadType: 'arrowclosed',
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+    },
   },
   {
     id: 'edges-e5-8',
@@ -106,7 +118,9 @@ const initialEdges = [
     target: 'edges-8',
     type: 'custom',
     data: { text: 'custom edge' },
-    arrowHeadType: 'arrowclosed',
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+    },
   },
 ];
 

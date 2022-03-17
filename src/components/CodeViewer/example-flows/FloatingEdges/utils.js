@@ -1,4 +1,4 @@
-import { Position } from 'react-flow-renderer';
+import { Position, MarkerType } from 'react-flow-renderer';
 
 // this helper function returns the intersection point
 // of the line between the center of the intersectionNode and the target node
@@ -92,7 +92,9 @@ export function createNodesAndEdges() {
       target: 'target',
       source: `${i}`,
       type: 'floating',
-      arrowHeadType: 'arrow',
+      markerEnd: {
+        type: MarkerType.Arrow,
+      },
     });
   }
 

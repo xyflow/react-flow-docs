@@ -1,3 +1,5 @@
+import { MarkerType } from 'react-flow-renderer';
+
 export default [
   {
     id: 'edges-e1-2',
@@ -49,7 +51,9 @@ export default [
     target: 'edges-6',
     label: 'styled label',
     labelStyle: { fill: 'red', fontWeight: 700 },
-    arrowHeadType: 'arrow',
+    markerEnd: {
+      type: MarkerType.Arrow,
+    },
   },
   {
     id: 'edges-e5-7',
@@ -59,6 +63,8 @@ export default [
     labelBgPadding: [8, 4],
     labelBgBorderRadius: 4,
     labelBgStyle: { fill: '#FFCC00', color: '#fff', fillOpacity: 0.7 },
-    arrowHeadType: 'arrowclosed',
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+    },
   },
 ];

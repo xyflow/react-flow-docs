@@ -1,13 +1,11 @@
 import { useCallback } from 'react';
-import { getMarkerEnd, useStore, getBezierPath } from 'react-flow-renderer';
+import { useStore, getBezierPath } from 'react-flow-renderer';
 
 import { getEdgeParams } from './utils.js';
 
-function FloatingEdge({ id, source, target, arrowHeadType, markerEndId, style }) {
+function FloatingEdge({ id, source, target, markerEnd, style }) {
   const sourceNode = useStore(useCallback((store) => store.nodeInternals.get(source), [source]));
   const targetNode = useStore(useCallback((store) => store.nodeInternals.get(target), [target]));
-
-  const markerEnd = getMarkerEnd(arrowHeadType, markerEndId);
 
   if (!sourceNode || !targetNode) {
     return null;

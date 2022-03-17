@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  getBezierPath,
-  getEdgeCenter,
-  getMarkerEnd,
-} from 'react-flow-renderer';
+import { getBezierPath, getEdgeCenter, getMarkerEnd } from 'react-flow-renderer';
 
 import './index.css';
 
@@ -23,9 +19,7 @@ export default function CustomEdge({
   sourcePosition,
   targetPosition,
   style = {},
-  data,
-  arrowHeadType,
-  markerEndId,
+  markerEnd,
 }) {
   const edgePath = getBezierPath({
     sourceX,
@@ -35,7 +29,6 @@ export default function CustomEdge({
     targetY,
     targetPosition,
   });
-  const markerEnd = getMarkerEnd(arrowHeadType, markerEndId);
   const [edgeCenterX, edgeCenterY] = getEdgeCenter({
     sourceX,
     sourceY,
@@ -61,10 +54,7 @@ export default function CustomEdge({
         requiredExtensions="http://www.w3.org/1999/xhtml"
       >
         <body>
-          <button
-            className="edgebutton"
-            onClick={(event) => onEdgeClick(event, id)}
-          >
+          <button className="edgebutton" onClick={(event) => onEdgeClick(event, id)}>
             ×
           </button>
         </body>

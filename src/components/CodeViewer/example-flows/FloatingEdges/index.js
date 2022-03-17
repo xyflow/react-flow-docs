@@ -1,5 +1,11 @@
 import React from 'react';
-import ReactFlow, { addEdge, Background, useNodesState, useEdgesState } from 'react-flow-renderer';
+import ReactFlow, {
+  addEdge,
+  Background,
+  useNodesState,
+  useEdgesState,
+  MarkerType,
+} from 'react-flow-renderer';
 
 import FloatingEdge from './FloatingEdge.js';
 import FloatingConnectionLine from './FloatingConnectionLine.js';
@@ -14,11 +20,13 @@ const edgeTypes = {
 };
 
 const NodeAsHandleFlow = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = (params) =>
-    setEdges((eds) => addEdge({ ...params, type: 'floating', arrowHeadType: 'arrow' }, eds));
+    setEdges((eds) =>
+      addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
+    );
 
   return (
     <div className="floatingedges">
