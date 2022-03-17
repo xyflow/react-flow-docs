@@ -181,6 +181,7 @@ const config = {
         apiKey: '46361401824ee0e359945db0a9d72669',
         indexName: 'reactflow',
         contextualSearch: false,
+        searchPagePath: false,
       },
       metadata: [
         {
