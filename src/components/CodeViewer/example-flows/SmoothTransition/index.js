@@ -39,10 +39,10 @@ const SmoothTransition = () => {
   const { setViewport, zoomIn, zoomOut } = useReactFlow();
 
   const handleTransform = useCallback(
-    () => () => {
+    () => {
       setViewport({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
     },
-    []
+    [setViewport]
   );
 
   return (
@@ -58,7 +58,7 @@ const SmoothTransition = () => {
       <div className="controls">
         <button onClick={() => zoomIn({ duration: 800 })}>zoom in</button>
         <button onClick={() => zoomOut({ duration: 800 })}>zoom out</button>
-        <button onClick={handleTransform()}>pan to center(0,0,1)</button>
+        <button onClick={handleTransform}>pan to center(0,0,1)</button>
       </div>
       <Background />
     </ReactFlow>
