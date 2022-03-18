@@ -27,7 +27,7 @@ By default React Flow doesn't do any internal state updates besides handling the
 
 <CodeViewer codePath="api-flows/IntroductionFlow2" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
-What is happening here? Whenever React Flow triggers a change (node drag, edge select, etc.), the `onNodesChange` handler gets called. We export an `applyNodeChanges` handler so that you don't need to handle the changes by yourself. The `applyNodeChanges` handler returns an updated array of nodes that is your new nodes array. You now have an interactive flow with the following kinds of interactions:
+What is happening here? Whenever React Flow triggers a change (node init, node drag, edge select, etc.), the `onNodesChange` handler gets called. We export an `applyNodeChanges` handler so that you don't need to handle the changes by yourself. The `applyNodeChanges` handler returns an updated array of nodes that is your new nodes array. You now have an interactive flow with the following kinds of interactions:
 
 - selectable nodes and edges
 - draggable nodes
@@ -35,7 +35,7 @@ What is happening here? Whenever React Flow triggers a change (node drag, edge s
 - multi-selection area by pressing Shift (that's the default `selectionKeyCode`)
 - multi-selection by pressing command (that's the default `multiSelectionKeyCode`)
 
-For convenience we export the helper hooks `useNodesState` and `useEdgesState` that you can use to create the nodes and edges state more easily:
+For convenience we export the helper hooks `useNodesState` and `useEdgesState` that you can use to create the nodes and edges state:
 
 ```js
 const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
