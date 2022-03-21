@@ -36,6 +36,7 @@ Node example:
 | `dragHandle`              | `string`                                                 | Selector for specifying an element as a drag handle                                                    |
 | `style`                   | `CSSProperties`                                          |                                                                                                        |
 | `className`               | `string`                                                 |                                                                                                        |
+| `zIndex`                  | `number`, default: `0`                                   | The zIndex property controls the stacking order of the nodes                                           |
 
 ## Update Node Options
 
