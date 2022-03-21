@@ -5,7 +5,6 @@ import {
   SandpackCodeEditor,
   SandpackPreview,
 } from '@codesandbox/sandpack-react';
-import { useTheme } from '@chakra-ui/react';
 
 import '@codesandbox/sandpack-react/dist/index.css';
 

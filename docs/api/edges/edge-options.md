@@ -29,7 +29,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 | `target` **(required)** | `string`                                                                           | Id of the target node                                                                                                             |
 | `sourceHandle`          | `string`                                                                           | You only need this when you have multiple handles                                                                                 |
 | `targetHandle`          | `string`                                                                           | You only need this when you have multiple handles                                                                                 |
-| `type`                  | `'default'` (bezier), `'step'`, `'smoothstep'` or `'striaght'` + your custom types |                                                                                                                                   |
+| `type`                  | `'default'` (bezier), `'step'`, `'smoothstep'` or `'straight'` + your custom types |                                                                                                                                   |
 | `animated`              | `boolean`                                                                          |                                                                                                                                   |
 | `data`                  | `object`                                                                           | Can be used to pass data to your custom edge                                                                                      |
 | `hidden`                | `boolean`                                                                          |  if `true`, the edge will not be rendered                                                                                         |
@@ -43,6 +43,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 | `markerEnd`             | `string` or `object`                                                               | string (id for a svg marker that you need to define yourself) or a [marker configuration object](#markerstart--markerend-options) |
 | `style`                 | `CSSProperties`                                                                    |                                                                                                                                   |
 | `className`             | `string`                                                                           |                                                                                                                                   |
+| `zIndex`                | `number`, default: `0`                                                             | controls the layer order of the edges                                                                                             |
 
 You can find an example with different edges in the [edges example](/docs/examples/edges/).
 

@@ -31,7 +31,7 @@ export default function Home() {
             <Box>
               <Text fontSize="lg">
                 React Flow is a MIT-licensed open source library. You can help us to ensure the
-                further development and maintanance by subscribing to one of our pro plans.
+                further development and maintenance by subscribing to React Flow Pro.
               </Text>
               <Button
                 rightIcon={<ArrowForwardIcon fontSize={19} />}
