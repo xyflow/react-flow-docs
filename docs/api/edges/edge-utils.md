@@ -78,6 +78,41 @@ getEdgeCenter({
 }: GetCenterParams): [number, number, number, number]
 ```
 
+### `getBezierEdgeCenter`
+
+Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a bezier edge.
+
+```
+import { getBezierEdgeCenter } from 'react-flow-renderer';
+
+getBezierEdgeCenter({
+  sourceX,
+  sourceY,
+  sourcePosition = Position.Bottom,
+  targetX,
+  targetY,
+  targetPosition = Position.Top,
+  curvature = 0.25,
+}: GetCenterParams): [number, number, number, number]
+```
+
+### `getSimpleBezierEdgeCenter`
+
+Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a `simplebezier` edge.
+
+```
+import { getSimpleBezierEdgeCenter } from 'react-flow-renderer';
+
+getSimpleBezierEdgeCenter({
+  sourceX,
+  sourceY,
+  sourcePosition = Position.Bottom,
+  targetX,
+  targetY,
+  targetPosition = Position.Top,
+}: GetCenterParams): [number, number, number, number]
+```
+
 ### `getMarkerEnd`
 
 Returns the marker end url for displaying the arrow head.
