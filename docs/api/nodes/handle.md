@@ -32,7 +32,7 @@ const targetHandleWithValidation = (
 | `style`             | `CSSProperties`                            | `undefined`                                         | Controls style attributes                                                                                                                                                           |
 | `className`         | `string`                                   | `undefined`                                         | Additional class name                                                                                                                                                               |
 
-**Typescript:** The interface of the Handle Prop Types are exported as `HandleProps`.
+**Typescript:** The interface of the Handle Prop Types are exported as `HandleComponentProps`.
 
 ### Validation
 
