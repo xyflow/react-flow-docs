@@ -110,7 +110,7 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | `onMove(event: MouseEvent, viewport: Viewport)`                  | `function` | `undefined` | called when user is panning or zooming                                          |
 | `onMoveStart(event: MouseEvent, viewport: Viewport)`             | `function` | `undefined` | called when user starts panning or zooming                                      |
 | `onMoveEnd(event: MouseEvent, viewport: Viewport)`               | `function` | `undefined` | called when user ends panning or zooming                                        |
-| `onSelectionChange({ node, edges }: OnSelectionChangeParams)`    | `function` | `undefined` | called when user selects one or multiple elements                               |
+| `onSelectionChange({ nodes, edges }: OnSelectionChangeParams)`   | `function` | `undefined` | called when user selects one or multiple elements                               |
 | `onSelectionDragStart(event: React.MouseEvent, nodes: Node[])`   | `function` | `undefined` | called when user starts to drag a selection                                     |
 | `onSelectionDrag(event: React.MouseEvent, nodes: Node[])`        | `function` | `undefined` | called when user drags a selection                                              |
 | `onSelectionDragStop(event: React.MouseEvent, nodes: Node[])`    | `function` | `undefined` | called when user stops to drag a selection                                      |
