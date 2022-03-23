@@ -112,3 +112,7 @@ Fits the pane to the passed bounds (object with width x, y, width and height: `{
 Transforms pixel coordinates to the internal ReactFlow coordinate system. This can be used when you drag nodes (from a side bar for example) and need the internal position on the pane.
 
 `({ x, y }: XYPosition): { x, y}: XYPosition`
+
+### `viewportInitialized`
+
+Boolean property to determine if React Flow has been initialized with all its event listeners.
