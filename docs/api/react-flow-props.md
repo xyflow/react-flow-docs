@@ -156,6 +156,6 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Pro
 
-| Name         | Type     | Default     | Description                                                                                                                  |
-| ------------ | -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `proOptions` | `object` | `undefined` | options to specify license and hide attribution (you can find more information on the [pro page](https://pro.reactflow.dev)) |
+| Name         | Type     | Default     | Description                                                                                                                          |
+| ------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `proOptions` | `object` | `undefined` | options to specify license and hide attribution (you can find more information on the [pro page](https://pro.reactflow.dev/pricing)) |

@@ -12,7 +12,7 @@ We are super happy about the progress and the community that has developed aroun
 
 <!--truncate-->
 
-After several months of hard work, today we can finally announce the release of React Flow version 10. Together with the new library version, we are also releasing a fully revised documentation that is now powered by [Docusaurus](https://docusaurus.io/). Last but not least, we are releasing [React Flow Pro](https://pro.reactflow.dev), our new subscription model for React Flow which we want to establish to secure the further development and maintenance of the library. In this post we describe all the news around React Flow version 10. If you want to migrate from v9 to v10, please refer to the [migration guide](/docs/guides/migrate-to-v10).
+After several months of hard work, today we can finally announce the release of React Flow version 10. Together with the new library version, we are also releasing a fully revised documentation that is now powered by [Docusaurus](https://docusaurus.io/). Last but not least, we are releasing [React Flow Pro](https://pro.reactflow.dev/pricing), our new subscription model for React Flow which we want to establish to secure the further development and maintenance of the library. In this post we describe all the news around React Flow version 10. If you want to migrate from v9 to v10, please refer to the [migration guide](/docs/guides/migrate-to-v10).
 
 import CodeViewer from '/src/components/CodeViewer'
 const editorOptions = { editorHeight: 300 }
@@ -46,10 +46,10 @@ There is more! You can find a list with detailed explanations of the new feature
 
 ## React Flow Pro
 
-Together with the new library version, we are also releasing a subscription model called [React Flow Pro](https://pro.reactflow.dev). During the past two years we spent a lot of time on improving the library, adding new features, organizing issues and fixing bugs. With React Flow Pro we now want to take the next step: Securing the future of React Flow financially. Our goal is to keep the library open source, free of charge and under MIT license. At the same time, we want to give companies that use React Flow as an essential part of their business the assurance that the library will continue to be developed and updated.
+Together with the new library version, we are also releasing a subscription model called [React Flow Pro](https://pro.reactflow.dev/pricing). During the past two years we spent a lot of time on improving the library, adding new features, organizing issues and fixing bugs. With React Flow Pro we now want to take the next step: Securing the future of React Flow financially. Our goal is to keep the library open source, free of charge and under MIT license. At the same time, we want to give companies that use React Flow as an essential part of their business the assurance that the library will continue to be developed and updated.
 
 To meet both requirements, we came up with the idea of adding a small attribution to the React Flow renderer. Subscribers to the [Starter](https://pro.reactflow.dev/pricing) or [Enterprise](https://pro.reactflow.dev/pricing) plans can remove the attribution from their applications. Everyone else can use React Flow in the same way as before as long as the attribution is displayed. In addition to removing the attribution, Pro subscribers get access to an internal Discord channel and can schedule support calls.
-We are excited about this change and we hope that it will be well received and can secure our work on React Flow. You can check out the plans and features on the [React Flow Pro site](https://pro.reactflow.dev).
+We are excited about this change and we hope that it will be well received and can secure our work on React Flow. You can check out the plans and features on the [React Flow Pro site](https://pro.reactflow.dev/pricing).
 
 ---
 
