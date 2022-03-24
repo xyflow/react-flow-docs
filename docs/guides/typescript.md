@@ -60,7 +60,7 @@ function Flow() {
       onConnect={onConnect}
       fitView
       fitViewOptions={fitViewOptions}
-    >
+    />
   )
 }
 ```
