@@ -74,6 +74,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.blogPostTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostItem-styles-module a {
+  color: var(--chakra-colors-gray-800);
+}
+
+.blogPostTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostItem-styles-module
+  a:hover {
+  color: var(--ifm-color-primary);
+}
+
 .navbar__brand {
   font-size: 1.5rem;
 }
