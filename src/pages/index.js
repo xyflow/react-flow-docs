@@ -1,7 +1,16 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { Box, Heading, Center, Text, Button, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Center,
+  Text,
+  Button,
+  SimpleGrid,
+  chakra,
+  useMediaQuery,
+} from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FiMail } from 'react-icons/fi';
 
@@ -16,6 +25,7 @@ import Showcase from '../components/Showcase';
 import UsedBy from '../components/UsedBy';
 
 export default function Home() {
+  const [isLargeScreen] = useMediaQuery('(min-width: 992px)');
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -58,7 +68,7 @@ export default function Home() {
           title="Nested Graphs"
           text="React Flow has built-in support for rendering sub graphs and nested nodes."
           Flow={ExampleFlowB}
-          rtl
+          rtl={isLargeScreen}
           dark
         />
 
@@ -97,8 +107,9 @@ export default function Home() {
             Get in Contact
           </Heading>
           <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300" mb={12}>
-            If you have any questions about React Flow or our monthly subscription plans, please get
-            in touch.
+            If you have any questions about React Flow or our monthly subscription plans,
+            <chakra.br display={['none', 'none', 'block']} />
+            please get in touch.
           </Text>
           <Center>
             <Button

@@ -20,7 +20,7 @@ export default function ExampleFlow({ title, text, Flow, rtl = false, dark = fal
         <Text fontSize="lg" color="gray.600">
           {text}
         </Text>
-        <Button variant="link" as="a" href="/docs/introduction">
+        <Button variant="link" as="a" href="/docs/introduction" mb={2}>
           Documentation <ArrowForwardIcon fontSize={19} ml={2} />
         </Button>
       </Box>

@@ -18,7 +18,7 @@ const CompanyLogo = ({ Logo, ...props }) => (
     {...props}
   >
     <Box height="25px" filter="contrast(0) brightness(1.4) saturate(0)">
-      <Logo height="100%" />
+      <Logo height="100%" title={props.title} />
     </Box>
   </Flex>
 );
