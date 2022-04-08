@@ -10,7 +10,7 @@ function FloatingConnectionLine({ targetX, targetY, sourcePosition, targetPositi
 
   const targetNode = {
     id: 'connection-target',
-    __rf: { width: 1, height: 1, position: { x: targetX, y: targetY } },
+    width: 1, height: 1, position: { x: targetX, y: targetY },
   };
 
   const { sx, sy } = getEdgeParams(sourceNode, targetNode);
