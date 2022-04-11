@@ -82,17 +82,17 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 #### Edges
 
-| Name                                                     | Type       | Default     | Description                                                                                                                          |
-| -------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `onEdgeClick(event: React.MouseEvent, edge: Edge)`       | `function` | `undefined` | called when user clicks an edge                                                                                                      |
-| `onEdgeMouseEnter(event: React.MouseEvent, edge: Edge)`  | `function` | `undefined` | edge mouse enter                                                                                                                     |
-| `onEdgeMouseMove(event: React.MouseEvent, edge: Edge)`   | `function` | `undefined` | edge mouse move                                                                                                                      |
-| `onEdgeMouseLeave(event: React.MouseEvent, edge: Edge)`  | `function` | `undefined` | edge mouse leave                                                                                                                     |
-| `onEdgeContextMenu(event: React.MouseEvent, edge: Edge)` | `function` | `undefined` | called when user does a right-click on an edge                                                                                       |
-| `onEdgeUpdate(oldEdge, newConnection)`                   | `function` | `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
-| `onEdgeUpdateStart(event: React.MouseEvent, edge: Edge)` | `function` | `undefined` | called when user starts to update an edge                                                                                            |
-| `onEdgeUpdateEnd(event: React.MouseEvent, edge: Edge)`   | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
-| `onEdgesDelete(edges: Edge[])`                           | `function` | `undefined` | called when edges get deleted                                                                                                        |
+| Name                                                                             | Type       | Default     | Description                                                                                                                          |
+| -------------------------------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `onEdgeClick(event: React.MouseEvent, edge: Edge)`                               | `function` | `undefined` | called when user clicks an edge                                                                                                      |
+| `onEdgeMouseEnter(event: React.MouseEvent, edge: Edge)`                          | `function` | `undefined` | edge mouse enter                                                                                                                     |
+| `onEdgeMouseMove(event: React.MouseEvent, edge: Edge)`                           | `function` | `undefined` | edge mouse move                                                                                                                      |
+| `onEdgeMouseLeave(event: React.MouseEvent, edge: Edge)`                          | `function` | `undefined` | edge mouse leave                                                                                                                     |
+| `onEdgeContextMenu(event: React.MouseEvent, edge: Edge)`                         | `function` | `undefined` | called when user does a right-click on an edge                                                                                       |
+| `onEdgeUpdate(oldEdge, newConnection)`                                           | `function` | `undefined` | called when the end of an edge gets dragged to another source or target                                                              |
+| `onEdgeUpdateStart(event: React.MouseEvent, edge: Edge, handleType: HandleType)` | `function` | `undefined` | called when user starts to update an edge                                                                                            |
+| `onEdgeUpdateEnd(event: MouseEvent, edge: Edge, handleType: HandleType)`         | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
+| `onEdgesDelete(edges: Edge[])`                                                   | `function` | `undefined` | called when edges get deleted                                                                                                        |
 
 #### Connections
 
