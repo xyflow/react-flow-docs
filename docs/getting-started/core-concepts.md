@@ -48,7 +48,7 @@ The last piece that is missing to get the full interactivity is the `onConnect` 
 
 <CodeViewer codePath="api-flows/IntroductionFlow3" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
-In this example we are using the `addEdge` handler that returns an array of edges with the newly created one. If you want set a certain edge option whenever an edge gets created you pass your options like this:
+In this example we are using the `addEdge` handler that returns an array of edges with the newly created one. If you want to set a certain edge option whenever an edge gets created you pass your options like this:
 
 ```js
 const onConnect = useCallback(
