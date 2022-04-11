@@ -70,3 +70,15 @@ Returns all edges that are connected to the passed nodes.
 `getConnectedEdges(nodes: Node[], edges: Edge[]): Edge[]`
 
 You can use these function as seen in [this example](https://github.com/wbkd/react-flow/blob/main/example/src/Overview/index.tsx#L100) or use your own ones.
+
+### `getTransformForBounds`
+
+Returns the transform (`[number, number, number]`/ `[x, y, zoom]`) for the passed params.
+
+`getTransformForBounds = (bounds: Rect, width: number, height: number, minZoom: number, maxZoom: number, padding: number = 0.1): Transform`
+
+### `getRectOfNodes`
+
+Returns the rect (`{ x: number, y: number, width: number, height: number }`) for the passed nodes array.
+
+`getRectOfNodes = (nodes: Node[]): Rect`
