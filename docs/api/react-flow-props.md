@@ -139,11 +139,11 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Connection Line Options
 
-| Name                      | Type            | Default     | Description                                                               |
-| ------------------------- | --------------- | ----------- | ------------------------------------------------------------------------- |
-| `connectionLineType`      | `string`        | `undefined` | called when user clicks a node                                            |
-| `connectionLineStyle`     | `CSSProperties` | `undefined` | connection style as svg attributes                                        |
-| `connectionLineComponent` | `function`      | `undefined` | [custom connection line component](/docs/examples/custom-connectionline/) |
+| Name                      | Type            | Default     | Description                                                                     |
+| ------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------- |
+| `connectionLineType`      | `string`        | `undefined` | called when user clicks a node                                                  |
+| `connectionLineStyle`     | `CSSProperties` | `undefined` | connection style as svg attributes                                              |
+| `connectionLineComponent` | `function`      | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
 
 ### Keys
 

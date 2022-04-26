@@ -3,7 +3,7 @@ title: Edge Utils
 sidebar_position: 5
 ---
 
-There are several utils that help you to create a custom edge. Some are used in the [edges example](/docs/examples/edges).
+There are several utils that help you to create a custom edge. Some are used in the [custom edge example](/docs/examples/edges/custom-edge).
 
 ### `getBezierPath`
 

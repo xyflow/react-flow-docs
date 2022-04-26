@@ -29,4 +29,4 @@ function FlowWithProvider() {
 }
 ```
 
-It is used in the [provider example](/docs/examples/provider/).
+It is used in the [provider example](/docs/examples/misc/provider/).

@@ -145,7 +145,7 @@ const config = {
             ],
           },
           {
-            title: 'Legal',
+            title: 'Company',
             items: [
               {
                 label: 'Contact',

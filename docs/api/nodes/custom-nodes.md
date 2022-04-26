@@ -15,7 +15,7 @@ function Flow({ nodes, edges }) {
 
 You can now use the type `special` for a node.
 The `default`, `input`, `output` and `group` types would still be available, except you overwrote one of them.
-There is a more advanced example of a custom node implementation in the [custom node example](/docs/examples/custom-node).
+There is a more advanced example of a custom node implementation in the [custom node example](/docs/examples/nodes/custom-node).
 
 :::info
 
