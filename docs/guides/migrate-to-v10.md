@@ -260,7 +260,7 @@ This is more consistent with the rest of the API (`panOnScroll`, `zoomOnScroll`,
 />
 ```
 
-#### Old API
+#### New API
 
 ```jsx
 <ReactFlow
