@@ -34,14 +34,15 @@ function FlowWithMiniMap() {
 
 ### Prop Types
 
-| Name               | Type                   | Default     | Description                                                                                                                      |
-| ------------------ | ---------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `nodeColor`        | `string` or `function` | `undefined` | If you pass a color string, all nodes get that color. If you pass a function you can return a color depending on the passed node |
-| `nodeBorderRadius` | `number`               | `0`         | Node border radius                                                                                                               |
-| `nodeStrokeWidth`  | `number`               | `1`         | Node stroke width                                                                                                                |
-| `nodeClassName`    | `function`             | `undefined` | Node class name                                                                                                                  |
-| `maskColor`        | `function`             | `undefined` | Mini map mask color                                                                                                              |
-| `style`            | `CSSProperties`        | `undefined` | Mini map style attributes                                                                                                        |
-| `className`        | `string`               | `undefined` | Additional class name                                                                                                            |
+| Name               | Type                   | Default                   | Description                                                                                                                            |
+| ------------------ | ---------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `nodeColor`        | `string` or `function` | `#fff`                    | If you pass a color string, all nodes get that color. If you pass a function you can return a color depending on the passed node       |
+| `nodeStrokeColor`  | `string` or `function` | `#555`                    | If you pass a color string, all nodes get that strokecolor. If you pass a function you can return a color depending on the passed node |
+| `nodeBorderRadius` | `number`               | `5`                       | Node border radius                                                                                                                     |
+| `nodeStrokeWidth`  | `number`               | `2`                       | Node stroke width                                                                                                                      |
+| `nodeClassName`    | `string` or `function` | `''`                      | Node class name                                                                                                                        |
+| `maskColor`        | `string` or `function` | `rgb(240, 242, 243, 0.7)` | Mini map mask color                                                                                                                    |
+| `style`            | `CSSProperties`        | `undefined`               | Mini map style attributes                                                                                                              |
+| `className`        | `string`               | `undefined`               | Additional class name                                                                                                                  |
 
 **Typescript:** The interface of the MiniMap Prop Types are exported as `MiniMapProps`.
