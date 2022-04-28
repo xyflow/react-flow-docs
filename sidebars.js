@@ -51,11 +51,6 @@ const sidebars = {
         },
       ],
     },
-    {
-      type: 'link',
-      label: 'Examples',
-      href: '/docs/examples/overview',
-    },
   ],
   examplesSidebar: [
     {

@@ -18,7 +18,7 @@ export default function ProExampleViewer({ slug }) {
   const iframeSrc = `https://react-flow-platform-staging.netlify.app/examples/${slug}`;
 
   const onLoad = () => {
-    setTimeout(() => setLoading(false), 700);
+    setLoading(false);
   };
 
   return (
