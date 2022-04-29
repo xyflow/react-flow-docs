@@ -33,7 +33,7 @@ function FlowWithControls() {
 | `style`                              | `CSSProperties` | `undefined` | Controls style attributes                      |
 | `className`                          | `string`        | `undefined` | Additional class name                          |
 
-- `**Typescript:** The interface of the Controls Prop Types are exported as`ControlProps`.
+- **Typescript:** The interface of the Controls Prop Types are exported as`ControlProps`.
 
 ## Extended Controls
 
