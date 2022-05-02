@@ -3,13 +3,18 @@ title: Troubleshooting
 sidebar_position: 9
 ---
 
+import { Alert, AlertIcon, AlertTitle } from '@chakra-ui/react';
+
 This guide contains warnings and errors that can occur when using React Flow. We are also adding common questions and pitfalls that we collect from our [Discord Server](https://discord.gg/RVmnytFmGW), [Github Issues](https://github.com/wbkd/react-flow/issues) and [Github Discussions](https://github.com/wbkd/react-flow/discussions).
 
 ### Warning: Seems like you have not used zustand provider as an ancestor
 
-This usually happens when you are trying to access the internal React Flow state outside of the React Flow context. A possible solution is to wrap your component with a `ReactFlowProvider` or move the code that is accessing the state inside a child of your React Flow instance. See also: [`<ReactFlowProvider />`](/docs/api/react-flow-provider)
+This usually happens when you are trying to access the internal React Flow state outside of the React Flow context. A possible solution is to wrap your component with a [`<ReactFlowProvider />`](/docs/api/react-flow-provider) or move the code that is accessing the state inside a child of your React Flow instance.
 
-**This will cause an error:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>This will cause an error:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -24,7 +29,10 @@ function FlowWithoutProvider(props) {
 export default FlowWithoutProvider;
 ```
 
-**This will cause an error, too:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>This will cause an error, too:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
@@ -44,9 +52,12 @@ function Flow(props) {
 export default FlowWithProvider;
 ```
 
-** This works:**
+<Alert status="success" py={2} mb={2}>
+  <AlertIcon />
+  <AlertTitle>This works:</AlertTitle>
+</Alert>
 
-As soon as you want to access the internal state of React Flow (for example by using the `useReactFlow` hook, you need to wrap your component with a `ReactFlowProvider`). Here the wrapping is done outside of the component.
+As soon as you want to access the internal state of React Flow (for example by using the `useReactFlow` hook), you need to wrap your component with a `<ReactFlowProvider />`. Here the wrapping is done outside of the component:
 
 ```jsx
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
@@ -74,7 +85,10 @@ export default FlowWithProvider;
 
 This warning appears when the `nodeTypes` or `edgeTypes` properties change after the initial render. The `nodeTypes` or `edgeTypes` should only be changed dynamically in very rare cases. Usually they are defined once with all the types that you are using in your application. It can happen easily that you are defining the nodeTypes or edgeTypes object inside of your component render function, which will cause React Flow to re-render every time your component re-renders.
 
-** Will cause the warning:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>Causes a warning:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -93,7 +107,10 @@ function Flow(props) {
 export default Flow;
 ```
 
-** Recommended implementation:**
+<Alert status="success" py={2}>
+  <AlertIcon />
+  <AlertTitle>Recommended implementation:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -111,7 +128,11 @@ function Flow(props) {
 export default Flow;
 ```
 
-** Alternative:**
+<Alert status="success" py={2} mb={1}>
+  <AlertIcon />
+  <AlertTitle>Alternative implementation:</AlertTitle>
+</Alert>
+
 You can use this if you want to change your nodeTypes dynamically without causing unneccessary re-renders.
 
 ```jsx
@@ -137,7 +158,10 @@ export default Flow;
 
 This usually happens when you are specifying a custom node type for one of your nodes but not passing the correct nodeTypes property to React Flow. The string for the type option of your custom node needs to be exactly the same as the key of the nodeTypes object.
 
-**Doesn't work:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>Doesn't work:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -157,7 +181,10 @@ function Flow(props) {
 }
 ```
 
-**Doesn't work as well:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>Doesn't work either:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -181,7 +208,10 @@ function Flow(props) {
 }
 ```
 
-**This does work:**
+<Alert status="success" py={2}>
+  <AlertIcon />
+  <AlertTitle>This does work:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -206,9 +236,12 @@ function Flow(props) {
 
 ### The React Flow parent container needs a width and a height to render the graph.
 
-Under the hood, React Flow measures the parent DOM element using JavaScript to fit the renderer inside. Often times, if you try to render React Flow in a regular div, there is no height specified and so we cannot display the graph. If you encounter this warning, you need to make sure that your wrapper component has some CSS attached to it so that it gets a fixed height or inherits the height of its parent.
+Under the hood, React Flow measures the parent DOM element to adjust the renderer. If you try to render React Flow in a regular div without a height, we cannot display the graph. If you encounter this warning, you need to make sure that your wrapper component has some CSS attached to it so that it gets a fixed height or inherits the height of its parent.
 
-** This will cause the warning:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>This will cause the warning:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -222,7 +255,10 @@ function Flow(props) {
 }
 ```
 
-** Working example:**
+<Alert status="success" py={2}>
+  <AlertIcon />
+  <AlertTitle>Working example:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -240,7 +276,10 @@ function Flow(props) {
 
 This warning appears when you are trying to add the `extent` option to a node that does not have a parent node. Depending on what you are trying to do, you can remove the `extent` option or specify a `parentNode`.
 
-**Does show a warning:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>Does show a warning:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -258,11 +297,12 @@ function Flow(props) {
 }
 ```
 
-**Warning resolved:**
+<Alert status="success" py={2}>
+  <AlertIcon />
+  <AlertTitle>Warning resolved:</AlertTitle>
+</Alert>
 
-```jsx
-import ReactFlow from 'react-flow-renderer';
-
+```jsx import ReactFlow from 'react-flow-renderer';
 const nodes = [
   {
     id: 'mycustomnode',
@@ -281,7 +321,10 @@ function Flow(props) {
 
 This happens when you do not pass a `source` and a `target` option to the edge object. Without the source and target, the edge cannot be rendered.
 
-** Will show a warning:**
+<Alert status="error" py={2}>
+  <AlertIcon />
+  <AlertTitle>Will show a warning:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
@@ -302,7 +345,10 @@ function Flow(props) {
 }
 ```
 
-** Doesn't show a warning:**
+<Alert status="success" py={2}>
+  <AlertIcon />
+  <AlertTitle>This works:</AlertTitle>
+</Alert>
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';

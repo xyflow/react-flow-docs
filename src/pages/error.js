@@ -23,7 +23,7 @@ function getLinkFromHash(hash) {
   return null;
 }
 
-export default function ErrorDecoder() {
+export default function ErrorRedirecter() {
   const { hash } = useLocation();
   const history = useHistory();
 
@@ -36,9 +36,9 @@ export default function ErrorDecoder() {
   }, []);
 
   return (
-    <Layout title="Error Decoder">
+    <Layout title="Error Redirecter">
       <Box maxWidth="container.sm" mx="auto" px={3} py={8}>
-        <Heading fontWeight="900">Error Decoder</Heading>
+        <Heading fontWeight="900">Error Redirecter</Heading>
         <Text>
           This page is used to map internal error messages and warnings to the particular
           documentation site.
