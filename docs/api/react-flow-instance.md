@@ -79,7 +79,7 @@ Zooms in.
 
 ### `zoomOut`
 
-Zooms in.
+Zooms out.
 
 `zoomOut({ duration }?: ViewportHelperFunctionOptions): void`
 
