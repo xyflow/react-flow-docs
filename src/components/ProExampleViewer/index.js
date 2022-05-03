@@ -15,7 +15,7 @@ export default function ProExampleViewer({ slug }) {
     return null;
   }
 
-  const iframeSrc = `https://react-flow-platform-staging.netlify.app/examples/${slug}`;
+  const iframeSrc = `https://pro.reactflow.dev/examples/${slug}`;
 
   const onLoad = () => {
     setLoading(false);
