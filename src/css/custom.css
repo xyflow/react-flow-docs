@@ -209,3 +209,20 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .react-flow .react-flow__attribution {
   z-index: 6;
 }
+
+.menu__list-item.pro > a {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu__list-item.pro > a:after {
+  content: 'pro';
+  margin-left: 5px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 4px;
+  border-radius: 4px;
+}

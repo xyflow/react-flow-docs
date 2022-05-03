@@ -40,3 +40,31 @@
 /examples/contextual-zoom-features              /docs/examples/contextual-zoom
 /examples/drag-handle              /docs/examples/drag-handle
 /examples/floating-edges              /docs/examples/floating-edges
+
+# example categories
+/docs/examples/update-node              /docs/examples/nodes/update-node
+/docs/examples/custom-node              /docs/examples/nodes/custom-node
+/docs/examples/drag-handle              /docs/examples/nodes/drag-handle
+/docs/examples/hidden              /docs/examples/nodes/hidden
+/docs/examples/stress              /docs/examples/nodes/stress
+
+/docs/examples/edges                  /docs/examples/edges/custom-edge
+/docs/examples/updatable-edge                  /docs/examples/edges/updatable-edge
+/docs/examples/edge-with-button                  /docs/examples/edges/edge-with-button
+/docs/examples/edge-types                  /docs/examples/edges/edge-types
+/docs/examples/custom-connectionline            /docs/examples/edges/custom-connectionline
+
+/docs/examples/interaction                  /docs/examples/interaction/interaction-props
+/docs/examples/touch-device                  /docs/examples/interaction/touch-device
+/docs/examples/smooth-transition                  /docs/examples/interaction/zoom-transitions
+/docs/examples/drag-and-drop                  /docs/examples/interaction/drag-and-drop
+/docs/examples/validation                  /docs/examples/interaction/validation
+/docs/examples/save-and-restore                  /docs/examples/interaction/save-and-restore
+/docs/examples/contextual-zoom                  /docs/examples/interaction/contextual-zoom
+
+/docs/examples/layouting                    /docs/examples/layout/dagre
+/docs/examples/horizontal                    /docs/examples/layout/horizontal
+/docs/examples/sub-flows                    /docs/examples/layout/sub-flows
+
+/docs/examples/use-react-flow-hook                    /docs/examples/misc/use-react-flow-hook
+/docs/examples/provider                    /docs/examples/misc/provider

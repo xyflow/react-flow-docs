@@ -46,7 +46,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 | `className`             | `string`                                                                           |                                                                                                                                   |
 | `zIndex`                | `number`, default: `0`                                                             | controls the layer order of the edges                                                                                             |
 
-You can find an example with different edges in the [edges example](/docs/examples/edges/).
+You can find an example with different edges in the [edge types example](/docs/examples/edges/edge-types).
 
 ### `markerStart` / `markerEnd` options
 

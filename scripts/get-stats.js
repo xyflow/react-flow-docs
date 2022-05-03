@@ -7,8 +7,8 @@ const NPM_API_URL = 'https://api.npmjs.org/downloads/point/last-year/react-flow-
 const OUTPUT_PATH = path.resolve(__dirname, '../static/data/stats.json');
 
 const defaultStats = {
-  stars: 9400,
-  downloads: 2890000,
+  stars: 10000,
+  downloads: 3500000,
 };
 
 const fetchJSON = async function (url) {
@@ -29,6 +29,9 @@ const fetchJSON = async function (url) {
     stars: stars || defaultStats.stars,
     downloads: downloads || defaultStats.downloads,
   };
+
+  console.log(`⭐️ ${stats.stars}`);
+  console.log(`📲 ${stats.downloads}`);
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(stats));
 })();

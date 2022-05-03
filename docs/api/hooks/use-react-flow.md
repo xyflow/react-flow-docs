@@ -27,4 +27,4 @@ function Flow() {
 }
 ```
 
-You can find an example of how to use it here: [useReactFlow example](/docs/examples/use-react-flow-hook/)
+You can find an example of how to use it here: [useReactFlow example](/docs/examples/misc/use-react-flow-hook/)

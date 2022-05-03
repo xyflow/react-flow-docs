@@ -93,6 +93,7 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | `onEdgeUpdateStart(event: React.MouseEvent, edge: Edge, handleType: HandleType)` | `function` | `undefined` | called when user starts to update an edge                                                                                            |
 | `onEdgeUpdateEnd(event: MouseEvent, edge: Edge, handleType: HandleType)`         | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
 | `onEdgesDelete(edges: Edge[])`                                                   | `function` | `undefined` | called when edges get deleted                                                                                                        |
+| `elevateEdgesOnSelect`                                                           | `boolean`  | `false`     | Edges get a higher zIndex if this is true and a connected node is selected                                                           |
 
 #### Connections
 
@@ -139,11 +140,11 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Connection Line Options
 
-| Name                      | Type            | Default     | Description                                                               |
-| ------------------------- | --------------- | ----------- | ------------------------------------------------------------------------- |
-| `connectionLineType`      | `string`        | `undefined` | called when user clicks a node                                            |
-| `connectionLineStyle`     | `CSSProperties` | `undefined` | connection style as svg attributes                                        |
-| `connectionLineComponent` | `function`      | `undefined` | [custom connection line component](/docs/examples/custom-connectionline/) |
+| Name                      | Type            | Default     | Description                                                                     |
+| ------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------- |
+| `connectionLineType`      | `string`        | `undefined` | called when user clicks a node                                                  |
+| `connectionLineStyle`     | `CSSProperties` | `undefined` | connection style as svg attributes                                              |
+| `connectionLineComponent` | `function`      | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
 
 ### Keys
 

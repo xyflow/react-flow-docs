@@ -145,7 +145,7 @@ const config = {
             ],
           },
           {
-            title: 'Legal',
+            title: 'Company',
             items: [
               {
                 label: 'Contact',
@@ -166,7 +166,7 @@ const config = {
             ],
           },
         ],
-        copyright: `<a href="mailto:info@webkid.io">info@webkid.io</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
+        copyright: `<a href="mailto:info@reactflow.dev">info@reactflow.dev</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/github'),

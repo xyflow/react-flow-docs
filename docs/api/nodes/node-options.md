@@ -41,4 +41,4 @@ Node example:
 
 ## Update Node Options
 
-If you want to update the `data` or `style` attribute of a node it is important that you create a new object to notify react flow about the changes. You can see how to update a node in the [update node example](/docs/examples/update-node/).
+If you want to update the `data` or `style` attribute of a node it is important that you create a new object to notify react flow about the changes. You can see how to update a node in the [update node example](/docs/examples/nodes/update-node/).
