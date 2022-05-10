@@ -9,7 +9,7 @@ import {
   Button,
   SimpleGrid,
   chakra,
-  useMediaQuery,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FiMail } from 'react-icons/fi';
@@ -25,7 +25,7 @@ import Showcase from '../components/Showcase';
 import UsedBy from '../components/UsedBy';
 
 export default function Home() {
-  const [isLargeScreen] = useMediaQuery('(min-width: 992px)');
+  const isLargeScreen = useBreakpointValue({ base: false, lg: true });
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -92,7 +92,7 @@ export default function Home() {
         <Showcase />
       </Box>
 
-      <Box px={3} pt={12} pb={20}>
+      <Box px={3} pt={20} pb={20}>
         <Box m="0 auto" maxWidth="container.xl">
           <Heading textAlign="center" textTransform="uppercase" fontSize={16} mb={6}>
             Used By
