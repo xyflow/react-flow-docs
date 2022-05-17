@@ -19,7 +19,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 :::caution
 
-When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as an array), `selectionKeyCode` (as an array), `mutliselectionKeyCode` (as an array) or `snapGrid`, you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
+When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as an array), `selectionKeyCode` (as an array), `multiselectionKeyCode` (as an array) or `snapGrid`, you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
 
 :::
 
