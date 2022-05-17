@@ -150,10 +150,10 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 | Name                    | Type                   | Default       | Description                                                                                                        |
 | ----------------------- | ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `deleteKeyCode`         | `string` or `string[]` | `'Backspace'` | Key(s) that trigger a remove handler (when you pass an array, memoize or define it outside the component)          |
-| `selectionKeyCode`      | `string` or `string[]` | `'Shift'`     | While pressing the selectionKeyCode and dragging the mouse you can create a selection for multiple nodes and edges |
-| `multiSelectionKeyCode` | `string` or `string[]` | `'Meta'`      | While pressing the multiSelectionKeyCode you can select multiple nodes and edges with a click                      |
-| `zoomActivationKeyCode` | `string` or `string[]` | `'Meta'`      | While pressing the zoomActivationKeyCode you can zoom even if `panOnScroll=true` or `zoomOnScroll=false`           |
+| `deleteKeyCode`         | `string` or `string[]` or `null` | `'Backspace'` | Key(s) that trigger a remove handler (when you pass an array, memoize or define it outside the component). You can set it to `null` to disable functionality.          |
+| `selectionKeyCode`      | `string` or `string[]` or `null` | `'Shift'`     | While pressing the selectionKeyCode and dragging the mouse you can create a selection for multiple nodes and edges. You can set it to `null` to disable functionality. |
+| `multiSelectionKeyCode` | `string` or `string[]` or `null` | `'Meta'`      | While pressing the multiSelectionKeyCode you can select multiple nodes and edges with a click. You can set it to `null` to disable functionality.                      |
+| `zoomActivationKeyCode` | `string` or `string[]` or `null` | `'Meta'`      | While pressing the zoomActivationKeyCode you can zoom even if `panOnScroll=true` or `zoomOnScroll=false`. You can set it to `null` to disable functionality.           |
 
 ### Pro
 
