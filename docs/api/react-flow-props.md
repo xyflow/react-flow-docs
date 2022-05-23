@@ -19,7 +19,7 @@ import { ReactFlowProps } from 'react-flow-renderer';
 
 :::caution
 
-When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as an array), `selectionKeyCode` (as an array), `multiselectionKeyCode` (as an array) or `snapGrid`, you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
+When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as an array), `selectionKeyCode` (as an array), `multiselectionKeyCode` (as an array), `snapGrid` or **any event handler**, you need to define it outside of the component or memoize it in order to prevent unnecessary re-renderings and bugs!
 
 :::
 
@@ -33,7 +33,7 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an controlled flow)   |
 | `onNodesChange(nodeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
 | `onEdgesChange(edgeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
-| `nodeTypes`                  | `object`        | `{input: InputNode,default: DefaultNode,output: OutputNodegroup: GroupNode}`                  |  object with [node types](/docs/api/nodes/node-types/)                     |
+| `nodeTypes`                  | `object`        | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |
 | `edgeTypes`                  | `object`        | `{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }` |  object with [edge types](/docs/api/edges/edge-types/)                     |
 | `defaultMarkerColor`         | `string`        | `#b1b1b7`                                                                                     |  default marker color                                                      |
 | `style`                      | `CSSProperties` | `undefined`                                                                                   |  css properties                                                            |
@@ -59,6 +59,12 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Event Handlers
 
+:::caution
+
+Please wrap all event handlers that you are passing to `<ReactFlow />` with a `useCallback` hook or define it outside of the component.
+
+:::
+
 #### General
 
 | Name                                           | Type       | Default     | Description                                 |
@@ -67,18 +73,18 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 #### Nodes
 
-| Name                                                     | Type       | Default     | Description                    |
-| -------------------------------------------------------- | ---------- | ----------- | ------------------------------ |
-| `onNodeClick(event: React.MouseEvent, node: Node)`       | `function` | `undefined` | called when user clicks a node |
-| `onNodeDragStart(event: React.MouseEvent, node: Node)`   | `function` | `undefined` | node drag start                |
-| `onNodeDrag(event: React.MouseEvent, node: Node)`        | `function` | `undefined` | node drag                      |
-| `onNodeDragStop(event: React.MouseEvent, node: Node)`    | `function` | `undefined` | node drag stop                 |
-| `onNodeMouseEnter(event: React.MouseEvent, node: Node)`  | `function` | `undefined` | node mouse enter               |
-| `onNodeMouseMove(event: React.MouseEvent, node: Node)`   | `function` | `undefined` | node mouse move                |
-| `onNodeMouseLeave(event: React.MouseEvent, node: Node)`  | `function` | `undefined` | node mouse leave               |
-| `onNodeContextMenu(event: React.MouseEvent, node: Node)` | `function` | `undefined` | node context menu              |
-| `onNodeDoubleClick(event: React.MouseEvent, node: Node)` | `function` | `undefined` | node double click              |
-| `onNodesDelete(nodes)`                                   | `function` | `undefined` | called when nodes get deleted  |
+| Name                                                                  | Type       | Default     | Description                    |
+| --------------------------------------------------------------------- | ---------- | ----------- | ------------------------------ |
+| `onNodeClick(event: React.MouseEvent, node: Node)`                    | `function` | `undefined` | called when user clicks a node |
+| `onNodeDragStart(event: React.MouseEvent, node: Node, nodes: Node[])` | `function` | `undefined` | node drag start                |
+| `onNodeDrag(event: React.MouseEvent, node: Node, nodes: Node[])`      | `function` | `undefined` | node drag                      |
+| `onNodeDragStop(event: React.MouseEvent, node: Node, nodes: Node[])`  | `function` | `undefined` | node drag stop                 |
+| `onNodeMouseEnter(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse enter               |
+| `onNodeMouseMove(event: React.MouseEvent, node: Node)`                | `function` | `undefined` | node mouse move                |
+| `onNodeMouseLeave(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse leave               |
+| `onNodeContextMenu(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node context menu              |
+| `onNodeDoubleClick(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node double click              |
+| `onNodesDelete(nodes)`                                                | `function` | `undefined` | called when nodes get deleted  |
 
 #### Edges
 
@@ -97,12 +103,15 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 #### Connections
 
-| Name                                                                                    | Type       | Default     | Description                                     |
-| --------------------------------------------------------------------------------------- | ---------- | ----------- | ----------------------------------------------- |
-| `onConnect({ source, target }: Connection)`                                             | `function` | `undefined` | called when user connects two nodes             |
-| `onConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)` | `function` | `undefined` | called when user starts to drag connection line |
-| `onConnectStop(event: React.MouseEvent)`                                                | `function` | `undefined` | called when user stops to drag connection line  |
-| `onConnectEnd(event: React.MouseEvent)`                                                 | `function` | `undefined` | called after user stops or connects nodes       |
+| Name                                                                                         | Type       | Default     | Description                                                                |
+| -------------------------------------------------------------------------------------------- | ---------- | ----------- | -------------------------------------------------------------------------- |
+| `onConnect({ source, target }: Connection)`                                                  | `function` | `undefined` | called when user connects two nodes                                        |
+| `onConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)`      | `function` | `undefined` | called when user starts to drag connection line                            |
+| `onConnectStop(event: React.MouseEvent)`                                                     | `function` | `undefined` | called when user stops to drag connection line (called before `onConnect`) |
+| `onConnectEnd(event: React.MouseEvent)`                                                      | `function` | `undefined` | called after user stops or connects nodes (called after `onConnect`)       |
+| `onClickConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)` | `function` | `undefined` | called when user starts to do a connection by click                        |
+| `onClickConnectStop(event: React.MouseEvent)`                                                | `function` | `undefined` | called when user stops a connection by click (called before `onConnect`)   |
+| `onClickConnectEnd(event: React.MouseEvent)`                                                 | `function` | `undefined` | called after user stops a connection by click (called after `onConnect`)   |
 
 #### Pane
 
@@ -140,16 +149,17 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Connection Line Options
 
-| Name                      | Type            | Default     | Description                                                                     |
-| ------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------- |
-| `connectionLineType`      | `string`        | `undefined` | called when user clicks a node                                                  |
-| `connectionLineStyle`     | `CSSProperties` | `undefined` | connection style as svg attributes                                              |
-| `connectionLineComponent` | `function`      | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
+| Name                          | Type            | Default     | Description                                                                     |
+| ----------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------- |
+| `connectionLineType`          | `string`        | `undefined` | called when user clicks a node                                                  |
+| `connectionLineStyle`         | `CSSProperties` | `undefined` | connection style as SVG attributes                                              |
+| `connectionLineComponent`     | `function`      | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
+| `connectionLineWrapperStyles` | `CSSProperties` | `undefined` | styles for the connection line SVG wrapper                                      |
 
 ### Keys
 
-| Name                    | Type                   | Default       | Description                                                                                                        |
-| ----------------------- | ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Name                    | Type                             | Default       | Description                                                                                                                                                            |
+| ----------------------- | -------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `deleteKeyCode`         | `string` or `string[]` or `null` | `'Backspace'` | Key(s) that trigger a remove handler (when you pass an array, memoize or define it outside the component). You can set it to `null` to disable functionality.          |
 | `selectionKeyCode`      | `string` or `string[]` or `null` | `'Shift'`     | While pressing the selectionKeyCode and dragging the mouse you can create a selection for multiple nodes and edges. You can set it to `null` to disable functionality. |
 | `multiSelectionKeyCode` | `string` or `string[]` or `null` | `'Meta'`      | While pressing the multiSelectionKeyCode you can select multiple nodes and edges with a click. You can set it to `null` to disable functionality.                      |
