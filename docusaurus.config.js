@@ -4,7 +4,6 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Flow',
-
   tagline: 'Wire Your Ideas With React Flow',
   url: 'https://reactflow.dev',
   baseUrl: '/',
@@ -21,7 +20,7 @@ const config = {
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/',
@@ -33,7 +32,10 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+        sitemap: {
+          ignorePatterns: ['/blog/tags/**', '/error/'],
+        },
+      },
     ],
   ],
 
