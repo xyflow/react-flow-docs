@@ -42,4 +42,8 @@ The handle receives the additional class names `connecting` when the connection 
 
 If you need multiple source or target handles you can achieve this by creating a custom node. Normally you just use the id of a node for the `source` or `target` of an edge. If you have multiple source or target handles you need to pass an id to these handles. These ids can be used by an edge with the `sourceHandle` and `targetHandle` options, so that you can connect a specific handle. If you have a node with an id = `1` and a handle with an id = `a` you can connect this handle by using the node `source=1` and the `sourceHandle=a`.
 
+### Dynamic Handles
+
+If you are programmatically changing the position or number of handles in your custom node, you need to update the node internals with the [`useUpdateNodeInternals`](/docs/api/hooks/use-update-node-internals/) hook. 
+
 You can find an example of how to implement a custom node with multiple handles in the [custom node guide](/docs/guides/custom-nodes) or in the [custom node example](/docs/examples/nodes/custom-node/).
