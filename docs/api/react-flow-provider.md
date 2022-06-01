@@ -3,11 +3,11 @@ title: <ReactFlowProvider />
 sidebar_position: 3
 ---
 
-You need to wrap your flow with a `ReactFlowProvider`:
+You need to wrap your flow with a `ReactFlowProvider` if you:
 
-- if you want to use one of these **React Flow hooks** `useReactFlow`, `useNodes`, `useEdges`, `useViewport` or `useUpdateNodeInternals`
-- if you have **multiple flows** on a page
-- if you need **access to the internal state and actions**
+- want to use one of these **React Flow hooks** `useReactFlow`, `useNodes`, `useEdges`, `useViewport` or `useUpdateNodeInternals` in components that are no children of the `ReactFlow` component
+- have **multiple flows** on a page
+- need to **access the internal state and actions** in components that are no children of the `ReactFlow` component
 
 ```jsx
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
@@ -29,4 +29,4 @@ function FlowWithProvider() {
 }
 ```
 
-It is used in the [provider example](/docs/examples/misc/provider/).
+This component gets used in the [ReactFlowProvider example](/docs/examples/misc/provider/).

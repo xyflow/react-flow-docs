@@ -6,7 +6,6 @@ const initialNodes = [
     id: 'horizontal-1',
     sourcePosition: 'right',
     type: 'input',
-    className: 'dark-node',
     data: { label: 'Input' },
     position: { x: 0, y: 80 },
   },
@@ -113,23 +112,10 @@ const initialEdges = [
   },
 ];
 
-const buttonStyle = { position: 'absolute', right: 10, top: 30, zIndex: 4 };
-
 const HorizontalFlow = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, _, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = (params) => setEdges((els) => addEdge(params, els));
-  const changeClassName = () => {
-    setNodes((nds) =>
-      nds.map((node) => {
-        if (node.type === 'input') {
-          node.className = node.className ? '' : 'dark-node';
-        }
-
-        return { ...node };
-      })
-    );
-  };
 
   return (
     <ReactFlow
@@ -140,11 +126,7 @@ const HorizontalFlow = () => {
       onConnect={onConnect}
       fitView
       attributionPosition="bottom-left"
-    >
-      <button onClick={changeClassName} style={buttonStyle}>
-        change class name
-      </button>
-    </ReactFlow>
+    ></ReactFlow>
   );
 };
 

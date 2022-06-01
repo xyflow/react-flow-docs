@@ -6,6 +6,6 @@ hide_table_of_contents: true
 
 import CodeViewer from '/src/components/CodeViewer';
 
-You can drag an edge to another handle if you are using the `onEdgeUpdate` property.
+An edge is updatable by dragging it to another handle if you are using the [`onEdgeUpdate` handler prop](/docs/api/react-flow-props/#edges). The handler gets called after the edge gets dropped to a new handle. You can use the [`updateEdge`](/docs/api/graph-util-functions/#updateedge) helper function to update your edges state accordingly.
 
 <CodeViewer codePath="example-flows/UpdatableEdge" />
