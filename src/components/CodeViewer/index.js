@@ -6,8 +6,6 @@ import {
   SandpackPreview,
 } from '@codesandbox/sandpack-react';
 
-import '@codesandbox/sandpack-react/dist/index.css';
-
 const hiddenBaseStyles = {
   '/styles.css': {
     code: `
@@ -44,12 +42,15 @@ export default function CodeViewer({
   activeFile = null,
   showEditor = true,
   showPreview = true,
+  isTypescript = false,
 }) {
   const [files, setFiles] = useState(null);
 
   useEffect(() => {
+    const scriptExtension = isTypescript ? 'tsx' : 'js';
+
     const loadFiles = async () => {
-      const res = await import(`!raw-loader!./${codePath}/index.js`);
+      const res = await import(`!raw-loader!./${codePath}/index.${scriptExtension}`);
 
       const additional = {};
 
@@ -63,7 +64,7 @@ export default function CodeViewer({
       }
 
       setFiles({
-        '/App.js': res.default,
+        [`/App.${scriptExtension}`]: res.default,
         ...additional,
       });
     };
@@ -83,39 +84,25 @@ export default function CodeViewer({
   );
 
   const editorHeight = options?.editorHeight || 800;
+  const panelStyle = { height: editorHeight };
 
   if (!files) {
     return <div style={{ minHeight: editorHeight }} />;
   }
 
   return (
-    <div style={{ minHeight: editorHeight }}>
+    <div style={{ minHeight: editorHeight, marginBottom: 20 }}>
       <SandpackProvider
-        template="react"
-        customSetup={{
-          ...customSetup,
-          files: {
-            ...files,
-            ...hiddenBaseStyles,
-          },
+        template={isTypescript ? 'react-ts' : 'react'}
+        customSetup={customSetup}
+        files={{
+          ...files,
+          ...hiddenBaseStyles,
         }}
       >
         <SandpackLayout>
-          {showEditor && (
-            <SandpackCodeEditor
-              {...options}
-              customStyle={{
-                height: editorHeight,
-              }}
-            />
-          )}
-          {showPreview && (
-            <SandpackPreview
-              customStyle={{
-                height: editorHeight,
-              }}
-            />
-          )}
+          {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
+          {showPreview && <SandpackPreview style={panelStyle} />}
         </SandpackLayout>
       </SandpackProvider>
     </div>
