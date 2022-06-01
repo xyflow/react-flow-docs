@@ -3,7 +3,7 @@ title: Usage with State Management Library
 sidebar_position: 5
 ---
 
-In this guide we are explaining how you could use React Flow with the state management library [Zustand](https://github.com/pmndrs/zustand). We will build a little app where every node has a color chooser that updates the background color of the specific node. We are using Zustand internally, but of course you can also use any other library like [Redux](https://redux.js.org/), [Recoil](https://recoiljs.org/) or [Jotai](https://jotai.org/) for example. For this guide we expect you to know about the [core concepts](/docs/getting-started/core-concepts/) of React Flow and [custom nodes](/docs/guides/custom-nodes/).
+In this guide we are explaining how you could use React Flow with the state management library [Zustand](https://github.com/pmndrs/zustand). We will build a little app where every node has a color chooser that updates the background color of the specific node. In this guide we are are using Zustand, because we are also using it internally, but of course you can use any other library like [Redux](https://redux.js.org/), [Recoil](https://recoiljs.org/) or [Jotai](https://jotai.org/) as well. For this guide we expect you to know about the [core concepts](/docs/getting-started/core-concepts/) of React Flow and [custom nodes](/docs/guides/custom-nodes/).
 
 As you might have seen in the previous guides and examples, React Flow can easily be used with a local state for handling the nodes and edges. When your app grows and you want to alter your state from within your nodes for examples, things can get messy. To avoid passing down functions through the node data field, you could add a React context or use a state management library as explained in this guide.
 
