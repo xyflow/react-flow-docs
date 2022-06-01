@@ -17,7 +17,7 @@ npm install --save zustand
 
 ## Create a Store
 
-Zustand lets us create a hook for accessing our store easily. We put our `nodes` and `edges` and the `onNodesChange`, `onEdgesChange` and `onConnect` functions in the store in order to get the basic interacity for our diagram.
+Zustand lets us create a hook for accessing our store easily. We put our `nodes` and `edges` and the `onNodesChange`, `onEdgesChange` and `onConnect` functions in the store in order to get the basic interactivity for our diagram.
 
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
