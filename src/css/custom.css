@@ -103,10 +103,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-weight: 700;
 }
 
-.navbar.navbar--fixed-top {
-  z-index: 100;
-}
-
 .DocSearch-Container {
   z-index: 110;
 }
