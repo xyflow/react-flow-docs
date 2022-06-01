@@ -1,5 +1,5 @@
 ---
-title: Usage with State Management Library
+title: Using a State Management Library
 sidebar_position: 5
 ---
 
