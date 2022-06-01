@@ -61,6 +61,7 @@
   --ifm-navbar-height: 80px;
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: none;
+  --ifm-z-index-fixed: 100;
 }
 
 .docusaurus-highlight-code-line {
@@ -101,10 +102,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .navbar__item {
   font-weight: 700;
-}
-
-.navbar.navbar--fixed-top {
-  z-index: 101;
 }
 
 .DocSearch-Container {
