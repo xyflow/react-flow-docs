@@ -65,6 +65,12 @@ Returns nodes, edges and viewport.
 
 ## Viewport
 
+### `fitBounds`
+
+Fits the pane to the passed bounds (object with width x, y, width and height: `{ x: 0, y: 0, width: 100, height: 100 }`)
+
+`fitBounds({ x, y, width, height }: Rect, { padding, duration }?: FitBoundsOptions): void`
+
 ### `fitView`
 
 Fits the view to the nodes on the pane. `padding` is `0.1` and `includeHiddenNodes` is `false` by default.
@@ -89,23 +95,29 @@ Zooms to passed zoom level.
 
 `zoomTo(zoomLevel: number, { duration }?: ViewportHelperFunctionOptions): void`
 
+### `getZoom`
+
+Returns the current zoom level.
+
+`getZoom(): number`
+
 ### `setViewport`
 
-Sets the viewport of the pane
+Sets the viewport of the pane.
 
 `setViewport({ x, y, zoom }: Viewport, { duration }?: ViewportHelperFunctionOptions): void`
+
+### `getViewport`
+
+Returns the viewport of the pane.
+
+`getViewport(): { x, y, zoom }: Viewport`
 
 ### `setCenter`
 
 Sets the center to the passed params. If no zoom is passed the maxZoom is used.
 
 `setCenter(x: number, y: number, { zoom, duration }?: SetCenterOptions): void`
-
-### `fitBounds`
-
-Fits the pane to the passed bounds (object with width x, y, width and height: `{ x: 0, y: 0, width: 100, height: 100 }`)
-
-`fitBounds({ x, y, width, height }: Rect, { padding, duration }?: FitBoundsOptions): void`
 
 ### `project`
 
