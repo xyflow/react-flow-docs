@@ -149,12 +149,12 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 ### Connection Line Options
 
-| Name                          | Type            | Default     | Description                                                                     |
-| ----------------------------- | --------------- | ----------- | ------------------------------------------------------------------------------- |
-| `connectionLineType`          | `string`        | `undefined` | called when user clicks a node                                                  |
-| `connectionLineStyle`         | `CSSProperties` | `undefined` | connection style as SVG attributes                                              |
-| `connectionLineComponent`     | `function`      | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
-| `connectionLineWrapperStyles` | `CSSProperties` | `undefined` | styles for the connection line SVG wrapper                                      |
+| Name                          | Type              | Default     | Description                                                                     |
+| ----------------------------- | ----------------- | ----------- | ------------------------------------------------------------------------------- |
+| `connectionLineType`          | `string`          | `undefined` | called when user clicks a node                                                  |
+| `connectionLineStyle`         | `CSSProperties`   | `undefined` | connection style as SVG attributes                                              |
+| `connectionLineComponent`     | `React component` | `undefined` | [custom connection line component](/docs/examples/edges/custom-connectionline/) |
+| `connectionLineWrapperStyles` | `CSSProperties`   | `undefined` | styles for the connection line SVG wrapper                                      |
 
 ### Keys
 
