@@ -262,7 +262,7 @@ export default () => {
         mx="auto"
         position="absolute"
         maxWidth={1500}
-        zIndex={7}
+        className="headline"
         pointerEvents="none"
       >
         <Box pointerEvents="all" p={3} pl={[3, 3, 3, 10, 10]} maxWidth={500} ref={headlineRef}>
