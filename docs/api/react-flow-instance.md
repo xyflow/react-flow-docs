@@ -123,7 +123,7 @@ Sets the center to the passed params. If no zoom is passed the maxZoom is used.
 
 Transforms pixel coordinates to the internal ReactFlow coordinate system. This can be used when you drag nodes (from a side bar for example) and need the internal position on the pane.
 
-`({ x, y }: XYPosition): { x, y}: XYPosition`
+`({ x, y }: XYPosition): { x, y }: XYPosition`
 
 ### `viewportInitialized`
 
