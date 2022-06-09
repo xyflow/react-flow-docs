@@ -33,7 +33,6 @@ Custom edges are wrapped. They receive the following props:
 - `labelBgBorderRadius`: number
 - `data`: object
 - `style`: svg attributes
-- `arrowHeadType`: 'arrow' | 'arrowclosed'
 - `sourceX`: number
 - `sourceY`: number
 - `targetX`: number
