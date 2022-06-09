@@ -143,7 +143,7 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 | `zoomOnScroll`       | `boolean`                                | `true`      | Zoom the graph in and out using the mousewheel or trackpad                                                                               |
 | `zoomOnPinch`        | `boolean`                                | `true`      | Zoom the graph in and out using pinch                                                                                                    |
 | `zoomOnDoubleClick`  | `boolean`                                | `true`      | Enables zoom on double click                                                                                                             |
-| `selectNodesOnDrag`  | `boolean`                                | `true'`     | Enables to select nodes on drag                                                                                                          |
+| `selectNodesOnDrag`  | `boolean`                                | `true`      | Enables to select nodes on drag                                                                                                          |
 | `connectOnClick`     | `boolean`                                | `true`      | Enables to create connections on touch devices and via mouse click                                                                       |
 | `connectionMode`     | `'strict'` or `'loose'`                  | `'strict'`  | `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed) |
 
