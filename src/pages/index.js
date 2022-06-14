@@ -85,8 +85,8 @@ export default function Home() {
             Showcase
           </Heading>
           <Text mb={20} fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
-            React Flow can be used for a wide range of applications: Machine Learning Modeling,
-            Conversational UIs, Workflow Editors.
+            React Flow can be used for a wide range of applications: Machine learning modeling,
+            workflow editors, conversational UIs or music synthesizers for example.
           </Text>
         </Box>
         <Showcase />
