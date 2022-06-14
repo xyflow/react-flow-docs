@@ -3,7 +3,7 @@ title: Usage with Typescript
 sidebar_position: 5
 ---
 
-React Flow is written in Typescript, so you don't need to install the types separately. In this section we setup a basic flow with the regarding types.
+React Flow is written in Typescript, so you don't need to install the types separately. In this section we setup a basic flow with the corresponding types.
 
 ## Usage
 
