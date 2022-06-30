@@ -64,6 +64,10 @@
   --ifm-z-index-fixed: 100;
 }
 
+html {
+  -webkit-font-smoothing: auto;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -128,7 +132,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   outline: none;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1;
   -webkit-transition: 0.075s all ease-in-out;
