@@ -1,64 +1,52 @@
 import React from 'react';
-import { Box, Heading, Flex, Text, Button, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, Button, SimpleGrid, useBoolean } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
+import showcases from '../../../static/data/showcases.json';
+
 function Showcase() {
+  const [expanded, setExpanded] = useBoolean(false);
+  const projects = expanded ? showcases : showcases.slice(0, 6);
+
   return (
-    <SimpleGrid columns={[1, 1, 2]} spacing={10} maxWidth="container.xl" mx="auto">
-      <Box>
-        <Box
-          backgroundImage="url(/img/showcase/datablocks.png)"
-          h={350}
-          backgroundSize="cover"
-          backgroundPosition="center"
-          borderRadius="md"
-        />
-        <Heading mb={5} mt={6} fontFamily="body" fontWeight="black" size="lg" color="white">
-          Datablocks
-        </Heading>
-        <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
-          A node-based editor for exploring, analyzing and transforming data without code. React
-          Flow was initially built for datablocks.
-        </Text>
-        <Button
-          color="white"
-          _hover={{ color: 'primary' }}
-          as="a"
-          href="https://datablocks.pro"
-          target="_blank"
-          variant="link"
-        >
-          datablocks.pro <ArrowForwardIcon fontSize={19} ml={2} />
+    <Box>
+      <SimpleGrid columns={[2, 2, 3]} spacing={6} maxWidth="container.xl" mx="auto">
+        {projects.map((project) => (
+          <Flex direction="column" key={project.id}>
+            <Box
+              backgroundImage={`url(${project.image})`}
+              h={220}
+              backgroundSize="cover"
+              backgroundPosition="center"
+              borderRadius="md"
+            />
+            <Heading mb={5} mt={6} fontFamily="body" fontWeight="black" size="lg" color="white">
+              {project.title}
+            </Heading>
+            <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
+              {project.description}
+            </Text>
+            <Button
+              color="white"
+              _hover={{ color: 'primary' }}
+              as="a"
+              href={project.url}
+              target="_blank"
+              variant="link"
+              mt="auto"
+              justifyContent="flex-start"
+            >
+              visit project <ArrowForwardIcon fontSize={19} ml={2} />
+            </Button>
+          </Flex>
+        ))}
+      </SimpleGrid>
+      <Flex justifyContent="center" mt={20}>
+        <Button mx="auto" variant="primary" colorScheme="pink" onClick={setExpanded.toggle}>
+          {expanded ? 'Show Less' : 'Show More'}
         </Button>
-      </Box>
-      <Box>
-        <Flex
-          border="1px dashed"
-          borderColor="gray.700"
-          h={350}
-          backgroundSize="cover"
-          backgroundPosition="center"
-          borderRadius="md"
-          color="gray.300"
-          fontWeight="bold"
-          alignItems="center"
-          justifyContent="center"
-        >
-          your open source project here
-        </Flex>
-        <Button
-          color="white"
-          _hover={{ color: 'primary' }}
-          mt={4}
-          as="a"
-          href="https://pro.reactflow.dev/contact"
-          target="_blank"
-          variant="link"
-        >
-          contact us <ArrowForwardIcon fontSize={19} ml={2} />
-        </Button>
-      </Box>
-    </SimpleGrid>
+      </Flex>
+    </Box>
   );
 }
 

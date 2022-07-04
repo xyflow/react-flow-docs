@@ -82,7 +82,7 @@ export default function Home() {
       <Box bgColor="purple.800" px={3} py={28}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
-            Showcase
+            Showcases
           </Heading>
           <Text mb={20} fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
             React Flow can be used for a wide range of applications: Machine learning modeling,
