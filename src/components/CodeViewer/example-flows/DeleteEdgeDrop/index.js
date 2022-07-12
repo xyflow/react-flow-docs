@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -22,21 +22,34 @@ const initialNodes = [
   {
     id: '3',
     data: { label: 'Node C' },
-    position: { x: 400, y: 200 },
+    position: { x: 350, y: 200 },
   },
 ];
 
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2', label: 'updatable edge' }];
 
-const UpdatableEdge = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+const DeleteEdgeDrop = () => {
+  const edgeUpdateSuccessful = useRef(true);
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  // gets called after end of edge gets dragged to another source or target
-  const onEdgeUpdate = useCallback(
-    (oldEdge, newConnection) => setEdges((els) => updateEdge(oldEdge, newConnection, els)),
-    []
-  );
   const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
+
+  const onEdgeUpdateStart = useCallback(() => {
+    edgeUpdateSuccessful.current = false;
+  }, []);
+
+  const onEdgeUpdate = useCallback((oldEdge, newConnection) => {
+    edgeUpdateSuccessful.current = true;
+    setEdges((els) => updateEdge(oldEdge, newConnection, els));
+  }, []);
+
+  const onEdgeUpdateEnd = useCallback((_, edge) => {
+    if (!edgeUpdateSuccessful.current) {
+      setEdges((eds) => eds.filter((e) => e.id !== edge.id));
+    }
+
+    edgeUpdateSuccessful.current = true;
+  }, []);
 
   return (
     <ReactFlow
@@ -46,6 +59,8 @@ const UpdatableEdge = () => {
       onEdgesChange={onEdgesChange}
       snapToGrid
       onEdgeUpdate={onEdgeUpdate}
+      onEdgeUpdateStart={onEdgeUpdateStart}
+      onEdgeUpdateEnd={onEdgeUpdateEnd}
       onConnect={onConnect}
       fitView
       attributionPosition="top-right"
@@ -55,4 +70,4 @@ const UpdatableEdge = () => {
   );
 };
 
-export default UpdatableEdge;
+export default DeleteEdgeDrop;

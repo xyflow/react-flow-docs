@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactFlow, {
   addEdge,
   MiniMap,
@@ -15,7 +15,7 @@ const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInsta
 const OverviewFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   return (
     <ReactFlow
