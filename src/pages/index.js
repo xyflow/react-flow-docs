@@ -89,7 +89,7 @@ export default function Home() {
             workflow editors, conversational UIs or music synthesizers for example.
           </Text>
         </Box>
-        <Showcase />
+        <Showcase numberOfProjects={3} />
       </Box>
 
       <Box px={3} pt={20} pb={20}>

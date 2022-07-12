@@ -4,9 +4,8 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 import showcases from '../../../static/data/showcases.json';
 
-function Showcase() {
-  const [expanded, setExpanded] = useBoolean(false);
-  const projects = expanded ? showcases : showcases.slice(0, 6);
+function Showcase({ numberOfProjects }) {
+  const projects = numberOfProjects ? showcases.slice(0, numberOfProjects) : showcases;
 
   return (
     <Box>
@@ -14,7 +13,7 @@ function Showcase() {
         {projects.map((project) => (
           <Flex direction="column" key={project.id}>
             <Box
-              backgroundImage={`url(${project.image})`}
+              backgroundImage={`url(/img/showcase/${project.image})`}
               h={220}
               backgroundSize="cover"
               backgroundPosition="center"
@@ -41,11 +40,6 @@ function Showcase() {
           </Flex>
         ))}
       </SimpleGrid>
-      <Flex justifyContent="center" mt={20}>
-        <Button mx="auto" variant="primary" colorScheme="pink" onClick={setExpanded.toggle}>
-          {expanded ? 'Show Less' : 'Show More'}
-        </Button>
-      </Flex>
     </Box>
   );
 }
