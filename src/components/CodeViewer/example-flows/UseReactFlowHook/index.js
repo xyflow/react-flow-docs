@@ -1,5 +1,10 @@
-import React from 'react';
-import ReactFlow, { ReactFlowProvider, addEdge, useNodesState, useEdgesState } from 'react-flow-renderer';
+import React, { useCallback } from 'react';
+import ReactFlow, {
+  ReactFlowProvider,
+  addEdge,
+  useNodesState,
+  useEdgesState,
+} from 'react-flow-renderer';
 
 import Sidebar from './Sidebar';
 
@@ -29,7 +34,7 @@ const initialEdges = [
 const ProviderFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = (params) => setEdges((eds) => addEdge(params, eds));
+  const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   return (
     <div className="zoompanflow">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactFlow, {
   addEdge,
   Background,
@@ -23,10 +23,13 @@ const NodeAsHandleFlow = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const onConnect = (params) =>
-    setEdges((eds) =>
-      addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
-    );
+  const onConnect = useCallback(
+    (params) =>
+      setEdges((eds) =>
+        addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
+      ),
+    []
+  );
 
   return (
     <div className="floatingedges">

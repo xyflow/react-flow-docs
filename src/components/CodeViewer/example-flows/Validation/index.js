@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle } from 'react-flow-renderer';
 
 import './index.css';
@@ -11,7 +11,8 @@ const initialNodes = [
 ];
 
 const isValidConnection = (connection) => connection.target === 'B';
-const onConnectStart = (event, { nodeId, handleType }) => console.log('on connect start', { nodeId, handleType });
+const onConnectStart = (event, { nodeId, handleType }) =>
+  console.log('on connect start', { nodeId, handleType });
 const onConnectStop = (event) => console.log('on connect stop', event);
 const onConnectEnd = (event) => console.log('on connect end', event);
 
@@ -39,10 +40,7 @@ const HorizontalFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  const onConnect = (params) => {
-    console.log('on connect', params);
-    setEdges((eds) => addEdge(params, eds));
-  };
+  const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   return (
     <ReactFlow

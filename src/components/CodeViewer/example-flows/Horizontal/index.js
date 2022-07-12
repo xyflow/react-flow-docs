@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge } from 'react-flow-renderer';
 
 const initialNodes = [
@@ -115,7 +115,7 @@ const initialEdges = [
 const HorizontalFlow = () => {
   const [nodes, _, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = (params) => setEdges((els) => addEdge(params, els));
+  const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   return (
     <ReactFlow

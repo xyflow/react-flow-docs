@@ -1,5 +1,12 @@
-import React from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
+import React, { useCallback } from 'react';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+  Background,
+} from 'react-flow-renderer';
 
 import ButtonEdge from './ButtonEdge.js';
 
@@ -29,7 +36,10 @@ const edgeTypes = {
 const EdgeWithButtonFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = (params) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds));
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge({ ...params, type: 'buttonedge' }, eds)),
+    []
+  );
 
   return (
     <ReactFlow
