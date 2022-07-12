@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Heading, Flex, Text, Button, SimpleGrid, useBoolean } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import Image from '@theme/IdealImage';
 
 import showcases from '../../../static/data/showcases.json';
 
@@ -12,12 +13,28 @@ function Showcase({ numberOfProjects }) {
       <SimpleGrid columns={[2, 2, 3]} spacing={6} maxWidth="container.xl" mx="auto">
         {projects.map((project) => (
           <Flex direction="column" key={project.id}>
-            <Box
-              backgroundImage={`url(/img/showcase/${project.image})`}
-              h={220}
-              backgroundSize="cover"
-              backgroundPosition="center"
-              borderRadius="md"
+            <Image
+              style={{
+                height: 280,
+                position: 'relative',
+                display: 'flex',
+                overflow: 'hidden',
+                borderRadius: 5,
+              }}
+              img={require(`../../../static/img/showcase/${project.image}`)}
+              theme={{
+                img: {
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  width: '100%',
+                  height: '100%',
+                },
+                placeholder: {
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  position: 'relative',
+                },
+              }}
             />
             <Heading mb={5} mt={6} fontFamily="body" fontWeight="black" size="lg" color="white">
               {project.title}

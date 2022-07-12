@@ -22,8 +22,9 @@
     "@chakra-ui/react": "^2.1.2",
     "@codesandbox/sandpack-react": "^1.1.1",
     "@docsearch/js": "^3.1.0",
-    "@docusaurus/core": "^2.0.0-beta.21",
-    "@docusaurus/preset-classic": "^2.0.0-beta.21",
+    "@docusaurus/core": "^2.0.0-beta.22",
+    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.22",
+    "@docusaurus/preset-classic": "^2.0.0-beta.22",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mdx-js/react": "^1.6.21",
@@ -55,7 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.21",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.22",
     "@notionhq/client": "^1.0.4",
     "@tsconfig/docusaurus": "^1.0.5",
     "dotenv": "^16.0.1",
