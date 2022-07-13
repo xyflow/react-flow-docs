@@ -33,7 +33,10 @@ const downloadImage = (source, target) => {
     results.map(async (result) => {
       const id = result.id;
       const title = result.properties.title.title[0].plain_text;
-      const url = result.properties.url.url;
+      const projectUrl = result.properties['project-url'].url;
+      const demoUrl = result.properties['demo-url'].url;
+      const tags = result.properties.tags.multi_select;
+
       const description = result.properties.description.rich_text[0].plain_text;
 
       const imageSrc = result.properties.image.files[0].file.url;
@@ -45,9 +48,11 @@ const downloadImage = (source, target) => {
       return {
         id,
         title,
-        url,
+        url: projectUrl,
+        demoUrl,
         description,
         image: imageFileName,
+        tags,
       };
     })
   );
