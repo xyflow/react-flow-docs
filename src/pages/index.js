@@ -96,7 +96,7 @@ export default function Home() {
 
         <Box textAlign="center" mt={20}>
           <Button variant="primary" as="a" href="/showcase"> 
-            See Full Showcase <ArrowForwardIcon fontSize={19} ml={2} />
+            See all projects <ArrowForwardIcon fontSize={19} ml={2} />
           </Button>
         </Box>
       </Box>
