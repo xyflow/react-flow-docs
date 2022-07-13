@@ -82,14 +82,23 @@ export default function Home() {
       <Box bgColor="purple.800" px={3} py={28}>
         <Box textAlign="center" m="0 auto" maxWidth="container.md">
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
-            Showcases
+            Showcase
           </Heading>
-          <Text mb={20} fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
-            React Flow can be used for a wide range of applications: Machine learning modeling,
-            workflow editors, conversational UIs or music synthesizers for example.
+          <Text mb={20} fontFamily="body" fontSize="lg" mx="auto" color="gray.300">
+             React Flow is used by thousands of people, from 
+             solo open-source developers to companies like Stripe and 
+             Typeform. We’ve seen the library used for data processing 
+             tools, chatbot builders, machine learning, musical synthesizers, 
+             and more.
           </Text>
         </Box>
         <Showcase numberOfProjects={3} />
+
+        <Box textAlign="center" mt={20}>
+          <Button variant="primary" as="a" href="/showcase"> 
+            See Full Showcase <ArrowForwardIcon fontSize={19} ml={2} />
+          </Button>
+        </Box>
       </Box>
 
       <Box px={3} pt={20} pb={20}>
