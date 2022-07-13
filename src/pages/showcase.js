@@ -17,14 +17,17 @@ export default function ShowcasePage() {
             px={3}
             py={8}
           >
-            <Heading fontWeight="900" size="2xl">
+            <Heading fontWeight="900" size="4xl">
               Showcase
             </Heading>
-            <Heading size="md" fontWeight="300">
-              React Flow is used by a wide variety of organizations from Fortune 500 to small hobby
-              projects. Explore what can be done with React Flow. Explore all the ways that React
-              Flow is created. Get Inspired.
-            </Heading>
+            <Text fontSize="lg">
+             React Flow is used by thousands of people, from 
+             solo open-source developers to companies like Stripe and 
+             Typeform. We’ve seen the library used for data processing 
+             tools, chatbot builders, machine learning, musical synthesizers, 
+             and more. Explore a selection of our favorite projects that use 
+             React Flow here.
+            </Text>
           </Box>
           <Box>
             <Showcase />
