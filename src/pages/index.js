@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { FiMail, FiStar } from 'react-icons/fi';
+import { FiMail } from 'react-icons/fi';
 
 import HeroFlow from '../components/HeroFlow';
 import ExampleFlow from '../components/ExampleFlow';
@@ -97,7 +97,7 @@ export default function Home() {
 
         <Box textAlign="center" mt={20}>
           <Link to="/showcase">
-            <Button variant="primary" leftIcon={<FiStar />}>
+            <Button variant="primary">
               More projects <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>
           </Link>
