@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {
   Box,
@@ -26,6 +27,7 @@ import UsedBy from '../components/UsedBy';
 
 export default function Home() {
   const isLargeScreen = useBreakpointValue({ base: false, lg: true });
+  const showcaseProjectCount = useBreakpointValue({ base: 4, md: 2, xl: 3 });
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -84,12 +86,22 @@ export default function Home() {
           <Heading mb={5} fontFamily="body" fontWeight="black" size="2xl" color="white">
             Showcase
           </Heading>
-          <Text mb={20} fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
-            React Flow can be used for a wide range of applications: Machine learning modeling,
-            workflow editors, conversational UIs or music synthesizers for example.
+          <Text mb={20} fontFamily="body" fontSize="lg" mx="auto" color="gray.300">
+            React Flow is used by thousands of people, from solo open-source developers to companies
+            like Stripe and Typeform. We’ve seen the library used for data processing tools, chatbot
+            builders, machine learning, musical synthesizers, and more.
           </Text>
         </Box>
-        <Showcase />
+
+        <Showcase hideTags numberOfProjects={showcaseProjectCount} featuredOnly hideExternalLinks />
+
+        <Box textAlign="center" mt={20}>
+          <Link to="/showcase">
+            <Button variant="primary">
+              More projects <ArrowForwardIcon fontSize={19} ml={2} />
+            </Button>
+          </Link>
+        </Box>
       </Box>
 
       <Box px={3} pt={20} pb={20}>
@@ -112,16 +124,11 @@ export default function Home() {
             please get in touch.
           </Text>
           <Center>
-            <Button
-              leftIcon={<FiMail />}
-              variant="primary"
-              as="a"
-              colorScheme="pink"
-              href="https://pro.reactflow.dev/contact"
-              _hover={{ color: 'white' }}
-            >
-              Contact Us
-            </Button>
+            <a href="https://pro.reactflow.dev/contact">
+              <Button leftIcon={<FiMail />} variant="primary" colorScheme="pink">
+                Contact Us
+              </Button>
+            </a>
           </Center>
         </Box>
       </Box>

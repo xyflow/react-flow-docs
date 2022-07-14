@@ -274,12 +274,14 @@ export default () => {
             diagrams
           </Text>
           <Flex>
-            <Button mr={2} variant="primary" as={Link} to="/docs/introduction" colorScheme="pink">
-              <Text as="span" fontFamily="mono" mr={2}>
-                {'{}'}
-              </Text>
-              Documentation
-            </Button>
+            <Link to="/docs/introduction">
+              <Button mr={2} variant="primary" colorScheme="pink">
+                <Text as="span" fontFamily="mono" mr={2}>
+                  {'{}'}
+                </Text>
+                Documentation
+              </Button>
+            </Link>
             <Button ml={4} variant="link" as={Link} to="/docs/examples/overview">
               Examples <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>

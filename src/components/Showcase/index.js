@@ -1,64 +1,117 @@
 import React from 'react';
-import { Box, Heading, Flex, Text, Button, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, Button, SimpleGrid, HStack, Tag } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import Image from '@theme/IdealImage';
 
-function Showcase() {
+import showcases from '../../../static/data/showcases.json';
+
+function ShowcaseLink({ href, children, ...rest }) {
   return (
-    <SimpleGrid columns={[1, 1, 2]} spacing={10} maxWidth="container.xl" mx="auto">
-      <Box>
-        <Box
-          backgroundImage="url(/img/showcase/datablocks.png)"
-          h={350}
-          backgroundSize="cover"
-          backgroundPosition="center"
-          borderRadius="md"
-        />
-        <Heading mb={5} mt={6} fontFamily="body" fontWeight="black" size="lg" color="white">
-          Datablocks
-        </Heading>
-        <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300">
-          A node-based editor for exploring, analyzing and transforming data without code. React
-          Flow was initially built for datablocks.
-        </Text>
-        <Button
-          color="white"
-          _hover={{ color: 'primary' }}
-          as="a"
-          href="https://datablocks.pro"
-          target="_blank"
-          variant="link"
-        >
-          datablocks.pro <ArrowForwardIcon fontSize={19} ml={2} />
-        </Button>
-      </Box>
-      <Box>
-        <Flex
-          border="1px dashed"
-          borderColor="gray.700"
-          h={350}
-          backgroundSize="cover"
-          backgroundPosition="center"
-          borderRadius="md"
-          color="gray.300"
-          fontWeight="bold"
-          alignItems="center"
-          justifyContent="center"
-        >
-          your open source project here
-        </Flex>
-        <Button
-          color="white"
-          _hover={{ color: 'primary' }}
-          mt={4}
-          as="a"
-          href="https://pro.reactflow.dev/contact"
-          target="_blank"
-          variant="link"
-        >
-          contact us <ArrowForwardIcon fontSize={19} ml={2} />
-        </Button>
-      </Box>
-    </SimpleGrid>
+    <Button
+      color="white"
+      _hover={{ color: 'primary' }}
+      as="a"
+      href={href}
+      target="_blank"
+      variant="link"
+      mt="auto"
+      justifyContent="flex-start"
+      {...rest}
+    >
+      {children} <ArrowForwardIcon fontSize={18} ml={1} />
+    </Button>
+  );
+}
+
+function getProjects(numberOfProjects, featuredOnly) {
+  let projects = showcases;
+
+  if (featuredOnly) {
+    console.log(projects);
+    projects = projects.filter((project) => project.featured);
+  }
+
+  if (typeof numberOfProjects === 'number') {
+    projects = projects.slice(0, numberOfProjects);
+  }
+
+  return projects;
+}
+
+function Showcase({
+  numberOfProjects,
+  featuredOnly = false,
+  hideExternalLinks = false,
+  hideTags = false,
+}) {
+  const projects = getProjects(numberOfProjects, featuredOnly);
+
+  return (
+    <Box>
+      <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={14} maxWidth="container.xl" mx="auto">
+        {projects.map((project) => (
+          <Flex direction="column" key={project.id}>
+            <Box position="relative">
+              <Image
+                style={{
+                  height: 280,
+                  position: 'relative',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  borderRadius: 5,
+                }}
+                img={require(`../../../static/img/showcase/${project.image}`)}
+                theme={{
+                  img: {
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    width: '100%',
+                    height: '100%',
+                  },
+                  placeholder: {
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    position: 'relative',
+                  },
+                }}
+              />
+              {!hideTags && (
+                <Flex wrap="wrap" position="absolute" top={2} left={2}>
+                  {project.tags.map((t) => (
+                    <Tag
+                      mr={2}
+                      mb={1}
+                      size="md"
+                      bg="white"
+                      color="white"
+                      backgroundColor="gray.700"
+                    >
+                      {t.name}
+                    </Tag>
+                  ))}
+                </Flex>
+              )}
+            </Box>
+            <Heading mb={3} mt={3} fontFamily="body" fontWeight="black" size="lg" color="white">
+              {project.title}
+            </Heading>
+            <Text fontFamily="body" fontSize="lg" color="gray.300" lineHeight={1.2}>
+              {project.description}
+            </Text>
+            {!hideExternalLinks && (
+              <Flex mt="auto">
+                <ShowcaseLink href={project.url}>website</ShowcaseLink>
+                {project.demoUrl && (
+                  <ShowcaseLink ml={4} href={project.demoUrl}>
+                    demo
+                  </ShowcaseLink>
+                )}
+              </Flex>
+            )}
+          </Flex>
+        ))}
+      </SimpleGrid>
+    </Box>
   );
 }
 
