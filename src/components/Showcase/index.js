@@ -84,7 +84,7 @@ function Showcase({
                       size="md"
                       bg="white"
                       color="white"
-                      backgroundColor="blue.400"
+                      backgroundColor="gray.700"
                     >
                       {t.name}
                     </Tag>

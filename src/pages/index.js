@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiStar } from 'react-icons/fi';
 
 import HeroFlow from '../components/HeroFlow';
 import ExampleFlow from '../components/ExampleFlow';
@@ -27,6 +27,7 @@ import UsedBy from '../components/UsedBy';
 
 export default function Home() {
   const isLargeScreen = useBreakpointValue({ base: false, lg: true });
+  const showcaseProjectCount = useBreakpointValue({ base: 4, md: 2, xl: 3 });
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -92,11 +93,11 @@ export default function Home() {
           </Text>
         </Box>
 
-        <Showcase hideTags numberOfProjects={3} featuredOnly hideExternalLinks />
+        <Showcase hideTags numberOfProjects={showcaseProjectCount} featuredOnly hideExternalLinks />
 
         <Box textAlign="center" mt={20}>
           <Link to="/showcase">
-            <Button variant="primary" leftIcon={<FiMail />}>
+            <Button variant="primary" leftIcon={<FiStar />}>
               More projects <ArrowForwardIcon fontSize={19} ml={2} />
             </Button>
           </Link>

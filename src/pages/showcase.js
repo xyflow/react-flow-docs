@@ -20,7 +20,7 @@ export default function ShowcasePage() {
             <Heading fontWeight="900" size="4xl">
               Showcase
             </Heading>
-            <Text color="gray.300" mt={10} fontSize="lg">
+            <Text color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
               React Flow is used by thousands of people, from solo open-source developers to
               companies like Stripe and Typeform. We’ve seen the library used for data processing
               tools, chatbot builders, machine learning, musical synthesizers, and more. Explore a
