@@ -22,7 +22,7 @@ const downloadImage = (source, target) => {
   const { results } = await notion.databases.query({
     database_id: SHOWCASES_DATABASE_ID,
     filter: {
-      property: 'publish',
+      property: 'published',
       checkbox: {
         equals: true,
       },
@@ -36,6 +36,7 @@ const downloadImage = (source, target) => {
       const projectUrl = result.properties['project-url'].url;
       const demoUrl = result.properties['demo-url'].url;
       const tags = result.properties.tags.multi_select;
+      const featured = result.properties.featured.checkbox;
 
       const description = result.properties.description.rich_text[0].plain_text;
 
@@ -53,6 +54,7 @@ const downloadImage = (source, target) => {
         description,
         image: imageFileName,
         tags,
+        featured,
       };
     })
   );

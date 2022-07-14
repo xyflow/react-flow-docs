@@ -7,7 +7,7 @@ export default function ShowcasePage() {
   return (
     <Box bg="purple.800">
       <Layout title="React Flow Showcase">
-        <Box py={32}>
+        <Box px={8} py={20}>
           <Box
             mb={20}
             color="white"
@@ -20,13 +20,11 @@ export default function ShowcasePage() {
             <Heading fontWeight="900" size="4xl">
               Showcase
             </Heading>
-            <Text fontSize="lg">
-             React Flow is used by thousands of people, from 
-             solo open-source developers to companies like Stripe and 
-             Typeform. We’ve seen the library used for data processing 
-             tools, chatbot builders, machine learning, musical synthesizers, 
-             and more. Explore a selection of our favorite projects that use 
-             React Flow here.
+            <Text color="gray.300" mt={10} fontSize="lg">
+              React Flow is used by thousands of people, from solo open-source developers to
+              companies like Stripe and Typeform. We’ve seen the library used for data processing
+              tools, chatbot builders, machine learning, musical synthesizers, and more. Explore a
+              selection of our favorite projects that use React Flow here.
             </Text>
           </Box>
           <Box>

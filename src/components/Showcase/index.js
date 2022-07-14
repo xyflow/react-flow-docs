@@ -23,58 +23,91 @@ function ShowcaseLink({ href, children, ...rest }) {
   );
 }
 
-function Showcase({ numberOfProjects }) {
-  const projects = numberOfProjects ? showcases.slice(0, numberOfProjects) : showcases;
+function getProjects(numberOfProjects, featuredOnly) {
+  let projects = showcases;
+
+  if (featuredOnly) {
+    console.log(projects);
+    projects = projects.filter((project) => project.featured);
+  }
+
+  if (typeof numberOfProjects === 'number') {
+    projects = projects.slice(0, numberOfProjects);
+  }
+
+  return projects;
+}
+
+function Showcase({
+  numberOfProjects,
+  featuredOnly = false,
+  hideExternalLinks = false,
+  hideTags = false,
+}) {
+  const projects = getProjects(numberOfProjects, featuredOnly);
 
   return (
     <Box>
-      <SimpleGrid columns={[2, 2, 3]} spacing={14} maxWidth="container.xl" mx="auto">
+      <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={14} maxWidth="container.xl" mx="auto">
         {projects.map((project) => (
           <Flex direction="column" key={project.id}>
-            <Image
-              style={{
-                height: 280,
-                position: 'relative',
-                display: 'flex',
-                overflow: 'hidden',
-                borderRadius: 5,
-              }}
-              img={require(`../../../static/img/showcase/${project.image}`)}
-              theme={{
-                img: {
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                  width: '100%',
-                  height: '100%',
-                },
-                placeholder: {
-                  backgroundSize: 'cover',
-                  backgroundRepeat: 'no-repeat',
+            <Box position="relative">
+              <Image
+                style={{
+                  height: 280,
                   position: 'relative',
-                },
-              }}
-            />
+                  display: 'flex',
+                  overflow: 'hidden',
+                  borderRadius: 5,
+                }}
+                img={require(`../../../static/img/showcase/${project.image}`)}
+                theme={{
+                  img: {
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    width: '100%',
+                    height: '100%',
+                  },
+                  placeholder: {
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    position: 'relative',
+                  },
+                }}
+              />
+              {!hideTags && (
+                <Flex wrap="wrap" position="absolute" top={2} left={2}>
+                  {project.tags.map((t) => (
+                    <Tag
+                      mr={2}
+                      mb={1}
+                      size="md"
+                      bg="white"
+                      color="white"
+                      backgroundColor="blue.400"
+                    >
+                      {t.name}
+                    </Tag>
+                  ))}
+                </Flex>
+              )}
+            </Box>
             <Heading mb={3} mt={3} fontFamily="body" fontWeight="black" size="lg" color="white">
               {project.title}
             </Heading>
             <Text fontFamily="body" fontSize="lg" color="gray.300" lineHeight={1.2}>
               {project.description}
             </Text>
-            <HStack mb={2}>
-              {project.tags.map((t) => (
-                <Tag size="md" colorScheme="gray">
-                  {t.name}
-                </Tag>
-              ))}
-            </HStack>
-            <Flex>
-              <ShowcaseLink href={project.url}>project</ShowcaseLink>
-              {project.demoUrl && (
-                <ShowcaseLink ml={4} href={project.demoUrl}>
-                  demo
-                </ShowcaseLink>
-              )}
-            </Flex>
+            {!hideExternalLinks && (
+              <Flex mt="auto">
+                <ShowcaseLink href={project.url}>website</ShowcaseLink>
+                {project.demoUrl && (
+                  <ShowcaseLink ml={4} href={project.demoUrl}>
+                    demo
+                  </ShowcaseLink>
+                )}
+              </Flex>
+            )}
           </Flex>
         ))}
       </SimpleGrid>
