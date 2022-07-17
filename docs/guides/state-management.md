@@ -82,7 +82,7 @@ In this last step we implement the `ColorChooserNode` component and call the `up
 />
 ```
 
-We add the `nodrag` class name so that the user don't drag the node by mistake when changing the color and call the `updateNodeColor` in the `onChange` event handler.
+We add the `nodrag` class name so that the user doesn't drag the node by mistake when changing the color and call the `updateNodeColor` in the `onChange` event handler.
 
 <CodeViewer activeFile="ColorChooserNode.tsx" codePath="api-flows/StateManagement2" applyStyles={false} options={editorOptions} additionalFiles={[ 'ColorChooserNode.tsx', 'store.ts', 'nodes.ts', 'edges.ts']} isTypescript />
 
