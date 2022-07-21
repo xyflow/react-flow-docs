@@ -3,34 +3,7 @@ title: Theming
 sidebar_position: 6
 ---
 
-React Flow offers two bundles. The normal bundle injects styles to the head, the other one comes unstyled.
-
-### Import Bundle with Styles
-
-```js
-import ReactFlow from 'react-flow-renderer';
-
-// no need to import styles
-// the base styles and the default theme get injected
-```
-
-### Import Bundle without Styles
-
-```js
-import ReactFlow from 'react-flow-renderer/nocss';
-
-// you need these styles for React Flow to work properly
-import 'react-flow-renderer/dist/style.css';
-
-// additionally you can load the default theme
-import 'react-flow-renderer/dist/theme-default.css';
-```
-
-:::caution
-
-When you are using the `react-flow-renderer/nocss` bundle you also need to use it for other imports in other files. You can't mix the default and the nocss bundle!
-
-:::
+React Flow includes a very minimal default theme and necessary default styles to make everything work as expected. These styles are injected automatically into your website.
 
 ## Overwrite Default Styles
 

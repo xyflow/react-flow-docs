@@ -18,7 +18,7 @@ This hook doesn't use the internal React Flow state. You can use it everywhere i
 ### Usage
 
 ```javascript
-import ReactFlow, { useKeyPress } from 'react-flow-renderer';
+import ReactFlow, { useKeyPress } from '@react-flow/core';
 
 function KeyLogger() {
   const spacePressed = useKeyPress('Space');

@@ -3,7 +3,7 @@ title: Installation
 sidebar_position: 1
 ---
 
-Before you can start to use React Flow you need to install `react-flow-renderer`. It's published on [npm](https://www.npmjs.com/package/react-flow-renderer) and installable via:
+React Flow is published under the `@react-flow` namespace on npm. To install the React Flow viewer (previously `react-flow-renderer`), you need to install the [`@react-flow/core`](https://www.npmjs.com/package/@react-flow/core) package into your project.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,14 +12,14 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm" label="npm" default>
 
 ```bash
-npm install react-flow-renderer
+npm install @react-flow/core
 ```
 
   </TabItem>
   <TabItem value="yarn" label="Yarn">
 
 ```bash
-yarn add react-flow-renderer
+yarn add @react-flow/core
 ```
 
   </TabItem>
@@ -27,10 +27,12 @@ yarn add react-flow-renderer
 
 ## Usage
 
-The `react-flow-renderer` package exports the `<ReactFlow />` React component as the default export and additional components (like [`MiniMap`](/docs/api/plugin-components/minimap)), hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions). When you are importing the `<ReactFlow />` component, the default styles get injected to the head. If you don't want to inject the styles, you can load the component via `react-flow-renderer/nocss` (more information in the [theming section](/docs/guides/theming)).
+The core package exports the `<ReactFlow />` React component as the default export and hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions). Additional components like the [`MiniMap`](/docs/api/plugin-components/minimap) or [`Controls`](/docs/api/plugin-components/controls) can be installed with their own packages. When you are importing the `<ReactFlow />` component, the default styles get injected into your website automatically.
 
 ```jsx
-import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
+import ReactFlow from '@react-flow/core';
+import MiniMap from '@react-flow/minimap';
+import Controls from '@react-flow/controls';
 
 function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
   return (
@@ -51,15 +53,10 @@ function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
 React Flow can also be used as an uncontrolled component without external state management:
 
 ```jsx
-import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
+import ReactFlow from '@react-flow/core';
 
 function Flow({ nodes, edges }) {
-  return (
-    <ReactFlow defaultNodes={nodes} defaultEdges={edges}>
-      <MiniMap />
-      <Controls />
-    </ReactFlow>
-  );
+  return <ReactFlow defaultNodes={nodes} defaultEdges={edges} />;
 }
 ```
 

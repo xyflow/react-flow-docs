@@ -6,7 +6,7 @@ sidebar_position: 1
 This is the list of props you can pass to the `<ReactFlow />` component.
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from '@react-flow/core';
 ```
 
 #### Typescript
@@ -14,7 +14,7 @@ import ReactFlow from 'react-flow-renderer';
 The interface of the ReactFlow Prop types is exported as `ReactFlowProps`. You can use it in your code as follows:
 
 ```javascript
-import { ReactFlowProps } from 'react-flow-renderer';
+import { ReactFlowProps } from '@react-flow/core';
 ```
 
 :::caution

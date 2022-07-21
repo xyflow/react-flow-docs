@@ -18,7 +18,7 @@ As the internal state, the actions of React Flow might change in the future and 
 
 ```jsx
 import { useEffect } from 'react';
-import ReactFlow, { useStore } from 'react-flow-renderer';
+import ReactFlow, { useStore } from '@react-flow/core';
 
 const nodesLengthSelector = (state) => state.nodes?.length || 0;
 
@@ -45,7 +45,7 @@ function Flow() {
 
 ```jsx
 import { useCallback } from 'react';
-import ReactFlow, { useStoreApi } from 'react-flow-renderer';
+import ReactFlow, { useStoreApi } from '@react-flow/core';
 
 const NodesLengthLogger = () => {
   const store = useStoreApi();
@@ -73,7 +73,7 @@ The actions are also stored in the global state. You will not need this in most 
 
 ```js
 import { useEffect } from 'react';
-import { useStore } from 'react-flow-renderer'
+import { useStore } from '@react-flow/core'
 
 const setMinZoomSelector = (state) => state.setMinZoom;
 

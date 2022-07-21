@@ -3,12 +3,35 @@ title: <Background />
 sidebar_position: 1
 ---
 
-React Flow comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component:
+The Background plugin comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component.
+
+### Installation
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @react-flow/background
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
+
+```bash
+yarn add @react-flow/background
+```
+
+  </TabItem>
+</Tabs>
 
 ### Usage
 
 ```jsx
-import ReactFlow, { Background } from 'react-flow-renderer';
+import ReactFlow from '@react-flow/core';
+import Background from '@react-flow/background';
 
 function FlowWithBackground() {
   return (

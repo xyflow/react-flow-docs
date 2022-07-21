@@ -14,9 +14,9 @@ React Flow is a library for building node-based applications. These can be simpl
 - **Plugin Components:** [Background](/docs/api/plugin-components/background), [MiniMap](/docs/api/plugin-components/minimap) and [Controls](/docs/api/plugin-components/controls)
 - **Reliable**: Written in [Typescript](https://www.typescriptlang.org/) and tested with [cypress](https://www.cypress.io/)
 
-## Migrate to v10
+## Migrate to v11
 
-If you want to migrate to v10 you can check out the ["Migrate to v10 Guide"](/docs/guides/migrate-to-v10).
+If you want to migrate to v11 you can check out the ["Migrate to v11 Guide"](/docs/guides/migrate-to-v11).
 
 ## v9 Docs
 

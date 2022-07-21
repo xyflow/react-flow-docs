@@ -10,7 +10,7 @@ There are several utils that help you to create a custom edge. Some are used in 
 Returns the path of a bezier edge.
 
 ```
-import { getBezierPath } from 'react-flow-renderer';
+import { getBezierPath } from '@react-flow/core';
 
 getBezierPath({
   sourceX,
@@ -29,7 +29,7 @@ getBezierPath({
 Returns the path of a smooth step edge. You can set `borderRadius` = `0` to get a step edge path.
 
 ```
-import { getSmoothStepPath } from 'react-flow-renderer';
+import { getSmoothStepPath } from '@react-flow/core';
 
 getSmoothStepPath({
   sourceX,
@@ -49,7 +49,7 @@ getSmoothStepPath({
 Returns the path of a simple bezier edge.
 
 ```
-import { getSimpleBezierPath } from 'react-flow-renderer';
+import { getSimpleBezierPath } from '@react-flow/core';
 
 getSimpleBezierPath({
   sourceX,
@@ -68,7 +68,7 @@ getSimpleBezierPath({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of the edge.
 
 ```
-import { getEdgeCenter } from 'react-flow-renderer';
+import { getEdgeCenter } from '@react-flow/core';
 
 getEdgeCenter({
   sourceX,
@@ -83,7 +83,7 @@ getEdgeCenter({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a bezier edge.
 
 ```
-import { getBezierEdgeCenter } from 'react-flow-renderer';
+import { getBezierEdgeCenter } from '@react-flow/core';
 
 getBezierEdgeCenter({
   sourceX,
@@ -101,7 +101,7 @@ getBezierEdgeCenter({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a `simplebezier` edge.
 
 ```
-import { getSimpleBezierEdgeCenter } from 'react-flow-renderer';
+import { getSimpleBezierEdgeCenter } from '@react-flow/core';
 
 getSimpleBezierEdgeCenter({
   sourceX,
@@ -118,7 +118,7 @@ getSimpleBezierEdgeCenter({
 Returns the marker end url for displaying the arrow head.
 
 ```
-import { getMarkerEnd } from 'react-flow-renderer';
+import { getMarkerEnd } from '@react-flow/core';
 
 getMarkerEnd(arrowHeadType?: ArrowHeadType, markerEndId?: string): string
 ```

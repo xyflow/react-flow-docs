@@ -14,7 +14,7 @@ Hooks can only be used if the component that uses it, is wrapped with a [`ReactF
 ### Usage
 
 ```javascript
-import ReactFlow, { useViewport } from 'react-flow-renderer';
+import ReactFlow, { useViewport } from '@react-flow/core';
 
 function ViewportLogger() {
   const { x, y, zoom } = useViewport();

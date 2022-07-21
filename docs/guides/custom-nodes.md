@@ -11,7 +11,7 @@ A custom node is a React component that is wrapped to provide basic functionalit
 
 ```jsx
 import { useCallback } from 'react';
-import { Handle, Position } from 'react-flow-renderer';
+import { Handle, Position } from '@react-flow/core';
 
 const handleStyle = { left: 10 };
 

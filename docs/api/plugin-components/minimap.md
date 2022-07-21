@@ -3,12 +3,35 @@ title: <MiniMap />
 sidebar_position: 3
 ---
 
-You can use the `MiniMap` component by passing it as a children to the `ReactFlow` component:
+The Minimap plugin adds a interactive Minimap to React Flow that shows the whole graph. You can use the `MiniMap` plugin by passing it as a children to the `ReactFlow` component.
+
+### Installation
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @react-flow/minimap
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
+
+```bash
+yarn add @react-flow/minimap
+```
+
+  </TabItem>
+</Tabs>
 
 ### Usage
 
 ```jsx
-import ReactFlow, { MiniMap } from 'react-flow-renderer';
+import ReactFlow from '@react-flow/core';
+import MiniMap from '@react-flow/minimap';
 
 const nodeColor = (node) => {
   switch (node.type) {

@@ -12,7 +12,7 @@ import ReactFlow, {
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-} from 'react-flow-renderer';
+} from '@react-flow/core';
 ```
 
 ### `isEdge`

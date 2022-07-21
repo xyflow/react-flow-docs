@@ -14,7 +14,7 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 ### Usage
 
 ```javascript
-import ReactFlow, { useEdges } from 'react-flow-renderer';
+import ReactFlow, { useEdges } from '@react-flow/core';
 
 function EdgeLogger() {
   const edges = useEdges();
