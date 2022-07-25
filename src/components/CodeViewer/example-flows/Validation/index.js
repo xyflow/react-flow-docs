@@ -11,9 +11,8 @@ const initialNodes = [
 ];
 
 const isValidConnection = (connection) => connection.target === 'B';
-const onConnectStart = (event, { nodeId, handleType }) =>
+const onConnectStart = (_, { nodeId, handleType }) =>
   console.log('on connect start', { nodeId, handleType });
-const onConnectStop = (event) => console.log('on connect stop', event);
 const onConnectEnd = (event) => console.log('on connect end', event);
 
 const CustomInput = () => (
@@ -53,7 +52,6 @@ const HorizontalFlow = () => {
       className="validationflow"
       nodeTypes={nodeTypes}
       onConnectStart={onConnectStart}
-      onConnectStop={onConnectStop}
       onConnectEnd={onConnectEnd}
       fitView
       attributionPosition="bottom-left"

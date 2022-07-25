@@ -41,21 +41,20 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Flow View
 
-| Name                        | Type                                                            | Default                | Description                                                                                        |
-| --------------------------- | --------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------- |
-| `fitView`                   | `boolean`                                                       | `false`                | fits the view once to make all nodes visible                                                       |
-| `fitViewOptions`            | `FitViewOptions`                                                | `undefined`            | options that are passed to the initial fitView                                                     |
-| `minZoom`                   | `number`                                                        | `0.5`                  | min zoom level                                                                                     |
-| `maxZoom`                   | `number`                                                        | `2`                    | max zoom level                                                                                     |
-| `defaultZoom`               | `number`                                                        | `1`                    | default zoom level                                                                                 |
-| `defaultPosition`           | `number[]`                                                      | `[0, 0]`               | default viewport position                                                                          |
-| `snapGrid`                  | `number[]`                                                      | `[15, 15]`             | snap grid gap                                                                                      |
-| `snapToGrid`                | `boolean`                                                       | `false`                | snap grid enabled                                                                                  |
-| `onlyRenderVisibleElements` | `boolean`                                                       | `false`                | if true only nodes and edges inside the viewport get rendered                                      |
-| `translateExtent`           | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]` | passed to the [d3-zoom translateExtent option](https://github.com/d3/d3-zoom#zoom_translateExtent) |
-| `nodeExtent`                | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]` | defines the extent for the node positions                                                          |
-| `preventScrolling`          | `boolean`                                                       | `true`                 | if true default browser scroll behaviour is prevented                                              |
-| `attributionPosition`       | `'top-left'`, `'top-center'`, `'top-right'` or `'bottom-right'` | `'bottom-right'`       | position of the "React Flow" attribution                                                           |
+| Name                        | Type                                                            | Default                 | Description                                                                                        |
+| --------------------------- | --------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
+| `fitView`                   | `boolean`                                                       | `false`                 | fits the view once to make all nodes visible                                                       |
+| `fitViewOptions`            | `FitViewOptions`                                                | `undefined`             | options that are passed to the initial fitView                                                     |
+| `minZoom`                   | `number`                                                        | `0.5`                   | min zoom level                                                                                     |
+| `maxZoom`                   | `number`                                                        | `2`                     | max zoom level                                                                                     |
+| `defaultViewport`           | `Viewport`                                                      | `{ x:0, y:0, zoom: 1 }` | default viewport position                                                                          |
+| `snapGrid`                  | `number[]`                                                      | `[15, 15]`              | snap grid gap                                                                                      |
+| `snapToGrid`                | `boolean`                                                       | `false`                 | snap grid enabled                                                                                  |
+| `onlyRenderVisibleElements` | `boolean`                                                       | `false`                 | if true only nodes and edges inside the viewport get rendered                                      |
+| `translateExtent`           | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]`  | passed to the [d3-zoom translateExtent option](https://github.com/d3/d3-zoom#zoom_translateExtent) |
+| `nodeExtent`                | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]`  | defines the extent for the node positions                                                          |
+| `preventScrolling`          | `boolean`                                                       | `true`                  | if true default browser scroll behaviour is prevented                                              |
+| `attributionPosition`       | `'top-left'`, `'top-center'`, `'top-right'` or `'bottom-right'` | `'bottom-right'`        | position of the "React Flow" attribution                                                           |
 
 ### Event Handlers
 
@@ -103,15 +102,13 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 #### Connections
 
-| Name                                                                                         | Type       | Default     | Description                                                                |
-| -------------------------------------------------------------------------------------------- | ---------- | ----------- | -------------------------------------------------------------------------- |
-| `onConnect({ source, target }: Connection)`                                                  | `function` | `undefined` | called when user connects two nodes                                        |
-| `onConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)`      | `function` | `undefined` | called when user starts to drag connection line                            |
-| `onConnectStop(event: React.MouseEvent)`                                                     | `function` | `undefined` | called when user stops to drag connection line (called before `onConnect`) |
-| `onConnectEnd(event: React.MouseEvent)`                                                      | `function` | `undefined` | called after user stops or connects nodes (called after `onConnect`)       |
-| `onClickConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)` | `function` | `undefined` | called when user starts to do a connection by click                        |
-| `onClickConnectStop(event: React.MouseEvent)`                                                | `function` | `undefined` | called when user stops a connection by click (called before `onConnect`)   |
-| `onClickConnectEnd(event: React.MouseEvent)`                                                 | `function` | `undefined` | called after user stops a connection by click (called after `onConnect`)   |
+| Name                                                                                         | Type       | Default     | Description                                                              |
+| -------------------------------------------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------------------------ |
+| `onConnect({ source, target }: Connection)`                                                  | `function` | `undefined` | called when user connects two nodes                                      |
+| `onConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)`      | `function` | `undefined` | called when user starts to drag connection line                          |
+| `onConnectEnd(event: React.MouseEvent)`                                                      | `function` | `undefined` | called after user stops or connects nodes (called after `onConnect`)     |
+| `onClickConnectStart(event: React.MouseEvent, { nodeId, handleType }: OnConnectStartParams)` | `function` | `undefined` | called when user starts to do a connection by click                      |
+| `onClickConnectEnd(event: React.MouseEvent)`                                                 | `function` | `undefined` | called after user stops a connection by click (called after `onConnect`) |
 
 #### Pane
 
@@ -126,6 +123,9 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 | `onSelectionDragStop(event: React.MouseEvent, nodes: Node[])`    | `function` | `undefined` | called when user stops to drag a selection                                      |
 | `onSelectionContextMenu(event: React.MouseEvent, nodes: Node[])` | `function` | `undefined` | called when user does a right-click on a selection                              |
 | `onPaneClick(event: React.MouseEvent)`                           | `function` | `undefined` | called when user clicks directly on the canvas                                  |
+| `onPaneMouseEnter(event: React.MouseEvent)`                      | `function` | `undefined` | called when user enters the canvas with the mouse                               |
+| `onPaneMouseMove(event: React.MouseEvent)`                       | `function` | `undefined` | called when user clicks directly on the canvas                                  |
+| `onPaneMouseLeave(event: React.MouseEvent)`                      | `function` | `undefined` | called when user clicks leaves the canvas with the mouse                        |
 | `onPaneContextMenu(event: React.MouseEvent)`                     | `function` | `undefined` | called when user does a right-click on the canvas                               |
 | `onPaneScroll(event: React.MouseEvent)`                          | `function` | `undefined` | called when user scrolls pane (only works when `zoomOnScroll` is set to `false) |
 

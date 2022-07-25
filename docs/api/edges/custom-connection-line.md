@@ -10,12 +10,12 @@ You can adjust the connection line by using the props documented in the [`connec
 
 | Name                  | Type                 | Description                                |
 | --------------------- | -------------------- | ------------------------------------------ |
-| `sourceX`             | `number`             | x position of the source handle            |
-| `sourceY`             | `number`             | y position of the source handle            |
-| `sourcePosition`      | `Position`           | position of the source handle              |
-| `targetX`             | `number`             | x position of the target handle            |
-| `targetY`             | `number`             | y position of the target handle            |
-| `targetPosition`      | `Position`           | position of the target handle              |
+| `fromX`               | `number`             | x position of the source handle            |
+| `toY`                 | `number`             | y position of the source handle            |
+| `fromPosition`        | `Position`           | position of the source handle              |
+| `toX`                 | `number`             | x position of the target handle            |
+| `toY`                 | `number`             | y position of the target handle            |
+| `toPosition`          | `Position`           | position of the target handle              |
 | `connectionLineType`  | `ConnectionLineType` | type                                       |
 | `connectionLineStyle` | `CSS.Properties`     | style                                      |
 | `fromNode`            | `Node`               | the node where the connection comes from   |
