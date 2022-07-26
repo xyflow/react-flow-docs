@@ -37,10 +37,20 @@ import { MiniMap, Background, Controls } from 'react-flow-renderer';
 ```
 
 ```jsx
-// npm install @react-flow/minimap @react-flow/background @react-flow/controls
+// npm install @react-flow/core @react-flow/minimap @react-flow/background @react-flow/controls
+import ReactFlow from '@react-flow/core';
+
 import MiniMap from '@react-flow/minimap';
 import Background from '@react-flow/background';
 import Controls from '@react-flow/controls';
+
+export default () => (
+  <ReactFlow>
+    <MiniMap />
+    <Background />
+    <Controls />
+  </ReactFlow>
+);
 ```
 
 ### Removal of the nocss entrypoint
