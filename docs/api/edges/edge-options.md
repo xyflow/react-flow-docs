@@ -51,4 +51,10 @@ You can find an example with different edges in the [edge types example](/docs/e
 ### `markerStart` / `markerEnd` options
 
 - `type`: string: default `'arrow'` or `'arrowclosed'`
-- `color`: arrow fill color
+- `color`: arrow fill color (optional)
+- `width`: marker width (optional)
+- `height`: marker width (optional)
+- `markerUnits`: [defines coordinate system](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerUnits) (optional)
+- `orient`: defines rotation - `'auto'` | `'auto-start-reverse'` | `number` (optional)
+- `strokeWidth`
+
