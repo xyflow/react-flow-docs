@@ -45,6 +45,7 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 | `style`                 | `CSSProperties`                                                                    |                                                                                                                                   |
 | `className`             | `string`                                                                           |                                                                                                                                   |
 | `zIndex`                | `number`, default: `0`                                                             | controls the layer order of the edges                                                                                             |
+| `ariaLabel`             | `string`, default: `'from ${source} to ${target}'` `                               | [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) for the edge.               |
 
 You can find an example with different edges in the [edge types example](/docs/examples/edges/edge-types).
 

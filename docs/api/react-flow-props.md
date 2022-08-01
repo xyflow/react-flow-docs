@@ -131,21 +131,22 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 ### Interaction
 
-| Name                 | Type                                     | Default     | Description                                                                                                                              |
-| -------------------- | ---------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `nodesDraggable`     | `boolean`                                | `true`      | This applies to all nodes. You can also change the behavior of a specific node with the `draggable` node option                          |
-| `nodesConnectable`   | `boolean`                                | `true`      | This applies to all nodes. You can also change the behavior of a specific node with the `connectable` node optionstart                   |
-| `elementsSelectable` | `boolean`                                | `true`      | This applies to all nodes and edges. You can also change the behavior of a specific node with the `selectable` node option. drag         |
-| `panOnDrag`          | `boolean`                                | `true`      | enables pan on drag                                                                                                                      |
-| `panOnScroll`        | `boolean`                                | `false`     | Move the graph while keeping the zoomlevel using mousewheel or trackpad. Overwrites `zoomOnScroll` enter                                 |
-| `panOnScrollSpeed`   | `number`                                 | `undefined` | Controls how fast the canvas is moved while using the mousewheel. Only has an effect if `panOnScroll` is enabled                         |
-| `panOnScrollMode`    | `'free'`, `'vertical'` or `'horizontal'` | `'free'`    | Enables certain scroll directions                                                                                                        |
-| `zoomOnScroll`       | `boolean`                                | `true`      | Zoom the graph in and out using the mousewheel or trackpad                                                                               |
-| `zoomOnPinch`        | `boolean`                                | `true`      | Zoom the graph in and out using pinch                                                                                                    |
-| `zoomOnDoubleClick`  | `boolean`                                | `true`      | Enables zoom on double click                                                                                                             |
-| `selectNodesOnDrag`  | `boolean`                                | `true`      | Enables to select nodes on drag                                                                                                          |
-| `connectOnClick`     | `boolean`                                | `true`      | Enables to create connections on touch devices and via mouse click                                                                       |
-| `connectionMode`     | `'strict'` or `'loose'`                  | `'strict'`  | `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed) |
+| Name                  | Type                                     | Default     | Description                                                                                                                              |
+| --------------------- | ---------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `nodesDraggable`      | `boolean`                                | `true`      | This applies to all nodes. You can also change the behavior of a specific node with the `draggable` node option                          |
+| `nodesConnectable`    | `boolean`                                | `true`      | This applies to all nodes. You can also change the behavior of a specific node with the `connectable` node optionstart                   |
+| `elementsSelectable`  | `boolean`                                | `true`      | This applies to all nodes and edges. You can also change the behavior of a specific node with the `selectable` node option. drag         |
+| `panOnDrag`           | `boolean`                                | `true`      | enables pan on drag                                                                                                                      |
+| `panOnScroll`         | `boolean`                                | `false`     | Move the graph while keeping the zoomlevel using mousewheel or trackpad. Overwrites `zoomOnScroll` enter                                 |
+| `panOnScrollSpeed`    | `number`                                 | `undefined` | Controls how fast the canvas is moved while using the mousewheel. Only has an effect if `panOnScroll` is enabled                         |
+| `panOnScrollMode`     | `'free'`, `'vertical'` or `'horizontal'` | `'free'`    | Enables certain scroll directions                                                                                                        |
+| `zoomOnScroll`        | `boolean`                                | `true`      | Zoom the graph in and out using the mousewheel or trackpad                                                                               |
+| `zoomOnPinch`         | `boolean`                                | `true`      | Zoom the graph in and out using pinch                                                                                                    |
+| `zoomOnDoubleClick`   | `boolean`                                | `true`      | Enables zoom on double click                                                                                                             |
+| `selectNodesOnDrag`   | `boolean`                                | `true`      | Enables to select nodes on drag                                                                                                          |
+| `connectOnClick`      | `boolean`                                | `true`      | Enables to create connections on touch devices and via mouse click                                                                       |
+| `connectionMode`      | `'strict'` or `'loose'`                  | `'strict'`  | `'strict'` (only source to target connections are possible) or `'loose'` (source to source and target to target connections are allowed) |
+| `disableKeyboardA11y` | `boolean`                                | `false`     | With this prop you can disable the keyboard accessibility features.                                                                      |
 
 ### Connection Line Options
 
