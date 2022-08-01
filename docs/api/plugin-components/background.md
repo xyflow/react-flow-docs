@@ -44,13 +44,14 @@ function FlowWithBackground() {
 
 ### Prop Types
 
-| Name        | Type              | Default     | Description                                         |
-| ----------- | ----------------- | ----------- | --------------------------------------------------- |
-| `variant`   | `'lines', 'dots'` | `'dots'`    | Background pattern type                             |
-| `gap`       | `number`          | `16`        | Gap between the patterns                            |
-| `size`      | `number`          | `0.5`       | Radius of the dots or the stroke width of the lines |
-| `color`     | `string`          | `#81818a`   | Pattern color                                       |
-| `style`     | `CSSProperties`   | `undefined` | Background style attributes                         |
-| `className` | `string`          | `undefined` | Additional class name                               |
+| Name        | Type                             | Default                             | Description                                                                                    |
+| ----------- | -------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `variant`   | `'lines'`, `'dots'` or `'cross'` | `'dots'`                            | Background pattern type                                                                        |
+| `gap`       | `number` or  `[number, number]`  | `25`                                | Gap between the patterns. You can pass an array with two numbers to specify an x- and a y-gap. |
+| `size`      | `number`                         | `1` for `'dots'`, `6` for `'cross'` | Radius of the `'dots'` or dimension of a `'cross'`                                             |
+| `lineWidth` | `number`                         | `1`                                 | Line width for `'lines'` or `'cross'`                                                          |
+| `color`     | `string`                         | `#81818a`                           | Pattern color                                                                                  |
+| `style`     | `CSSProperties`                  | `undefined`                         | Background style attributes                                                                    |
+| `className` | `string`                         | `undefined`                         | Additional class name                                                                          |
 
 **Typescript:** The interface of the Background Prop Types are exported as `BackgroundProps`.

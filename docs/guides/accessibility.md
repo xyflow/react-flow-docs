@@ -3,7 +3,7 @@ title: Accessibility
 sidebar_position: 10
 ---
 
-A flow is accessible with a keyboard and readable by a screenreader. Nodes and edges are focusable, selectable, moveable and deleteable with the keyboard. If you have any ideas how we can make a flow better accessible by default, please contact us.
+A flow is accessible with a keyboard and readable by a screenreader. Nodes and edges are focusable, selectable, moveable and deleteable with the keyboard. If you have any ideas how we can make a flow better accessible by default, please [contact us](https://pro.reactflow.dev/contact).
 
 ## Built-in Features
 
