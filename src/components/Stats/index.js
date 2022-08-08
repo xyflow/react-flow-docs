@@ -11,7 +11,6 @@ import stats from '../../../static/data/stats.json';
 
 const StatLabel = (props) => (
   <ChakraStatLabel
-    mb={2}
     fontSize={12}
     fontWeight="bold"
     color="gray.300"
