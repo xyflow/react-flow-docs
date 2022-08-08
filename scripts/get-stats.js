@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const GITHUB_API_URL = 'https://api.github.com/repos/wbkd/react-flow';
-const NPM_API_URL = 'https://api.npmjs.org/downloads/point/last-year/react-flow-renderer';
+const NPM_API_URL = 'https://api.npmjs.org/downloads/point/last-week/react-flow-renderer';
 const OUTPUT_PATH = path.resolve(__dirname, '../static/data/stats.json');
 
 const defaultStats = {

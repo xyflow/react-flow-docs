@@ -74,4 +74,4 @@ In this case the source node is `node-1` for both handles but the handle ids are
 
 <CodeViewer codePath="api-flows/CustomNode2" applyStyles={false} options={editorOptions} additionalFiles={['TextUpdaterNode.js', 'text-updater-node.css']} />
 
-From here you should be able to build your custom nodes. In most cases we recommend to use custom nodes only. The built-in ones are just basic examples. You can find a list of the passed props and more information in the [custom node API section](/docs/api/nodes/custom-nodes).
+Note that if you are programmatically changing the position or number of handles in your custom node, you will need to use the [`useUpdateNodeInternals`](/docs/api/hooks/use-update-node-internals/) hook to properly notify ReactFlow of changes. From here you should be able to build your custom nodes. In most cases we recommend to use custom nodes only. The built-in ones are just basic examples. You can find a list of the passed props and more information in the [custom node API section](/docs/api/nodes/custom-nodes).
