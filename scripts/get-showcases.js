@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 
-const SHOWCASES_DATABASE_ID = '979e1cdba1fa44469101c163c5b8a88c';
+const SHOWCASES_DATABASE_ID = '585dfdbe353145f6af6dc2294ab14253';
 const notion = new Client({ auth: process.env.NOTION_API_SECRET });
 const OUTPUT_PATH = path.resolve(__dirname, '../static/data/showcases.json');
 const OUTPUT_IMAGE_PATH = path.resolve(__dirname, '../static/img/showcase');
@@ -27,6 +27,16 @@ const downloadImage = (source, target) => {
         equals: true,
       },
     },
+    sorts: [
+      {
+        property: 'featured',
+        direction: 'descending',
+      },
+      {
+        property: 'title',
+        direction: 'ascending',
+      },
+    ],
   });
 
   const showcases = await Promise.all(
@@ -42,7 +52,7 @@ const downloadImage = (source, target) => {
 
       const imageSrc = result.properties.image.files[0].file.url;
       const imageFileName = `${id}.png`;
-      const imageFilePath = path.resolve(__dirname, '../static/img/showcase', imageFileName);
+      const imageFilePath = path.resolve(OUTPUT_IMAGE_PATH, imageFileName);
 
       await downloadImage(imageSrc, imageFilePath);
 
@@ -59,5 +69,5 @@ const downloadImage = (source, target) => {
     })
   );
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(showcases.reverse()));
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(showcases));
 })();

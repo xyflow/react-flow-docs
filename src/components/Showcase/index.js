@@ -27,7 +27,6 @@ function getProjects(numberOfProjects, featuredOnly) {
   let projects = showcases;
 
   if (featuredOnly) {
-    console.log(projects);
     projects = projects.filter((project) => project.featured);
   }
 
