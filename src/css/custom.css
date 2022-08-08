@@ -235,3 +235,8 @@ a.navbar__brand:hover {
   padding: 2px 4px;
   border-radius: 4px;
 }
+
+.chakra-stat dl,
+.chakra-stat dd {
+  margin: 0;
+}
