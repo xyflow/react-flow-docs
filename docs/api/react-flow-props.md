@@ -29,8 +29,8 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | ---------------------------- | --------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `defaultNodes`               | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
 | `defaultEdges`               | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
-| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)   |
-| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)   |
+| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)    |
+| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)    |
 | `onNodesChange(nodeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
 | `onEdgesChange(edgeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
 | `nodeTypes`                  | `object`        | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |
@@ -168,6 +168,11 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 ### Pro
 
-| Name         | Type     | Default     | Description                                                                                                                          |
-| ------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `proOptions` | `object` | `undefined` | options to specify license and hide attribution (you can find more information on the [pro page](https://pro.reactflow.dev/pricing)) |
+:::info
+If you are here because of the attribution, please refer to our [Remove Attribution](/docs/guides/remove-attribution) guide.
+:::
+
+| Name                         | Type      | Default     | Description                                                                                                                                                      |
+| ---------------------------- | --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `proOptions`                 | `object`  | `undefined` | this object contains options that are only intended for our pro subscribers                                                                                      |
+| `proOptions.hideAttribution` | `boolean` | `false`     | set this to true to remove the attribution from the React Flow renderer. Please read our [Attribution Guide](/docs/guides/remove-attribution) before doing that. |

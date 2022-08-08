@@ -5,7 +5,7 @@ sidebar_label: Remove Attribution
 hide_table_of_contents: true
 ---
 
-import ProExampleViewer from '/src/components/ProExampleViewer';
+:::info Please note
 
 If you’re considering removing the attribution, we’d first like to mention:
 
@@ -17,6 +17,11 @@ Thank you for supporting the React Flow team ✌🏻
 
 -Moritz, Christopher, and John
 
+:::
+
 This example demonstrates how you can remove the React Flow attribution from the renderer.
 
-<ProExampleViewer slug="remove-attribution" />
+import CodeViewer from '/src/components/CodeViewer';
+const editorOptions = { editorHeight: 700, editorWidthPercentage: 45, wrapContent: true }
+
+<CodeViewer codePath="api-flows/RemoveAttribution" applyStyles={false} options={editorOptions} activeFile="index.js" additionalFiles={['initialElements.js']} />
