@@ -4,6 +4,7 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Flow',
+  titleDelimiter: '-',
   tagline: 'Wire Your Ideas With React Flow',
   url: 'https://reactflow.dev',
   baseUrl: '/',
@@ -12,10 +13,6 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'wbkd', // Usually your GitHub org/user name.
   projectName: 'react-flow', // Usually your repo name.
-  customFields: {
-    description:
-      'A highly customizable library for building interactive node-based UIs, editors, flow charts and diagrams.',
-  },
   plugins: [
     [
       '@docusaurus/plugin-ideal-image',

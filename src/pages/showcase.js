@@ -6,7 +6,10 @@ import Showcase from '../components/Showcase';
 export default function ShowcasePage() {
   return (
     <Box bg="purple.800">
-      <Layout title="Showcase" description="Explore a selection of projects that use React Flow">
+      <Layout
+        title="Showcase - live projects and examples using React Flow"
+        description="Explore a selection of projects that use React Flow"
+      >
         <Box px={8} py={20}>
           <Box
             mb={20}

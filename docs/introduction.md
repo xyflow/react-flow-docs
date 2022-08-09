@@ -3,6 +3,10 @@ title: 'Introduction'
 sidebar_position: 1
 ---
 
+<head>
+  <title>Introduction to React Flow</title>
+</head>
+
 React Flow is a library for building node-based applications. These can be simple static diagrams or complex editors. You can implement custom node types and edge types and it comes with components like a mini-map and graph controls. The best way to start is to follow the [getting started guide](/docs/getting-started/installation) or check out the [examples](https://reactflow.dev/examples).
 
 ## Key Features
