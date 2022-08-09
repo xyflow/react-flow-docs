@@ -4,6 +4,7 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Flow',
+  titleDelimiter: '-',
   tagline: 'Wire Your Ideas With React Flow',
   url: 'https://reactflow.dev',
   baseUrl: '/',
