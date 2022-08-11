@@ -1,5 +1,6 @@
 ---
-title: ReactFlow Props
+title: Props List
+description: This is the list of props you can pass to the ReactFlow component.
 sidebar_position: 1
 ---
 
@@ -29,8 +30,8 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | ---------------------------- | --------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `defaultNodes`               | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
 | `defaultEdges`               | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
-| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)   |
-| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)   |
+| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)    |
+| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)    |
 | `onNodesChange(nodeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
 | `onEdgesChange(edgeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
 | `nodeTypes`                  | `object`        | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |

@@ -15,8 +15,8 @@ function getPageTitle(metadata) {
     appendix = ' Guide';
   } else if (metadata.source?.includes('/examples/')) {
     appendix = ' Example';
-  } else if (metadata.source?.includes('/docs/')) {
-    appendix = ' Docs';
+  } else if (metadata.source?.includes('/getting-started/')) {
+    appendix = ' - Getting Started';
   }
 
   return `${metadata.title}${appendix}`;

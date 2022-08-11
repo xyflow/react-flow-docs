@@ -8,7 +8,7 @@ export default function ShowcasePage() {
     <Box bg="purple.800">
       <Layout
         title="Showcase - live projects and examples using React Flow"
-        description="Explore a selection of projects that use React Flow"
+        description="See how data processing tools, chatbot builders, machine learning projects, and more are made with React Flow."
       >
         <Box px={8} py={20}>
           <Box
