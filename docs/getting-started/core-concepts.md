@@ -1,5 +1,6 @@
 ---
 title: Core Concepts
+description: We'll show you the basic functionality of React Flow including connecting nodes and making controlled and uncontrolled flows.
 sidebar_position: 3
 ---
 

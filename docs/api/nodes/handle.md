@@ -1,5 +1,5 @@
 ---
-title: <Handle />
+title: Handle
 sidebar_position: 4
 ---
 
@@ -44,6 +44,6 @@ If you need multiple source or target handles you can achieve this by creating a
 
 ### Dynamic Handles
 
-If you are programmatically changing the position or number of handles in your custom node, you need to update the node internals with the [`useUpdateNodeInternals`](/docs/api/hooks/use-update-node-internals/) hook. 
+If you are programmatically changing the position or number of handles in your custom node, you need to update the node internals with the [`useUpdateNodeInternals`](/docs/api/hooks/use-update-node-internals/) hook.
 
 You can find an example of how to implement a custom node with multiple handles in the [custom node guide](/docs/guides/custom-nodes) or in the [custom node example](/docs/examples/nodes/custom-node/).

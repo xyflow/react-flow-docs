@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: Here's how to install the React Flow package using npm (as react-flow-renderer), and how to include it in your own project
 sidebar_position: 1
 ---
 

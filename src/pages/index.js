@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {
   Box,
@@ -31,7 +32,17 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title="Home" description={siteConfig.customFields.description}>
+    <Layout>
+      <Head>
+        <title>React Flow - Build interactive node-based UIs</title>
+        <meta
+          name="description"
+          content="
+          Highly customizable library used by thousands for workflow builders, no-code apps, image
+          processing, visualizers, and more."
+        />
+      </Head>
+
       <Box height={['80vh', null, null, 580]} position="relative">
         <HeroFlow />
       </Box>
