@@ -16,6 +16,7 @@ function Flow({ nodes, edges }) {
 Now you can use the new type `special` for an edge.
 The `straight`, `default` and `step` types would still be available unless you overwrote one of them.
 There is an implementation of a custom edge in the [custom edge example](/docs/examples/edges/custom-edge).
+With a custom edge you can create editable edges or edges with controls like a button for example. 
 
 ### Prop Types
 
