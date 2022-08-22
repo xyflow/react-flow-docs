@@ -1,6 +1,6 @@
 ---
 title: useKeyPress
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 This hook returns if the passed key is pressed. The component that uses this hook re-renders whenever a the returned boolean changes. The hook expects one paramter "keyCode" which can be:

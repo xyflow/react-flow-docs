@@ -1,6 +1,6 @@
 ---
 title: useUpdateNodeInternals
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 When you are **programatically changing the number or the position of handles inside a custom node** you need to notify React Flow about it with the `useUpdateNodeInternals` hook. It also updates the internal dimensions of a node. The hook returns a function that expects a `string` (node id) as a parameter.
