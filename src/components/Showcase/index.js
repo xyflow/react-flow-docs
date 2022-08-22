@@ -45,6 +45,8 @@ function Showcase({
 }) {
   const projects = getProjects(numberOfProjects, featuredOnly);
 
+  console.log(projects);
+
   return (
     <Box>
       <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={14} maxWidth="container.xl" mx="auto">
@@ -85,6 +87,7 @@ function Showcase({
                       bg="white"
                       color="white"
                       backgroundColor="gray.700"
+                      key={t.name}
                     >
                       {t.name}
                     </Tag>
