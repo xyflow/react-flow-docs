@@ -28,7 +28,7 @@ const NodeAsHandleFlow = () => {
       setEdges((eds) =>
         addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
       ),
-    []
+    [setEdges]
   );
 
   return (
