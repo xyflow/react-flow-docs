@@ -5,10 +5,10 @@ export default memo(({ data }) => {
   return (
     <>
       {data.label}
-      <Handle type="source" position="top" />
-      <Handle type="source" position="right" />
-      <Handle type="source" position="bottom" />
-      <Handle type="source" position="left" />
+      <Handle type="source" position="top" id="a" />
+      <Handle type="source" position="right" id="b" />
+      <Handle type="source" position="bottom" id="c" />
+      <Handle type="source" position="left" id="d" />
     </>
   );
 });
