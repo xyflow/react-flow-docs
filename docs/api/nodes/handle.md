@@ -1,5 +1,5 @@
 ---
-title: <Handle />
+title: Handle
 sidebar_position: 4
 ---
 

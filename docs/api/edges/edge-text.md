@@ -1,5 +1,5 @@
 ---
-title: <EdgeText />
+title: EdgeText
 sidebar_position: 4
 ---
 

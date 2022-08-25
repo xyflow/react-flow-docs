@@ -5,19 +5,44 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   MarkerType,
+  ConnectionMode,
 } from 'react-flow-renderer';
 
-import FloatingEdge from './FloatingEdge.js';
-import FloatingConnectionLine from './FloatingConnectionLine.js';
-import { createNodesAndEdges } from './utils.js';
+import SimpleFloatingEdge from './SimpleFloatingEdge';
+import CustomNode from './CustomNode';
 
 import './index.css';
 
-const { nodes: initialNodes, edges: initialEdges } = createNodesAndEdges();
+const nodeTypes = {
+  custom: CustomNode,
+};
 
 const edgeTypes = {
-  floating: FloatingEdge,
+  floating: SimpleFloatingEdge,
 };
+
+const initialNodes = [
+  {
+    id: '1',
+    label: '1',
+    position: { x: 0, y: 0 },
+    data: { label: 'drag me around 😎' },
+    type: 'custom',
+  },
+  {
+    id: '2',
+    label: '2',
+    position: { x: 0, y: 150 },
+    data: { label: '...or me' },
+    type: 'custom',
+  },
+];
+
+const initialEdges = [
+  { source: '1', target: '2', type: 'floating', markerEnd: { type: MarkerType.ArrowClosed } },
+];
+
+const fitViewOptions = { padding: 4 };
 
 const NodeAsHandleFlow = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
@@ -28,20 +53,22 @@ const NodeAsHandleFlow = () => {
       setEdges((eds) =>
         addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
       ),
-    [setEdges]
+    []
   );
 
   return (
-    <div className="floatingedges">
+    <div className="simple-floatingedges">
       <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        fitView
         edgeTypes={edgeTypes}
-        connectionLineComponent={FloatingConnectionLine}
+        nodeTypes={nodeTypes}
+        fitView
+        fitViewOptions={fitViewOptions}
+        connectionMode={ConnectionMode.Loose}
       >
         <Background />
       </ReactFlow>

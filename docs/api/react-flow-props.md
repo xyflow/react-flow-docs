@@ -1,5 +1,6 @@
 ---
-title: ReactFlow Props
+title: Props List
+description: This is the list of props you can pass to the ReactFlow component.
 sidebar_position: 1
 ---
 
@@ -25,19 +26,19 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 ### Basic Props
 
-| Name                         | Type            | Default                                                                                       | Description                                                                |
-| ---------------------------- | --------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `defaultNodes`               | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
-| `defaultEdges`               | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
-| `nodes`                      | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)    |
-| `edges`                      | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)    |
-| `onNodesChange(nodeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
-| `onEdgesChange(edgeChanges)` | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
-| `nodeTypes`                  | `object`        | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |
-| `edgeTypes`                  | `object`        | `{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }` |  object with [edge types](/docs/api/edges/edge-types/)                     |
-| `defaultMarkerColor`         | `string`        | `#b1b1b7`                                                                                     |  default marker color                                                      |
-| `style`                      | `CSSProperties` | `undefined`                                                                                   |  css properties                                                            |
-| `className`                  | `string`        | `undefined`                                                                                   |  additional class name                                                     |
+| Name                                        | Type            | Default                                                                                       | Description                                                                |
+| ------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `defaultNodes`                              | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
+| `defaultEdges`                              | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
+| `nodes`                                     | `Node[]`        | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)    |
+| `edges`                                     | `Edge[]`        | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)    |
+| `onNodesChange(nodeChanges)`                | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
+| `onEdgesChange(edgeChanges)`                | `function`      | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
+| `onConnect({ source, target }: Connection)` | `function`      | `undefined`                                                                                   | called when user connects two nodes in a controlled flow                   |
+| `nodeTypes`                                 | `object`        | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |
+| `edgeTypes`                                 | `object`        | `{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }` |  object with [edge types](/docs/api/edges/edge-types/)                     |
+| `style`                                     | `CSSProperties` | `undefined`                                                                                   |  css properties                                                            |
+| `className`                                 | `string`        | `undefined`                                                                                   |  additional class name                                                     |
 
 ### Flow View
 
@@ -56,6 +57,14 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 | `preventScrolling`          | `boolean`                                                       | `true`                  | if true default browser scroll behaviour is prevented                                              |
 | `attributionPosition`       | `'top-left'`, `'top-center'`, `'top-right'` or `'bottom-right'` | `'bottom-right'`        | position of the "React Flow" attribution                                                           |
 
+### Edge Specific Props
+
+| Name                   | Type                 | Default     | Description                                                                |
+| ---------------------- | -------------------- | ----------- | -------------------------------------------------------------------------- |
+| `elevateEdgesOnSelect` | `boolean`            | `false`     | Edges get a higher zIndex if this is true and a connected node is selected |
+| `defaultMarkerColor`   | `string`             | `#b1b1b7`   |  default marker color                                                      |
+| `defaultEdgeOptions`   | `DefaultEdgeOptions` | `undefined` |  edge options that should apply for all edges                              |
+
 ### Event Handlers
 
 :::caution
@@ -72,18 +81,19 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 #### Nodes
 
-| Name                                                                  | Type       | Default     | Description                    |
-| --------------------------------------------------------------------- | ---------- | ----------- | ------------------------------ |
-| `onNodeClick(event: React.MouseEvent, node: Node)`                    | `function` | `undefined` | called when user clicks a node |
-| `onNodeDragStart(event: React.MouseEvent, node: Node, nodes: Node[])` | `function` | `undefined` | node drag start                |
-| `onNodeDrag(event: React.MouseEvent, node: Node, nodes: Node[])`      | `function` | `undefined` | node drag                      |
-| `onNodeDragStop(event: React.MouseEvent, node: Node, nodes: Node[])`  | `function` | `undefined` | node drag stop                 |
-| `onNodeMouseEnter(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse enter               |
-| `onNodeMouseMove(event: React.MouseEvent, node: Node)`                | `function` | `undefined` | node mouse move                |
-| `onNodeMouseLeave(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse leave               |
-| `onNodeContextMenu(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node context menu              |
-| `onNodeDoubleClick(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node double click              |
-| `onNodesDelete(nodes)`                                                | `function` | `undefined` | called when nodes get deleted  |
+| Name                                                                  | Type       | Default     | Description                                             |
+| --------------------------------------------------------------------- | ---------- | ----------- | ------------------------------------------------------- |
+| `onNodeClick(event: React.MouseEvent, node: Node)`                    | `function` | `undefined` | called when user clicks a node                          |
+| `onNodeDragStart(event: React.MouseEvent, node: Node, nodes: Node[])` | `function` | `undefined` | node drag start                                         |
+| `onNodeDrag(event: React.MouseEvent, node: Node, nodes: Node[])`      | `function` | `undefined` | node drag                                               |
+| `onNodeDragStop(event: React.MouseEvent, node: Node, nodes: Node[])`  | `function` | `undefined` | node drag stop                                          |
+| `onNodeMouseEnter(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse enter                                        |
+| `onNodeMouseMove(event: React.MouseEvent, node: Node)`                | `function` | `undefined` | node mouse move                                         |
+| `onNodeMouseLeave(event: React.MouseEvent, node: Node)`               | `function` | `undefined` | node mouse leave                                        |
+| `onNodeContextMenu(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node context menu                                       |
+| `onNodeDoubleClick(event: React.MouseEvent, node: Node)`              | `function` | `undefined` | node double click                                       |
+| `onNodesDelete(nodes)`                                                | `function` | `undefined` | called when nodes get deleted                           |
+| `onNodesChange(nodeChanges)`                                          | `function` | `undefined` |  handler for adding interactivity for a controlled flow |
 
 #### Edges
 
@@ -98,7 +108,8 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 | `onEdgeUpdateStart(event: React.MouseEvent, edge: Edge, handleType: HandleType)` | `function` | `undefined` | called when user starts to update an edge                                                                                            |
 | `onEdgeUpdateEnd(event: MouseEvent, edge: Edge, handleType: HandleType)`         | `function` | `undefined` | called when user ends an edge update (for TS users: this is a normal `MouseEvent` and not a `React.MouseEvent` like the other ones). |
 | `onEdgesDelete(edges: Edge[])`                                                   | `function` | `undefined` | called when edges get deleted                                                                                                        |
-| `elevateEdgesOnSelect`                                                           | `boolean`  | `false`     | Edges get a higher zIndex if this is true and a connected node is selected                                                           |
+| `onEdgesChange(edgeChanges)`                                                     | `function` | `undefined` |  handler for adding interactivity for a controlled flow                                                                              |
+|                                                                                  |
 
 #### Connections
 

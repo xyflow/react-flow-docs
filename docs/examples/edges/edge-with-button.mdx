@@ -1,12 +1,12 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 title: Edge with Button
 hide_table_of_contents: true
 ---
 
 import CodeViewer from '/src/components/CodeViewer';
 
-This is an example of a [custom edge](/docs/api/edges/custom-edges/) implementation with a button to remove the underlying edge. In order to leave SVG world we are using `<foreignObject />` inside the custom edge to be able to use a HTML `<button />`.
+This is an example of a [custom edge](/docs/api/edges/custom-edges/) implementation with a button to remove the underlying edge. In order to leave SVG world we are using the [`foreignObject` element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) inside the custom edge to be able to use an HTML `button`.
 
 <CodeViewer
   codePath="example-flows/EdgeWithButton"

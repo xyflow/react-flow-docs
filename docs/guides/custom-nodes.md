@@ -1,5 +1,6 @@
 ---
 title: Custom Nodes
+description: Within custom nodes you can render anything you want. You can define multiple source and target handles and render form inputs or charts for example.
 sidebar_position: 1
 ---
 

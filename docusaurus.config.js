@@ -4,6 +4,7 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Flow',
+  titleDelimiter: '-',
   tagline: 'Wire Your Ideas With React Flow',
   url: 'https://reactflow.dev',
   baseUrl: '/',
@@ -12,17 +13,13 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'wbkd', // Usually your GitHub org/user name.
   projectName: 'react-flow', // Usually your repo name.
-  customFields: {
-    description:
-      'A highly customizable library for building interactive node-based UIs, editors, flow charts and diagrams.',
-  },
   plugins: [
     [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
-        max: 1030, // max resized image's size.
-        min: 640, // min resized image's size. if original is lower, use that size.
+        max: 800, // max resized image's size.
+        min: 400, // min resized image's size. if original is lower, use that size.
         steps: 2, // the max number of images generated between min and max (inclusive)
         disableInDev: false,
       },

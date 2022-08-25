@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Flex, Text, Button, SimpleGrid, HStack, Tag } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, Button, SimpleGrid, Tag } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import Image from '@theme/IdealImage';
 
@@ -59,6 +59,7 @@ function Showcase({
                   overflow: 'hidden',
                   borderRadius: 5,
                 }}
+                min={800}
                 img={require(`../../../static/img/showcase/${project.image}`)}
                 theme={{
                   img: {
@@ -84,6 +85,7 @@ function Showcase({
                       bg="white"
                       color="white"
                       backgroundColor="gray.700"
+                      key={t.name}
                     >
                       {t.name}
                     </Tag>

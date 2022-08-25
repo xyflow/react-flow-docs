@@ -1,12 +1,16 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { Box, Heading, Text } from '@chakra-ui/react';
+
 import Showcase from '../components/Showcase';
 
 export default function ShowcasePage() {
   return (
     <Box bg="purple.800">
-      <Layout title="Showcase" description="Explore a selection of projects that use React Flow">
+      <Layout
+        title="Showcase - live projects and examples using React Flow"
+        description="See how data processing tools, chatbot builders, machine learning projects, and more are made with React Flow."
+      >
         <Box px={8} py={20}>
           <Box
             mb={20}
