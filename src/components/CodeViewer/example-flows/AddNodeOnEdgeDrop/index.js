@@ -54,7 +54,7 @@ const AddNodeOnEdgeDrop = () => {
 
         setNodes((nds) => nds.concat(newNode));
         setEdges((eds) =>
-          eds.concat({ id: getId(), source: connectingNodeId.current, target: id })
+          eds.concat({ id, source: connectingNodeId.current, target: id })
         );
       }
     },
