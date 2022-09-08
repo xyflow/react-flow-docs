@@ -21,8 +21,11 @@ React Flow is a library for building node-based applications. These can be simpl
 
 ## Migrate to v11
 
-If you want to migrate to v11 you can check out the ["Migrate to v11 Guide"](/docs/guides/migrate-to-v11).
+If you want to migrate to v11 you can check out the ["Migrate to v11 Guide"](/docs/guides/migrate-to-v11). In case you are on v9, please do the ["Migrate to v10 Guide"](/docs/guides/migrate-to-v10) first.
 
-## v9 Docs
+## Legacy Docs
 
-If you are looking for the old docs, you can find them on the [React Flow v9 site](https://v9.reactflow.dev).
+If you are looking for the old docs, you can find here:
+
+- [React Flow v9 site](https://v9.reactflow.dev)
+- [React Flow v10 site](https://v10.reactflow.dev)

@@ -14,7 +14,7 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 ### Usage
 
 ```js
-import { ReactFlow, useOnSelectionChange } from '@react-flow/core';
+import { ReactFlow, useOnSelectionChange } from 'reactflow';
 
 function SelectionChangeLogger() {
   useOnSelectionChange({

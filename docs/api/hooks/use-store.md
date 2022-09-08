@@ -18,7 +18,7 @@ As the internal state, the actions of React Flow might change in the future and 
 
 ```jsx
 import { useEffect } from 'react';
-import ReactFlow, { useStore } from '@react-flow/core';
+import ReactFlow, { useStore } from 'reactflow';
 
 const nodesLengthSelector = (state) => Array.from(state.nodeInternals.values()).length || 0;
 

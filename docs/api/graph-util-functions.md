@@ -6,13 +6,7 @@ sidebar_position: 4
 If you are working with a controlled flow and you want to apply the changes to select, drag or remove a node or edge or if you want to connect two nodes with each other you need to pass the `onNodesChange`/ `onEdgesChange` and `onConnect` handlers. In order to simplify this process there are some helper functions you can use:
 
 ```javascript
-import ReactFlow, {
-  isNode,
-  isEdge,
-  applyNodeChanges,
-  applyEdgeChanges,
-  addEdge,
-} from '@react-flow/core';
+import ReactFlow, { isNode, isEdge, applyNodeChanges, applyEdgeChanges, addEdge } from 'reactflow';
 ```
 
 ### `isEdge`

@@ -3,35 +3,12 @@ title: <Background />
 sidebar_position: 1
 ---
 
-The Background plugin comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component.
-
-### Installation
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
-
-```bash
-npm install @react-flow/background
-```
-
-  </TabItem>
-  <TabItem value="yarn" label="Yarn">
-
-```bash
-yarn add @react-flow/background
-```
-
-  </TabItem>
-</Tabs>
+The Background component comes with three background variants: **dots**, **lines** and **cross**. You can use it by passing it as a children to the `ReactFlow` component.
 
 ### Usage
 
 ```jsx
-import ReactFlow from '@react-flow/core';
-import Background from '@react-flow/background';
+import ReactFlow, { Background } from 'reactflow';
 
 function FlowWithBackground() {
   return (
@@ -55,3 +32,7 @@ function FlowWithBackground() {
 | `className` | `string`                         | `undefined`                         | Additional class name                                                                          |
 
 **Typescript:** The interface of the Background Prop Types are exported as `BackgroundProps`.
+
+### Npm Package
+
+The background component is published under `@reactflow/background` and can also be [installed and used separately](docs/getting-started/installation/#reactflowbackground).

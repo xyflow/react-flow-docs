@@ -22,10 +22,17 @@ npm install --save zustand
 ```
 
   </TabItem>
-  <TabItem value="yarn" label="Yarn">
+  <TabItem value="yarn" label="yarn">
 
 ```bash
 yarn add zustand
+```
+
+  </TabItem>
+    <TabItem value="yarn" label="pnpm">
+
+```bash
+pnpm add zustand
 ```
 
   </TabItem>

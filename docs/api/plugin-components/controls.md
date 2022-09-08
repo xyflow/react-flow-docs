@@ -3,35 +3,12 @@ title: <Controls />
 sidebar_position: 2
 ---
 
-The controls plugin contains a panel with a zoom-in, zoom-out, fit-view and a lock/unlock button. You can use it by passing it as a children to the `ReactFlow` component.
-
-### Installation
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
-
-```bash
-npm install @react-flow/controls
-```
-
-  </TabItem>
-  <TabItem value="yarn" label="Yarn">
-
-```bash
-yarn add @react-flow/controls
-```
-
-  </TabItem>
-</Tabs>
+The controls component contains a panel with a zoom-in, zoom-out, fit-view and a lock/unlock button. You can use it by passing it as a children to the `ReactFlow` component.
 
 ### Usage
 
 ```jsx
-import ReactFlow from '@react-flow/core';
-import Controls from '@react-flow/controls';
+import ReactFlow, { Controls } from 'reactflow';
 
 function FlowWithControls() {
   return (
@@ -63,7 +40,7 @@ function FlowWithControls() {
 You can add buttons to the control panel by using the `ControlButton` component and pass it as a children to the `Controls` component:
 
 ```jsx
-import Controls, { ControlButton } from '@react-flow/controls';
+import { Controls, ControlButton } from 'reactflow';
 
 function CustomControls() {
   return (
@@ -82,3 +59,7 @@ function CustomControls() {
 ### ControlButton Prop Types
 
 All props get forwarded to the `ControlButton` component.
+
+### Npm Package
+
+The controls component is published under `@reactflow/controls` and can also be [installed and used separately](docs/getting-started/installation/#reactflowcontrols).

@@ -1,10 +1,10 @@
 ---
 title: Installation
-description: Here's how to install the React Flow package using npm (as react-flow-renderer), and how to include it in your own project
+description: Here's how to install the React Flow package using npm (as reactflow), and how to include it in your own project
 sidebar_position: 1
 ---
 
-React Flow is published under the `@react-flow` namespace on npm. To install the React Flow viewer (previously `react-flow-renderer`), you need to install the [`@react-flow/core`](https://www.npmjs.com/package/@react-flow/core) package into your project.
+Before you can start to use React Flow you need to install [`reactflow`](https://www.npmjs.com/package/reactflow). It's published on npm and installable via:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,27 +13,32 @@ import TabItem from '@theme/TabItem';
   <TabItem value="npm" label="npm" default>
 
 ```bash
-npm install @react-flow/core
+npm install reactflow
 ```
 
   </TabItem>
-  <TabItem value="yarn" label="Yarn">
+  <TabItem value="yarn" label="yarn">
 
 ```bash
-yarn add @react-flow/core
+yarn add reactflow
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add reactflow
 ```
 
   </TabItem>
 </Tabs>
 
-## Usage
+## Basic Usage
 
-The core package exports the `<ReactFlow />` React component as the default export and hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions). Additional components like the [`MiniMap`](/docs/api/plugin-components/minimap) or [`Controls`](/docs/api/plugin-components/controls) can be installed with their own packages. When you are importing the `<ReactFlow />` component, the default styles get injected into your website automatically.
+The `reactflow` package exports the `<ReactFlow />` React component as the default export and further additional components (like the [`MiniMap`](<(/docs/api/plugin-components/minimap)>)), hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions).
 
 ```jsx
-import ReactFlow from '@react-flow/core';
-import MiniMap from '@react-flow/minimap';
-import Controls from '@react-flow/controls';
+import ReactFlow, { MiniMap, Controls, Background } from 'reactflow';
 
 function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
   return (
@@ -46,6 +51,7 @@ function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
     >
       <MiniMap />
       <Controls />
+      <Background />
     </ReactFlow>
   );
 }
@@ -54,11 +60,159 @@ function Flow({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) {
 React Flow can also be used as an uncontrolled component without external state management:
 
 ```jsx
-import ReactFlow from '@react-flow/core';
+import ReactFlow from 'reactflow';
 
 function Flow({ nodes, edges }) {
   return <ReactFlow defaultNodes={nodes} defaultEdges={edges} />;
 }
+```
+
+## Using Packages
+
+The `reactflow` is separated into multiple packages that can be installed separately. All packages are published under the [`@reactflow` organization](https://www.npmjs.com/org/reactflow) on npm. All of the following packages only use **named exports**.
+
+### @reactflow/core
+
+The core package exports the main `<ReactFlow />` component, the `<ReactFlowProvider />`, all hooks and all util functions:
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/core
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/core
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/core
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { ReactFlow, useReactFlow } from '@reactflow/core';
+```
+
+### @reactflow/background
+
+This package exports the [Background component](/docs/api/plugin-components/background).
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/background
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/background
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/background
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { Background } from '@reactflow/background';
+```
+
+### @reactflow/controls
+
+This package exports the [Controls and ControlButton component](/docs/api/plugin-components/controls).
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/controls
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/controls
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/controls
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { Controls, ControlButton } from '@reactflow/controls';
+```
+
+### @reactflow/minimap
+
+This package exports the [MiniMap component](/docs/api/plugin-components/minimap).
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/minimap
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/minimap
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/minimap
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { MiniMap } from '@reactflow/minimap';
 ```
 
 ## Terms

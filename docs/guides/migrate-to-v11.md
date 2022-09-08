@@ -3,121 +3,113 @@ title: Migrate to v11
 sidebar_position: 9
 ---
 
-React Flow v11 is the latest major library version. The most noticable change is the new repo structure and build process. React Flow is now a monorepo with different packages that are published to npm under the `@react-flow` namespace. In addition to that, there are some API changes and new APIs introduced in v11. This guide explains the changes in detail and helps you to migrate from v10 to v11.
+A lot changed in v11 but this time we've tried to keep the breaking changes small. The biggest change is the new package name `reactflow` and the new repo structure. React Flow is now managed as a monorepo and separated into multiple pacakges that can also be installed separately. In addition to that, there are some API changes and new APIs introduced in v11. This guide explains the changes in detail and helps you to migrate from v10 to v11.
+
+:::caution
+
+React Flow 11 only works with **React 18** or greater
+
+:::
+
+## New Features
+
+- **Better [Accessibility](/docs/guides/accessibility)**
+  - Nodes and edges are focusable, selectable, moveable and deleteable with the keyboard.
+  - `aria-` default attributes for all elements and controllable via `ariaLabel` options
+  - Keyboard controls can be disabled with the new `disableKeyboardA11y` prop
+- **Better selectable edges** via new edge option: `interactionWidth` - renders invisible edge that makes it easier to interact
+- **Better routing for smoothstep and step edges**: https://twitter.com/reactflowdev/status/1567535405284614145
+- **Nicer edge updating behaviour**: https://twitter.com/reactflowdev/status/1564966917517021184
+- **Node origin**: The new `nodeOrigin` prop lets you control the origin of a node. Useful for layouting.
+- **New background pattern**: `BackgroundVariant.Cross` variant
+- **[`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) hook** - handle viewport changes within a component
+- **[`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook** - handle selection changes within a component
+- **[`useNodesInitialized`](/docs/api/hooks/use-nodes-initialized) hook** - returns true if all nodes are initialized and if there is more than one node
+- **Deletable option** for Nodes and edges
+- **New Event handlers**: `onPaneMouseEnter`, `onPaneMouseMove` and `onPaneMouseLeave`
+- **Edge `pathOptions`** for `smoothstep` and `default` edges
+- **Nicer cursor defaults**: Cursor is grabbing, while dragging a node or panning
+- **Pane moveable** with middle mouse button
+- **Pan over nodes** when they are not draggable (`draggable=false` or `nodesDraggable` false)
+- **[`<BaseEdge />`](/docs/api/edges/base-edge) component** that makes it easier to build custom edges
+- **[Separately installable packages](/docs/getting-started/installation/#using-packages)**
+  - @reactflow/core
+  - @reactflow/background
+  - @reactflow/controls
+  - @reactflow/minimap
 
 ## Breaking Changes
 
-### Renaming the npm package
+### 1. New npm package name
 
-The package `react-flow-renderer` has been renamed to `@react-flow/core`
+The package `react-flow-renderer` has been renamed to `reactflow`.
 
-Old API:
+#### Old API
 
-```jsx
+```js
 // npm install react-flow-renderer
 import ReactFlow from 'react-flow-renderer';
 ```
 
-New API:
+#### New API
 
-```jsx
-// npm install @react-flow/core
-import ReactFlow from '@react-flow/core';
+```js
+// npm install reactflow
+import ReactFlow from 'reactflow';
 ```
 
-### Plugin components moved to invidividual packages
+### 2. Importing CSS is mandatory
 
-Previously, the `react-flow-renderer` package was exporting the `MiniMap`, `Background` and `Controls` components. With v11, we have removed these components from the core and into their own packages (`@react-flow/minimap`, `@react-flow/background` and `@react-flow/controls`).
+We are not injecting CSS anymore. **React Flow won't work if you are not loading the styles!**
 
-Old API:
+```js
+// default styling
+import 'reactflow/dist/style.css';
 
-```jsx
-// npm install react-flow-renderer
-import { MiniMap, Background, Controls } from 'react-flow-renderer';
+// or if you just want basic styles
+import 'reactflow/dist/base.css';
 ```
 
-```jsx
-// npm install @react-flow/core @react-flow/minimap @react-flow/background @react-flow/controls
-import ReactFlow from '@react-flow/core';
+#### 2.1. Removal of the nocss entrypoint
 
-import MiniMap from '@react-flow/minimap';
-import Background from '@react-flow/background';
-import Controls from '@react-flow/controls';
+This change also means that there is no `react-flow-renderer/nocss` entry point anymore. If you used that, you need to adjust the CSS entry points as mentioned above.
 
-export default () => (
-  <ReactFlow>
-    <MiniMap />
-    <Background />
-    <Controls />
-  </ReactFlow>
-);
-```
+### 3. `defaultPosition` and `defaultZoom` have been merged to `defaultViewport`
 
-### Removal of the nocss entrypoint
-
-Old API:
-
-```jsx
-import ReactFlow from 'react-flow-renderer/nocss';
-import 'react-flow-renderer/dist/style.css';
-import 'react-flow-renderer/dist/theme-default.css';
-```
-
-New API:
-
-```jsx
-import ReactFlow from '@react-flow/core';
-// styles will be automatically injected
-// overwrite styles with local css if needed
-```
-
-### The props `defaultPosition` and `defaultZoom` have been merged to `defaultViewport`
-
-Old API:
+#### Old API
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
 
-const BasicFlow = () => {
-  return (
-    <ReactFlow
-      defaultNodes={defaultNodes}
-      defaultEdges={defaultEdges}
-      defaultPosition={[10, 15]}
-      defaultZoom={5}
-    />
-  );
+const Flow = () => {
+  return <ReactFlow defaultPosition={[10, 15]} defaultZoom={5} />;
 };
 
-export default BasicFlow;
+export default Flow;
 ```
 
-New API:
+#### New API
 
 ```jsx
-import ReactFlow from '@react-flow/core';
+import ReactFlow from 'reactflow';
 
-const BasicFlow = () => {
-  return (
-    <ReactFlow
-      defaultNodes={defaultNodes}
-      defaultEdges={defaultEdges}
-      defaultViewport={{ x: 10, y: 15, zoom: 5 }}
-    />
-  );
+const defaultViewport: Viewport = { x: 10, y: 15, zoom: 5 };
+
+const Flow = () => {
+  return <ReactFlow defaultViewport={defaultViewport} />;
 };
 
-export default BasicFlow;
+export default Flow;
 ```
 
-### Removal of `onClickConnectStop` and `onConnectStop`
+### 4. Removal of `onClickConnectStop` and `onConnectStop`
 
-Old API:
+#### Old API
 
 ```jsx
 import ReactFlow from 'react-flow-renderer';
 
-const BasicFlow = () => {
+const Flow = () => {
   const onConnectStop = () => console.log('on connect stop');
 
   return (
@@ -130,15 +122,15 @@ const BasicFlow = () => {
   );
 };
 
-export default BasicFlow;
+export default Flow;
 ```
 
-New API:
+#### New API
 
 ```jsx
-import ReactFlow from '@react-flow/core';
+import ReactFlow from 'reactflow';
 
-const BasicFlow = () => {
+const Flow = () => {
   const onConnectEnd = () => console.log('on connect stop');
 
   return (
@@ -151,31 +143,5 @@ const BasicFlow = () => {
   );
 };
 
-export default BasicFlow;
-```
-
-### New props: `onPaneMouseEnter`, `onPaneMouseMove` and `onPaneMouseLeave`
-
-Example:
-
-```jsx
-import ReactFlow from '@react-flow/core';
-
-const BasicFlow = () => {
-  const onPaneMouseEnter = () => console.log('on pane enter');
-  const onPaneMouseMove = () => console.log('on pane move');
-  const onPaneMouseLeave = () => console.log('on pane leave');
-
-  return (
-    <ReactFlow
-      defaultNodes={defaultNodes}
-      defaultEdges={defaultEdges}
-      onPaneMouseEnter={onPaneMouseEnter}
-      onPaneMouseMove={onPaneMouseMove}
-      onPaneMouseLeave={onPaneMouseLeave}
-    />
-  );
-};
-
-export default BasicFlow;
+export default Flow;
 ```

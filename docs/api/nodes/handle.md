@@ -6,7 +6,7 @@ sidebar_position: 4
 We export a `Handle` component as a helper for your custom nodes:
 
 ```js
-import { Handle } from '@react-flow/core';
+import { Handle } from 'reactflow';
 
 const targetHandleWithValidation = (
   <Handle

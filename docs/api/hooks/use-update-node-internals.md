@@ -14,7 +14,7 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 ### Usage
 
 ```javascript
-import { useUpdateNodeInternals } from '@react-flow/core';
+import { useUpdateNodeInternals } from 'reactflow';
 
 function UpdateNodeButton() {
   const updateNodeInternals = useUpdateNodeInternals();

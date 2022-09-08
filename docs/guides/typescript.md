@@ -19,7 +19,7 @@ import ReactFlow, {
   NodeChange,
   EdgeChange,
   Connection,
-} from '@react-flow/core';
+} from 'reactflow';
 
 const initialNodes: Node[] = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 5, y: 5 } },
@@ -68,7 +68,7 @@ function Flow() {
 When you are working with [custom nodes](/docs/api/nodes/custom-nodes) you can define the data type by passsing a parameter:
 
 ```ts
-import { Node } from '@react-flow/core';
+import { Node } from 'reactflow';
 
 type NodeData = {
   value: number;

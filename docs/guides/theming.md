@@ -3,7 +3,21 @@ title: Theming
 sidebar_position: 6
 ---
 
-React Flow includes a very minimal default theme and necessary default styles to make everything work as expected. These styles are injected automatically into your website.
+React Flow includes a very minimal default theme and necessary default styles to make everything work as expected. You need to load the styles on your own:
+
+### Load Default Styles
+
+```js
+import 'reactflow/dist/style.css';
+```
+
+### Load Base Styles
+
+This is basically no styling, but mandatory for React Flow to work.
+
+```js
+import 'reactflow/dist/base.css';
+```
 
 ## Overwrite Default Styles
 

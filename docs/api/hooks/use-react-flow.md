@@ -13,8 +13,8 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 
 ### Usage
 
-```javascript
-import ReactFlow, { useReactFlow } from '@react-flow/core';
+```jsx
+import ReactFlow, { useReactFlow } from 'reactflow';
 
 function Flow() {
   const reactFlowInstance = useReactFlow();

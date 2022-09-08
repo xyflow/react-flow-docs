@@ -15,7 +15,7 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 
 ```js
 import { useCallback } from 'react';
-import { ReactFlow, useOnViewportChange } from '@react-flow/core';
+import ReactFlow, { useOnViewportChange } from 'reactflow';
 
 function ViewportChangeLogger() {
   useOnViewportChange({

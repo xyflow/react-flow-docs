@@ -1,0 +1,42 @@
+---
+title: <BaseEdge />
+sidebar_position: 7
+---
+
+The BaseEdge component gets used internally for all the edges. It can be used inside a custom edge and handles the invisible helper edge and the edge label for you.
+
+### Usage
+
+```jsx
+import { BaseEdge } from 'reactflow';
+
+function CustomEdge(props: EdgeProps) {
+  return <BaseEdge {...props} />;
+}
+```
+
+### Prop Types
+
+You can pass the following props to the `<BaseEdge />` component:
+
+- `source`: string (node id)
+- `target`: string (node id)
+- `selected`: boolean
+- `animated`: boolean
+- `label`: string
+- `labelStyle`: svg attributes
+- `labelShowBg`: boolean
+- `labelBgStyle`: svg attributes
+- `labelBgPadding`: number
+- `labelBgBorderRadius`: number
+- `data`: object
+- `style`: svg attributes
+- `sourceX`: number
+- `sourceY`: number
+- `targetX`: number
+- `targetY`: number
+- `sourcePosition`: 'left' | 'top' | 'right' | 'bottom'
+- `targetPosition`: 'left' | 'top' | 'right' | 'bottom'
+- `markerStart`: string or [marker config](#markerstart--markerend-options)
+- `markerEnd`: string or [marker config](#markerstart--markerend-options)
+- `interactionWidth`: number - if `0`, no extra helper edge will be rendered
