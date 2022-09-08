@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
+import ReactFlow, { Background, Controls, MiniMap } from 'reactflow';
 
 const defaultNodeOptions = {
   targetPosition: 'left',

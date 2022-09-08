@@ -1,5 +1,5 @@
 import React from 'react';
-import { Handle as RfHandle } from 'react-flow-renderer';
+import { Handle as RfHandle } from 'reactflow';
 
 const defaultStyle = {
   width: 10,

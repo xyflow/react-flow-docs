@@ -1,5 +1,6 @@
-import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
 import React from 'react';
+import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
+
 import Handle from './Handle';
 import Wrapper from './NodeWrapper';
 
