@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactFlow, { useNodesState, useEdgesState } from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, Background } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import DragHandleNode from './DragHandleNode.js';
 
@@ -28,7 +29,9 @@ const DragHandleFlow = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       nodeTypes={nodeTypes}
-    />
+    >
+      <Background />
+    </ReactFlow>
   );
 };
 

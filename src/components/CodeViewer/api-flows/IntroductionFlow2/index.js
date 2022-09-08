@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
-import ReactFlow, { applyEdgeChanges, applyNodeChanges } from 'react-flow-renderer';
+import ReactFlow, { applyEdgeChanges, applyNodeChanges } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import initialNodes from './nodes.js';
 import initialEdges from './edges.js';

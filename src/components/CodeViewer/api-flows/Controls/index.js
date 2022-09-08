@@ -1,4 +1,5 @@
-import ReactFlow, { Controls } from 'react-flow-renderer';
+import ReactFlow, { Controls } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import defaultNodes from './nodes.js';
 import defaultEdges from './edges.js';

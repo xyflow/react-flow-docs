@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import useStore from './store';
 import ColorChooserNode from './ColorChooserNode';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBezierPath, getEdgeCenter, getMarkerEnd } from 'react-flow-renderer';
+import { getBezierPath, getEdgeCenter } from 'reactflow';
 
 import './index.css';
 

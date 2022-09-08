@@ -11,7 +11,7 @@ import {
   OnConnect,
   applyNodeChanges,
   applyEdgeChanges,
-} from 'react-flow-renderer';
+} from 'reactflow';
 
 import initialNodes from './nodes';
 import initialEdges from './edges';

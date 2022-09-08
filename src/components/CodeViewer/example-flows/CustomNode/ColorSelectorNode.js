@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-
-import { Handle } from 'react-flow-renderer';
+import { Handle } from 'reactflow';
 
 export default memo(({ data, isConnectable }) => {
   return (
@@ -15,12 +14,7 @@ export default memo(({ data, isConnectable }) => {
       <div>
         Custom Color Picker Node: <strong>{data.color}</strong>
       </div>
-      <input
-        className="nodrag"
-        type="color"
-        onChange={data.onChange}
-        defaultValue={data.color}
-      />
+      <input className="nodrag" type="color" onChange={data.onChange} defaultValue={data.color} />
       <Handle
         type="source"
         position="right"

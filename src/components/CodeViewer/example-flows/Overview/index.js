@@ -6,7 +6,8 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 

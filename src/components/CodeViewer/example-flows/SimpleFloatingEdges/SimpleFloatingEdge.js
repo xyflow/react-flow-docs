@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useStore, getBezierPath } from 'react-flow-renderer';
+import { useStore, getBezierPath } from 'reactflow';
 
 import { getEdgeParams } from './utils.js';
 

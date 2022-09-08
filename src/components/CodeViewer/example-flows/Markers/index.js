@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactFlow, { Background, MarkerType } from 'react-flow-renderer';
+import ReactFlow, { Background, MarkerType } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 const defaultNodes = [
   {

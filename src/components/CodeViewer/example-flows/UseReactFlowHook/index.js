@@ -1,10 +1,6 @@
 import React, { useCallback } from 'react';
-import ReactFlow, {
-  ReactFlowProvider,
-  addEdge,
-  useNodesState,
-  useEdgesState,
-} from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider, addEdge, useNodesState, useEdgesState } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import Sidebar from './Sidebar';
 

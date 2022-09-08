@@ -5,7 +5,8 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   MarkerType,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import FloatingEdge from './FloatingEdge.js';
 import FloatingConnectionLine from './FloatingConnectionLine.js';

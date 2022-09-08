@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, Position, addEdge } from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, Position, addEdge } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import './index.css';
 

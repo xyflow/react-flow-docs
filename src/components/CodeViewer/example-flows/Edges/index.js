@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -8,7 +7,8 @@ import ReactFlow, {
   Controls,
   Background,
   MarkerType,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import CustomEdge from './CustomEdge';
 
