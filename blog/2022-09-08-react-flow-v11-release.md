@@ -58,7 +58,7 @@ To make layouting easier, we've added a new prop called [`nodeOrigin`](/docs/api
 
 ### Hooks
 
-In the future we want to get rid of some <ReactFlow /> component props (there are 140+ 😵‍💫). One idea is to new introduce hooks. With this release we are adding the `useOnViewportChange` and the `useOnSelectionChange` hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
+In the future we want to get rid of some <ReactFlow /> component props (there are 140+ 😵‍💫). One idea is to replace some props through hooks. With this release we are adding the `useOnViewportChange` and the `useOnSelectionChange` hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
 
 ### Miscellaneous
 
