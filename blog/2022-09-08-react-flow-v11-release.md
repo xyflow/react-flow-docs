@@ -56,6 +56,10 @@ That's not all. We also revised the edge [update behaviour](https://twitter.com/
 
 To make layouting easier, we've added a new prop called [`nodeOrigin`](/docs/api/react-flow-props/). The origin was always in the lop left, meaning that you need to subtract half the width and height to center a node. Now you can set `nodeOrigin={[0.5, 0.5]}` to set the origin to the center or `nodeOrigin={[1, 1]}` to set it to the bottom right. Furthermore we've implemented a [`useNodesInitialized` hook](/docs/api/hooks/use-nodes-initialized). It returns a boolean that can be used to determine if all nodes are initialized and a new layout should be done, for example. Another small change is that you can pan over a node when it's not draggable which makes it easier to navigate bigger flows.
 
+### Hooks
+
+In the future we want to get rid of some <ReactFlow /> component props (there are 140+ 😵‍💫). One idea is to new introduce hooks. With this release we are adding the `useOnViewportChange` and the `useOnSelectionChange` hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
+
 ### Miscellaneous
 
 The background got a [new variant `cross`](/docs/api/plugin-components/background/#prop-types), and you can control the gap size horizontally and vertically individually for all variants. We've added new handlers that make it easier to add mouse event handlers to the pane (the area below the nodes): [`onPaneMouseEnter`, `onPaneMouseMove` and `onPaneMouseLeave`](/docs/api/react-flow-props/#pane). Last but not least the cursor is a grabbing hand while dragging the pane or a node and you pan over nodes when they are not draggable. Strange that this wasn't always the case?!
