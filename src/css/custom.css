@@ -48,7 +48,7 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #ff0072;
-  --ifm-color-primary-dark: #990044;
+  --ifm-color-primary-dark: #cc005b;
   --ifm-color-primary-darker: #66002e;
   --ifm-color-primary-darkest: #330017;
   --ifm-color-primary-light: #ff8abe;
@@ -88,6 +88,27 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .title_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Title-styles-module
   a:hover {
   color: var(--ifm-color-primary);
+}
+
+.blog-list-page
+  .authorCol_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Authors-styles-module {
+  display: none;
+}
+
+.blog-list-page article .col--3 a {
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem 0.3rem;
+  font-size: 90%;
+}
+
+.blog-list-page article .col--3 a:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.blog-list-page article .col--3 a b {
+  font-weight: 400;
 }
 
 .navbar__brand {
@@ -154,7 +175,7 @@ a.navbar__brand:hover {
 
 .navbar__items .button__rfpro:hover {
   color: #fff;
-  background: #cc005b;
+  background: var(--ifm-color-primary-dark);
 }
 
 .menu__link {

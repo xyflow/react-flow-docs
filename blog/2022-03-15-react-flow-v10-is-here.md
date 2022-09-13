@@ -2,7 +2,7 @@
 slug: react-flow-v10
 title: Releasing React Flow 10 and React Flow Pro
 authors: ['moritz', 'christopher']
-tags: ['react-flow', 'announcement']
+tags: ['react-flow', 'release']
 hide_table_of_contents: true
 image: /img/blog/v10-header.png
 ---
