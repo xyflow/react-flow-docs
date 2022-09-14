@@ -14,11 +14,26 @@ If you are using Cypress or Playwright no additional setup is needed. You can re
 If you are using [Jest](https://jestjs.io/), you need to mock some features in order to be able to run your tests. You can do that by adding the following lines to your `setupTests` file (or inside a `beforeEach`):
 
 ```ts
-import { ResizeObserver } from '@juggle/resize-observer';
+// To make sure that the tests are working, it's important that you are using
+// this implementation of ResizeObserver and DOMMatrixReadOnly
+class ResizeObserver {
+  callback: globalThis.ResizeObserverCallback;
+
+  constructor(callback: globalThis.ResizeObserverCallback) {
+    this.callback = callback;
+  }
+
+  observe(target: Element) {
+    this.callback([{ target } as globalThis.ResizeObserverEntry], this);
+  }
+
+  unobserve() {}
+
+  disconnect() {}
+}
 
 global.ResizeObserver = ResizeObserver;
 
-// we only use the scale of the matrix (`m22`), that's why we can use this simple mock
 class DOMMatrixReadOnly {
   m22: number;
   constructor(transform: string) {
@@ -29,7 +44,6 @@ class DOMMatrixReadOnly {
 // @ts-ignore
 global.DOMMatrixReadOnly = DOMMatrixReadOnly;
 
-// used for measuring nodes
 Object.defineProperties(global.HTMLElement.prototype, {
   offsetHeight: {
     get() {
@@ -43,33 +57,12 @@ Object.defineProperties(global.HTMLElement.prototype, {
   },
 });
 
-(global.SVGElement as any).prototype.getBBox = () => ({ x: 0, y: 0, width: 0, height: 0 });
-```
+(global.SVGElement as any).prototype.getBBox = () => ({
+  x: 0,
+  y: 0,
+  width: 0,
+  height: 0,
+});
 
-In addition to that, you need to add a specific `width` and `height` via the `style` option to your nodes, so that the ResizeObserver gets activated. Example:
-
-```ts
-const nodes: Node[] = [
-  {
-    id: '1',
-    type: 'input',
-    data: { label: 'Node 1' },
-    position: { x: 250, y: 5 },
-    // 👇 this needs to be set explicitly
-    style: {
-      width: 100,
-      height: 50,
-    },
-  },
-  {
-    id: '2',
-    data: { label: 'Node 2' },
-    position: { x: 100, y: 100 },
-    // 👇 this needs to be set explicitly
-    style: {
-      width: 100,
-      height: 50,
-    },
-  },
-];
+export {};
 ```
