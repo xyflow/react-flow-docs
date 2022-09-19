@@ -4,6 +4,9 @@ description: This is the list of props you can pass to the ReactFlow component.
 sidebar_position: 1
 ---
 
+import Link from '@docusaurus/Link';
+import PropItems from '../../src/components/Docs/PropItems'
+
 This is the list of props you can pass to the `<ReactFlow />` component.
 
 ```jsx
@@ -24,47 +27,17 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 :::
 
-### Basic Props
+import basic from '../../docs-data/react-flow-props/basic';
 
-| Name                                        | Type                                      | Default                                                                                       | Description                                                                |
-| ------------------------------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `defaultNodes`                              | `Node[]`                                  | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for an uncontrolled flow) |
-| `defaultEdges`                              | `Edge[]`                                  | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for an uncontrolled flow) |
-| `nodes`                                     | `Node[]`                                  | `[]`                                                                                          |  array of [nodes](/docs/api/nodes/node-options) (for a controlled flow)    |
-| `edges`                                     | `Edge[]`                                  | `[]`                                                                                          |  array of [edges](/docs/api/edges/edge-options) (for a controlled flow)    |
-| `onNodesChange(nodeChanges)`                | `function`                                | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
-| `onEdgesChange(edgeChanges)`                | `function`                                | `undefined`                                                                                   |  handler for adding interactivity for a controlled flow                    |
-| `onConnect({ source, target }: Connection)` | `function`                                | `undefined`                                                                                   | called when user connects two nodes in a controlled flow                   |
-| `nodeTypes`                                 | `object`                                  | `{input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode}`              |  object with [node types](/docs/api/nodes/node-types/)                     |
-| `edgeTypes`                                 | `object`                                  | `{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }` |  object with [edge types](/docs/api/edges/edge-types/)                     |
-| `nodeOrigin`                                | `[number, number]` (number between 0 - 1) | defaults to `[0,0]`                                                                           |  [x-origin, y-origin]. center = `[0.5, 0.5]`, bottom-right = `[1, 1]`      |
-| `style`                                     | `CSSProperties`                           | `undefined`                                                                                   |  css properties                                                            |
-| `className`                                 | `string`                                  | `undefined`                                                                                   |  additional class name                                                     |
+<PropItems title="Basic Props" props={basic} />
 
-### Flow View
+import flowview from '../../docs-data/react-flow-props/flowview';
 
-| Name                        | Type                                                            | Default                 | Description                                                                                        |
-| --------------------------- | --------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
-| `fitView`                   | `boolean`                                                       | `false`                 | fits the view once to make all nodes visible                                                       |
-| `fitViewOptions`            | `FitViewOptions`                                                | `undefined`             | options that are passed to the initial fitView                                                     |
-| `minZoom`                   | `number`                                                        | `0.5`                   | min zoom level                                                                                     |
-| `maxZoom`                   | `number`                                                        | `2`                     | max zoom level                                                                                     |
-| `defaultViewport`           | `Viewport`                                                      | `{ x:0, y:0, zoom: 1 }` | default viewport position                                                                          |
-| `snapGrid`                  | `number[]`                                                      | `[15, 15]`              | snap grid gap                                                                                      |
-| `snapToGrid`                | `boolean`                                                       | `false`                 | snap grid enabled                                                                                  |
-| `onlyRenderVisibleElements` | `boolean`                                                       | `false`                 | if true only nodes and edges inside the viewport get rendered                                      |
-| `translateExtent`           | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]`  | passed to the [d3-zoom translateExtent option](https://github.com/d3/d3-zoom#zoom_translateExtent) |
-| `nodeExtent`                | `number[number[], number[]]`                                    | `[[-∞, -∞], [+∞, +∞]]`  | defines the extent for the node positions                                                          |
-| `preventScrolling`          | `boolean`                                                       | `true`                  | if true default browser scroll behaviour is prevented                                              |
-| `attributionPosition`       | `'top-left'`, `'top-center'`, `'top-right'` or `'bottom-right'` | `'bottom-right'`        | position of the "React Flow" attribution                                                           |
+<PropItems title="Flow View" props={flowview} />
 
-### Edge Specific Props
+import edgeSpecific from '../../docs-data/react-flow-props/edge-specific';
 
-| Name                   | Type                 | Default     | Description                                                                |
-| ---------------------- | -------------------- | ----------- | -------------------------------------------------------------------------- |
-| `elevateEdgesOnSelect` | `boolean`            | `false`     | Edges get a higher zIndex if this is true and a connected node is selected |
-| `defaultMarkerColor`   | `string`             | `#b1b1b7`   |  default marker color                                                      |
-| `defaultEdgeOptions`   | `DefaultEdgeOptions` | `undefined` |  edge options that should apply for all edges                              |
+<PropItems title="Edge Specific Props" props={edgeSpecific} />
 
 ### Event Handlers
 
