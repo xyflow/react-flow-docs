@@ -3,6 +3,8 @@ title: <MiniMap />
 sidebar_position: 3
 ---
 
+import PropItems from '../../../src/components/Docs/PropItems'
+
 The Minimap component adds an interactive Minimap to React Flow that shows the whole graph. You can use the `MiniMap` plugin by passing it as a children to the `ReactFlow` component.
 
 ### Usage
@@ -34,18 +36,13 @@ function FlowWithMiniMap() {
 
 ### Prop Types
 
-| Name               | Type                   | Default                   | Description                                                                                                                            |
-| ------------------ | ---------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `nodeColor`        | `string` or `function` | `#fff`                    | If you pass a color string, all nodes get that color. If you pass a function you can return a color depending on the passed node       |
-| `nodeStrokeColor`  | `string` or `function` | `#555`                    | If you pass a color string, all nodes get that strokecolor. If you pass a function you can return a color depending on the passed node |
-| `nodeBorderRadius` | `number`               | `5`                       | Node border radius                                                                                                                     |
-| `nodeStrokeWidth`  | `number`               | `2`                       | Node stroke width                                                                                                                      |
-| `nodeClassName`    | `string` or `function` | `''`                      | Node class name                                                                                                                        |
-| `maskColor`        | `string` or `function` | `rgb(240, 242, 243, 0.7)` | Mini map mask color                                                                                                                    |
-| `style`            | `CSSProperties`        | `undefined`               | Mini map style attributes                                                                                                              |
-| `className`        | `string`               | `undefined`               | Additional class name                                                                                                                  |
+import options from '../../../docs-data/minimap';
 
-**Typescript:** The interface of the MiniMap Prop Types are exported as `MiniMapProps`.
+<PropItems props={options} />
+
+### Typescript
+
+The interface of the MiniMap Prop Types are exported as `MiniMapProps`.
 
 ### Npm Package
 

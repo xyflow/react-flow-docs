@@ -3,108 +3,122 @@ title: Edge Utils
 sidebar_position: 5
 ---
 
+import Link from '@docusaurus/Link';
+import PropItem from '../../../src/components/Docs/PropItem'
+
 There are several utils that help you to create a custom edge. Some are used in the [custom edge example](/docs/examples/edges/custom-edge).
 
 ### `getBezierPath`
 
-Returns the path of a bezier edge.
-
-```
-getBezierPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetBezierPathParams): string
-```
+<PropItem description={<>Returns the path of a bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => string
+</>} />
 
 ### `getSmoothStepPath`
 
-Returns the path of a smooth step edge. You can set `borderRadius` = `0` to get a step edge path.
-
-```
-getSmoothStepPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  borderRadius = 5, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetSmoothStepPathParams): string
-```
+<PropItem description={<>Returns the path of a smooth step edge. You can set <code>borderRadius = 0</code> to get a step edge path</>} type={<>
+(params: <Link to="#getsmoothsteppathparams">GetSmoothStepPathParams</Link>) => string
+</>} />
 
 ### `getSimpleBezierPath`
 
-Returns the path of a simple bezier edge.
-
-```
-getSimpleBezierPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetBezierPathParams): string
-```
+<PropItem description={<>Returns the path of a simple bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => string
+</>} />
 
 ### `getEdgeCenter`
 
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of the edge.
-
-```
-getEdgeCenter({
-  sourceX,
-  sourceY,
-  targetX,
-  targetY
-}: GetCenterParams): [number, number, number, number]
-```
+<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> of the edge</>} type={<>
+(params: <Link to="#getcenterparams">GetCenterParams</Link>) => [number, number, number, number]
+</>} />
 
 ### `getBezierEdgeCenter`
 
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a bezier edge.
-
-```
-getBezierEdgeCenter({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom,
-  targetX,
-  targetY,
-  targetPosition = Position.Top,
-  curvature = 0.25,
-}: GetCenterParams): [number, number, number, number]
-```
+<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> a bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [number, number, number, number]
+</>} />
 
 ### `getSimpleBezierEdgeCenter`
 
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a `simplebezier` edge.
-
-```
-getSimpleBezierEdgeCenter({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom,
-  targetX,
-  targetY,
-  targetPosition = Position.Top,
-}: GetCenterParams): [number, number, number, number]
-```
+<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> a simple bezier edge</>} type={<>
+(params: <Link to="#getsimplebezierpathparams">GetSimpleBezierPathParams</Link>) => [number, number, number, number]
+</>} />
 
 ### `getMarkerEnd`
 
-Returns the marker end url for displaying the arrow head.
+<PropItem description={<>Returns the marker end url for displaying the arrow head</>} type={<>
+(markerType?: <Link to="/docs/api/edges/edge-options/#markertype">MarkerType</Link>, markerEndId?: string) => string
+</>} />
 
+## Typescript
+
+### `GetBezierPathParams`
+
+```ts
+type GetBezierPathParams = {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+  curvature?: number;
+};
 ```
-getMarkerEnd(arrowHeadType?: ArrowHeadType, markerEndId?: string): string
+
+### `GetSmoothStepPathParams`
+
+```ts
+type GetSmoothStepPathParams = {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+  borderRadius?: number;
+  centerX?: number;
+  centerY?: number;
+  offset?: number;
+};
+```
+
+### `GetSimpleBezierPathParams`
+
+```ts
+type GetSimpleBezierPathParams {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+}
+```
+
+### `GetBezierPathParams`
+
+```ts
+type GetBezierPathParams = {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+  curvature?: number;
+};
+```
+
+### `GetCenterParams`
+
+```ts
+type GetCenterParams = {
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
+  sourcePosition?: Position;
+  targetPosition?: Position;
+};
 ```

@@ -5,7 +5,7 @@ sidebar_position: 10
 
 On this site we collect all types that don't have a place on one of the existing sites.
 
-### Connection
+### `Connection`
 
 ```ts
 type Connection = {
@@ -16,7 +16,7 @@ type Connection = {
 };
 ```
 
-### ConnectionMode
+### `ConnectionMode`
 
 ```ts
 enum ConnectionMode {
@@ -25,13 +25,13 @@ enum ConnectionMode {
 }
 ```
 
-### CoordinateExtent
+### `CoordinateExtent`
 
 ```ts
 type CoordinateExtent = [[number, number], [number, number];
 ```
 
-### DefaultEdgeOptions
+### `DefaultEdgeOptions`
 
 ```ts
 type DefaultEdgeOptions = {
@@ -57,7 +57,7 @@ type DefaultEdgeOptions = {
 };
 ```
 
-### EdgeChange
+### `EdgeChange`
 
 ```ts
 type EdgeSelectionChange = NodeSelectionChange;
@@ -73,7 +73,7 @@ type EdgeResetChange<EdgeData = any> = {
 type EdgeChange = EdgeSelectionChange | EdgeRemoveChange | EdgeAddChange | EdgeResetChange;
 ```
 
-### FitBoundsOptions
+### `FitBoundsOptions`
 
 ```ts
 type FitBoundsOptions = {
@@ -82,7 +82,7 @@ type FitBoundsOptions = {
 };
 ```
 
-### FitViewOptions
+### `FitViewOptions`
 
 ```ts
 type FitViewOptions = {
@@ -94,7 +94,7 @@ type FitViewOptions = {
 };
 ```
 
-### NodeChange
+### `NodeChange`
 
 ```ts
 type NodeDimensionChange = {
@@ -141,7 +141,7 @@ type NodeChange =
   | NodeResetChange;
 ```
 
-### PanelPosition
+### `PanelPosition`
 
 ```ts
 export type PanelPosition =
@@ -153,7 +153,7 @@ export type PanelPosition =
   | 'bottom-right';
 ```
 
-### PanOnScrollMode
+### `PanOnScrollMode`
 
 ```ts
 enum PanOnScrollMode {
@@ -163,7 +163,7 @@ enum PanOnScrollMode {
 }
 ```
 
-### ReactFlowJsonObject
+### `ReactFlowJsonObject`
 
 ```ts
 type ReactFlowJsonObject<NodeData = any, EdgeData = any> = {
@@ -173,7 +173,7 @@ type ReactFlowJsonObject<NodeData = any, EdgeData = any> = {
 };
 ```
 
-### Rect
+### `Rect`
 
 ```ts
 type Rect = {
@@ -184,7 +184,7 @@ type Rect = {
 };
 ```
 
-### SetCenterOptions
+### `SetCenterOptions`
 
 ```ts
 type SetCenterOptions = {
@@ -193,7 +193,7 @@ type SetCenterOptions = {
 };
 ```
 
-### Viewport
+### `Viewport`
 
 ```ts
 type Viewport = {
@@ -203,7 +203,7 @@ type Viewport = {
 };
 ```
 
-### ViewportHelperFunctionOptions
+### `ViewportHelperFunctionOptions`
 
 ```ts
 type ViewportHelperFunctionOptions = {
@@ -211,13 +211,13 @@ type ViewportHelperFunctionOptions = {
 };
 ```
 
-### Transform
+### `Transform`
 
 ```ts
 type transform = [number, number, number]; // [x, y, zoom]
 ```
 
-### XYPosition
+### `XYPosition`
 
 ```ts
 type XYPosition = {

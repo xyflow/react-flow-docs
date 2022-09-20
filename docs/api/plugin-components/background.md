@@ -3,6 +3,8 @@ title: <Background />
 sidebar_position: 1
 ---
 
+import PropItems from '../../../src/components/Docs/PropItems'
+
 The Background component comes with three background variants: **dots**, **lines** and **cross**. You can use it by passing it as a children to the `ReactFlow` component.
 
 ### Usage
@@ -21,17 +23,13 @@ function FlowWithBackground() {
 
 ### Prop Types
 
-| Name        | Type                             | Default                             | Description                                                                                    |
-| ----------- | -------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `variant`   | `'lines'`, `'dots'` or `'cross'` | `'dots'`                            | Background pattern type                                                                        |
-| `gap`       | `number` or  `[number, number]`  | `25`                                | Gap between the patterns. You can pass an array with two numbers to specify an x- and a y-gap. |
-| `size`      | `number`                         | `1` for `'dots'`, `6` for `'cross'` | Radius of the `'dots'` or dimension of a `'cross'`                                             |
-| `lineWidth` | `number`                         | `1`                                 | Line width for `'lines'` or `'cross'`                                                          |
-| `color`     | `string`                         | `#81818a`                           | Pattern color                                                                                  |
-| `style`     | `CSSProperties`                  | `undefined`                         | Background style attributes                                                                    |
-| `className` | `string`                         | `undefined`                         | Additional class name                                                                          |
+import options from '../../../docs-data/background';
 
-**Typescript:** The interface of the Background Prop Types are exported as `BackgroundProps`.
+<PropItems props={options} />
+
+### Typescript
+
+The type of the Background Prop Types are exported as `BackgroundProps`.
 
 ### Npm Package
 
