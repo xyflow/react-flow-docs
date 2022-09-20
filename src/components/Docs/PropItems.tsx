@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { ReactNode, memo } from 'react';
 import Heading from '@theme/Heading';
 import GHSLugger from 'github-slugger';
-import PropItem from './PropItem';
+import PropItem, { PropItemProps } from './PropItem';
 
 const slugger = new GHSLugger();
 
-function PropItems({ title, props }) {
+type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+type PropItemsProps = {
+  title?: ReactNode;
+  props: PropItemProps[];
+  titleAs?: HeadingType;
+};
+
+function PropItems({ title, props, titleAs = 'h2' }: PropItemsProps) {
   const id = slugger.slug(title);
 
   return (
     <>
-      <Heading as="h2" id={id}>
-        {title}
-      </Heading>
+      {title && (
+        <Heading as={titleAs} id={id}>
+          {title}
+        </Heading>
+      )}
 
       {props.map((prop) => (
-        <PropItem {...prop} />
+        <PropItem key={prop.name} {...prop} />
       ))}
     </>
   );
 }
 
-export default PropItems;
+export default memo(PropItems);
