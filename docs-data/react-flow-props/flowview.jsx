@@ -10,7 +10,7 @@ const props = [
   },
   {
     name: 'fitViewOptions',
-    type: 'FitViewOptions',
+    type: <Link to="/docs/api/types/#fitviewoptions">FitViewOptions</Link>,
     default: 'undefined',
     description: 'Options that are passed to the initial fitView ',
   },
@@ -28,7 +28,7 @@ const props = [
   },
   {
     name: 'defaultViewport',
-    type: 'Viewport',
+    type: <Link to="/docs/api/types/#viewport">Viewport</Link>,
     default: '{ x: 0, y: 0, zoom: 1 }',
     description: 'Default viewport position and zoom level',
   },
@@ -52,7 +52,12 @@ const props = [
   },
   {
     name: 'translateExtent',
-    type: '[[number, number], [number, number]]',
+    type: (
+      <>
+        <Link to="/docs/api/types/#coordinateextent">CoordinateExtent</Link> [[number, number],
+        [number, number]]
+      </>
+    ),
     default: '[[-∞, -∞], [+∞, +∞]]',
     description: (
       <>
@@ -65,7 +70,12 @@ const props = [
   },
   {
     name: 'nodeExtent',
-    type: '[[number, number], [number, number]]',
+    type: (
+      <>
+        <Link to="/docs/api/types/#coordinateextent">CoordinateExtent</Link> [[number, number],
+        [number, number]]
+      </>
+    ),
     default: '[[-∞, -∞], [+∞, +∞]]',
     description: 'Defines the extent for the node positions',
   },
@@ -77,7 +87,12 @@ const props = [
   },
   {
     name: 'attributionPosition',
-    type: "'top-left'`, `'top-center'`, `'top-right'` or `'bottom-right'",
+    type: (
+      <>
+        <Link to="/docs/api/types/#panelposition">PanelPosition</Link> ('top-left'`, 'top-center',
+        'top-right' and 'bottom-right')
+      </>
+    ),
     default: "'bottom-right'",
     description: 'Position of the "React Flow" attribution',
   },

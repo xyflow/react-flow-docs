@@ -10,8 +10,6 @@ There are several utils that help you to create a custom edge. Some are used in 
 Returns the path of a bezier edge.
 
 ```
-import { getBezierPath } from '@react-flow/core';
-
 getBezierPath({
   sourceX,
   sourceY,
@@ -29,8 +27,6 @@ getBezierPath({
 Returns the path of a smooth step edge. You can set `borderRadius` = `0` to get a step edge path.
 
 ```
-import { getSmoothStepPath } from '@react-flow/core';
-
 getSmoothStepPath({
   sourceX,
   sourceY,
@@ -49,8 +45,6 @@ getSmoothStepPath({
 Returns the path of a simple bezier edge.
 
 ```
-import { getSimpleBezierPath } from '@react-flow/core';
-
 getSimpleBezierPath({
   sourceX,
   sourceY,
@@ -68,8 +62,6 @@ getSimpleBezierPath({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of the edge.
 
 ```
-import { getEdgeCenter } from '@react-flow/core';
-
 getEdgeCenter({
   sourceX,
   sourceY,
@@ -83,8 +75,6 @@ getEdgeCenter({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a bezier edge.
 
 ```
-import { getBezierEdgeCenter } from '@react-flow/core';
-
 getBezierEdgeCenter({
   sourceX,
   sourceY,
@@ -101,8 +91,6 @@ getBezierEdgeCenter({
 Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a `simplebezier` edge.
 
 ```
-import { getSimpleBezierEdgeCenter } from '@react-flow/core';
-
 getSimpleBezierEdgeCenter({
   sourceX,
   sourceY,
@@ -118,7 +106,5 @@ getSimpleBezierEdgeCenter({
 Returns the marker end url for displaying the arrow head.
 
 ```
-import { getMarkerEnd } from '@react-flow/core';
-
 getMarkerEnd(arrowHeadType?: ArrowHeadType, markerEndId?: string): string
 ```

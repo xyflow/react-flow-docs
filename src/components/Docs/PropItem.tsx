@@ -17,9 +17,11 @@ function PropItem({ name, type, description, default: defaultValue }: PropItemPr
 
   return (
     <>
-      <Heading as="h4" id={id}>
-        <code>{name}</code>
-      </Heading>
+      {name && (
+        <Heading as="h4" id={id}>
+          <code>{name}</code>
+        </Heading>
+      )}
       <Box mt={-2} fontSize="sm">
         {description && (
           <Flex>

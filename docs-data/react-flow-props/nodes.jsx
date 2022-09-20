@@ -1,67 +1,120 @@
+import React from 'react';
+import Link from '@docusaurus/Link';
+
 const props = [
   {
-    name: 'onNodeClick(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeClick',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Called when user clicks a node',
   },
   {
-    name: 'onNodeDragStart(event: React.MouseEvent, node: Node, nodes: Node[])',
+    name: 'onNodeDragStart',
     type: 'function',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
+        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node drag start',
   },
   {
-    name: 'onNodeDrag(event: React.MouseEvent, node: Node, nodes: Node[])',
-    type: 'function',
+    name: 'onNodeDrag',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
+        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node drag',
   },
   {
-    name: 'onNodeDragStop(event: React.MouseEvent, node: Node, nodes: Node[])',
-    type: 'function',
+    name: 'onNodeDragStop',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
+        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node drag stop',
   },
   {
-    name: 'onNodeMouseEnter(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeMouseEnter',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node mouse enter',
   },
   {
-    name: 'onNodeMouseMove(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeMouseMove',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node mouse move',
   },
   {
-    name: 'onNodeMouseLeave(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeMouseLeave',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node mouse leave',
   },
   {
-    name: 'onNodeContextMenu(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeContextMenu',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node context menu',
   },
   {
-    name: 'onNodeDoubleClick(event: React.MouseEvent, node: Node)',
-    type: 'function',
+    name: 'onNodeDoubleClick',
+    type: (
+      <>
+        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
+        =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Node double click',
   },
   {
-    name: 'onNodesDelete(nodes)',
-    type: 'function',
+    name: 'onNodesDelete',
+    type: (
+      <>
+        (nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description: 'Called when nodes get deleted',
   },
   {
-    name: 'onNodesChange(nodeChanges)',
-    type: 'function',
+    name: 'onNodesChange',
+    type: <>(nodeChanges: NodeChange[]) =&gt; void</>,
     default: 'undefined',
     description: 'Handler for adding interactivity for a controlled flow',
   },

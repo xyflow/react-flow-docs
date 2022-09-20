@@ -1,4 +1,4 @@
-import { Edge } from 'react-flow-renderer';
+import { Edge } from 'reactflow';
 
 export default [
   { id: 'e1-2', source: '1', target: '2' },

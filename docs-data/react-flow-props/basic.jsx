@@ -4,7 +4,11 @@ import Link from '@docusaurus/Link';
 const props = [
   {
     name: 'nodes',
-    type: 'Node[]',
+    type: (
+      <>
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+      </>
+    ),
     default: '[]',
     description: (
       <>
@@ -14,7 +18,11 @@ const props = [
   },
   {
     name: 'edges',
-    type: 'Edge[]',
+    type: (
+      <>
+        <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+      </>
+    ),
     default: '[]',
     description: (
       <>
@@ -24,7 +32,11 @@ const props = [
   },
   {
     name: 'defaultNodes',
-    type: 'Node[]',
+    type: (
+      <>
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+      </>
+    ),
     default: '[]',
     description: (
       <>
@@ -34,7 +46,11 @@ const props = [
   },
   {
     name: 'defaultEdges',
-    type: 'Edge[]',
+    type: (
+      <>
+        <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+      </>
+    ),
     default: '[]',
     description: (
       <>

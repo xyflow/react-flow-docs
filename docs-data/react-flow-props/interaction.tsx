@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 
 const props = [
   {
@@ -64,7 +65,12 @@ const props = [
   },
   {
     name: 'panOnScrollMode',
-    type: "'free', 'vertical' or 'horizontal'",
+    type: (
+      <>
+        <Link to="/docs/api/types/#panonscrollmode">PanOnScrollMode</Link> ('free', 'vertical' or
+        'horizontal')
+      </>
+    ),
     default: "'free'",
     description: 'Enables certain scroll directions',
   },
@@ -100,7 +106,11 @@ const props = [
   },
   {
     name: 'connectionMode',
-    type: "'strict' or 'loose'",
+    type: (
+      <>
+        <Link to="/docs/api/types/#connectionmode">ConnectionMode</Link> ('strict' or 'loose')
+      </>
+    ),
     default: "'strict'",
     description: (
       <>

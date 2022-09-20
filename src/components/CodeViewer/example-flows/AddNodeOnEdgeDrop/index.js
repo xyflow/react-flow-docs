@@ -5,7 +5,7 @@ import ReactFlow, {
   addEdge,
   useReactFlow,
   ReactFlowProvider,
-} from 'react-flow-renderer';
+} from 'reactflow';
 
 import './index.css';
 
@@ -53,9 +53,7 @@ const AddNodeOnEdgeDrop = () => {
         };
 
         setNodes((nds) => nds.concat(newNode));
-        setEdges((eds) =>
-          eds.concat({ id, source: connectingNodeId.current, target: id })
-        );
+        setEdges((eds) => eds.concat({ id, source: connectingNodeId.current, target: id }));
       }
     },
     [project]

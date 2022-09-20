@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 
 const props = [
   {
@@ -15,7 +16,7 @@ const props = [
   },
   {
     name: 'defaultEdgeOptions',
-    type: 'DefaultEdgeOptions',
+    type: <Link to="/docs/api/types/#defaultedgeoptions">DefaultEdgeOptions</Link>,
     default: 'undefined',
     description: 'Edge options that apply for all edges',
   },

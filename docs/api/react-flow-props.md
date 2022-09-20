@@ -27,17 +27,23 @@ When you pass one of these props: `nodeTypes`, `edgeTypes`, `deleteKeyCode` (as 
 
 :::
 
+## Basic Props
+
 import basic from '../../docs-data/react-flow-props/basic';
 
-<PropItems title="Basic Props" props={basic} />
+<PropItems props={basic} />
+
+## Flow View
 
 import flowview from '../../docs-data/react-flow-props/flowview';
 
-<PropItems title="Flow View" props={flowview} />
+<PropItems  props={flowview} />
+
+## Edge Specific Props
 
 import edgeSpecific from '../../docs-data/react-flow-props/edge-specific';
 
-<PropItems title="Edge Specific Props" props={edgeSpecific} />
+<PropItems  props={edgeSpecific} />
 
 ## Event Handlers
 
@@ -47,37 +53,53 @@ Please wrap all event handlers that you are passing to `<ReactFlow />` with a `u
 
 :::
 
+### General
+
 import general from '../../docs-data/react-flow-props/general';
 
-<PropItems title="General" titleAs="h3" props={general} />
+<PropItems props={general} />
+
+### Nodes
 
 import nodes from '../../docs-data/react-flow-props/nodes';
 
-<PropItems title="Nodes" titleAs="h3" props={nodes} />
+<PropItems  props={nodes} />
+
+### Edges
 
 import edges from '../../docs-data/react-flow-props/edges';
 
-<PropItems title="Edges" titleAs="h3" props={edges} />
+<PropItems props={edges} />
+
+### Connections
 
 import connections from '../../docs-data/react-flow-props/connections';
 
-<PropItems title="Connections" titleAs="h3" props={connections} />
+<PropItems props={connections} />
+
+### Pane
 
 import pane from '../../docs-data/react-flow-props/pane';
 
-<PropItems title="Pane" titleAs="h3" props={pane} />
+<PropItems  props={pane} />
+
+## Interaction
 
 import interaction from '../../docs-data/react-flow-props/interaction';
 
-<PropItems title="Interaction" props={interaction} />
+<PropItems  props={interaction} />
+
+## Connection Line
 
 import connectionLine from '../../docs-data/react-flow-props/connection-line';
 
-<PropItems title="Connection Line" props={connectionLine} />
+<PropItems  props={connectionLine} />
+
+## Keys
 
 import keys from '../../docs-data/react-flow-props/keys';
 
-<PropItems title="Keys" props={keys} />
+<PropItems props={keys} />
 
 ## Pro
 
