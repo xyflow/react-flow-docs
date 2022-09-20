@@ -7,7 +7,7 @@ A lot changed in v11 but this time we've tried to keep the breaking changes smal
 
 :::caution
 
-React Flow 11 only works with **React 18** or greater
+React Flow 11 only works with **React 17** or greater
 
 :::
 

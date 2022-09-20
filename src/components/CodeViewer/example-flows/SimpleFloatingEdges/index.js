@@ -40,7 +40,13 @@ const initialNodes = [
 ];
 
 const initialEdges = [
-  { source: '1', target: '2', type: 'floating', markerEnd: { type: MarkerType.ArrowClosed } },
+  {
+    id: '1-2',
+    source: '1',
+    target: '2',
+    type: 'floating',
+    markerEnd: { type: MarkerType.ArrowClosed },
+  },
 ];
 
 const fitViewOptions = { padding: 4 };
@@ -51,6 +57,7 @@ const NodeAsHandleFlow = () => {
 
   const onConnect = useCallback(
     (params) =>
+      console.log(params) ||
       setEdges((eds) =>
         addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
       ),

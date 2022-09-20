@@ -1,4 +1,4 @@
-import { MarkerType } from 'react-flow-renderer';
+import { MarkerType } from 'reactflow';
 
 export default [
   {
