@@ -113,7 +113,7 @@ export default function CodeViewer({
                   {customPreview}
                   <div
                     className="sp-preview-actions"
-                    style={{ zIndx: 10, position: 'absolute', bottom: 10, right: 10 }}
+                    style={{ zIndex: 10, position: 'absolute', bottom: 10, right: 10 }}
                   >
                     <OpenInCodeSandboxButton />
                   </div>
