@@ -43,12 +43,12 @@ export default function CodeViewer({
   showEditor = true,
   showPreview = true,
   isTypescript = false,
+  customPreview = null,
 }) {
   const [files, setFiles] = useState(null);
+  const scriptExtension = isTypescript ? 'tsx' : 'js';
 
   useEffect(() => {
-    const scriptExtension = isTypescript ? 'tsx' : 'js';
-
     const loadFiles = async () => {
       const res = await import(`!raw-loader!./${codePath}/index.${scriptExtension}`);
 
@@ -102,7 +102,11 @@ export default function CodeViewer({
       >
         <SandpackLayout>
           {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
-          {showPreview && <SandpackPreview style={panelStyle} />}
+          {showPreview && customPreview ? (
+            <div style={{ flex: '1 1 0%' }}>{customPreview}</div>
+          ) : (
+            <SandpackPreview style={panelStyle} />
+          )}
         </SandpackLayout>
       </SandpackProvider>
     </div>

@@ -5,6 +5,7 @@ hide_table_of_contents: true
 ---
 
 import CodeViewer from '/src/components/CodeViewer';
+import DownloadImageExample from '/src/components/CodeViewer/example-flows/DownloadImage';
 const dependencies = { html2canvas: 'latest' };
 
 This example shows how to implement a download button with html2canvas.
@@ -13,4 +14,5 @@ This example shows how to implement a download button with html2canvas.
   codePath="example-flows/DownloadImage"
   dependencies={dependencies}
   additionalFiles={['CustomNode.js', 'index.css']}
+  customPreview={<DownloadImageExample />}
 />
