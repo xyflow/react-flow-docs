@@ -4,6 +4,8 @@ import {
   SandpackLayout,
   SandpackCodeEditor,
   SandpackPreview,
+  SandpackStack,
+  OpenInCodeSandboxButton,
 } from '@codesandbox/sandpack-react';
 
 const hiddenBaseStyles = {
@@ -90,6 +92,8 @@ export default function CodeViewer({
     return <div style={{ minHeight: editorHeight }} />;
   }
 
+  options.readOnly = !!customPreview;
+
   return (
     <div style={{ minHeight: editorHeight, marginBottom: 20 }}>
       <SandpackProvider
@@ -103,7 +107,19 @@ export default function CodeViewer({
         <SandpackLayout>
           {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
           {showPreview && customPreview ? (
-            <div style={{ flex: '1 1 0%' }}>{customPreview}</div>
+            <>
+              <SandpackStack style={{ flex: '1 1 0%', height: '800px' }}>
+                <div className="sp-preview-container" style={{ flex: '1 1 0%', height: '100%' }}>
+                  {customPreview}
+                  <div
+                    className="sp-preview-actions"
+                    style={{ zIndx: 10, position: 'absolute', bottom: 10, right: 10 }}
+                  >
+                    <OpenInCodeSandboxButton />
+                  </div>
+                </div>
+              </SandpackStack>
+            </>
           ) : (
             <SandpackPreview style={panelStyle} />
           )}
