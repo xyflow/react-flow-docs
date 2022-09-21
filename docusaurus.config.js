@@ -3,16 +3,17 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'React Flow',
+  title: 'React Flow 10',
   titleDelimiter: '-',
   tagline: 'Wire Your Ideas With React Flow',
-  url: 'https://reactflow.dev',
+  url: 'https://v10.reactflow.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'wbkd', // Usually your GitHub org/user name.
   projectName: 'react-flow', // Usually your repo name.
+  noIndex: true,
   plugins: [
     [
       '@docusaurus/plugin-ideal-image',
@@ -32,11 +33,11 @@ const config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/',
+          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/v10/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
+          editUrl: 'https://github.com/wbkd/react-flow-docs/edit/v10/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -70,7 +71,12 @@ const config = {
             position: 'right',
             label: 'Examples',
           },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          {
+            href: 'https://reactflow.dev/blog',
+            label: 'Blog',
+            position: 'right',
+            className: 'hide-svg-icon',
+          },
           {
             href: 'https://github.com/wbkd/react-flow',
             position: 'right',
