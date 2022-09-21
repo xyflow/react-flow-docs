@@ -1,12 +1,14 @@
 ---
 title: Quickstart
-description: For folks who want to get React Flow up and running fast and figure out the details later, this is the guide for you.
+description: React Flow quickstart that shows how to install the package, use it and where to find example apps
 sidebar_position: 2
 ---
 
-For folks who want to get React Flow up and running fast and figure out the details later, this is the guide for you.
+For folks who want to get React Flow up and running fast and figure out the details later, this is the site for you.
 
 ## Installation
+
+React Flow is published on npm as [`reactflow`](https://npmjs.com/package/reactflow).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -6,11 +6,11 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Here we list all React Flow packages that we published on npm.
+Here we list all React Flow packages that we are publishing on npm.
 
 ## Main Package
 
-We recommend to use the `reactflow` package. It contains `@reactflow/core`, `@reactflow/background`, `@reactflow/controls` and `@reactflow/minimap`.
+We recommend to use the [`reactflow` package](https://www.npmjs.com/package/reactflow). It contains `@reactflow/core`, `@reactflow/background`, `@reactflow/controls` and `@reactflow/minimap`.
 
 #### Installation
 
@@ -38,7 +38,7 @@ pnpm add reactflow
   </TabItem>
 </Tabs>
 
-All of the examples and guides are using the `reactflow` package. If you only want to use parts of it, you can install the sub packages.
+All examples and guides are using the `reactflow` package. If you only want to use parts of it, you can install the sub packages.
 
 ## Sub Packages
 

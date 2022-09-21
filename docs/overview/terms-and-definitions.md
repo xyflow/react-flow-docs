@@ -21,6 +21,8 @@ This is where the magic of React Flow happens. You can customize nodes to look a
 - Visualize data
 - Support multiple handles
 
+Please refer to the [custom node docs](/docs/guides/custom-nodes/) for further information.
+
 ## Handles
 
 import HandlesFlow from '../../src/components/CodeViewer/basic-terms/handles'
@@ -43,6 +45,8 @@ Like custom nodes, you can also customize edges. Things that people do with cust
 
 - Add a button to remove an edge
 - Custom routing behaviour
+
+You can find more information on the [custom edges api](/docs/api/edges/custom-edges/) site.
 
 ## Connection Line
 
