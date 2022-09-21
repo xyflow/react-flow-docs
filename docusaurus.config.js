@@ -217,6 +217,14 @@ const config = {
           content: 'https://reactflow.dev/img/social/social.jpeg',
         },
       ],
+      announcementBar: {
+        id: 'v10',
+        content:
+          '💡 This is the legacy site for v10. If you are looking for the latest docs, please visit <a target="_blank" rel="noopener noreferrer" href="https://reactflow.dev">React Flow</a>.',
+        backgroundColor: '#f5f5f5',
+        textColor: '#55595f',
+        isCloseable: false,
+      },
     }),
   trailingSlash: true,
 };
