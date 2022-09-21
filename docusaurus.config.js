@@ -217,6 +217,14 @@ const config = {
           content: 'https://reactflow.dev/img/social/social.jpeg',
         },
       ],
+      announcementBar: {
+        id: 'v11',
+        content:
+          '👉 These are the new docs for React Flow 11. You can find the previous version in the <a target="_blank" rel="noopener noreferrer" href="https://v10.reactflow.dev">v10 docs</a>.',
+        backgroundColor: '#f5f5f5',
+        textColor: '#091E42',
+        isCloseable: false,
+      },
     }),
   trailingSlash: true,
 };
