@@ -23,6 +23,7 @@ and then use it as before:
 
 ```jsx
 import ReactFlow, { Controls, Background } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 function Flow({ nodes, edges }) {
   return (

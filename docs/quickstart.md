@@ -1,10 +1,12 @@
 ---
-title: Installation
-description: Here's how to install the React Flow package using npm (as reactflow), and how to include it in your own project
-sidebar_position: 1
+title: Quickstart
+description: For folks who want to get React Flow up and running fast and figure out the details later, this is the guide for you.
+sidebar_position: 2
 ---
 
-Before you can start to use React Flow you need to install [`reactflow`](https://www.npmjs.com/package/reactflow). It's published on npm and installable via:
+For folks who want to get React Flow up and running fast and figure out the details later, this is the guide for you.
+
+## Installation
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -24,7 +26,7 @@ yarn add reactflow
 ```
 
   </TabItem>
-    <TabItem value="pnpm" label="pnpm">
+  <TabItem value="pnpm" label="pnpm">
 
 ```bash
 pnpm add reactflow
@@ -47,6 +49,7 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from 'reactflow';
+// 👇 you need to import the reactflow styles
 import 'reactflow/dist/style.css';
 
 const initialNodes = [
@@ -59,10 +62,8 @@ const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = useCallback(
-    (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
+
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
 
   return (
     <ReactFlow
@@ -80,12 +81,15 @@ function Flow() {
 }
 ```
 
-React Flow can also be used as an uncontrolled component without external state management:
+## Example Applications
 
-```jsx
-import ReactFlow from 'reactflow';
+To make it easier to get started, we created basic example apps that can be used as a starting point:
 
-function Flow({ nodes, edges }) {
-  return <ReactFlow defaultNodes={nodes} defaultEdges={edges} />;
-}
-```
+- [Create React App](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app)
+- [Next.js](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-nextjs)
+- [Remix](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-remix)
+
+#### Codesandbox Templates
+
+- [Javascript](https://codesandbox.io/s/react-flow-starter-ou8or)
+- [Typescript](https://codesandbox.io/s/react-flow-starter-typescript-j8lkh)

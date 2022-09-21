@@ -1,5 +1,5 @@
 ---
-title: 'Introduction'
+title: Introduction
 description: React Flow is a library for building node-based applications from static diagrams to complex editors. It comes with built-in plugins like a mini map and graph controls, and nodes and edges are highly customizable.
 sidebar_position: 1
 ---
