@@ -38,9 +38,11 @@ pnpm add reactflow
   </TabItem>
 </Tabs>
 
+All of the examples and guides are using the `reactflow` package. If you only want to use parts of it, you can install the sub packages.
+
 ## Sub Packages
 
-The `reactflow` package is separated into multiple packages that can be installed separately. All packages are published under the [`@reactflow` organization](https://www.npmjs.com/org/reactflow) on npm. All of the following packages only use **named exports**.
+The `reactflow` package contains multiple packages that can be installed separately. All packages are published under the [`@reactflow` organization](https://www.npmjs.com/org/reactflow) on npm. All of the following packages only use **named exports**.
 
 ### @reactflow/core
 

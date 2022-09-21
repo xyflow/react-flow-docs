@@ -3,7 +3,7 @@ title: Terms and Definitions
 sidebar_position: 1
 ---
 
-In this part of the docs we are explaining some basic terms of React Flow. Three things you’ll be using a lot in React Flow are nodes, edges, and handles.
+In this part of the docs we are explaining some basic React Flow terms and definition. Three things you’ll be using a lot in React Flow are nodes, edges, and handles.
 
 ## Nodes
 
@@ -35,13 +35,13 @@ import EdgesFlow from '../../src/components/CodeViewer/basic-terms/edges'
 
 <EdgesFlow />
 
-An edge connects two nodes. Every edge needs a target and a source node. React Flow comes with four built-in edges types: default (bezier), smoothstep, step and straight. An edge is a path inside a SVG and can be styled with CSS or completely customized.
+An edge connects two nodes. Every edge needs a target and a source node. React Flow comes with four built-in edges types: default (bezier), smoothstep, step and straight. An edge is a path inside a SVG and can be styled with CSS and is completely customizable.
 
 ### Custom Edges
 
-Like custom nodes, you can also customize edges. Ways that people customize edges are:
+Like custom nodes, you can also customize edges. Things that people do with custom edges are:
 
-- Add button to remove an edge
+- Add a button to remove an edge
 - Custom routing behaviour
 
 ## Connection Line
