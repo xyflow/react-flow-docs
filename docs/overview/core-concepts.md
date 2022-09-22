@@ -1,7 +1,7 @@
 ---
 title: Core Concepts
 description: We'll show you the basic functionality of React Flow including connecting nodes and making controlled and uncontrolled flows.
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 In the following part we will introduce you to the core concepts of React Flow and explain how to create an interactive flow. A flow consists of nodes and edges (or just nodes). You can pass arrays of `nodes` and `edges` as props to the ReactFlow component. Hereby all node and edge ids need to be unique. A node needs a position and a label (this could be different if you are using [custom nodes](/docs/guides/custom-nodes)) and an edge needs a source (node id) and a target (node id). You can read more about the options in the [Node options](/docs/api/nodes/node-options) and [Edge options](/docs/api/edges/edge-options) sections.
