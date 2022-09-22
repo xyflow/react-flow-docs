@@ -77,7 +77,7 @@ html {
   padding: 0 var(--ifm-pre-padding);
 }
 
-.mainWrapper_node_modules-\@docusaurus-theme-classic-lib-theme-Layout-styles-module .container {
+.blog-wrapper .main-wrapper .container {
   max-width: 1000px;
 }
 
@@ -85,17 +85,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.title_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Title-styles-module a {
+.blog-wrapper .main-wrapper header h2 a {
   color: var(--chakra-colors-gray-800);
 }
 
-.title_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Title-styles-module
-  a:hover {
+.blog-wrapper .main-wrapper header h2 a:hover {
   color: var(--ifm-color-primary);
 }
 
-.blog-list-page
-  .authorCol_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-Header-Authors-styles-module {
+.blog-wrapper .blog-list-page .author-col {
   display: none;
 }
 
@@ -136,7 +134,7 @@ a.navbar__brand:hover {
 }
 
 .navbar.navbar--fixed-top {
-  z-index: 100;
+  z-index: 999999;
 }
 
 .navbar__item {
