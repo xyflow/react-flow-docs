@@ -3,7 +3,7 @@ title: Plugin Components
 sidebar_position: 3
 ---
 
-React Flow comes with several additional plugin components. In this guide we show you how to use them. We are using our [previous example code](/docs/getting-started/core-concepts) here.
+React Flow comes with several additional plugin components. In this guide we show you how to use them. We are using our [previous example code](/docs/overview/core-concepts) here.
 
 ### MiniMap
 

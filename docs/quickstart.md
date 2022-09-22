@@ -39,7 +39,7 @@ pnpm add reactflow
 
 ## Basic Usage
 
-The `reactflow` package exports the `<ReactFlow />` React component as the default export and further additional components (like the [`MiniMap`](<(/docs/api/plugin-components/minimap)>)), hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions).
+The `reactflow` package exports the `<ReactFlow />` React component as the default export and further additional components (like the [`MiniMap`](/docs/api/plugin-components/minimap)), hooks (like [`useReactFlow`](/docs/api/hooks/use-react-flow)) and [util functions](/docs/api/graph-util-functions).
 
 ```jsx
 import { useCallback } from 'react';

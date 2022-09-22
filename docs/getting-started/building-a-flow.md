@@ -79,7 +79,7 @@ const edges = [{ id: '1-2', source: '1', target: '2' }];
 
 <CodeViewer codePath="api-flows/GettingStarted4" applyStyles={false} options={editorOptions} />
 
-Let's give this edge two properties that are built into React Flow, a `label` and a different `type` (we'll dive deeper into customizing edges in the [customize edge section](/docs)).
+Let's give this edge two properties that are built into React Flow, a `label` and a different `type`.
 
 <CodeViewer codePath="api-flows/GettingStarted5" applyStyles={false} options={editorOptions} />
 

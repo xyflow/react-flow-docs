@@ -32,7 +32,7 @@ React Flow 11 only works with **React 17** or greater
 - **Pane moveable** with middle mouse button
 - **Pan over nodes** when they are not draggable (`draggable=false` or `nodesDraggable` false)
 - **[`<BaseEdge />`](/docs/api/edges/base-edge) component** that makes it easier to build custom edges
-- **[Separately installable packages](/docs/getting-started/installation/#using-packages)**
+- **[Separately installable packages](/docs/overview/packages/)**
   - @reactflow/core
   - @reactflow/background
   - @reactflow/controls

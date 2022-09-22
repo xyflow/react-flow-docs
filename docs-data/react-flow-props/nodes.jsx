@@ -6,8 +6,8 @@ const props = [
     name: 'onNodeClick',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -18,8 +18,9 @@ const props = [
     type: 'function',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
-        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -29,8 +30,9 @@ const props = [
     name: 'onNodeDrag',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
-        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -40,8 +42,9 @@ const props = [
     name: 'onNodeDragStop',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>,
-        nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -51,8 +54,8 @@ const props = [
     name: 'onNodeMouseEnter',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -62,8 +65,8 @@ const props = [
     name: 'onNodeMouseMove',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -73,8 +76,8 @@ const props = [
     name: 'onNodeMouseLeave',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -84,8 +87,8 @@ const props = [
     name: 'onNodeContextMenu',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -95,8 +98,8 @@ const props = [
     name: 'onNodeDoubleClick',
     type: (
       <>
-        (event: React.MouseEvent, node: <Link to="/docs/api/node-options/#typescript">Node</Link>)
-        =&gt; void
+        (event: React.MouseEvent, node:{' '}
+        <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -106,7 +109,7 @@ const props = [
     name: 'onNodesDelete',
     type: (
       <>
-        (nodes: <Link to="/docs/api/node-options/#typescript">Node</Link>[]) =&gt; void
+        (nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
     default: 'undefined',

@@ -11,7 +11,8 @@ const options = [
     name: 'position (required)',
     type: (
       <>
-        <Link to="/docs/types/#xyposition">XYPosition</Link> (&#123; x: number, y: number &#125;)
+        <Link to="/docs/api/types/#xyposition">XYPosition</Link> (&#123; x: number, y: number
+        &#125;)
       </>
     ),
     description: 'For child nodes this position is relative to their parent',
@@ -51,7 +52,7 @@ const options = [
     name: 'extent',
     type: (
       <>
-        <Link to="/docs/types/#coordinateextent">CoordinateExtent</Link> or 'parent'
+        <Link to="/docs/api/types#coordinateextent">CoordinateExtent</Link> or 'parent'
       </>
     ),
     description:

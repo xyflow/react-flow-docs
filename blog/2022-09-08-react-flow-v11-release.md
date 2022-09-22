@@ -46,7 +46,7 @@ import 'reactflow/dist/style.css';
 </ReactFlow>
 ```
 
-Looks nice, right? Under the hood we are publishing packages separately in the `@reactflow` organization. These packages are used by the main `reactflow` package and also can be [used separately](/docs/getting-started/installation/#using-packages). For this we've rebuilt React Flow to a monorepo powered by [turborepo](https://turborepo.org/), [Rollup](https://rollupjs.org/) and [Vite](https://vitejs.dev/).
+Looks nice, right? Under the hood we are publishing packages separately in the `@reactflow` organization. These packages are used by the main `reactflow` package and also can be [used separately](/docs/overview/packages/). For this we've rebuilt React Flow to a monorepo powered by [turborepo](https://turborepo.org/), [Rollup](https://rollupjs.org/) and [Vite](https://vitejs.dev/).
 
 ## ✨ New Features
 

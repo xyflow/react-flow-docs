@@ -46,4 +46,4 @@ The interface of the MiniMap Prop Types are exported as `MiniMapProps`.
 
 ### Npm Package
 
-The minimap component is published under `@reactflow/minimap` and can also be [installed and used separately](docs/getting-started/installation/#reactflowminimap).
+The minimap component is published under `@reactflow/minimap` and can also be [installed and used separately](/docs/overview/packages/#reactflowminimap).

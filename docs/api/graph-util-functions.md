@@ -15,7 +15,7 @@ import ReactFlow, { isNode, isEdge, applyNodeChanges, applyEdgeChanges, addEdge 
 ### `isEdge`
 
 <PropItem description={<>Returns <code>true</code> if the passed element is an edge</>} type={<>
-(item: any) => element is <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>
+(item: any) => element is <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>
 </>} />
 
 ### `isNode`
@@ -33,37 +33,37 @@ import ReactFlow, { isNode, isEdge, applyNodeChanges, applyEdgeChanges, addEdge 
 ### `applyEdgeChanges`
 
 <PropItem description={<>Returns an array of edges with the applied changes</>} type={<>
-(changes: <Link to="/docs/api/types/#edgechange">EdgeChange</Link>[], edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]
+(changes: <Link to="/docs/api/types/#edgechange">EdgeChange</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
 </>} />
 
 ### `addEdge`
 
 <PropItem description="Returns an array of edges with the added edge" type={<>
-(edgeParams: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>, edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]): <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]
+(edgeParams: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>, edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]): <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
 </>} />
 
 ### `updateEdge`
 
 <PropItem description={<>Can be used as a helper for <code>onEdgeUpdate</code>. Returns the edges with the updated edge</>} type={<>
-(oldEdge: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>, newConnection: <Link to="/docs/api/types/#connection">Connection</Link>, edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => void
+(oldEdge: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>, newConnection: <Link to="/docs/api/types/#connection">Connection</Link>, edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => void
 </>} />
 
 ### `getOutgoers`
 
 <PropItem description="Returns all direct child nodes of the passed node" type={<>
-(node: <Link to="/docs/api/nodes/node-options/#typescript">Edge</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+(node: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
 </>} />
 
 ### `getIncomers`
 
 <PropItem description="Returns all direct incoming nodes of the passed node" type={<>
-(node: <Link to="/docs/api/nodes/node-options/#typescript">Edge</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+(node: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
 </>} />
 
 ### `getConnectedEdges`
 
 <PropItem description="Returns all edges that are connected to the passed nodes" type={<>
-(nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]
+(nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
 </>} />
 
 <div style={{ marginBottom: 15 }}/>

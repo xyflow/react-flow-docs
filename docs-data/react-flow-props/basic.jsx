@@ -26,7 +26,7 @@ const props = [
     default: '[]',
     description: (
       <>
-        Array of <Link to="/docs/api/nodes/edge-options">edges</Link> (for a controlled flow)
+        Array of <Link to="/docs/api/edges/edge-options">edges</Link> (for a controlled flow)
       </>
     ),
   },
@@ -54,7 +54,7 @@ const props = [
     default: '[]',
     description: (
       <>
-        Array of <Link to="/docs/api/nodes/edge-options">edges</Link> (for an uncontrolled flow)
+        Array of <Link to="/docs/api/edges/edge-options">edges</Link> (for an uncontrolled flow)
       </>
     ),
   },
@@ -95,7 +95,7 @@ const props = [
       '{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }',
     description: (
       <>
-        Object with <Link to="/docs/api/nodes/edge-types/">edge types</Link>
+        Object with <Link to="/docs/api/edges/edge-types/">edge types</Link>
       </>
     ),
   },

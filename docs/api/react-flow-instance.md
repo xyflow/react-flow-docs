@@ -39,25 +39,25 @@ The `reactFlowInstance` has the following functions:
 ### `getEdges`
 
 <PropItem description="Return array of edges" type={<>
-() => <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]
+() => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
 </>} />
 
 ### `getEdge`
 
 <PropItem description="Return a edge by id" type={<>
-(id: string) => <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link> | undefined
+(id: string) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link> | undefined
 </>} />
 
 ### `setEdges`
 
 <PropItem description="Set edges array" type={<>
-(edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[] | (edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[])=> void
+(edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[] | (edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[])=> void
 </>} />
 
 ### `addEdges`
 
 <PropItem description="Add one or multiple edges" type={<>
-(edges: <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link> | <Link to="/docs/api/nodes/edge-options/#typescript">Edge</Link>[]) => void
+(edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link> | <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => void
 </>} />
 
 ### `toObject`

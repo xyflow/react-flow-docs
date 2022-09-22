@@ -58,4 +58,4 @@ All props get forwarded to the `ControlButton` component.
 
 ### Npm Package
 
-The controls component is published under `@reactflow/controls` and can also be [installed and used separately](docs/getting-started/installation/#reactflowcontrols).
+The controls component is published under `@reactflow/controls` and can also be [installed and used separately](/docs/overview/packages/#reactflowcontrols).
