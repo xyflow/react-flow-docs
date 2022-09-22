@@ -77,6 +77,10 @@ html {
   padding: 0 var(--ifm-pre-padding);
 }
 
+.mainWrapper_node_modules-\@docusaurus-theme-classic-lib-theme-Layout-styles-module .container {
+  max-width: 1000px;
+}
+
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }

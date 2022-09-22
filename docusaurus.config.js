@@ -37,6 +37,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
+          blogSidebarCount: 0,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
