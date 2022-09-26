@@ -94,6 +94,12 @@ type FitViewOptions = {
 };
 ```
 
+### HandleType
+
+```ts
+type HandleType = 'source' | 'target';
+```
+
 ### `NodeChange`
 
 ```ts
@@ -139,6 +145,25 @@ type NodeChange =
   | NodeRemoveChange
   | NodeAddChange
   | NodeResetChange;
+```
+
+### OnConnectStartParams
+
+```ts
+type OnConnectStartParams = {
+  nodeId: string | null;
+  handleId: string | null;
+  handleType: HandleType | null;
+};
+```
+
+### OnSelectionChangeParams
+
+```ts
+export type OnSelectionChangeParams = {
+  nodes: Node[];
+  edges: Edge[];
+};
 ```
 
 ### `PanelPosition`

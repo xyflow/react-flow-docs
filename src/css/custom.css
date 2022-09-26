@@ -93,10 +93,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   color: var(--ifm-color-primary);
 }
 
-.blog-wrapper .blog-list-page .author-col {
-  display: none;
-}
-
 .blog-list-page article .col--3 a {
   color: #fff;
   background: var(--ifm-color-primary);
