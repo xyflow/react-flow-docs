@@ -10,38 +10,26 @@ There are several utils that help you to create a custom edge. Some are used in 
 
 ### `getBezierPath`
 
-<PropItem description={<>Returns the path of a bezier edge</>} type={<>
-(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => string
-</>} />
-
-### `getSmoothStepPath`
-
-<PropItem description={<>Returns the path of a smooth step edge. You can set <code>borderRadius = 0</code> to get a step edge path</>} type={<>
-(params: <Link to="#getsmoothsteppathparams">GetSmoothStepPathParams</Link>) => string
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
 </>} />
 
 ### `getSimpleBezierPath`
 
-<PropItem description={<>Returns the path of a simple bezier edge</>} type={<>
-(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => string
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a simple bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
 </>} />
 
-### `getEdgeCenter`
+### `getSmoothStepPath`
 
-<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> of the edge</>} type={<>
-(params: <Link to="#getcenterparams">GetCenterParams</Link>) => [number, number, number, number]
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a smooth step edge. You can set <code>borderRadius = 0</code> to get a step edge path</>} type={<>
+(params: <Link to="#getsmoothsteppathparams">GetSmoothStepPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
 </>} />
 
-### `getBezierEdgeCenter`
+### `getStraightPath`
 
-<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> a bezier edge</>} type={<>
-(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [number, number, number, number]
-</>} />
-
-### `getSimpleBezierEdgeCenter`
-
-<PropItem description={<>Returns the center position and offset <code>[centerX, centerY, offsetX, offsetY]</code> a simple bezier edge</>} type={<>
-(params: <Link to="#getsimplebezierpathparams">GetSimpleBezierPathParams</Link>) => [number, number, number, number]
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a simple bezier edge</>} type={<>
+(params: <Link to="#getstraightpathparams">GetStraightPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
 </>} />
 
 ### `getMarkerEnd`
@@ -66,6 +54,19 @@ type GetBezierPathParams = {
 };
 ```
 
+### `GetSimpleBezierPathParams`
+
+```ts
+type GetSimpleBezierPathParams {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+}
+```
+
 ### `GetSmoothStepPathParams`
 
 ```ts
@@ -83,10 +84,10 @@ type GetSmoothStepPathParams = {
 };
 ```
 
-### `GetSimpleBezierPathParams`
+### `GetStraightPathParams`
 
 ```ts
-type GetSimpleBezierPathParams {
+type GetStraightPathParams {
   sourceX: number;
   sourceY: number;
   sourcePosition?: Position;
@@ -94,31 +95,4 @@ type GetSimpleBezierPathParams {
   targetY: number;
   targetPosition?: Position;
 }
-```
-
-### `GetBezierPathParams`
-
-```ts
-type GetBezierPathParams = {
-  sourceX: number;
-  sourceY: number;
-  sourcePosition?: Position;
-  targetX: number;
-  targetY: number;
-  targetPosition?: Position;
-  curvature?: number;
-};
-```
-
-### `GetCenterParams`
-
-```ts
-type GetCenterParams = {
-  sourceX: number;
-  sourceY: number;
-  targetX: number;
-  targetY: number;
-  sourcePosition?: Position;
-  targetPosition?: Position;
-};
 ```

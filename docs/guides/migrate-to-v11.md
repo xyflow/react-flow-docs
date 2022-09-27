@@ -102,7 +102,33 @@ const Flow = () => {
 export default Flow;
 ```
 
-### 4. Removal of `onClickConnectStop` and `onConnectStop`
+### 4. Removal of `getBezierEdgeCenter`, `getSimpleBezierEdgeCenter` and `getEdgeCenter`
+
+In v10 we had `getBezierEdgeCenter`, `getSimpleBezierEdgeCenter` and `getEdgeCenter` for getting the center of a certain edge type.
+In v11 we changed the helper function for creating the path, so that it also returns the center / label position of an edge.
+
+Let's say you want to get the path and the center / label position of a bezier edge:
+
+#### Old API
+
+```jsx
+import { getBezierEdgeCenter, getBezierPath } from 'react-flow-renderer';
+
+const path = getBezierPath(edgeParams);
+const [centerX, centerY] = getBezierEdgeCenter(params);
+```
+
+#### New API
+
+```jsx
+import { getBezierPath } from 'reactflow';
+
+const [path, labelX, labelY] = getBezierPath(edgeParams);
+```
+
+We avoid to call it `centerX` and `centerY` anymore, because it's actually the label position and not always the center for every edge type.
+
+### 5. Removal of `onClickConnectStop` and `onConnectStop`
 
 #### Old API
 
