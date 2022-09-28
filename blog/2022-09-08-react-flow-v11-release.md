@@ -50,7 +50,7 @@ Looks nice, right? Under the hood we are publishing packages separately in the `
 
 ## ✨ New Features
 
-For this release, we focused on accessibility (nothing better for a v11 release than a11y!) and edges, with some other smaller changes and stability fixes along the way.
+For this release, we focused on accessibility (nothing better for a v11 release than a11y!) and edges, with some other smaller updates and stability fixes along the way.
 
 ### Accessibility
 
@@ -58,7 +58,7 @@ Accessibility was quite limited in the previous versions and we put a lot of wor
 
 Moreover we added default aria-labels to all elements on the pane and made them configurable with new `ariaLabel` options for nodes and edges. You can refer to the new [Accessibility guide](/docs/guides/accessibility) for more information.
 
-### Edge Routing and Selection
+### Edge Routing and Edge Selection
 
 Whereas in v10, the nodes were a bit more in the spotlight, this time we've put a special focus on the edges. A lot of people complained that thin edges are hard to select. We've fixed that by introducing a new [`interactionWidth` edge option](http://localhost:3000/docs/api/edges/edge-options/#options). Its default value is 20, meaning that a 20px wide invisible edge gets painted below the visible edge for an easier interaction.
 
@@ -76,13 +76,7 @@ Furthermore we've implemented a [`useNodesInitialized` hook](/docs/api/hooks/use
 
 ### New Hooks
 
-In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ 😵‍💫). One idea is to replace some props through hooks. With this release we are adding the `useOnViewportChange` and the `useOnSelectionChange` hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
-
-### Stability
-
-The new monorepo setup helps us to organize the code in separate packages and gives us the opportunity to publish packages that are not part of the main `reactflow` package.
-
-We could close xxx issues on Github and wrote tons of tests cases. We are not only using e2e tests anymore but also doing component tests, too.
+In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ 😵‍💫). One idea is to replace some props through hooks. With this release we are adding the [`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) and the [`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
 
 ### Miscellaneous
 
