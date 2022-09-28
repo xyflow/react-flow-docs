@@ -3,7 +3,11 @@ title: Accessibility
 sidebar_position: 10
 ---
 
-A flow is accessible with a keyboard and readable by a screenreader. Nodes and edges are focusable, selectable, moveable and deleteable with the keyboard. If you have any ideas how we can make a flow better accessible by default, please [contact us](https://pro.reactflow.dev/contact).
+A flow is accessible with a keyboard and readable by a screenreader. Nodes and edges are focusable, selectable, moveable and deleteable with the keyboard.
+
+:::info
+If you have an idea how we can improve the accessibility of React Flow, please feel free to [contact us](https://pro.reactflow.dev/contact).
+:::
 
 ## Built-in Features
 
@@ -31,5 +35,5 @@ All features above can be disabled with the `disableKeyboardA11y` prop
 ## Better accessible node-based UIs
 
 - When your nodes don't have textual content, you should provide an aria-label via the node options.
-- You can improve the default `aria-label` ('from source.id to target.id') of an edge, when your nodes have names that you could use by passing specific aria-lables to the edges.
-- follow best [practise WAI-ARIA guides](https://w3c.github.io/aria-practices/) for your application
+- You can improve the default `aria-label` ('from source.id to target.id') of an edge, when your nodes have names that you could use by passing specific aria-labels to the edges.
+- follow best [practice WAI-ARIA guides](https://w3c.github.io/aria-practices/) in your application

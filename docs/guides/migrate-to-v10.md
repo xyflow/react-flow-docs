@@ -1,6 +1,6 @@
 ---
 title: Migrate to v10
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 Welcome to React Flow v10! With the major version update, there are coming many new features but also some breaking changes.

@@ -1,6 +1,6 @@
 ---
 title: Migrate to v11
-sidebar_position: 9
+sidebar_position: 8
 ---
 
 A lot changed in v11 but this time we've tried to keep the breaking changes small. The biggest change is the new package name `reactflow` and the new repo structure. React Flow is now managed as a monorepo and separated into multiple pacakges that can also be installed separately. In addition to that, there are some API changes and new APIs introduced in v11. This guide explains the changes in detail and helps you to migrate from v10 to v11.

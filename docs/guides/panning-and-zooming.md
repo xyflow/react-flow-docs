@@ -3,7 +3,7 @@ title: Panning and Zooming
 sidebar_position: 4
 ---
 
-The default pan and zoom behaviour of React Flow feels like a web map. You pan by dragging and zoom by scrolling. You can customize this behaviour easily with the provided props:
+The default pan and zoom behaviour of React Flow is inspired by [Slippy Maps](https://wiki.openstreetmap.org/wiki/Slippy_map). You pan by dragging and zoom by scrolling. You can customize this behaviour easily with the provided props:
 
 - `panOnDrag`: default: `true`
 - `panOnScroll`: default: `false` (Overwrites `zoomOnScroll`)

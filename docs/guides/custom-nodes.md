@@ -62,7 +62,7 @@ const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapConten
 
 ## Using Multiple Handles
 
-As you can see we added two source handles to the node so that it has two outputs. If you want to connect other nodes with these specific handles, the node id is not enough but you also need to pass the specific handle id. In this case one handle has the id `"a"` and the other one `"b"`. Handle specific edges use the `sourceHandle` or `targetHandle` options:
+As you can see we added two source handles to the node so that it has two outputs. If you want to connect other nodes with these specific handles, the node id is not enough but you also need to pass the specific handle id. In this case one handle has the id `"a"` and the other one `"b"`. Handle specific edges use the `sourceHandle` or `targetHandle` options that reference a handle within a node:
 
 ```js
 const initialEdges = [

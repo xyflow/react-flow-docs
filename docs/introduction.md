@@ -25,7 +25,7 @@ If you want to migrate to v11 you can check out the ["Migrate to v11 Guide"](/do
 
 ## Legacy Docs
 
-If you are looking for the old docs, you can find here:
+If you are looking for the old docs, you can find them here:
 
 - [React Flow v9 site](https://v9.reactflow.dev)
 - [React Flow v10 site](https://v10.reactflow.dev)
