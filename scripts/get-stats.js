@@ -7,8 +7,8 @@ const NPM_API_URL = 'https://api.npmjs.org/downloads/point/last-week/react-flow-
 const OUTPUT_PATH = path.resolve(__dirname, '../static/data/stats.json');
 
 const defaultStats = {
-  stars: 10000,
-  downloads: 3500000,
+  stars: 12037,
+  downloads: 159000,
 };
 
 const fetchJSON = async function (url) {
