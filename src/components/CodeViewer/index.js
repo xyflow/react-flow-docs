@@ -26,7 +26,7 @@ html, body, #root {
 
 const defaultSetup = {
   dependencies: {
-    reactflow: 'next',
+    reactflow: '11.0.0',
   },
 };
 

@@ -130,7 +130,7 @@ a.navbar__brand:hover {
 }
 
 .navbar.navbar--fixed-top {
-  z-index: 999999;
+  z-index: 100;
 }
 
 .navbar__item {
