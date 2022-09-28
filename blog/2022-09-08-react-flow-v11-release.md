@@ -64,7 +64,7 @@ Whereas in v10, the nodes were a bit more in the spotlight, this time we've put 
 
 Another big update is a complete rewrite of the edge routing for `smoothstep` and `step` edge types.
 
-<Image img={require('/img/blog/v11/ReactFlow-EdgeRoutingv10vsv11.png')} />
+<Image img={require('/img/blog/v11/rf-edge-routing.png')} />
 
 That's not all. We also revised the edge [update behaviour](https://twitter.com/reactflowdev/status/1564966917517021184), added [`pathOptions`](/docs/api/edges/edge-options/#options) for `default` and `smoothstep` edges and a new `deletable` flag. For making it easier to develop custom edges we are exporting a [`<BaseEdge />` component](/docs/api/edges/base-edge/) that can draw the invisible helper edge and the label for you.
 
