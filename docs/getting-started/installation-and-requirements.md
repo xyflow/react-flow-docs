@@ -35,6 +35,13 @@ pnpm add reactflow
   </TabItem>
 </Tabs>
 
+Now you can import the React Flow component and the styles in your application:
+
+```js
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+```
+
 ## Prior Experience Needed
 
 React Flow is a React library. That means React developers will feel comfortable using it. If basic React terms and concepts like states, props, components, and hooks are unfamiliar to you, you might need to learn more about React before being able to use React Flow fully. If you’ve never used React before, we recommend first getting to start on React through tutorials like [Codecademy](https://www.notion.so/John-s-Guide-to-React-Flow-b7a435289bed481f8c73f9a4e112b8d6) or [Reactjs.org](https://reactjs.org/tutorial/tutorial.html).

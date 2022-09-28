@@ -6,6 +6,7 @@ import ReactFlow, {
   useReactFlow,
   ReactFlowProvider,
 } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import './index.css';
 
@@ -37,7 +38,7 @@ const AddNodeOnEdgeDrop = () => {
     connectingNodeId.current = nodeId;
   }, []);
 
-  const onConnectStop = useCallback(
+  const onConnectEnd = useCallback(
     (event) => {
       const targetIsPane = event.target.classList.contains('react-flow__pane');
 
@@ -68,7 +69,7 @@ const AddNodeOnEdgeDrop = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onConnectStart={onConnectStart}
-        onConnectStop={onConnectStop}
+        onConnectEnd={onConnectEnd}
         fitView
         fitViewOptions={fitViewOptions}
       />

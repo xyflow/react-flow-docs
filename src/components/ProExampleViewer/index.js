@@ -24,20 +24,7 @@ export default function ProExampleViewer({ slug }) {
   };
 
   return (
-    <Box minHeight={860} position="relative">
-      {isLoading && (
-        <Flex
-          background="rgba(255, 255, 255, 0.95)"
-          zIndex={1000}
-          width="100%"
-          height="100%"
-          position="absolute"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Spinner size="xl" color="pink.500" />
-        </Flex>
-      )}
+    <Box>
       <Alert status="info" mb={6} bg="#ff0072" color="white">
         <AlertIcon sx={{ path: { fill: 'white' } }} />
         This is a pro example. If you are subscribed you can access the annotated source code on the{' '}
@@ -54,7 +41,22 @@ export default function ProExampleViewer({ slug }) {
         </Button>
       </Alert>
 
-      <IFrame onLoad={onLoad} src={iframeSrc} />
+      <Box minHeight={860} position="relative">
+        {isLoading && (
+          <Flex
+            background="rgba(255, 255, 255, 0.95)"
+            zIndex={1000}
+            width="100%"
+            height="100%"
+            position="absolute"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Spinner size="xl" color="pink.500" />
+          </Flex>
+        )}
+        <IFrame onLoad={onLoad} src={iframeSrc} />
+      </Box>
     </Box>
   );
 }
