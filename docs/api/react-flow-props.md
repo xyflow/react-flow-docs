@@ -101,10 +101,10 @@ import keys from '../../docs-data/react-flow-props/keys';
 
 <PropItems props={keys} />
 
-## Pro
+## Pro Options
 
 :::info
-If you are here because of the attribution, please refer to our [Remove Attribution](/docs/guides/remove-attribution) guide.
+These options are only intended for subscribers of [React Flow Pro](https://pro.reactflow.dev). If you’re considering removing the attribution, please make sure to read our [Remove Attribution](/docs/guides/remove-attribution) guide first.
 :::
 
 import pro from '../../docs-data/react-flow-props/pro';

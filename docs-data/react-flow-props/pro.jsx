@@ -6,7 +6,15 @@ const props = [
     name: 'proOptions',
     type: 'object',
     default: 'undefined',
-    description: <>This object contains options that are intended for pro subscribers</>,
+    description: (
+      <>
+        This object contains options that are only intended for subscribers of{' '}
+        <a href="https://pro.reactflow.dev" target="_blank">
+          React Flow Pro
+        </a>
+        .
+      </>
+    ),
   },
   {
     name: 'proOptions.hideAttribution',
@@ -14,8 +22,9 @@ const props = [
     default: 'false',
     description: (
       <>
-        Set this to true to remove the attribution from the React Flow renderer. Please read our
-        <Link to="/docs/guides/remove-attribution">Attribution Guide</Link> before doing that
+        This flag removes the attribution from the React Flow renderer. If you’re considering
+        removing the attribution please make sure to read the{' '}
+        <Link to="/docs/guides/remove-attribution">Remove Attribution Guide</Link> first.
       </>
     ),
   },
