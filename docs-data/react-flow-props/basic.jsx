@@ -59,24 +59,36 @@ const props = [
     ),
   },
   {
-    name: 'onNodesChange(nodeChanges)',
-    type: 'function',
+    name: 'onNodesChange',
+    type: (
+      <>
+        (nodeChanges: <Link to="/docs/api/types/#nodechange">NodeChange</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description:
       'Called on drag, select and remove - handler for adding interactivity for a controlled flow',
   },
   {
-    name: 'onEdgesChange(edgeChanges)',
-    type: 'function',
+    name: 'onEdgesChange',
+    type: (
+      <>
+        (edgeChanges: <Link to="/docs/api/types/#edgechange">EdgeChange</Link>[]) =&gt; void
+      </>
+    ),
     default: 'undefined',
     description:
       'Called on select and remove - handler for adding interactivity for a controlled flow',
   },
   {
-    name: 'onConnect({ source, target }: Connection)',
-    type: 'function',
+    name: 'onConnect',
+    type: (
+      <>
+        (connection: <Link to="/docs/api/types/#connection">Connection</Link>) =&gt; void
+      </>
+    ),
     default: 'undefined',
-    description: 'Called when user connects two nodes in a controlled',
+    description: 'Called when user connects two nodes in a controlled flow',
   },
   {
     name: 'nodeTypes',
