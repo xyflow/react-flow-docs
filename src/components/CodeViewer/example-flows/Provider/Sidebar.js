@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useStore } from 'react-flow-renderer';
+import { useStore } from 'reactflow';
 
 const transformSelector = (state) => state.transform;
 
@@ -18,7 +18,8 @@ export default ({ nodes, setNodes }) => {
   return (
     <aside>
       <div className="description">
-        This is an example of how you can access the internal state outside of the ReactFlow component.
+        This is an example of how you can access the internal state outside of the ReactFlow
+        component.
       </div>
       <div className="title">Zoom & pan transform</div>
       <div className="transform">

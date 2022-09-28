@@ -1,5 +1,4 @@
-import { Position } from 'react-flow-renderer';
-import { internalsSymbol } from 'react-flow-renderer';
+import { Position, internalsSymbol } from 'reactflow';
 
 // returns the position (top,right,bottom or right) passed node compared to
 function getParams(nodeA, nodeB) {

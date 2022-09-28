@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactFlow, { Background } from 'react-flow-renderer';
+import ReactFlow, { Background } from 'reactflow';
 
 import { colors } from '../../theme/themes';
 

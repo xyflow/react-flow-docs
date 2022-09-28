@@ -5,7 +5,8 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   Controls,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import Sidebar from './Sidebar.js';
 

@@ -13,8 +13,8 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 
 ### Usage
 
-```javascript
-import ReactFlow, { useNodes } from 'react-flow-renderer';
+```js
+import ReactFlow, { useNodes } from 'reactflow';
 
 function NodesLogger() {
   const nodes = useNodes();

@@ -18,21 +18,19 @@ import ReactFlow, {
   Edge,
   NodeChange,
   EdgeChange,
-  Connection
-} from 'react-flow-renderer';
+  Connection,
+} from 'reactflow';
 
 const initialNodes: Node[] = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 5, y: 5 } },
   { id: '2', data: { label: 'Node 2' }, position: { x: 5, y: 100 } },
 ];
 
-const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2'},
-];
+const initialEdges: Edge[] = [{ id: 'e1-2', source: '1', target: '2' }];
 
 const fitViewOptions: FitViewOptions = {
-  padding: 0.2
-}
+  padding: 0.2,
+};
 
 function Flow() {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
@@ -61,7 +59,7 @@ function Flow() {
       fitView
       fitViewOptions={fitViewOptions}
     />
-  )
+  );
 }
 ```
 
@@ -70,7 +68,7 @@ function Flow() {
 When you are working with [custom nodes](/docs/api/nodes/custom-nodes) you can define the data type by passsing a parameter:
 
 ```ts
-import { Node } from 'react-flow-renderer';
+import { Node } from 'reactflow';
 
 type NodeData = {
   value: number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import ReactFlowRenderer, { Background } from 'react-flow-renderer';
+import ReactFlowRenderer, { Background } from 'reactflow';
 import { rgba } from '../../utils/css-utils';
 
 const ReactFlow = styled(ReactFlowRenderer)`

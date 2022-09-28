@@ -17,7 +17,8 @@ This usually happens when you are trying to access the internal React Flow state
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
 
 function FlowWithoutProvider(props) {
   // cannot access the state here
@@ -35,7 +36,8 @@ export default FlowWithoutProvider;
 </Alert>
 
 ```jsx
-import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 function Flow(props) {
   // still cannot access the state here
@@ -60,7 +62,8 @@ export default FlowWithProvider;
 As soon as you want to access the internal state of React Flow (for example by using the `useReactFlow` hook), you need to wrap your component with a `<ReactFlowProvider />`. Here the wrapping is done outside of the component:
 
 ```jsx
-import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 function Flow(props) {
   // you can access the internal state here
@@ -91,7 +94,9 @@ This warning appears when the `nodeTypes` or `edgeTypes` properties change after
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
 import MyCustomNode from './MyCustomNode';
 
 function Flow(props) {
@@ -113,7 +118,7 @@ export default Flow;
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
 import MyCustomNode from './MyCustomNode';
 
 // defined outside of the component
@@ -137,7 +142,9 @@ You can use this if you want to change your nodeTypes dynamically without causin
 
 ```jsx
 import { useMemo } from 'react';
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
 import MyCustomNode from './MyCustomNode';
 
 function Flow(props) {
@@ -164,7 +171,9 @@ This usually happens when you are specifying a custom node type for one of your 
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
 import MyCustomNode from './MyCustomNode';
 
 const nodes = [
@@ -187,7 +196,9 @@ function Flow(props) {
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
 import MyCustomNode from './MyCustomNode';
 
 const nodes = [
@@ -214,7 +225,9 @@ function Flow(props) {
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
+
 import MyCustomNode from './MyCustomNode';
 
 const nodes = [
@@ -244,7 +257,8 @@ Under the hood, React Flow measures the parent DOM element to adjust the rendere
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
 
 function Flow(props) {
   return (
@@ -261,7 +275,7 @@ function Flow(props) {
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
 
 function Flow(props) {
   return (
@@ -282,7 +296,8 @@ This warning appears when you are trying to add the `extent` option to a node th
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
 
 const nodes = [
   {
@@ -302,7 +317,7 @@ function Flow(props) {
   <AlertTitle>Warning resolved:</AlertTitle>
 </Alert>
 
-```jsx import ReactFlow from 'react-flow-renderer';
+```jsx import ReactFlow from 'reactflow';
 const nodes = [
   {
     id: 'mycustomnode',
@@ -327,7 +342,8 @@ This happens when you do not pass a `source` and a `target` option to the edge o
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
+import 'reactflow/dist/style.css';
 
 const nodes = [
   /* ... */
@@ -351,7 +367,7 @@ function Flow(props) {
 </Alert>
 
 ```jsx
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'reactflow';
 
 const nodes = [
   /* ... */

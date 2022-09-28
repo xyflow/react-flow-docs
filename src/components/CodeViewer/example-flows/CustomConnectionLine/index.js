@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, Background } from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Background } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import ConnectionLine from './ConnectionLine';
 

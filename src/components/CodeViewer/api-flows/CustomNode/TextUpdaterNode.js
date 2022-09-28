@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Handle, Position } from 'react-flow-renderer';
+import { Handle, Position } from 'reactflow';
 
 const handleStyle = { left: 10 };
 

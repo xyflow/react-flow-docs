@@ -1,9 +1,9 @@
 ---
 title: Migrate to v10
-sidebar_position: 8
+sidebar_position: 9
 ---
 
-Welcome to React Flow v10! With the latest major version update, there are coming many new features but also some breaking changes.
+Welcome to React Flow v10! With the major version update, there are coming many new features but also some breaking changes.
 
 ## New Features
 
@@ -21,7 +21,7 @@ Welcome to React Flow v10! With the latest major version update, there are comin
 
 TLDR:
 
-- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/getting-started/core-concepts))
+- Split the `elements` array into `nodes` and `edges` arrays and implement `onNodesChange` and `onEdgesChange` handlers (detailed guide in the [core concepts section](/docs/overview/core-concepts))
 - Memoize your custom `nodeTypes` and `edgeTypes`
 - Rename `onLoad` to `onInit`
 - Rename `paneMoveable` to `panOnDrag`

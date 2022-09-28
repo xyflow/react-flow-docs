@@ -3,6 +3,8 @@ title: Edge Options
 sidebar_position: 1
 ---
 
+import PropItems from '../../../src/components/Docs/PropItems'
+
 You create edges by adding them to your `edges` or `defaultEdges` array of the `ReactFlow` component.
 
 Edge example:
@@ -22,33 +24,15 @@ If you wanted to display this edge, you would need a node with id = 1 (source no
 
 ## Options
 
-| Name                    | Type                                                                               | Description                                                                                                                       |
-| ----------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `id` **(required)**     | `string`                                                                           | Unique identifier                                                                                                                 |
-| `source` **(required)** | `string`                                                                           | Id of the source node                                                                                                             |
-| `target` **(required)** | `string`                                                                           | Id of the target node                                                                                                             |
-| `sourceHandle`          | `string`                                                                           | You only need this when you have multiple handles                                                                                 |
-| `targetHandle`          | `string`                                                                           | You only need this when you have multiple handles                                                                                 |
-| `type`                  | `'default'` (bezier), `'step'`, `'smoothstep'` or `'straight'` + your custom types |                                                                                                                                   |
-| `animated`              | `boolean`                                                                          |                                                                                                                                   |
-| `data`                  | `object`                                                                           | Can be used to pass data to your custom edge                                                                                      |
-| `selected`              | `boolean`                                                                          |  if `true`, the edge is selected                                                                                                  |
-| `hidden`                | `boolean`                                                                          |  if `true`, the edge will not be rendered                                                                                         |
-| `label`                 | `string`                                                                           | If this is set, the edge has a label at its center                                                                                |
-| `labelStyle`            | `SVGProperties`                                                                    | Attributes for the edge label                                                                                                     |
-| `labelShowBg`           | `boolean`                                                                          | If `true` the label has a background                                                                                              |
-| `labelBgStyle`          | `SVGProperties`                                                                    |                                                                                                                                   |
-| `labelBgPadding`        | `number`                                                                           | )                                                                                                                                 |
-| `labelBgBorderRadius`   | `number`                                                                           | This is `2` by default                                                                                                            |
-| `markerStart`           | `string` or `object`                                                               | string (id for a svg marker that you need to define yourself) or a [marker configuration object](#markerstart--markerend-options) |
-| `markerEnd`             | `string` or `object`                                                               | string (id for a svg marker that you need to define yourself) or a [marker configuration object](#markerstart--markerend-options) |
-| `style`                 | `CSSProperties`                                                                    |                                                                                                                                   |
-| `className`             | `string`                                                                           |                                                                                                                                   |
-| `zIndex`                | `number`, default: `0`                                                             | controls the layer order of the edges                                                                                             |
+import options from '../../../docs-data/edge-options';
+
+<PropItems props={options} />
+
+<div style={{ marginBottom: 20 }} />
 
 You can find an example with different edges in the [edge types example](/docs/examples/edges/edge-types).
 
-### `markerStart` / `markerEnd` options
+## `markerStart` / `markerEnd` options
 
 - `type`: string: default `'arrow'` or `'arrowclosed'`
 - `color`: arrow fill color (optional)
@@ -58,3 +42,68 @@ You can find an example with different edges in the [edge types example](/docs/e
 - `orient`: defines rotation - `'auto'` | `'auto-start-reverse'` | `number` (optional)
 - `strokeWidth`
 
+## Typescript
+
+### Edge
+
+A edge uses the `Edge` type:
+
+```ts
+type Edge<T = any> = {
+  id: string;
+  type?: string;
+  source: string;
+  target: string;
+  sourceHandle?: string | null;
+  targetHandle?: string | null;
+  label?: string | ReactNode;
+  labelStyle?: CSSProperties;
+  labelShowBg?: boolean;
+  labelBgStyle?: CSSProperties;
+  labelBgPadding?: [number, number];
+  labelBgBorderRadius?: number;
+  style?: CSSProperties;
+  animated?: boolean;
+  hidden?: boolean;
+  deletable?: boolean;
+  data?: T;
+  className?: string;
+  sourceNode?: Node;
+  targetNode?: Node;
+  selected?: boolean;
+  markerStart?: EdgeMarkerType;
+  markerEnd?: EdgeMarkerType;
+  zIndex?: number;
+  ariaLabel?: string;
+  interactionWidth?: number;
+};
+```
+
+### EdgeMarker
+
+```ts
+type EdgeMarker {
+  type: MarkerType; // 'arrow' or 'arrowclosed'
+  color?: string; // arrow fill color
+  width?: number;
+  height?: number;
+  markerUnits?: string; // defines the coordinate system https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerUnits
+  orient?: string; // defines rotation - 'auto' | 'auto-start-reverse' | number
+  strokeWidth?: number;
+}
+```
+
+### EdgeMarkerType
+
+```ts
+type EdgeMarkerType = string | EdgeMarker;
+```
+
+### MarkerType
+
+```ts
+enum MarkerType {
+  Arrow = 'arrow',
+  ArrowClosed = 'arrowclosed',
+}
+```

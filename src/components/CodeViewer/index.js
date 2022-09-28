@@ -26,7 +26,7 @@ html, body, #root {
 
 const defaultSetup = {
   dependencies: {
-    'react-flow-renderer': 'latest',
+    reactflow: 'next',
   },
 };
 

@@ -1,5 +1,5 @@
-import { RadioGroup, Radio, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
+import { RadioGroup, Radio, Stack, Text } from '@chakra-ui/react';
 
 import Handle from './Handle';
 import Wrapper from './NodeWrapper';

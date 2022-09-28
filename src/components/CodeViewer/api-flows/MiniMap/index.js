@@ -1,4 +1,5 @@
-import ReactFlow, { MiniMap } from 'react-flow-renderer';
+import ReactFlow, { MiniMap } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import defaultNodes from './nodes.js';
 import defaultEdges from './edges.js';

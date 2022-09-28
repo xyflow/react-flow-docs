@@ -3,82 +3,81 @@ title: Graph Util Functions
 sidebar_position: 4
 ---
 
+import Link from '@docusaurus/Link';
+import PropItem from '../../src/components/Docs/PropItem'
+
 If you are working with a controlled flow and you want to apply the changes to select, drag or remove a node or edge or if you want to connect two nodes with each other you need to pass the `onNodesChange`/ `onEdgesChange` and `onConnect` handlers. In order to simplify this process there are some helper functions you can use:
 
 ```javascript
-import ReactFlow, {
-  isNode,
-  isEdge,
-  applyNodeChanges,
-  applyEdgeChanges,
-  addEdge,
-} from 'react-flow-renderer';
+import ReactFlow, { isNode, isEdge, applyNodeChanges, applyEdgeChanges, addEdge } from 'reactflow';
 ```
 
 ### `isEdge`
 
-Returns `true` if the passed element is an edge.
-
-`isEdge(item: any): element is Edge`
+<PropItem description={<>Returns <code>true</code> if the passed element is an edge</>} type={<>
+(item: any) => element is <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>
+</>} />
 
 ### `isNode`
 
-Returns `true` if the passed element is a node.
-
-`isNode(item: any): element is Node`
+<PropItem description={<>Returns <code>true</code> if the passed element is a node</>} type={<>
+(item: any) => element is <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>
+</>} />
 
 ### `applyNodeChanges`
 
-Returns an array of nodes with the applied changes.
-
-`applyNodeChanges(changes: NodeChange[], nodes: Node[]): Node[]`
+<PropItem description={<>Returns an array of nodes with the applied changes</>} type={<>
+(changes: <Link to="/docs/api/types/#nodechange">NodeChange</Link>[], nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+</>} />
 
 ### `applyEdgeChanges`
 
-Returns an array of edges with the applied changes.
-
-`applyEdgeChanges(changes: EdgeChange[], edges: Edge[]): Edge[]`
+<PropItem description={<>Returns an array of edges with the applied changes</>} type={<>
+(changes: <Link to="/docs/api/types/#edgechange">EdgeChange</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+</>} />
 
 ### `addEdge`
 
-Returns an array of edges with the added edge.
-
-`addEdge(edgeParams: Edge, edges: Edge[]): Edge[]`
+<PropItem description="Returns an array of edges with the added edge" type={<>
+(edgeParams: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>, edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]): <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+</>} />
 
 ### `updateEdge`
 
-Can be used as a helper for `onEdgeUpdate`. Returns the edges with the updated edge.
-
-`updateEdge(oldEdge: Edge, newConnection: Connection, edges: Edge[])`
+<PropItem description={<>Can be used as a helper for <code>onEdgeUpdate</code>. Returns the edges with the updated edge</>} type={<>
+(oldEdge: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>, newConnection: <Link to="/docs/api/types/#connection">Connection</Link>, edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => void
+</>} />
 
 ### `getOutgoers`
 
-Returns all direct child nodes of the passed node.
-
-`getOutgoers(node: Node, nodes: Node[], edges: Edge[]): Node[]`
+<PropItem description="Returns all direct child nodes of the passed node" type={<>
+(node: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+</>} />
 
 ### `getIncomers`
 
-Returns all direct incoming nodes of the passed node.
-
-`getIncomers(node: Node, nodes: Node[], edges: Edge[]): Node[]`
+<PropItem description="Returns all direct incoming nodes of the passed node" type={<>
+(node: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>, nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+</>} />
 
 ### `getConnectedEdges`
 
-Returns all edges that are connected to the passed nodes.
+<PropItem description="Returns all edges that are connected to the passed nodes" type={<>
+(nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+</>} />
 
-`getConnectedEdges(nodes: Node[], edges: Edge[]): Edge[]`
+<div style={{ marginBottom: 15 }}/>
 
 You can use these function as seen in [this example](https://github.com/wbkd/react-flow/blob/main/example/src/Overview/index.tsx#L100) or use your own ones.
 
 ### `getTransformForBounds`
 
-Returns the transform (`[number, number, number]`/ `[x, y, zoom]`) for the passed params.
-
-`getTransformForBounds = (bounds: Rect, width: number, height: number, minZoom: number, maxZoom: number, padding: number = 0.1): Transform`
+<PropItem description={<>Returns the <Link to="/docs/api/types/#transform">Transform</Link> (<code>[x, y, zoom]</code>) for the passed params</>} type={<>
+(bounds: <Link to="/docs/api/types/#rect">Rect</Link>, width: number, height: number, minZoom: number, maxZoom: number, padding: number = 0.1) => <Link to="/docs/api/types/#transform">Transform</Link>
+</>} />
 
 ### `getRectOfNodes`
 
-Returns the rect (`{ x: number, y: number, width: number, height: number }`) for the passed nodes array.
-
-`getRectOfNodes = (nodes: Node[]): Rect`
+<PropItem description={<>Returns the <Link to="/docs/api/types/#rect">rect</Link> (<code>&#123; x: number, y: number, width: number, height: number &#125;</code>) for the passed nodes array</>} type={<>
+(nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) => <Link to="/docs/api/types/#rect">Rect</Link>
+</>} />

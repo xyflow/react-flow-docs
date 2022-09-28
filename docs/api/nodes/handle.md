@@ -3,10 +3,12 @@ title: Handle
 sidebar_position: 4
 ---
 
+import PropItems from '../../../src/components/Docs/PropItems'
+
 We export a `Handle` component as a helper for your custom nodes:
 
 ```js
-import { Handle } from 'react-flow-renderer';
+import { Handle } from 'reactflow';
 
 const targetHandleWithValidation = (
   <Handle
@@ -21,18 +23,15 @@ const targetHandleWithValidation = (
 
 ### Prop Types
 
-| Name                | Type                                       | Default                                             | Description                                                                                                                                                                         |
-| ------------------- | ------------------------------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`              | `'source'` or `'target'`                   | `'source'`                                          | Defines the handle type                                                                                                                                                             |
-| `id`                | `string`                                   | `undefined`                                         | You only need this when you have multiple source or target handles (otherwise the node id is used)                                                                                  |
-| `position`          | `'left'`, `'right'`, `'top'` or `'bottom'` | `'top'` for type target, `'bottom'` for type source | Handle position                                                                                                                                                                     |
-| `onConnect`         | `function`                                 | `undefined`                                         | Gets triggered on connect. This callback only gets executed on source handles.                                                                                                      |
-| `isValidConnection` | `function`                                 | `undefined`                                         | Receives a connection `{ target: 'some-id', source: 'another-id', sourceHandle: 'source handle id or null', targetHandle: 'target handle id or null' }` as param, returns a boolean |
-| `isConnectable`     | `boolean`                                  | `true`                                              | boolean (this prop gets passed to your custom node component)                                                                                                                       |
-| `style`             | `CSSProperties`                            | `undefined`                                         | Controls style attributes                                                                                                                                                           |
-| `className`         | `string`                                   | `undefined`                                         | Additional class name                                                                                                                                                               |
+import handleProps from '../../../docs-data/handle';
 
-**Typescript:** The interface of the Handle Prop Types are exported as `HandleComponentProps`.
+<PropItems props={handleProps} />
+
+<div style={{ marginBottom: 20 }} />
+
+### Typescript
+
+The interface of the Handle Prop Types are exported as `HandleComponentProps`.
 
 ### Validation
 

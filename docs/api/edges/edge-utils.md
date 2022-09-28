@@ -3,122 +3,96 @@ title: Edge Utils
 sidebar_position: 5
 ---
 
+import Link from '@docusaurus/Link';
+import PropItem from '../../../src/components/Docs/PropItem'
+
 There are several utils that help you to create a custom edge. Some are used in the [custom edge example](/docs/examples/edges/custom-edge).
 
 ### `getBezierPath`
 
-Returns the path of a bezier edge.
-
-```
-import { getBezierPath } from 'react-flow-renderer';
-
-getBezierPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetBezierPathParams): string
-```
-
-### `getSmoothStepPath`
-
-Returns the path of a smooth step edge. You can set `borderRadius` = `0` to get a step edge path.
-
-```
-import { getSmoothStepPath } from 'react-flow-renderer';
-
-getSmoothStepPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  borderRadius = 5, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetSmoothStepPathParams): string
-```
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
+</>} />
 
 ### `getSimpleBezierPath`
 
-Returns the path of a simple bezier edge.
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a simple bezier edge</>} type={<>
+(params: <Link to="#getbezierpathparams">GetBezierPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
+</>} />
 
-```
-import { getSimpleBezierPath } from 'react-flow-renderer';
+### `getSmoothStepPath`
 
-getSimpleBezierPath({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom, // optional
-  targetX,
-  targetY,
-  targetPosition = Position.Top, // optional
-  centerX, // optional
-  centerY, // optional
-}: GetBezierPathParams): string
-```
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a smooth step edge. You can set <code>borderRadius = 0</code> to get a step edge path</>} type={<>
+(params: <Link to="#getsmoothsteppathparams">GetSmoothStepPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
+</>} />
 
-### `getEdgeCenter`
+### `getStraightPath`
 
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of the edge.
-
-```
-import { getEdgeCenter } from 'react-flow-renderer';
-
-getEdgeCenter({
-  sourceX,
-  sourceY,
-  targetX,
-  targetY
-}: GetCenterParams): [number, number, number, number]
-```
-
-### `getBezierEdgeCenter`
-
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a bezier edge.
-
-```
-import { getBezierEdgeCenter } from 'react-flow-renderer';
-
-getBezierEdgeCenter({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom,
-  targetX,
-  targetY,
-  targetPosition = Position.Top,
-  curvature = 0.25,
-}: GetCenterParams): [number, number, number, number]
-```
-
-### `getSimpleBezierEdgeCenter`
-
-Returns the center position and offset `[centerX, centerY, offsetX, offsetY]` of a `simplebezier` edge.
-
-```
-import { getSimpleBezierEdgeCenter } from 'react-flow-renderer';
-
-getSimpleBezierEdgeCenter({
-  sourceX,
-  sourceY,
-  sourcePosition = Position.Bottom,
-  targetX,
-  targetY,
-  targetPosition = Position.Top,
-}: GetCenterParams): [number, number, number, number]
-```
+<PropItem description={<>Returns the <code>path</code>, <code>labelX</code>, <code>labelY</code>, <code>offsetX</code> and <code>offsetY</code> of a simple bezier edge</>} type={<>
+(params: <Link to="#getstraightpathparams">GetStraightPathParams</Link>) => [path: string, labelX: number, labelY: number, offsetX: number, offsetY: number]
+</>} />
 
 ### `getMarkerEnd`
 
-Returns the marker end url for displaying the arrow head.
+<PropItem description={<>Returns the marker end url for displaying the arrow head</>} type={<>
+(markerType?: <Link to="/docs/api/edges/edge-options/#markertype">MarkerType</Link>, markerEndId?: string) => string
+</>} />
 
+## Typescript
+
+### `GetBezierPathParams`
+
+```ts
+type GetBezierPathParams = {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+  curvature?: number;
+};
 ```
-import { getMarkerEnd } from 'react-flow-renderer';
 
-getMarkerEnd(arrowHeadType?: ArrowHeadType, markerEndId?: string): string
+### `GetSimpleBezierPathParams`
+
+```ts
+type GetSimpleBezierPathParams {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+}
+```
+
+### `GetSmoothStepPathParams`
+
+```ts
+type GetSmoothStepPathParams = {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+  borderRadius?: number;
+  centerX?: number;
+  centerY?: number;
+  offset?: number;
+};
+```
+
+### `GetStraightPathParams`
+
+```ts
+type GetStraightPathParams {
+  sourceX: number;
+  sourceY: number;
+  sourcePosition?: Position;
+  targetX: number;
+  targetY: number;
+  targetPosition?: Position;
+}
 ```

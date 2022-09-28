@@ -6,7 +6,8 @@ import ReactFlow, {
   MiniMap,
   Controls,
   Background,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import ButtonEdge from './ButtonEdge.js';
 

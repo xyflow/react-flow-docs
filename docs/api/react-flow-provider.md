@@ -10,7 +10,7 @@ You need to wrap your flow with a `ReactFlowProvider` if you:
 - need to **access the internal state and actions** in components that are no children of the `ReactFlow` component
 
 ```jsx
-import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider } from 'reactflow';
 
 const nodes = [{ id: 'node-1', position: { x: 0, y: 0 }, data: { label: 'node 1' } }];
 

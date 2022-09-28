@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import ColorSelectorNode from './ColorSelectorNode';
 
@@ -100,7 +101,8 @@ const CustomNodeFlow = () => {
   }, []);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, animated: true, style: { stroke: '#fff' } }, eds)),
+    (params) =>
+      setEdges((eds) => addEdge({ ...params, animated: true, style: { stroke: '#fff' } }, eds)),
     []
   );
   return (

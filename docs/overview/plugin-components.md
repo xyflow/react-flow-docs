@@ -1,13 +1,13 @@
 ---
 title: Plugin Components
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-React Flow comes with several additional plugin components. In this guide we show you how to use them. We are using our [previous example code](/docs/getting-started/core-concepts) here.
+React Flow comes with several additional plugin components. In this guide we show you how to use them. We are using our [previous example code](/docs/overview/core-concepts) here.
 
 ### MiniMap
 
-If your flow gets bigger, you might want to get an overview quickly. For this we are exporting the [`MiniMap` component](/docs/api/plugin-components/minimap). You can easily add it to your flow by adding it as a children:
+If your flow gets bigger, you might want to get an overview quickly. For this we have built the [`MiniMap` component](/docs/api/plugin-components/minimap). You can easily add it to your flow by adding it as a children:
 
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }

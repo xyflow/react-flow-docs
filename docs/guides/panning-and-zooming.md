@@ -3,7 +3,7 @@ title: Panning and Zooming
 sidebar_position: 4
 ---
 
-The default pan and zoom behaviour of React Flow feels like a web map. You pan by dragging and zoom by scrolling. You can customize this behaviour easily with the provided props:
+The default pan and zoom behaviour of React Flow is inspired by [Slippy Maps](https://wiki.openstreetmap.org/wiki/Slippy_map). You pan by dragging and zoom by scrolling. You can customize this behaviour easily with the provided props:
 
 - `panOnDrag`: default: `true`
 - `panOnScroll`: default: `false` (Overwrites `zoomOnScroll`)
@@ -16,7 +16,7 @@ The default pan and zoom behaviour of React Flow feels like a web map. You pan b
 If you prefer figma/sketch/design tool controls (panning = press space + drag or trackpad, zooming = cmd + scrolling) you can set `panOnScroll={true}` and `panOnDrag={keyCondition}`. In this example we are using the [`useKeyPress` hook](/docs/api/hooks/use-key-press) from React Flow in order to be able to drag the pane when the space key is pressed:
 
 ```jsx
-import ReactFlow, { useKeyPress } from 'react-flow-renderer';
+import ReactFlow, { useKeyPress } from 'reactflow';
 
 function Flow() {
   const spacePressed = useKeyPress('Space');

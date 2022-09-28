@@ -2,15 +2,13 @@
 slug: react-flow-v10
 title: Releasing React Flow 10 and React Flow Pro
 authors: ['moritz', 'christopher']
-tags: ['react-flow', 'announcement']
+tags: ['react-flow', 'release']
 hide_table_of_contents: true
 image: /img/blog/v10-header.png
 ---
 
-Almost two years ago we [open sourced React Flow](https://webkid.io/blog/react-flow-node-based-graph-library/) that was built for our flow-based data processing tool [Datablocks](https://datablocks.pro). Since then we invested more and more time in React Flow and it got a lot of traction (25k+ website visitors per month, 9k+ stars on Github, 1k+ Discord members, 100k+ weekly downloads on npm).
+Almost two years ago we [open sourced React Flow](https://webkid.io/blog/react-flow-node-based-graph-library/) that was built for our flow-based data processing tool [Datablocks](https://datablocks.pro). Since then we invested more and more time in React Flow and it got a lot of traction (25k+ website visitors per month, 9k+ stars on Github, 1k+ Discord members, 100k+ weekly downloads on npm). <!--truncate-->
 We are super happy about the progress and the community that has developed around React Flow. We think that the library has a lot of potential to solve problems that many developer teams face when building node-based editors.
-
-<!--truncate-->
 
 After several months of hard work, today we can finally announce the release of React Flow version 10. Together with the new library version, we are also releasing a fully revised documentation that is now powered by [Docusaurus](https://docusaurus.io/). Last but not least, we are releasing [React Flow Pro](https://pro.reactflow.dev/pricing), our new subscription model for React Flow which we want to establish to secure the further development and maintenance of the library. In this post we describe all the news around React Flow version 10. If you want to migrate from v9 to v10, please refer to the [migration guide](/docs/guides/migrate-to-v10).
 

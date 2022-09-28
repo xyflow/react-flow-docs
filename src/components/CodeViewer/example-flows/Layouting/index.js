@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'react-flow-renderer';
+import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'reactflow';
 import dagre from 'dagre';
+import 'reactflow/dist/style.css';
 
 import { initialNodes, initialEdges } from './nodes-edges.js';
 
@@ -54,7 +55,10 @@ const LayoutFlow = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds)),
+    (params) =>
+      setEdges((eds) =>
+        addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds)
+      ),
     []
   );
   const onLayout = useCallback(

@@ -6,7 +6,7 @@ sidebar_position: 4
 You can use the `EdgeText` as a helper component to display text within your custom edges.
 
 ```js
-import { EdgeText } from 'react-flow-renderer';
+import { EdgeText } from '@react-flow/core';
 
 <EdgeText
   x={100}

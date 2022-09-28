@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStoreApi, useReactFlow } from 'react-flow-renderer';
+import { useStoreApi, useReactFlow } from 'reactflow';
 
 export default () => {
   const store = useStoreApi();

@@ -3,12 +3,14 @@ title: <Background />
 sidebar_position: 1
 ---
 
-React Flow comes with two background variants: **dots** and **lines**. You can use it by passing it as a children to the `ReactFlow` component:
+import PropItems from '../../../src/components/Docs/PropItems'
+
+The Background component comes with three background variants: **dots**, **lines** and **cross**. You can use it by passing it as a children to the `ReactFlow` component.
 
 ### Usage
 
 ```jsx
-import ReactFlow, { Background } from 'react-flow-renderer';
+import ReactFlow, { Background } from 'reactflow';
 
 function FlowWithBackground() {
   return (
@@ -21,13 +23,14 @@ function FlowWithBackground() {
 
 ### Prop Types
 
-| Name        | Type              | Default     | Description                                         |
-| ----------- | ----------------- | ----------- | --------------------------------------------------- |
-| `variant`   | `'lines', 'dots'` | `'dots'`    | Background pattern type                             |
-| `gap`       | `number`          | `16`        | Gap between the patterns                            |
-| `size`      | `number`          | `0.5`       | Radius of the dots or the stroke width of the lines |
-| `color`     | `string`          | `#81818a`   | Pattern color                                       |
-| `style`     | `CSSProperties`   | `undefined` | Background style attributes                         |
-| `className` | `string`          | `undefined` | Additional class name                               |
+import options from '../../../docs-data/background';
 
-**Typescript:** The interface of the Background Prop Types are exported as `BackgroundProps`.
+<PropItems props={options} />
+
+### Typescript
+
+The type of the Background Prop Types are exported as `BackgroundProps`.
+
+### Npm Package
+
+The background component is published under `@reactflow/background` and can also be [installed and used separately](/docs/overview/packages/#reactflowbackground).

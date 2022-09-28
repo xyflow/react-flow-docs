@@ -5,7 +5,8 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   useReactFlow,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import './index.css';
 

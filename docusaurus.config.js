@@ -37,6 +37,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/wbkd/react-flow-docs/edit/main/blog/',
+          blogSidebarCount: 0,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -82,7 +83,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://pro.reactflow.dev/pricing',
+            href: 'https://pro.reactflow.dev',
             position: 'right',
             label: 'React Flow Pro',
             className: 'button__rfpro hide-svg-icon',
@@ -217,6 +218,14 @@ const config = {
           content: 'https://reactflow.dev/img/social/social.jpeg',
         },
       ],
+      announcementBar: {
+        id: 'v11',
+        content:
+          '👉 This is the site for the latest version of React Flow (v11). If you are looking for v10, please refer to the <a target="_blank" rel="noopener noreferrer" href="https://v10.reactflow.dev">v10 site</a>.',
+        backgroundColor: '#f5f5f5',
+        textColor: '#56595f',
+        isCloseable: false,
+      },
     }),
   trailingSlash: true,
 };

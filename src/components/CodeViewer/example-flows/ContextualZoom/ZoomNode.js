@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Handle, useStore } from 'react-flow-renderer';
+import { Handle, useStore } from 'reactflow';
 
 const Placeholder = () => (
   <div className="placeholder">

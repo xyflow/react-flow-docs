@@ -43,10 +43,12 @@
   font-display: auto;
 }
 
+@import 'reactflow/dist/style.css';
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #ff0072;
-  --ifm-color-primary-dark: #990044;
+  --ifm-color-primary-dark: #cc005b;
   --ifm-color-primary-darker: #66002e;
   --ifm-color-primary-darkest: #330017;
   --ifm-color-primary-light: #ff8abe;
@@ -75,17 +77,36 @@ html {
   padding: 0 var(--ifm-pre-padding);
 }
 
+.blog-wrapper .main-wrapper .container {
+  max-width: 1000px;
+}
+
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.blogPostTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostItem-styles-module a {
+.blog-wrapper .main-wrapper header h2 a {
   color: var(--chakra-colors-gray-800);
 }
 
-.blogPostTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-BlogPostItem-styles-module
-  a:hover {
+.blog-wrapper .main-wrapper header h2 a:hover {
   color: var(--ifm-color-primary);
+}
+
+.blog-list-page article .col--3 a {
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem 0.3rem;
+  font-size: 90%;
+}
+
+.blog-list-page article .col--3 a:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.blog-list-page article .col--3 a b {
+  font-weight: 400;
 }
 
 .navbar__brand {
@@ -109,7 +130,7 @@ a.navbar__brand:hover {
 }
 
 .navbar.navbar--fixed-top {
-  z-index: 100;
+  z-index: 999999;
 }
 
 .navbar__item {
@@ -152,7 +173,7 @@ a.navbar__brand:hover {
 
 .navbar__items .button__rfpro:hover {
   color: #fff;
-  background: #cc005b;
+  background: var(--ifm-color-primary-dark);
 }
 
 .menu__link {

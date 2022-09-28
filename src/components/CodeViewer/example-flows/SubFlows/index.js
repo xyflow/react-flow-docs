@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-
 import ReactFlow, {
   addEdge,
   Background,
@@ -7,7 +6,8 @@ import ReactFlow, {
   useEdgesState,
   MiniMap,
   Controls,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 const initialNodes = [
   {

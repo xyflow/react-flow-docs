@@ -3,7 +3,7 @@ title: Testing
 sidebar_position: 10
 ---
 
-There are plenty of options to test a React application. If you are using React Flow, we recommend to use [Cypress](https://www.cypress.io/) or [Playwright](https://playwright.dev/). React Flow needs to measure nodes in order to render edges and for that relies on rendering DOM elements.
+There are plenty of options to test a React application. If you want to test a React Flow application, we recommend to use [Cypress](https://www.cypress.io/) or [Playwright](https://playwright.dev/). React Flow needs to measure nodes in order to render edges and for that relies on rendering DOM elements.
 
 ## Using Cypress or Playwright
 

@@ -6,7 +6,8 @@ import ReactFlow, {
   Background,
   ReactFlowProvider,
   useReactFlow,
-} from 'react-flow-renderer';
+} from 'reactflow';
+import 'reactflow/dist/style.css';
 
 import './index.css';
 
@@ -38,12 +39,9 @@ const SmoothTransition = () => {
 
   const { setViewport, zoomIn, zoomOut } = useReactFlow();
 
-  const handleTransform = useCallback(
-    () => {
-      setViewport({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
-    },
-    [setViewport]
-  );
+  const handleTransform = useCallback(() => {
+    setViewport({ x: 0, y: 0, zoom: 1 }, { duration: 800 });
+  }, [setViewport]);
 
   return (
     <ReactFlow

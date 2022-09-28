@@ -1,12 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
-import ReactFlow, {
-  ReactFlowProvider,
-  Background,
-  Controls,
-  useReactFlow,
-} from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider, Background, Controls, useReactFlow } from 'reactflow';
 import { Box, Flex, Heading, Button, Text } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
