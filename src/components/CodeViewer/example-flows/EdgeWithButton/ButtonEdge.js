@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBezierPath, getEdgeCenter } from 'reactflow';
+import { getBezierPath } from 'reactflow';
 
 import './index.css';
 
@@ -21,19 +21,13 @@ export default function CustomEdge({
   style = {},
   markerEnd,
 }) {
-  const edgePath = getBezierPath({
+  const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,
     sourcePosition,
     targetX,
     targetY,
     targetPosition,
-  });
-  const [edgeCenterX, edgeCenterY] = getEdgeCenter({
-    sourceX,
-    sourceY,
-    targetX,
-    targetY,
   });
 
   return (
@@ -48,8 +42,8 @@ export default function CustomEdge({
       <foreignObject
         width={foreignObjectSize}
         height={foreignObjectSize}
-        x={edgeCenterX - foreignObjectSize / 2}
-        y={edgeCenterY - foreignObjectSize / 2}
+        x={labelX - foreignObjectSize / 2}
+        y={labelY - foreignObjectSize / 2}
         className="edgebutton-foreignobject"
         requiredExtensions="http://www.w3.org/1999/xhtml"
       >

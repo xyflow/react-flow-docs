@@ -13,7 +13,7 @@ function FloatingEdge({ id, source, target, markerEnd, style }) {
 
   const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, targetNode);
 
-  const d = getBezierPath({
+  const [edgePath] = getBezierPath({
     sourceX: sx,
     sourceY: sy,
     sourcePosition: sourcePos,
@@ -23,7 +23,13 @@ function FloatingEdge({ id, source, target, markerEnd, style }) {
   });
 
   return (
-    <path id={id} className="react-flow__edge-path" d={d} markerEnd={markerEnd} style={style} />
+    <path
+      id={id}
+      className="react-flow__edge-path"
+      d={edgePath}
+      markerEnd={markerEnd}
+      style={style}
+    />
   );
 }
 
