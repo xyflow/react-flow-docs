@@ -66,3 +66,9 @@ Object.defineProperties(global.HTMLElement.prototype, {
 
 export {};
 ```
+
+If you want to test mouse events with jest (for example inside your custom nodes), you need to disable `d3-drag` as it does not work outside of the browser:
+
+```
+<ReactFlow nodesDraggable={false} {...rest} />
+```
