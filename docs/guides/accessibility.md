@@ -15,13 +15,13 @@ If you have an idea how we can improve the accessibility of React Flow, please f
 
 - Nodes and edges are focusable by using the `Tab` key (`tabIndex={0}` + `role="button"`)
 - Nodes and edges are selectable by using `Enter` or `Space`, un-selectable by using `Escape`
-- Nodes are moveable with arrow keys
+- Nodes are moveable with arrow keys (press Shift for increasing velocity)
 - Nodes and Edges get a `aria-describedby` attribute to describe keyboard controls
 
+You can configure the keyboard controls with the props: `nodesFocusable`, `edgesFocusable` and `disableKeyboardA11y`. `nodesFocusable` and `edgesFocusable` (both true by default) need to be true if you want to be able to focus elements with Tab and then select or deselect them with Enter and Escape. If you are setting `disableKeyboardA11y={true}`, the nodes are not moveable with arrow keys anymore.
+
 :::info
-
-All features above can be disabled with the `disableKeyboardA11y` prop
-
+Nodes are only moveable with arrow keys when `nodesDraggable` and `nodesFocusable` are true (default behaviour).
 :::
 
 ### WAI-ARIA

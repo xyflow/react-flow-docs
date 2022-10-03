@@ -49,6 +49,7 @@ type Node<T = any> = {
   selectable?: boolean;
   connectable?: boolean;
   deletable?: boolean;
+  focusable?: boolean;
   dragHandle?: string;
   width?: number | null;
   height?: number | null;

@@ -66,6 +66,7 @@ type Edge<T = any> = {
   animated?: boolean;
   hidden?: boolean;
   deletable?: boolean;
+  focusable?: boolean;
   data?: T;
   className?: string;
   sourceNode?: Node;

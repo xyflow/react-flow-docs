@@ -9,7 +9,7 @@ const props = [
     description: (
       <>
         This applies to all nodes. You can also change the behavior of a specific node with the{' '}
-        <code>draggable</code> node option
+        <code>draggable</code> node option.
       </>
     ),
   },
@@ -20,7 +20,31 @@ const props = [
     description: (
       <>
         This applies to all nodes. You can also change the behavior of a specific node with the{' '}
-        <code>connectable</code> node optionstart
+        <code>connectable</code> node option.
+      </>
+    ),
+  },
+  {
+    name: 'nodesFocusable',
+    type: 'boolean',
+    default: 'true',
+    description: (
+      <>
+        If true, you can focus a node by pressing Tab and select it with Enter. This applies to all
+        nodes. You can also change the behavior of a specific node with the <code>focusable</code>{' '}
+        node option.
+      </>
+    ),
+  },
+  {
+    name: 'edgesFocusable',
+    type: 'boolean',
+    default: 'true',
+    description: (
+      <>
+        If true, you can focus an edge by pressing Tab and select it with Enter. This applies to all
+        edges. You can also change the behavior of a specific edge with the <code>focusable</code>{' '}
+        edge option.
       </>
     ),
   },
