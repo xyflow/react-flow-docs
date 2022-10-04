@@ -16,6 +16,9 @@
 /docs/api/components/controls/            /docs/api/plugin-components/controls
 /docs/api/components/minimap/            /docs/api/plugin-components/minimap
 /docs/api/components/provider/            /docs/api/react-flow-provider
+/docs/getting-started/installation/              /docs/getting-started/installation-and-requirements/
+/docs/getting-started/core-concepts/              /docs/overview/core-concepts/ 
+/docs/getting-started/plugin-components/              /docs/overview/plugin-components/ 
 
 # examples
 /examples/              /docs/examples/overview
