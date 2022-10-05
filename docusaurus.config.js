@@ -147,6 +147,10 @@ const config = {
                 href: 'https://pro.reactflow.dev/pricing',
               },
               {
+                label: 'Pro Examples',
+                href: 'https://pro.reactflow.dev/pro-examples',
+              },
+              {
                 label: 'Signup',
                 to: 'https://pro.reactflow.dev/signup',
               },
@@ -159,6 +163,10 @@ const config = {
           {
             title: 'Company',
             items: [
+              {
+                label: 'About',
+                href: 'https://pro.reactflow.dev/about',
+              },
               {
                 label: 'Contact',
                 href: 'https://pro.reactflow.dev/contact',
