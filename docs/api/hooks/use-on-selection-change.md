@@ -18,7 +18,7 @@ import { ReactFlow, useOnSelectionChange } from 'reactflow';
 
 function SelectionChangeLogger() {
   useOnSelectionChange({
-    onChange: ({ node, edges }) => console.log('changed selection', nodes, edges),
+    onChange: ({ nodes, edges }) => console.log('changed selection', nodes, edges),
   });
 
   return null;
@@ -28,7 +28,7 @@ function SelectionChangeLogger() {
 ### Typescript
 
 ```js
-useViewport({
-  onChange?: ({ nodes, edges }: { nodes: Node, edges: Edge }) => void,
+useOnSelectionChange({
+  onChange?: ({ nodes, edges }: { nodes: Node[], edges: Edge[] }):void => {console.log('changed selection', nodes, edges)},
 }): void
 ```
