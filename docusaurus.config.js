@@ -229,7 +229,7 @@ const config = {
       announcementBar: {
         id: 'v11',
         content:
-          'This is the site for React Flow 11. For the v10 docs, <a target="_blank" rel="noopener noreferrer" href="https://reactflow.dev/docs/introduction/#legacy-docs">click here</a>.',
+          'This is the site for React Flow 11. For the v10 docs, <a target="_blank" rel="noopener noreferrer" href="https://v10.reactflow.dev">click here</a>.',
         backgroundColor: '#f5f5f5',
         textColor: '#56595f',
         isCloseable: false,
