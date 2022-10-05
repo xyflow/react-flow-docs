@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default ({
-  sourceX,
-  sourceY,
-  sourcePosition,
-  targetX,
-  targetY,
-  targetPosition,
+  fromX,
+  fromY,
+  fromPosition,
+  toX,
+  toY,
+  toPosition,
   connectionLineType,
   connectionLineStyle,
 }) => {
@@ -17,9 +17,9 @@ export default ({
         stroke="#222"
         strokeWidth={1.5}
         className="animated"
-        d={`M${sourceX},${sourceY} C ${sourceX} ${targetY} ${sourceX} ${targetY} ${targetX},${targetY}`}
+        d={`M${fromX},${fromY} C ${fromX} ${toY} ${fromX} ${toY} ${toX},${toY}`}
       />
-      <circle cx={targetX} cy={targetY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
+      <circle cx={toX} cy={toY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
     </g>
   );
 };
