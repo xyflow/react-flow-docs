@@ -6,7 +6,7 @@ import { nodes as initialNodes, edges as initialEdges } from './initial-elements
 import 'reactflow/dist/style.css';
 import './style.css';
 
-const OverviewFlow = () => {
+const CollisionDetectionFlow = () => {
   // this ref stores the current dragged node
   const dragRef = useRef(null);
 
@@ -46,10 +46,10 @@ const OverviewFlow = () => {
     setNodes((nodes) =>
       nodes.map((n) => {
         if (n.id === target?.id) {
-          n.data = { ...n.data, label: nodeColor };
+          n.data = { ...n.data, color: nodeColor, label: nodeColor };
         }
         if (n.id === node.id && target) {
-          n.data = { ...n.data, label: targetColor };
+          n.data = { ...n.data, color: targetColor, label: targetColor };
         }
         return n;
       })
@@ -65,11 +65,14 @@ const OverviewFlow = () => {
     setNodes((nodes) =>
       nodes.map((node) => {
         if (node.id === target?.id) {
-          node.style = { ...node.style, backgroundColor: dragRef.current?.data.label };
+          node.style = { ...node.style, backgroundColor: dragRef.current?.data.color };
+          node.data = { ...node.data, label: dragRef.current?.data.color };
         } else if (node.id === dragRef.current?.id && target) {
-          node.style = { ...node.style, backgroundColor: target.data.label };
+          node.style = { ...node.style, backgroundColor: target.data.color };
+          node.data = { ...node.data, label: target.data.color };
         } else {
-          node.style = { ...node.style, backgroundColor: node.data.label };
+          node.style = { ...node.style, backgroundColor: node.data.color };
+          node.data = { ...node.data, label: node.data.color };
         }
         return node;
       })
@@ -93,4 +96,4 @@ const OverviewFlow = () => {
   );
 };
 
-export default OverviewFlow;
+export default CollisionDetectionFlow;

@@ -21,10 +21,9 @@
   padding: 10px 10px;
   width: auto;
   border-width: 2px;
-  border-color: #111;
-  color: #111;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: monospace;
 }
 
 .react-flow__node.dragging {
