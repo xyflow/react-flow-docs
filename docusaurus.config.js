@@ -165,7 +165,7 @@ const config = {
             items: [
               {
                 label: 'About',
-                href: 'https://pro.reactflow.dev/about',
+                href: 'https://pro.reactflow.dev/about-us',
               },
               {
                 label: 'Contact',
