@@ -69,7 +69,7 @@ Returns all edges that are connected to the passed nodes.
 
 `getConnectedEdges(nodes: Node[], edges: Edge[]): Edge[]`
 
-You can use these function as seen in [this example](https://github.com/wbkd/react-flow/blob/main/example/src/Overview/index.tsx#L100) or use your own ones.
+You can use these function as seen in [this example](https://github.com/wbkd/react-flow/blob/v10/example/src/Overview/index.tsx#L100) or use your own ones.
 
 ### `getTransformForBounds`
 
