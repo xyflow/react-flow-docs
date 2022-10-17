@@ -56,7 +56,7 @@ const defaultEdgeOptions = {
   },
 };
 
-const NodeTypeChangeFlow = () => {
+const EasyConnectExample = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
@@ -79,4 +79,4 @@ const NodeTypeChangeFlow = () => {
   );
 };
 
-export default NodeTypeChangeFlow;
+export default EasyConnectExample;
