@@ -4,7 +4,7 @@ import ReactFlow, { addEdge, useNodesState, useEdgesState, MarkerType } from 're
 
 import CustomNode from './CustomNode';
 import FloatingEdge from './FloatingEdge';
-import FloatingConnectionLine from './FloatingConnectionLine';
+import CustomConnectionLine from './CustomConnectionLine';
 
 import 'reactflow/dist/style.css';
 import './style.css';
@@ -13,25 +13,21 @@ const initialNodes = [
   {
     id: '1',
     type: 'custom',
-    data: { label: 'Drag to Connect' },
     position: { x: 0, y: 0 },
   },
   {
     id: '2',
     type: 'custom',
-    data: { label: 'Drag to Connect' },
     position: { x: 250, y: 320 },
   },
   {
     id: '3',
     type: 'custom',
-    data: { label: 'Drag to Connect' },
     position: { x: 40, y: 300 },
   },
   {
     id: '4',
     type: 'custom',
-    data: { label: 'Drag to Connect' },
     position: { x: 300, y: 0 },
   },
 ];
@@ -77,7 +73,7 @@ const NodeTypeChangeFlow = () => {
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
       defaultEdgeOptions={defaultEdgeOptions}
-      connectionLineComponent={FloatingConnectionLine}
+      connectionLineComponent={CustomConnectionLine}
       connectionLineStyle={connectionLineStyle}
     />
   );
