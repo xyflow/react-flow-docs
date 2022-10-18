@@ -17,18 +17,27 @@ export default function NewsletterPage() {
             py={8}
           >
             <Heading fontWeight="900" size="4xl">
-              Get the latest from React Flow
+              React Flow Newsletter
             </Heading>
             <Text color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
-              Learn something about 1. new features 2. case studies 3. something else. 4 times a
-              year.
+              Get the latest from us on major updates, case studies, and new examples. About 4 times
+              a year.
             </Text>
-            <Input placeholder="Email" type="email" color="white"></Input>
-            <Button>Sign Up</Button>
+            <iframe
+              // style={{ overflow: hidden }}
+              scrolling="no"
+              class="mj-w-res-iframe"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              src="https://app.mailjet.com/widget/iframe/6xV9/Oqj"
+              width="100%"
+              height="300px"
+            ></iframe>
+            <Link color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
+              See our most recent newsletter
+            </Link>
           </Box>
-          <Link color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
-            See our most recent newsletter
-          </Link>
         </Box>
       </Layout>
     </Box>
