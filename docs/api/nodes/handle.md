@@ -46,3 +46,7 @@ If you need multiple source or target handles you can achieve this by creating a
 If you are programmatically changing the position or number of handles in your custom node, you need to update the node internals with the [`useUpdateNodeInternals`](/docs/api/hooks/use-update-node-internals/) hook.
 
 You can find an example of how to implement a custom node with multiple handles in the [custom node guide](/docs/guides/custom-nodes) or in the [custom node example](/docs/examples/nodes/custom-node/).
+
+### Custom Handle Styles
+
+Since the handle is a div, you can use CSS to style it or pass a style prop to customize a Handle. You can see this in the [Add Node On Edge Drop](docs/examples/nodes/add-node-on-edge-drop/) and [Simple Floating Edges](docs/examples/edges/simple-floating-edges/) examples.

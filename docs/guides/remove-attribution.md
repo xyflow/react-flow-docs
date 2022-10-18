@@ -5,6 +5,9 @@ sidebar_label: Remove Attribution
 hide_table_of_contents: true
 ---
 
+This example demonstrates how you can remove the React Flow attribution from the renderer.
+
+
 :::info Please note
 
 If you’re considering removing the attribution, we’d first like to mention:
@@ -18,8 +21,6 @@ Thank you for supporting the React Flow team ✌🏻
 -Moritz, Christopher, and John
 
 :::
-
-This example demonstrates how you can remove the React Flow attribution from the renderer.
 
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 700, editorWidthPercentage: 45, wrapContent: true }

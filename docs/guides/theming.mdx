@@ -11,6 +11,13 @@ React Flow includes a very minimal default theme and necessary default styles to
 import 'reactflow/dist/style.css';
 ```
 
+This is how the default style looks:
+
+import CodeViewer from '/src/components/CodeViewer';
+const options = { editorHeight: 400 };
+
+<CodeViewer codePath="example-flows/DefaultStyle" showEditor={false} options={options} />
+
 ### Load Base Styles
 
 This is basically no styling, but mandatory for React Flow to work.
@@ -18,6 +25,10 @@ This is basically no styling, but mandatory for React Flow to work.
 ```js
 import 'reactflow/dist/base.css';
 ```
+
+This is an example of the base styles:
+
+<CodeViewer codePath="example-flows/BaseStyle" showEditor={false} options={options} />
 
 ## Overwrite Default Styles
 
@@ -48,6 +59,10 @@ const reactFlowStyle = {
 ...
 <ReactFlow style={reactFlowStyle} />;
 ```
+
+### Using Third-Party Libraries
+
+You can use any library you want for styling your flows. Check out the [styled-components](/docs/examples/styling/styled-components/) or [tailwind](/docs/examples/styling/tailwind/) examples for some inspiration.
 
 ## React Flow Class Names
 

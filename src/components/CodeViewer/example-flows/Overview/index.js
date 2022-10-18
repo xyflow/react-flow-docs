@@ -7,9 +7,20 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
 } from 'reactflow';
-import 'reactflow/dist/style.css';
 
 import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
+import CustomNode from './CustomNode';
+
+import 'reactflow/dist/style.css';
+import './overview.css';
+
+const nodeTypes = {
+  custom: CustomNode,
+};
+
+const minimapStyle = {
+  height: 120,
+};
 
 const onInit = (reactFlowInstance) => console.log('flow loaded:', reactFlowInstance);
 
@@ -18,33 +29,30 @@ const OverviewFlow = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
+  // we are using a bit of a shortcut here to adjust the edge type
+  // this could also be done with a custom edge for example
+  const edgesWithUpdatedTypes = edges.map((edge) => {
+    if (edge.sourceHandle) {
+      const edgeType = nodes.find((node) => node.type === 'custom').data.selects[edge.sourceHandle];
+      edge.type = edgeType;
+    }
+
+    return edge;
+  });
+
   return (
     <ReactFlow
       nodes={nodes}
-      edges={edges}
+      edges={edgesWithUpdatedTypes}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       onInit={onInit}
       fitView
       attributionPosition="top-right"
+      nodeTypes={nodeTypes}
     >
-      <MiniMap
-        nodeStrokeColor={(n) => {
-          if (n.style?.background) return n.style.background;
-          if (n.type === 'input') return '#0041d0';
-          if (n.type === 'output') return '#ff0072';
-          if (n.type === 'default') return '#1a192b';
-
-          return '#eee';
-        }}
-        nodeColor={(n) => {
-          if (n.style?.background) return n.style.background;
-
-          return '#fff';
-        }}
-        nodeBorderRadius={2}
-      />
+      <MiniMap style={minimapStyle} />
       <Controls />
       <Background color="#aaa" gap={16} />
     </ReactFlow>
