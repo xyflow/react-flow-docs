@@ -46,6 +46,7 @@ export default function CodeViewer({
   showPreview = true,
   isTypescript = false,
   customPreview = null,
+  sandpackOptions = {},
 }) {
   const [files, setFiles] = useState(null);
   const scriptExtension = isTypescript ? 'tsx' : 'js';
@@ -57,11 +58,16 @@ export default function CodeViewer({
       const additional = {};
 
       for (let additionalFile of additionalFiles) {
-        const file = await import(`!raw-loader!./${codePath}/${additionalFile}`);
-        additional[`/${additionalFile}`] = { code: file.default };
+        if (typeof additionalFile === 'string') {
+          const file = await import(`!raw-loader!./${codePath}/${additionalFile}`);
+          additional[`/${additionalFile}`] = { code: file.default };
 
-        if (additionalFile === activeFile) {
-          additional[`/${additionalFile}`].active = true;
+          if (additionalFile === activeFile) {
+            additional[`/${additionalFile}`].active = true;
+          }
+        } else {
+          const fileName = Object.keys(additionalFile)[0];
+          additional[fileName] = additionalFile[fileName];
         }
       }
 
@@ -98,6 +104,7 @@ export default function CodeViewer({
     <div style={{ minHeight: editorHeight, marginBottom: 20 }}>
       <SandpackProvider
         template={isTypescript ? 'react-ts' : 'react'}
+        options={sandpackOptions}
         customSetup={customSetup}
         files={{
           ...files,
