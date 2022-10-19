@@ -173,7 +173,7 @@ const config = {
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://webkid.io/privacy',
+                href: 'https://pro.reactflow.dev/privacy',
               },
               {
                 label: 'Terms of Service',
@@ -182,6 +182,20 @@ const config = {
               {
                 label: 'Imprint',
                 to: 'https://webkid.io/imprint',
+              },
+            ],
+          },
+          {
+            title: 'Newsletter',
+            items: [
+              {
+                html: '<div class="newsletter-signup-title">Get the latest updates, articles and resources from the React Flow team</div>',
+              },
+              {
+                html: `<form name="newsletter-signup" method="post" class="newsletter-signup">
+                  <input required value="chrtze@gmail.com" name="email" placeholder="Your Email" class="newsletter-signup__input" type="email" />
+                  <button class="newsletter-signup__button" type="submit">Subscribe</button>
+                </form>`,
               },
             ],
           },
