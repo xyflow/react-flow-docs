@@ -193,7 +193,7 @@ const config = {
               },
               {
                 html: `<form name="newsletter-signup" method="post" class="newsletter-signup">
-                  <input required value="chrtze@gmail.com" name="email" placeholder="Your Email" class="newsletter-signup__input" type="email" />
+                  <input required name="email" placeholder="Your Email" class="newsletter-signup__input" type="email" />
                   <button class="newsletter-signup__button" type="submit">Subscribe</button>
                 </form>`,
               },
