@@ -185,20 +185,6 @@ const config = {
               },
             ],
           },
-          {
-            title: 'Newsletter',
-            items: [
-              {
-                html: '<div class="newsletter-signup-title">Get the latest updates, articles and resources from the React Flow team</div>',
-              },
-              {
-                html: `<form name="newsletter-signup" method="post" class="newsletter-signup">
-                  <input required name="email" placeholder="Your Email" class="newsletter-signup__input" type="email" />
-                  <button class="newsletter-signup__button" type="submit">Subscribe</button>
-                </form>`,
-              },
-            ],
-          },
         ],
         copyright: `<a href="mailto:info@reactflow.dev">info@reactflow.dev</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
       },

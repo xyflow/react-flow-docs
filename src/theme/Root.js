@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useHistory } from '@docusaurus/router';
 import * as Fathom from 'fathom-client';
+
 import { defaultTheme } from './themes';
-import { initNewsletter } from '../utils/newsletter';
 
 import './sandpack.css';
 
@@ -21,8 +21,6 @@ export default function Root({ children }) {
       pathname.current = location.pathname;
     });
   }, []);
-
-  useEffect(initNewsletter, []);
 
   return (
     <ChakraProvider resetCSS={false} theme={defaultTheme}>

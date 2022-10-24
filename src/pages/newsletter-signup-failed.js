@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Button, Box, Heading, Text } from '@chakra-ui/react';
+import Link from '@docusaurus/Link';
 
 export default function NewsletterThankYou() {
   return (
@@ -19,9 +20,12 @@ export default function NewsletterThankYou() {
             <Heading fontWeight="900" size="4xl">
               Something went wrong.
             </Heading>
-            <Text color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
+            <Text mb={10} color="gray.300" mt={10} fontSize="lg" lineHeight={1.5}>
               We couldn't subscribe you to our newsletter. Please try again.
             </Text>
+            <Link href="/">
+              <Button colorScheme="pink">Return to Homepage</Button>
+            </Link>
           </Box>
         </Box>
       </Layout>
