@@ -26,7 +26,7 @@ The `reactFlowInstance` has the following functions:
 
 ### `setNodes`
 
-<PropItem description="Set nodes array" type={<>
+<PropItem description="Set nodes array, for controlled flow onNodesChange is required" type={<>
 (nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[] | (nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) => <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) => void
 </>} />
 
@@ -50,7 +50,7 @@ The `reactFlowInstance` has the following functions:
 
 ### `setEdges`
 
-<PropItem description="Set edges array" type={<>
+<PropItem description="Set edges array, for controlled flow onEdgesChange is required" type={<>
 (edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[] | (edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[])=> void
 </>} />
 
