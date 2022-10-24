@@ -261,33 +261,3 @@ a.navbar__brand:hover {
 .chakra-stat dd {
   margin: 0;
 }
-
-/* footer newsletter */
-.newsletter-signup-title {
-  font-weight: 400;
-  font-size: 14px;
-  margin-bottom: 4px;
-  color: #3e4348;
-}
-
-.newsletter-signup {
-  width: 100%;
-  display: flex;
-}
-
-.newsletter-signup__input {
-  padding: 5px;
-  border: 1px solid #9ca8b3;
-  border-radius: 6px;
-  margin-right: 5px;
-}
-
-.newsletter-signup__button {
-  border-radius: 6px;
-  padding: 5px;
-  background-color: #ff0071;
-  color: white;
-  border: none;
-  outline: none;
-  box-shadow: none;
-}

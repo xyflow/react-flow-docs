@@ -22,7 +22,7 @@ export default function NewsletterSignup({ size = 'md', ...props }) {
       const jsonData = Object.fromEntries(formData.entries());
 
       const response = await fetch(
-        'http://localhost:1337/v1/functions/mail/public-newsletter-signup',
+        'https://fdsuchqhfchojqpemwyn.nhost.run/v1/functions/mail/public-newsletter-signup',
         {
           method: 'POST',
           headers: {
