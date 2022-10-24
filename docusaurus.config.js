@@ -173,7 +173,7 @@ const config = {
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://webkid.io/privacy',
+                href: 'https://pro.reactflow.dev/privacy',
               },
               {
                 label: 'Terms of Service',
