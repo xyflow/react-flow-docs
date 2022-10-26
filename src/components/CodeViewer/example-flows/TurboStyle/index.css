@@ -1,0 +1,85 @@
+.react-flow {
+  background-color: rgb(17, 17, 17);
+  color: rgb(243, 244, 246);
+}
+
+.react-flow__edge .react-flow__edge-path {
+  stroke: url(#edge-gradient);
+  stroke-width: 2;
+  stroke-opacity: 0.75;
+}
+
+.gradient {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #e92a67 0deg,
+    #a853ba 112.5deg,
+    #2a8af6 228.75deg,
+    #e92a67 360deg
+  );
+  box-shadow: 10px 0 15px rgba(42, 138, 246, 0.3), -10px 0 15px rgba(233, 42, 103, 0.3);
+  padding: 2px;
+}
+
+.cloud {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  transform: translate(50%, -50%);
+  display: flex;
+}
+
+.cloud div {
+  background-color: rgb(17, 17, 17);
+  flex-grow: 1;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-flow__node-turbo {
+  border-radius: 10px;
+  display: flex;
+  height: 70px;
+  width: 150px;
+  font-family: 'Fira Mono', Monospace;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+.react-flow__node-turbo .inner {
+  background: rgb(17, 17, 17);
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.react-flow__node-turbo .title {
+  font-size: 16px;
+  margin-bottom: 2px;
+  linbe-height: 1;
+}
+
+.react-flow__node-turbo .subline {
+  font-size: 12px;
+  color: #777;
+}
+
+.react-flow__handle {
+  opacity: 0;
+}
+
+.react-flow__handle.source {
+  right: -10px;
+}
+
+.react-flow__handle.target {
+  left: -10px;
+}
