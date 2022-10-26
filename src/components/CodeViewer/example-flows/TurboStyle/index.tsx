@@ -1,13 +1,5 @@
 import React, { useCallback } from 'react';
-import ReactFlow, {
-  Controls,
-  MiniMap,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Node,
-  Edge,
-} from 'reactflow';
+import ReactFlow, { Controls, useNodesState, useEdgesState, addEdge, Node, Edge } from 'reactflow';
 import { FiFile } from 'react-icons/fi';
 
 import 'reactflow/dist/base.css';
