@@ -3,8 +3,8 @@ import { Handle, NodeProps, Position } from 'reactflow';
 import { FiCloud } from 'react-icons/fi';
 
 export type TurboNodeData = {
-  icon: ReactNode;
   title: string;
+  icon?: ReactNode;
   subline?: string;
 };
 
@@ -18,8 +18,11 @@ export default memo(({ data }: NodeProps<TurboNodeData>) => {
       </div>
       <div className="inner">
         <div className="body">
-          <div className="title">{data.title}</div>
-          {data.subline && <div className="subline">{data.subline}</div>}
+          {data.icon && <div className="icon">{data.icon}</div>}
+          <div>
+            <div className="title">{data.title}</div>
+            {data.subline && <div className="subline">{data.subline}</div>}
+          </div>
         </div>
         <Handle type="target" position={Position.Left} />
         <Handle type="source" position={Position.Right} />

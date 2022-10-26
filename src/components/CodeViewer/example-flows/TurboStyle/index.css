@@ -13,11 +13,11 @@
   background: conic-gradient(
     from 180deg at 50% 50%,
     #e92a67 0deg,
-    #a853ba 112.5deg,
-    #2a8af6 228.75deg,
+    #a853ba 110deg,
+    #2a8af6 220deg,
     #e92a67 360deg
   );
-  box-shadow: 10px 0 15px rgba(42, 138, 246, 0.3), -10px 0 15px rgba(233, 42, 103, 0.3);
+  box-shadow: 10px 0 15px rgba(42, 138, 246, 0.35), -10px 0 15px rgba(233, 42, 103, 0.35);
   padding: 2px;
 }
 
@@ -30,6 +30,7 @@
   top: 0;
   transform: translate(50%, -50%);
   display: flex;
+  transform-origin: center center;
 }
 
 .cloud div {
@@ -41,14 +42,28 @@
   align-items: center;
 }
 
+.react-flow__node:focus {
+  outline: none;
+}
+
 .react-flow__node-turbo {
   border-radius: 10px;
   display: flex;
   height: 70px;
-  width: 150px;
+  min-width: 150px;
   font-family: 'Fira Mono', Monospace;
   font-weight: 500;
   letter-spacing: -0.2px;
+}
+
+.react-flow__node-turbo.selected {
+  animation: pulse 2s ease-in infinite;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 15px 0 25px rgba(42, 138, 246, 0.6), -15px 0 25px rgba(233, 42, 103, 0.6);
+  }
 }
 
 .react-flow__node-turbo .inner {
@@ -61,10 +76,18 @@
   flex-grow: 1;
 }
 
+.react-flow__node-turbo .icon {
+  margin-right: 8px;
+}
+
+.react-flow__node-turbo .body {
+  display: flex;
+}
+
 .react-flow__node-turbo .title {
   font-size: 16px;
   margin-bottom: 2px;
-  linbe-height: 1;
+  line-height: 1;
 }
 
 .react-flow__node-turbo .subline {
@@ -82,4 +105,28 @@
 
 .react-flow__handle.target {
   left: -10px;
+}
+
+.react-flow__controls button {
+  background-color: rgb(17, 17, 17);
+  color: rgb(243, 244, 246);
+  border: 1px solid #95679e;
+  border-bottom: none;
+}
+
+.react-flow__controls button:hover {
+  background-color: rgb(37, 37, 37);
+}
+
+.react-flow__controls button:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.react-flow__controls button:last-child {
+  border-bottom: 1px solid #95679e;
+  border-radius: 0 0 5px 5px;
+}
+
+.react-flow__controls button path {
+  fill: rgb(243, 244, 246);
 }

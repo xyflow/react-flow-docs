@@ -8,52 +8,54 @@ import ReactFlow, {
   Node,
   Edge,
 } from 'reactflow';
+import { FiFile } from 'react-icons/fi';
 
 import 'reactflow/dist/base.css';
 import './index.css';
 import TurboNode, { TurboNodeData } from './TurboNode';
 import TurboEdge from './TurboEdge';
+import FunctionIcon from './FunctionIcon';
 
 const initialNodes: Node<TurboNodeData>[] = [
   {
     id: '1',
     position: { x: 0, y: 0 },
-    data: { icon: 'base style 1', title: 'readFile', subline: 'api.ts' },
+    data: { icon: <FunctionIcon />, title: 'readFile', subline: 'api.ts' },
     type: 'turbo',
     className: 'gradient',
   },
   {
     id: '2',
     position: { x: 250, y: 0 },
-    data: { icon: 'base style 1', title: 'bundle', subline: 'apiContents' },
+    data: { icon: <FunctionIcon />, title: 'bundle', subline: 'apiContents' },
     type: 'turbo',
     className: 'gradient',
   },
   {
     id: '3',
     position: { x: 0, y: 250 },
-    data: { icon: 'base style 1', title: 'readFile', subline: 'sdk.ts' },
+    data: { icon: <FunctionIcon />, title: 'readFile', subline: 'sdk.ts' },
     type: 'turbo',
     className: 'gradient',
   },
   {
     id: '4',
     position: { x: 250, y: 250 },
-    data: { icon: 'base style 1', title: 'bundle', subline: 'sdkContents' },
+    data: { icon: <FunctionIcon />, title: 'bundle', subline: 'sdkContents' },
     type: 'turbo',
     className: 'gradient',
   },
   {
     id: '5',
     position: { x: 500, y: 125 },
-    data: { icon: 'base style 1', title: 'concat', subline: 'api, sdk' },
+    data: { icon: <FunctionIcon />, title: 'concat', subline: 'api, sdk' },
     type: 'turbo',
     className: 'gradient',
   },
   {
     id: '6',
     position: { x: 750, y: 125 },
-    data: { icon: 'base style 1', title: 'fullBundle' },
+    data: { icon: <FiFile />, title: 'fullBundle' },
     type: 'turbo',
     className: 'gradient',
   },
@@ -97,6 +99,7 @@ const edgeTypes = {
 
 const defaultEdgeOptions = {
   type: 'turbo',
+  markerEnd: 'edge-circle',
 };
 
 const Flow = () => {
@@ -117,14 +120,26 @@ const Flow = () => {
       edgeTypes={edgeTypes}
       defaultEdgeOptions={defaultEdgeOptions}
     >
-      <Controls />
-      <MiniMap />
+      <Controls showInteractive={false} />
       <svg>
         <defs>
           <linearGradient id="edge-gradient">
             <stop offset="0%" stopColor="#a853ba" />
             <stop offset="100%" stopColor="#2a8af6" />
           </linearGradient>
+
+          <marker
+            id="edge-circle"
+            viewBox="-5 -5 10 10"
+            refX="0"
+            refY="0"
+            markerUnits="strokeWidth"
+            markerWidth="10"
+            markerHeight="10"
+            orient="auto"
+          >
+            <circle stroke="#2a8af6" strokeOpacity="0.75" r="2" cx="0" cy="0" />
+          </marker>
         </defs>
       </svg>
     </ReactFlow>

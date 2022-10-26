@@ -31,7 +31,7 @@ const defaultSetup = {
 };
 
 const defaultOptions = {
-  editorHeight: 800,
+  editorHeight: '75vh',
   editorWidthPercentage: 45,
   wrapContent: true,
 };
@@ -91,8 +91,8 @@ export default function CodeViewer({
     []
   );
 
-  const editorHeight = options?.editorHeight || 800;
-  const panelStyle = { height: editorHeight };
+  const editorHeight = options?.editorHeight || '75vh';
+  const panelStyle = { height: '75vh' };
 
   if (!files) {
     return <div style={{ minHeight: editorHeight }} />;
