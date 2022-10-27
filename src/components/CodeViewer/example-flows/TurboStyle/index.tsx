@@ -110,7 +110,7 @@ const Flow = () => {
       <svg>
         <defs>
           <linearGradient id="edge-gradient">
-            <stop offset="0%" stopColor="#a853ba" />
+            <stop offset="0%" stopColor="#ae53ba" />
             <stop offset="100%" stopColor="#2a8af6" />
           </linearGradient>
 

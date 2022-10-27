@@ -7,17 +7,17 @@ function Icon() {
       <path
         d="M22 50H52"
         stroke="rgb(17, 17, 17)"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
       />
       <path
         d="M17 77H23.9528C26.2429 76.9949 30.242 75.9738 32 74.5C33.758 73.0262 35.164 71.1925 35.5778 68.9307L39.4222 31.0693C39.836 28.8075 41.242 26.9738 43 25.5C44.758 24.0262 47.7571 23.0051 50.0472 23H57"
         stroke="rgb(17, 17, 17)"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
       />
     </svg>
