@@ -61,11 +61,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
+Even if dagre is currently deprecated because it is not maintained, we recommend it to get started. It is easy to setup, has a small API and works great for smaller and medium sized graphs.
 
 #### Pros
 
+- Easy to use API
+- Small bundle size
+
 #### Cons
+
+- Currenty not maintained and therefor deprecated
 
 [dagre website](https://github.com/dagrejs/dagre)
 
@@ -75,11 +80,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
+Graphology is a library to work with graphs. The main part is about creating and mutating `Graph` objects. Besides that it comes with a big standard library that is devided into several modules for layouting, traversal, rendering and more.
 
 #### Pros
 
+- Feature-rich: layouting, traversal, rendering and more
+- Supports multiple layouting algorithms: circle, force, no-overlap
+
 #### Cons
+
+- You can't just use the layouting module, but you always need to use the main `graphology` library too (of course this is only a disadvantage if you are working with other libraries like React Flow or Reaflo for example. If you are using Graphology for rendering your graphs, this point is neglectable).
 
 [graphology website](https://github.com/graphology/graphology)
 
