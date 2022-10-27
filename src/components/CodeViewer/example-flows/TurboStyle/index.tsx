@@ -14,42 +14,36 @@ const initialNodes: Node<TurboNodeData>[] = [
     position: { x: 0, y: 0 },
     data: { icon: <FunctionIcon />, title: 'readFile', subline: 'api.ts' },
     type: 'turbo',
-    className: 'gradient',
   },
   {
     id: '2',
     position: { x: 250, y: 0 },
     data: { icon: <FunctionIcon />, title: 'bundle', subline: 'apiContents' },
     type: 'turbo',
-    className: 'gradient',
   },
   {
     id: '3',
     position: { x: 0, y: 250 },
     data: { icon: <FunctionIcon />, title: 'readFile', subline: 'sdk.ts' },
     type: 'turbo',
-    className: 'gradient',
   },
   {
     id: '4',
     position: { x: 250, y: 250 },
     data: { icon: <FunctionIcon />, title: 'bundle', subline: 'sdkContents' },
     type: 'turbo',
-    className: 'gradient',
   },
   {
     id: '5',
     position: { x: 500, y: 125 },
     data: { icon: <FunctionIcon />, title: 'concat', subline: 'api, sdk' },
     type: 'turbo',
-    className: 'gradient',
   },
   {
     id: '6',
     position: { x: 750, y: 125 },
     data: { icon: <FiFile />, title: 'fullBundle' },
     type: 'turbo',
-    className: 'gradient',
   },
 ];
 
