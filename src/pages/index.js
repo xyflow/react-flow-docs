@@ -130,7 +130,7 @@ export default function Home() {
             Get in Contact
           </Heading>
           <Text fontFamily="body" fontSize="xl" mx="auto" color="gray.300" mb={12}>
-            If you have any questions about React Flow or our monthly subscription plans,
+            If you have any questions about React Flow or our subscription plans,
             <chakra.br display={['none', 'none', 'block']} />
             please get in touch.
           </Text>

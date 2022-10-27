@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useHistory } from '@docusaurus/router';
 import * as Fathom from 'fathom-client';
+
 import { defaultTheme } from './themes';
 
 import './sandpack.css';
