@@ -56,6 +56,7 @@
   );
   animation: spinner 4s linear infinite;
   transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -1;
 }
 
 @keyframes spinner {
