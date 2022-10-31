@@ -55,7 +55,7 @@ export default function NewsletterSignup({ size = 'md', ...props }) {
               required
               bg="white"
               type="email"
-              placeholder="Your Mail"
+              placeholder="you@email.com"
               size={size}
               borderRadius="lg"
               name="email"
