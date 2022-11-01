@@ -89,6 +89,17 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   color: var(--chakra-colors-gray-800);
 }
 
+.blog-wrapper .main-wrapper p {
+  font-size: 18px;
+  line-height: 36px;
+  margin-bottom: 28px;
+}
+
+.blog-wrapper .main-wrapper ul {
+  font-size: 18px;
+  line-height: 36px;
+}
+
 .blog-wrapper .main-wrapper header h2 a:hover {
   color: var(--ifm-color-primary);
 }
