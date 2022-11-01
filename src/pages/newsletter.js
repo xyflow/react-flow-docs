@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { Box, Heading, Text } from '@chakra-ui/react';
+
 import NewsletterSignup from '../components/NewsletterSignup';
 
 export default function NewsletterThankYou() {
