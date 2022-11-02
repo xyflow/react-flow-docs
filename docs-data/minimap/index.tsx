@@ -1,5 +1,19 @@
 const props = [
   {
+    name: 'pannable',
+    type: 'boolean',
+    default: 'false',
+    description:
+      'If set to true you can control the React Flow viewport position by dragging the minimap.',
+  },
+  {
+    name: 'zoomable',
+    type: 'boolean',
+    default: 'false',
+    description:
+      'If set to true you can control the React Flow viewport scale by zooming (scroll or pinch) the minimap.',
+  },
+  {
     name: 'nodeColor',
     type: 'string or function',
     default: '#fff',
@@ -36,6 +50,18 @@ const props = [
     type: 'string or function',
     default: 'rgb(240, 242, 243, 0.7)',
     description: 'Mini map mask color',
+  },
+  {
+    name: 'onClick',
+    type: 'function',
+    default: 'undfined',
+    description: `Get's called when the minimap is clicked.`,
+  },
+  {
+    name: 'onNodeClick',
+    type: 'function',
+    default: 'undfined',
+    description: `Get's called when a minimap node is clicked.`,
   },
   {
     name: 'style',

@@ -7,6 +7,11 @@ import PropItems from '../../../src/components/Docs/PropItems'
 
 The Minimap component adds an interactive Minimap to React Flow that shows the whole graph. You can use the `MiniMap` plugin by passing it as a children to the `ReactFlow` component.
 
+:::info Interactive Minimap
+
+The minimap is not interactive by default. If you want to control the viewport with the mini map, you need to pass `zoomable` and `pannable`.
+:::
+
 ### Usage
 
 ```jsx
@@ -28,7 +33,7 @@ const nodeColor = (node) => {
 function FlowWithMiniMap() {
   return (
     <ReactFlow defaultNodes={[]}>
-      <MiniMap nodeColor={nodeColor} nodeStrokeWidth={3} />
+      <MiniMap nodeColor={nodeColor} nodeStrokeWidth={3} zoomable pannable />
     </ReactFlow>
   );
 }
