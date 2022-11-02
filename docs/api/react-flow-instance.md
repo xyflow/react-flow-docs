@@ -66,19 +66,24 @@ The `reactFlowInstance` has the following functions:
 () => <Link to="/docs/api/types/#reactflowjsonobject">ReactFlowJsonObject</Link>
 </>} />
 
+### `deleteElements`
+
+<PropItem description="Deletes the passed nodes and edges. All connected edges of the passed nodes get deleted automatically." type={<>
+(&#123; nodes, edges &#125;: &#123; nodes?: <Link to="/docs/api/types/#node">Node</Link>[], edges?: <Link to="/docs/api/types/#edge">Edge</Link>[] &#125;) => void</>} />
+
 ## Intersections
 
 ### `isNodeIntersecting`
 
-<PropItem description={<>Returns true if the passed node intersects with the passed area.</>} type={<>
-(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, area: <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean) => boolean
-</>} />
+<PropItem description="Returns true if the passed node intersects with the passed area" type={
+<>(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, area: <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean) => boolean</>}
+/>
 
 ### `getIntersectingNodes`
 
-<PropItem description={<>Returns all nodes that intersect with the passed node. Optionally you can pass a set of nodes if you don't want to check all nodes.</>} type={<>
-(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean, nodes?: <Link to="/docs/api/types/#node">Node</Link>[]) => <Link to="/docs/api/types/#node">Node</Link>[]
-</>} />
+<PropItem description="Returns all nodes that intersect with the passed node. Optionally you can pass a set of nodes if you don't want to check all nodes." type={
+<>(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean, nodes?: <Link to="/docs/api/types/#node">Node</Link>[]) => <Link to="/docs/api/types/#node">Node</Link>[]</>
+} />
 
 ## Viewport
 
