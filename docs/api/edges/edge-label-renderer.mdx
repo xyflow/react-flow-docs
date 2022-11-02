@@ -1,0 +1,68 @@
+---
+title: <EdgeLabelRenderer />
+sidebar_position: 8
+---
+
+Edges are SVG based. If you want to render more complex labels you can use the ` <EdgeLabelRenderer />` component to access a div based renderer. The `<EdgeLabelRenderer />` is a portal that renders the label in a div that is positioned on top of the edges.
+
+:::caution Mouse events
+
+The ` <EdgeLabelRenderer />` has no pointer events by default. If you want to add mouse interactions you need to set `pointerEvents: all` and add the class name `nopan` on the label or the element you want to interact with.
+
+:::
+
+### Usage
+
+```jsx
+import { FC, MouseEvent } from 'react';
+import { EdgeProps, getBezierPath, EdgeLabelRenderer, useStore, ReactFlowStore } from 'reactflow';
+
+const CustomEdge: FC<EdgeProps> = ({
+  id,
+  sourceX,
+  sourceY,
+  targetX,
+  targetY,
+  sourcePosition,
+  targetPosition,
+  data,
+}) => {
+  const [edgePath, labelX, labelY] = getBezierPath({
+    sourceX,
+    sourceY,
+    sourcePosition,
+    targetX,
+    targetY,
+    targetPosition,
+  });
+
+  return (
+    <>
+      <path id={id} className="react-flow__edge-path" d={edgePath} />
+
+      <EdgeLabelRenderer>
+        <div
+          style={{
+            position: 'absolute',
+            transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,
+            background: '#ffcc00',
+            pointerEvents: 'all',
+            zIndex: 10,
+          }}
+          className="nodrag nopan"
+        >
+          {data.text}
+        </div>
+      </EdgeLabelRenderer>
+    </>
+  );
+};
+
+export default CustomEdge;
+```
+
+### Prop Types
+
+You can pass the following props to the `<EdgeLabelRenderer />` component:
+
+- `children`: ReactNode
