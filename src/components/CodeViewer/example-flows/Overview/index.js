@@ -52,7 +52,7 @@ const OverviewFlow = () => {
       attributionPosition="top-right"
       nodeTypes={nodeTypes}
     >
-      <MiniMap style={minimapStyle} />
+      <MiniMap style={minimapStyle} zoomable pannable />
       <Controls />
       <Background color="#aaa" gap={16} />
     </ReactFlow>
