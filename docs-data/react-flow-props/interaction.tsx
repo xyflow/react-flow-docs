@@ -9,7 +9,11 @@ const props = [
     description: (
       <>
         This applies to all nodes. You can also change the behavior of a specific node with the{' '}
-        <code>draggable</code> node option.
+        <code>draggable</code> node option.{' '}
+        <strong>
+          If you want to use mouse handlers for non-draggable nodes, you need to add the class name
+          "nopan" to the node.
+        </strong>
       </>
     ),
   },
