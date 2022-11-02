@@ -66,6 +66,20 @@ The `reactFlowInstance` has the following functions:
 () => <Link to="/docs/api/types/#reactflowjsonobject">ReactFlowJsonObject</Link>
 </>} />
 
+## Intersections
+
+### `isNodeIntersecting`
+
+<PropItem description={<>Returns true if the passed node intersects with the passed area.</>} type={<>
+(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, area: <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean) => boolean
+</>} />
+
+### `getIntersectingNodes`
+
+<PropItem description={<>Returns all nodes that intersect with the passed node. Optionally you can pass a set of nodes if you don't want to check all nodes.</>} type={<>
+(nodeOrRect: <Link to="/docs/api/types/#node">Node</Link> | <Link to="/docs/api/types/#rect">Rect</Link>, partially?: boolean, nodes?: <Link to="/docs/api/types/#node">Node</Link>[]) => <Link to="/docs/api/types/#node">Node</Link>[]
+</>} />
+
 ## Viewport
 
 ### `fitBounds`
