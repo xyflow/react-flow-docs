@@ -51,4 +51,4 @@ You can find an example of how to implement a custom node with multiple handles 
 
 ### Custom Handle Styles
 
-Since the handle is a div, you can use CSS to style it or pass a style prop to customize a Handle. You can see this in the [Add Node On Edge Drop](docs/examples/nodes/add-node-on-edge-drop/) and [Simple Floating Edges](docs/examples/edges/simple-floating-edges/) examples.
+Since the handle is a div, you can use CSS to style it or pass a style prop to customize a Handle. You can see this in the [Add Node On Edge Drop](/docs/examples/nodes/add-node-on-edge-drop/) and [Simple Floating Edges](/docs/examples/edges/simple-floating-edges/) examples.
