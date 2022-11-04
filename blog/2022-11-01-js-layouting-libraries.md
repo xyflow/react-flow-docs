@@ -11,7 +11,7 @@ In this post we will present some Javascript libraries to do automated layouting
 
 ### What is Layouting?
 
-In a graph, every node has a x- and y-coordinate to define the position. When we are using an algorithm that helps us to calculate positions for our nodes so that they don't overlap or form a tree for example, we call it layouting.
+In a graph, every node has a x- and y-coordinate that define the position. When we are using an algorithm that helps us to calculate positions for our nodes so that they don't overlap or form a tree for example, we call it layouting.
 
 import CodeViewer from '/src/components/CodeViewer'
 const editorOptions = { editorHeight: 300 }
@@ -22,7 +22,7 @@ In the following section, we present five Javascript libraries that help you to 
 
 ### ElkJS
 
-<CodeViewer codePath="api-flows/SubFlows3" options={editorOptions} showEditor={false} additionalFiles={['nodes.js','edges.js']} />
+<CodeViewer codePath="blog-flows/layouting/elkjs" options={editorOptions} showEditor={false} additionalFiles={['countries.js']} />
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
