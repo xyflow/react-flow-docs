@@ -80,7 +80,7 @@ const options = [
   },
   {
     name: 'labelBgPadding',
-    type: 'number',
+    type: '[number, number]',
     description: 'Padding for the label background',
   },
   {
