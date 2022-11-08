@@ -21,10 +21,11 @@ We can now use the components to render an empty flow:
 
 <CodeViewer codePath="api-flows/GettingStarted1" applyStyles={false} options={editorOptions} />
 
-There are two important things to keep in mind here:
+There are three important things to keep in mind here:
 
 1. You need to **import the styles**. Otherwise React Flow won't work.
 2. The **parent container needs a width and a height**, because React Flow uses its parent dimensions.
+3. If you have **multiple flows on one page**, you need to pass a unique `id` prop to each component to make React Flow work properly.
 
 ## Adding Nodes
 
