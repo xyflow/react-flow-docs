@@ -66,10 +66,6 @@ import ReactFlow, { isNode, isEdge, applyNodeChanges, applyEdgeChanges, addEdge 
 (nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[], edges: <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]) => <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
 </>} />
 
-<div style={{ marginBottom: 15 }}/>
-
-You can use these function as seen in [this example](https://github.com/wbkd/react-flow/blob/main/example/src/Overview/index.tsx#L100) or use your own ones.
-
 ### `getTransformForBounds`
 
 <PropItem description={<>Returns the <Link to="/docs/api/types/#transform">Transform</Link> (<code>[x, y, zoom]</code>) for the passed params</>} type={<>
