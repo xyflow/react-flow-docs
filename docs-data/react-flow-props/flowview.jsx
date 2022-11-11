@@ -90,7 +90,7 @@ const props = [
     type: (
       <>
         <Link to="/docs/api/types/#panelposition">PanelPosition</Link> ('top-left'`, 'top-center',
-        'top-right' and 'bottom-right')
+        'top-right', 'bottom-left', 'bottom-center' or 'bottom-right')
       </>
     ),
     default: "'bottom-right'",

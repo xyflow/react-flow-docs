@@ -1,3 +1,6 @@
+import React from 'react';
+import Link from '@docusaurus/Link';
+
 const props = [
   {
     name: 'pannable',
@@ -74,6 +77,17 @@ const props = [
     type: 'string',
     default: 'undefined',
     description: 'Additional class name',
+  },
+  {
+    name: 'position',
+    type: (
+      <>
+        <Link to="/docs/api/types/#panelposition">PanelPosition</Link> ('top-left'`, 'top-center',
+        'top-right', 'bottom-left', 'bottom-center' or 'bottom-right')
+      </>
+    ),
+    default: "'bottom-right'",
+    description: 'Position of the minimap panel in the viewport',
   },
 ];
 
