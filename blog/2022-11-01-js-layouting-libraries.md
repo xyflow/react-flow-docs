@@ -1,8 +1,8 @@
 ---
 slug: js-layouting-libraries-node-based-ui
-title: Javascript Layouting Libraries for Node Based UIs
+title: 5 libraries to create directed tree layouts in node based UIs
 authors: ['christopher', 'moritz']
-tags: ['react-flow', 'layouting']
+tags: ['layouting']
 hide_table_of_contents: true
 image: /img/blog/v10-header.png
 ---
@@ -22,7 +22,7 @@ In the following section, we present five Javascript libraries that help you to 
 
 ### ElkJS
 
-<CodeViewer codePath="blog-flows/layouting/elkjs" options={editorOptions} showEditor={false} additionalFiles={['countries.js']} />
+<CodeViewer dependencies={{ elkjs: 'latest' }} codePath="blog-flows/layouting/elkjs" options={editorOptions} additionalFiles={['layout.js']} />
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
@@ -43,7 +43,7 @@ ELK is a huge collection of very powerful layouting algorithms. It stands for **
 
 ### D3-Hierarchy
 
-<CodeViewer codePath="api-flows/SubFlows3" options={editorOptions} showEditor={false} additionalFiles={['nodes.js','edges.js']} />
+<CodeViewer dependencies={{ 'd3-hierarchy': 'latest' }} codePath="blog-flows/layouting/d3-hierarchy" options={editorOptions} additionalFiles={['layout.js']} />
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
@@ -57,7 +57,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### Dagre
 
-<CodeViewer codePath="api-flows/SubFlows3" options={editorOptions} showEditor={false} additionalFiles={['nodes.js','edges.js']} />
+<CodeViewer dependencies={{ 'dagre': 'latest' }} codePath="blog-flows/layouting/dagre" options={editorOptions} additionalFiles={['layout.js']} />
 
 <div style={{ fontSize: 12, marginTop: -20, marginBottom: 10, textAlign: 'center', color: '#777' }}>Some of the most awaited features: Sub Flows!</div>
 
