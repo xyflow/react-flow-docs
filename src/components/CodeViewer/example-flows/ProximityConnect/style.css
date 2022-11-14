@@ -4,7 +4,6 @@
 }
 
 .temp .react-flow__edge-path {
-  stroke: #ddd;
-  stroke-width: 1;
+  stroke: #bbb;
   stroke-dasharray: 5 5;
 }
