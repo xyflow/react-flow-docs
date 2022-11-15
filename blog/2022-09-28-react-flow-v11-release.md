@@ -60,7 +60,7 @@ Moreover we added default aria-labels to all elements on the pane and made them 
 
 ### Edge Routing and Edge Selection
 
-Whereas in v10, the nodes were a bit more in the spotlight, this time we've put a special focus on the edges. A lot of people complained that thin edges are hard to select. We've fixed that by introducing a new [`interactionWidth` edge option](http://localhost:3000/docs/api/edges/edge-options/#options). Its default value is 20, meaning that a 20px wide invisible edge gets painted below the visible edge for an easier interaction.
+Whereas in v10, the nodes were a bit more in the spotlight, this time we've put a special focus on the edges. A lot of people complained that thin edges are hard to select. We've fixed that by introducing a new [`interactionWidth` edge option](/docs/api/edges/edge-options/#options). Its default value is 20, meaning that a 20px wide invisible edge gets painted below the visible edge for an easier interaction.
 
 Another big update is a complete rewrite of the edge routing for `smoothstep` and `step` edge types.
 
