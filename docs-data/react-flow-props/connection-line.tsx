@@ -5,8 +5,8 @@ const props = [
   {
     name: 'connectionLineType',
     type: <Link to="/docs/api/types#connectionlinetype">ConnectionLineType</Link>,
-    default: 'default',
-    description: 'Available types are: "default", "smoothstep", "step" and "straight".',
+    default: '"default"',
+    description: 'Available types are: "default" (bezier), "smoothstep", "step" and "straight".',
   },
   {
     name: 'connectionLineStyle',
