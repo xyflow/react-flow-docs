@@ -57,13 +57,13 @@ const props = [
   {
     name: 'onClick',
     type: 'function',
-    default: 'undfined',
+    default: 'undefined',
     description: `Get's called when the minimap is clicked.`,
   },
   {
     name: 'onNodeClick',
     type: 'function',
-    default: 'undfined',
+    default: 'undefined',
     description: `Get's called when a minimap node is clicked.`,
   },
   {
