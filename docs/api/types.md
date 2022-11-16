@@ -94,7 +94,7 @@ type FitViewOptions = {
 };
 ```
 
-### HandleType
+### `HandleType`
 
 ```ts
 type HandleType = 'source' | 'target';
@@ -147,7 +147,7 @@ type NodeChange =
   | NodeResetChange;
 ```
 
-### OnConnectStartParams
+### `OnConnectStartParams`
 
 ```ts
 type OnConnectStartParams = {
@@ -157,7 +157,7 @@ type OnConnectStartParams = {
 };
 ```
 
-### OnSelectionChangeParams
+### `OnSelectionChangeParams`
 
 ```ts
 export type OnSelectionChangeParams = {
@@ -185,6 +185,17 @@ enum PanOnScrollMode {
   Free = 'free',
   Vertical = 'vertical',
   Horizontal = 'horizontal',
+}
+```
+
+### `Position`
+
+```ts
+enum Position {
+  Left = 'left',
+  Top = 'top',
+  Right = 'right',
+  Bottom = 'bottom',
 }
 ```
 

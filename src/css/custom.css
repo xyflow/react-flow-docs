@@ -256,7 +256,8 @@ a.navbar__brand:hover {
   align-items: center;
 }
 
-.menu__list-item.pro > a:after {
+.menu__list-item.pro > .menu__link:after,
+.menu__list-item.new > .menu__link:after {
   content: 'pro';
   margin-left: 5px;
   background-color: var(--ifm-color-primary);
@@ -266,6 +267,10 @@ a.navbar__brand:hover {
   font-weight: 900;
   padding: 2px 4px;
   border-radius: 4px;
+}
+
+.menu__list-item.new > .menu__link:after {
+  content: 'new';
 }
 
 .chakra-stat dl,
