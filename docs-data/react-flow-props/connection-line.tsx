@@ -4,9 +4,9 @@ import Link from '@docusaurus/Link';
 const props = [
   {
     name: 'connectionLineType',
-    type: 'string',
-    default: 'undefined',
-    description: 'Called when user clicks a node',
+    type: <Link to="/docs/api/types#connectionlinetype">ConnectionLineType</Link>,
+    default: '"default"',
+    description: 'Available types are: "default" (bezier), "smoothstep", "step" and "straight".',
   },
   {
     name: 'connectionLineStyle',
