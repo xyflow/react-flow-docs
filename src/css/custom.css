@@ -280,6 +280,6 @@ a.navbar__brand:hover {
 
 @media (min-width: 997px) {
   nav.menu {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
 }
