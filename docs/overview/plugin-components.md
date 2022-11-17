@@ -25,3 +25,9 @@ React Flow comes with a customizable controls bar, that you can use by importing
 If you want to display the pattern background, you can use the [`Background` component](/docs/api/plugin-components/background)
 
 <CodeViewer codePath="api-flows/Background" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
+
+### NodeToolbar
+
+This plugin component can be attached to a node and is useful for displaying controls for the node. [`NodeToolbar` component](/docs/api/plugin-components/node-toolbar)
+
+<!-- <CodeViewer codePath="api-flows/Background" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} /> -->

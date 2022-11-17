@@ -9,7 +9,7 @@ import PropItems from '../../../src/components/Docs/PropItems'
 The node toolbar plugin component renders a toolbar that is attached to a node. The toolbar does not scale with the viewport so that the content of the toolbar is always readable.
 
 :::info
-The NodeToolbar component is available in `reactflow` version **11.3** and higher.
+The `NodeToolbar` component is available in `reactflow` version **11.3** and higher.
 :::
 
 ### Usage

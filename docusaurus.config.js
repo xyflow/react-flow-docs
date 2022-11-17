@@ -63,7 +63,13 @@ const config = {
             type: 'doc',
             docId: 'introduction',
             position: 'right',
-            label: 'Docs',
+            label: 'Guides',
+          },
+          {
+            type: 'doc',
+            docId: 'api/react-flow-props',
+            position: 'right',
+            label: 'API',
           },
           {
             type: 'doc',

@@ -277,3 +277,9 @@ a.navbar__brand:hover {
 .chakra-stat dd {
   margin: 0;
 }
+
+@media (min-width: 997px) {
+  nav.menu {
+    padding-bottom: 80px;
+  }
+}
