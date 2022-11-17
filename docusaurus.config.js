@@ -63,7 +63,7 @@ const config = {
             type: 'doc',
             docId: 'introduction',
             position: 'right',
-            label: 'Guides',
+            label: 'Docs',
           },
           {
             type: 'doc',
@@ -81,8 +81,8 @@ const config = {
           {
             href: 'https://github.com/wbkd/react-flow',
             position: 'right',
-            label: 'Github',
-            className: 'hide-svg-icon',
+            html: '<b>Github</b>',
+            // className: 'hide-svg-icon',
           },
           {
             type: 'search',
@@ -91,8 +91,7 @@ const config = {
           {
             href: 'https://pro.reactflow.dev',
             position: 'right',
-            label: 'React Flow Pro',
-            className: 'button__rfpro hide-svg-icon',
+            html: '<button class="button__rfpro">React Flow Pro</button>',
           },
         ],
       },

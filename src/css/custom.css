@@ -170,8 +170,11 @@ a.navbar__brand:hover {
   -webkit-transition: 0.075s all ease-in-out;
   transition: 0.075s all ease-in-out;
   padding-right: 45px !important;
-  margin-left: 15px;
   position: relative;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-family: var(--ifm-font-family-base);
 }
 
 .navbar__items .button__rfpro:after {
@@ -271,6 +274,9 @@ a.navbar__brand:hover {
 
 .menu__list-item.new > .menu__link:after {
   content: 'new';
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
 }
 
 .chakra-stat dl,

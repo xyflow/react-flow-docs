@@ -1,6 +1,6 @@
 ---
 title: Graph Util Functions
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 import Link from '@docusaurus/Link';
