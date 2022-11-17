@@ -26,8 +26,8 @@ If you want to display the pattern background, you can use the [`Background` com
 
 <CodeViewer codePath="api-flows/Background" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} />
 
-### NodeToolbar
+### Panel
 
-This plugin component can be attached to a node and is useful for displaying controls for the node. [`NodeToolbar` component](/docs/api/plugin-components/node-toolbar)
+A helper component to display content on top of the React Flow viewport. [`Panel` component](/docs/api/plugin-components/panel)
 
-<!-- <CodeViewer codePath="api-flows/Background" applyStyles={false} options={editorOptions} additionalFiles={['nodes.js', 'edges.js']} /> -->
+<CodeViewer codePath="api-flows/Panel" applyStyles={false} options={editorOptions} additionalFiles={['style.css']} />
