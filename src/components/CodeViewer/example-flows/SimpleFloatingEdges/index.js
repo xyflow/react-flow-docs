@@ -44,6 +44,8 @@ const initialEdges = [
     id: '1-2',
     source: '1',
     target: '2',
+    sourceHandle: 'c',
+    targetHandle: 'a',
     type: 'floating',
     markerEnd: { type: MarkerType.ArrowClosed },
   },
