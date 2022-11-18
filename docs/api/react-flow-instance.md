@@ -68,6 +68,8 @@ The `reactFlowInstance` has the following functions:
 
 ### `deleteElements`
 
+**The `deleteElements` method is available from version 11.2 onwards.**
+
 <PropItem description="Deletes the passed nodes and edges. All connected edges of the passed nodes get deleted automatically." type={<>
 (&#123; nodes, edges &#125;: &#123; nodes?: <Link to="/docs/api/types/#node">Node</Link>[], edges?: <Link to="/docs/api/types/#edge">Edge</Link>[] &#125;) => void</>} />
 
