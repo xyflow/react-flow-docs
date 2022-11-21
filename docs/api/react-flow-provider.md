@@ -1,6 +1,6 @@
 ---
-title: ReactFlowProvider
-sidebar_position: 3
+title: <ReactFlowProvider />
+sidebar_position: 4
 ---
 
 You need to wrap your flow with a `ReactFlowProvider` if you:

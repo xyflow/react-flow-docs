@@ -170,8 +170,11 @@ a.navbar__brand:hover {
   -webkit-transition: 0.075s all ease-in-out;
   transition: 0.075s all ease-in-out;
   padding-right: 45px !important;
-  margin-left: 15px;
   position: relative;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-family: var(--ifm-font-family-base);
 }
 
 .navbar__items .button__rfpro:after {
@@ -256,7 +259,8 @@ a.navbar__brand:hover {
   align-items: center;
 }
 
-.menu__list-item.pro > a:after {
+.menu__list-item.pro > .menu__link:after,
+.menu__list-item.new > .menu__link:after {
   content: 'pro';
   margin-left: 5px;
   background-color: var(--ifm-color-primary);
@@ -268,7 +272,20 @@ a.navbar__brand:hover {
   border-radius: 4px;
 }
 
+.menu__list-item.new > .menu__link:after {
+  content: 'new';
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+}
+
 .chakra-stat dl,
 .chakra-stat dd {
   margin: 0;
+}
+
+@media (min-width: 997px) {
+  nav.menu {
+    padding-bottom: 50px;
+  }
 }
