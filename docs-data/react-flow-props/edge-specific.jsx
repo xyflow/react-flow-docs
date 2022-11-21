@@ -20,6 +20,12 @@ const props = [
     default: 'undefined',
     description: 'Edge options that apply for all edges',
   },
+  {
+    name: 'edgeUpdaterRadius',
+    type: 'number',
+    default: '10',
+    description: 'The radius around the edge end which can be used for updating the edge',
+  },
 ];
 
 export default props;

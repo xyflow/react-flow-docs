@@ -1,6 +1,6 @@
 ---
-title: EdgeText
-sidebar_position: 4
+title: <EdgeText />
+sidebar_position: 8
 ---
 
 You can use the `EdgeText` as a helper component to display text within your custom edges.

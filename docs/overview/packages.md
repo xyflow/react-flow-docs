@@ -187,3 +187,39 @@ pnpm add @reactflow/minimap
 ```js
 import { MiniMap } from '@reactflow/minimap';
 ```
+
+### @reactflow/node-toolbar
+
+This package exports the [NodeToolbar component](/docs/api/nodes/node-toolbar).
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/node-toolbar
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/node-toolbar
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/node-toolbar
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { NodeToolbar } from '@reactflow/node-toolbar';
+```

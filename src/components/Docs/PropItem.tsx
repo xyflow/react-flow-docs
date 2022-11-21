@@ -10,9 +10,16 @@ export type PropItemProps = {
   type?: ReactNode;
   description?: ReactNode;
   default?: ReactNode;
+  required?: boolean;
 };
 
-function PropItem({ name, type, description, default: defaultValue }: PropItemProps) {
+function PropItem({
+  name,
+  type,
+  description,
+  default: defaultValue,
+  required = false,
+}: PropItemProps) {
   const id = slugger.slug(name);
 
   return (
@@ -20,6 +27,11 @@ function PropItem({ name, type, description, default: defaultValue }: PropItemPr
       {name && (
         <Heading as="h4" id={id}>
           <code>{name}</code>
+          {required && (
+            <Box as="span" color="purple.500" fontWeight={400} ml={2}>
+              required
+            </Box>
+          )}
         </Heading>
       )}
       <Box mt={-2} fontSize="sm">
