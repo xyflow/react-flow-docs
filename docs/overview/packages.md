@@ -190,7 +190,7 @@ import { MiniMap } from '@reactflow/minimap';
 
 ### @reactflow/node-toolbar
 
-This package exports the [NodeToolbar component](/docs/api/plugin-components/node-toolbar).
+This package exports the [NodeToolbar component](/docs/api/nodes/node-toolbar).
 
 #### Installation
 
