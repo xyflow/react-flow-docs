@@ -5,12 +5,17 @@ sidebar_class_name: new
 ---
 
 import PropItems from '../../../src/components/Docs/PropItems'
+import CodeViewer from '../../../src/components/CodeViewer';
 
 The node toolbar plugin component renders a toolbar that is attached to a node. The toolbar does not scale with the viewport so that the content of the toolbar is always readable.
 
 :::info
 The `NodeToolbar` component is available in `reactflow` version **11.3** and higher.
 :::
+
+### Usage Example
+
+<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} codePath="api-flows/NodeToolbar" applyStyles={false} additionalFiles={['CustomNode.js', 'TooltipNode.js']} />
 
 ### Usage
 
