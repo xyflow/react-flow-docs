@@ -80,9 +80,9 @@ const props = [
   },
   {
     name: 'ariaLabel',
-    type: 'string',
+    type: 'string | null',
     default: 'React Flow mini map',
-    description: 'ariaLabel for the minimap',
+    description: 'ariaLabel for the minimap. You can set it to `null` to hide it.',
   },
   {
     name: 'style',
