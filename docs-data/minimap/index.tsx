@@ -50,9 +50,21 @@ const props = [
   },
   {
     name: 'maskColor',
-    type: 'string or function',
+    type: 'string',
     default: 'rgb(240, 242, 243, 0.7)',
-    description: 'Mini map mask color',
+    description: 'Mask color',
+  },
+  {
+    name: 'maskStrokeColor',
+    type: 'string',
+    default: 'none',
+    description: 'Inner mask stroke color',
+  },
+  {
+    name: 'maskStrokeWidth',
+    type: 'number',
+    default: '1',
+    description: 'Inner mask stroke width',
   },
   {
     name: 'onClick',
@@ -65,6 +77,12 @@ const props = [
     type: 'function',
     default: 'undefined',
     description: `Get's called when a minimap node is clicked.`,
+  },
+  {
+    name: 'ariaLabel',
+    type: 'string | null',
+    default: 'React Flow mini map',
+    description: 'ariaLabel for the minimap. You can set it to `null` to hide it.',
   },
   {
     name: 'style',
