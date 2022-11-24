@@ -52,6 +52,11 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'doc',
+      id: 'api/react-flow-props',
+      label: 'API Reference',
+    },
   ],
   examplesSidebar: [
     {
