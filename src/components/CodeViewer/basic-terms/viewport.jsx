@@ -70,9 +70,10 @@ function Flow() {
           position: 'relative',
         }}
       >
-        <ReactFlow defaultNodes={nodes} preventScrolling={false} nodeTypes={nodeTypes} />
-        <Background gap={25} />
-        <Controls position="top-right" showInteractive={false} />
+        <ReactFlow defaultNodes={nodes} preventScrolling={false} nodeTypes={nodeTypes}>
+          <Background gap={25} />
+          <Controls position="top-right" showInteractive={false} />
+        </ReactFlow>
       </div>
       <ViewportInfo />
     </ReactFlowProvider>
