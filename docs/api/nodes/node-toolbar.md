@@ -15,7 +15,7 @@ The `NodeToolbar` component is available in `reactflow` version **11.3** and hig
 
 ### Usage Example
 
-<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} activeFile="CustomNode.js" codePath="api-flows/NodeToolbar" applyStyles={false} additionalFiles={['CustomNode.js', 'TooltipNode.js']} />
+<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} activeFile="CustomNode.js" codePath="api-flows/NodeToolbar" applyStyles={false} additionalFiles={['CustomNode.js', 'TooltipNode.js', 'MultiSelectionToolbar.js']} />
 
 ### Default Behavior
 

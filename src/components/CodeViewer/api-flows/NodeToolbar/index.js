@@ -10,6 +10,7 @@ import 'reactflow/dist/style.css';
 
 import CustomNode from './CustomNode';
 import TooltipNode from './TooltipNode';
+import MultiSelectionToolbar from './MultiSelectionToolbar';
 
 const nodeTypes = {
   custom: CustomNode,
@@ -87,6 +88,7 @@ export default function NodeToolbarExample() {
       <MiniMap />
       <Controls />
       <Panel>Select and move one of the nodes to see the toolbar</Panel>
+      <MultiSelectionToolbar />
     </ReactFlow>
   );
 }

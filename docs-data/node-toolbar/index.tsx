@@ -4,9 +4,10 @@ import Link from '@docusaurus/Link';
 const props = [
   {
     name: 'nodeId',
-    type: 'string',
+    type: 'string | string[]',
     default: 'undefined',
-    description: 'The id of the node that the toolbar should be attached to.',
+    description:
+      'The id(s) of the node(s) that the toolbar should be attached to. You can pass multiple ids to render a toolbar for a multi-selection.',
     required: true,
   },
   {
