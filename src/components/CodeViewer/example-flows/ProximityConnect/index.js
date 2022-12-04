@@ -9,16 +9,10 @@ import ReactFlow, {
   useStoreApi,
 } from 'reactflow';
 
-import CustomNode from './CustomNode';
-
 import 'reactflow/dist/style.css';
 import './style.css';
 
 import { initialEdges, initialNodes } from './nodes-and-edges';
-
-const nodeTypes = {
-  custom: CustomNode,
-};
 
 const MIN_DISTANCE = 150;
 
@@ -115,7 +109,6 @@ const Flow = () => {
       onNodeDragStop={onNodeDragStop}
       onConnect={onConnect}
       fitView
-      nodeTypes={nodeTypes}
     >
       <Background variant={BackgroundVariant.Cross} gap={50} />
     </ReactFlow>
