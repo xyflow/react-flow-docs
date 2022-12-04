@@ -23,9 +23,17 @@ import options from '../../../docs-data/node-resizer';
 
 <PropItems props={options} />
 
-### Typescript
+### Custom Controls
 
-The interface of the NodeToolbar Prop Types are exported as`NodeToolbarProps`.
+To create your own resizing UI, you can use the `<NodeResizeControl>` component where you can pass children (such as icons).
+
+<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} activeFile="CustomNode.js" codePath="api-flows/NodeToolbar" applyStyles={false} additionalFiles={['CustomNode.js', 'TooltipNode.js', 'MultiSelectionToolbar.js']} />
+
+The `<NodeResizeControl>` component accepts the following props:
+
+import controlOptions from '../../../docs-data/node-resizer/control';
+
+<PropItems props={controlOptions} />
 
 ### Npm Package
 
