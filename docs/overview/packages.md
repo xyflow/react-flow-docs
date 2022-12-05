@@ -223,3 +223,39 @@ pnpm add @reactflow/node-toolbar
 ```js
 import { NodeToolbar } from '@reactflow/node-toolbar';
 ```
+
+### @reactflow/node-resizer
+
+This package exports the [NodeResizer component](/docs/api/nodes/node-resizer).
+
+#### Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install @reactflow/node-resizer
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn add @reactflow/node-resizer
+```
+
+  </TabItem>
+    <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add @reactflow/node-resizer
+```
+
+  </TabItem>
+</Tabs>
+
+#### Usage
+
+```js
+import { NodeResizer, NodeResizeControl } from '@reactflow/node-resizer';
+```
