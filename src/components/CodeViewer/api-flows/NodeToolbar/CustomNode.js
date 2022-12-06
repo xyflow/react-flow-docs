@@ -1,15 +1,15 @@
 import { memo } from 'react';
 import { Handle, Position, NodeToolbar } from 'reactflow';
 
-const CustomNode = ({ id, data }) => {
+const CustomNode = ({ data }) => {
   return (
     <>
-      <NodeToolbar nodeId={id} isVisible={data.toolbarVisible} position={data.toolbarPosition}>
+      <NodeToolbar isVisible={data.toolbarVisible} position={data.toolbarPosition}>
         <button>delete</button>
         <button>copy</button>
         <button>expand</button>
       </NodeToolbar>
-      <div>{data.label}</div>
+      <div style={{ padding: '10px 20px' }}>{data.label}</div>
       <Handle type="target" position={Position.Left} />
       <Handle type="source" position={Position.Right} />
     </>
