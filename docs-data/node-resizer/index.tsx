@@ -13,6 +13,18 @@ const props = [
       'This flag can be used to toggle the visibility of the resizer, useful if you want to display the controls only if a node is selected',
   },
   {
+    name: 'minWidth',
+    type: 'number',
+    default: '10',
+    description: 'The minimal width of the node to which it can be resized',
+  },
+  {
+    name: 'minHeight',
+    type: 'number',
+    default: '10',
+    description: 'The minimal height of the node to which it can be resized',
+  },
+  {
     name: 'nodeId',
     type: 'string',
     default: 'the id of the custom node where the <NodeResizer> is rendered',
