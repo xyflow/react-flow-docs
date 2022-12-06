@@ -10,7 +10,17 @@ Here we list all React Flow packages that we are publishing on npm.
 
 ## Main Package
 
-We recommend to use the [`reactflow` package](https://www.npmjs.com/package/reactflow). It contains `@reactflow/core`, `@reactflow/background`, `@reactflow/controls` and `@reactflow/minimap`.
+We recommend to use the [`reactflow` package](https://www.npmjs.com/package/reactflow). It contains the following packages:
+
+- `@reactflow/core`
+- [`@reactflow/background`](/docs/api/plugin-components/background)
+- [`@reactflow/controls`](/docs/api/plugin-components/controls)
+- [`@reactflow/minimap`](/docs/api/plugin-components/minimap)
+- [`@reactflow/node-toolbar`](/docs/api/nodes/node-toolbar)
+
+These packages are not part of the main package and need to be installed separately:
+
+- [`@reactflow/node-resizer`](/docs/api/nodes/node-resizer)
 
 #### Installation
 

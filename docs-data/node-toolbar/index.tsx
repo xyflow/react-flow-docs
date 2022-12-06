@@ -3,14 +3,6 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'nodeId',
-    type: 'string | string[]',
-    default: 'undefined',
-    description:
-      'The id(s) of the node(s) that the toolbar should be attached to. You can pass multiple ids to render a toolbar for a multi-selection.',
-    required: true,
-  },
-  {
     name: 'position',
     type: (
       <>
@@ -25,6 +17,13 @@ const props = [
     type: 'number',
     default: '10',
     description: 'The margin between the node and the toolbar in pixels.',
+  },
+  {
+    name: 'nodeId',
+    type: 'string | string[]',
+    default: 'The id of the custom node where the <NodeToolbar /> is rendered',
+    description:
+      'The id(s) of the node(s) that the toolbar should be attached to. You can pass multiple ids to render a toolbar for a multi-selection. If nodeId is not set, the toolbar will be attached to the custom node that it is mounted in.',
   },
   {
     name: 'isVisible',
