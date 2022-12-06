@@ -30,7 +30,7 @@
     "@mdx-js/react": "^1.6.21",
     "@react-three/drei": "^9.11.3",
     "@react-three/fiber": "^8.0.20",
-    "@reactflow/node-resizer": "^1.0.0",
+    "@reactflow/node-resizer": "^1.0.3",
     "@svgr/webpack": "^6.2.1",
     "clsx": "^1.2.1",
     "fathom-client": "^3.5.0",
