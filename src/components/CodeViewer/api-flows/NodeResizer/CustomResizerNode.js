@@ -12,7 +12,7 @@ const controlStyle = {
 const CustomNode = ({ data }) => {
   return (
     <>
-      <NodeResizeControl style={controlStyle}>
+      <NodeResizeControl style={controlStyle} minWidth={100} minHeight={50}>
         <ResizeIcon />
       </NodeResizeControl>
 
