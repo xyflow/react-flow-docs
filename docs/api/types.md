@@ -232,6 +232,23 @@ type Rect = {
 };
 ```
 
+### `ResizeDragEvent`
+
+```ts
+type ResizeDragEvent = D3DragEvent<HTMLDivElement, null, SubjectPosition>;
+```
+
+### `ResizeEventParams`
+
+```ts
+type ResizeEventParams = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+```
+
 ### `SetCenterOptions`
 
 ```ts
