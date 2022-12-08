@@ -13,7 +13,7 @@ import CodeViewer from '../../../src/components/CodeViewer';
 The node resizer component can be used to add a resize functionality to your nodes. It renders draggable controls around the node to resize in all directions.
 
 :::info
-The `NodeResizer` component is **not** part of the `reactflow` package. You need to install it seperately.
+The `NodeResizer` component is **not** part of the `reactflow` package. You need to install it seperately and you need reactflow >= v11.3.3 for this to work.
 :::
 
 ### Installation
