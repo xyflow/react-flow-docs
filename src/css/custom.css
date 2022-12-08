@@ -272,6 +272,10 @@ a.navbar__brand:hover {
   border-radius: 4px;
 }
 
+.menu__list-item.hidden {
+  display: none;
+}
+
 .menu__list-item.new > .menu__link:after {
   content: 'new';
   background-color: rgba(255, 255, 255, 0);

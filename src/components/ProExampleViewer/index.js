@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, AlertIcon, Box, Button, Flex, chakra, Spinner } from '@chakra-ui/react';
+import { Alert, AlertIcon, Box, Button, Flex, chakra, Text, Spinner, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const IFrame = chakra('iframe', {
@@ -25,23 +25,36 @@ export default function ProExampleViewer({ slug }) {
 
   return (
     <Box>
-      <Alert status="info" mb={6} bg="#ff0072" color="white">
-        <AlertIcon sx={{ path: { fill: 'white' } }} />
-        This is a pro example. If you are subscribed you can access the annotated source code on the{' '}
-        <Button
-          leftIcon={<ExternalLinkIcon />}
-          as="a"
-          href={exampleSrc}
-          borderRadius="md"
-          px={2}
-          size="xs"
-          ml={2}
-        >
-          Pro Platform
-        </Button>
-      </Alert>
+      <Box
+        borderRadius="lg"
+        p={5}
+        bg="pink.100"
+        border="1px solid"
+        borderColor="pink.500"
+        minHeight={860}
+        position="relative"
+      >
+        <Flex mb={4} alignItems="center" justifyContent="space-between">
+          <Text mb={0} fontWeight="bold" color="pink.500">
+            This is a Pro example. If you are subscribed to React Flow Pro you can access the
+            annotated source code.
+          </Text>
+          <a textDecoration="none" target="_blank" href={exampleSrc}>
+            <Button
+              leftIcon={<ExternalLinkIcon />}
+              borderRadius="md"
+              px={2}
+              textDecoration="none"
+              size="md"
+              ml={2}
+              flexShrink="0"
+              colorScheme="pink"
+            >
+              View Source Code
+            </Button>
+          </a>
+        </Flex>
 
-      <Box minHeight={860} position="relative">
         {isLoading && (
           <Flex
             background="rgba(255, 255, 255, 0.95)"
