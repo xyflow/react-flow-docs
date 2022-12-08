@@ -1,4 +1,14 @@
+import React from 'react';
+import Link from '@docusaurus/Link';
+
 const props = [
+  {
+    name: 'nodeId',
+    type: 'string',
+    default: 'the id of the custom node where the <NodeResizer> is rendered',
+    description:
+      'The id of the node that will be resizable, you only need to set this if you are using the resizer outside of a custom node',
+  },
   {
     name: 'position',
     type: "'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'",
@@ -25,13 +35,6 @@ const props = [
     description: 'The minimal height of the node to which it can be resized',
   },
   {
-    name: 'nodeId',
-    type: 'string',
-    default: 'the id of the custom node where the <NodeResizer> is rendered',
-    description:
-      'The id of the node that will be resizable, you only need to set this if you are using the resizer outside of a custom node',
-  },
-  {
     name: 'color',
     type: 'string',
     default: 'undefined',
@@ -55,6 +58,39 @@ const props = [
     default: 'null',
     description:
       'React children that will be rendered inside the control. Can be a custom icon for example.',
+  },
+  {
+    name: 'onResizeStart',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+      </>
+    ),
+    default: 'undefined',
+    description: 'Called on resize start',
+  },
+  {
+    name: 'onResize',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+      </>
+    ),
+    default: 'undefined',
+    description: 'Called on resize',
+  },
+  {
+    name: 'onResizeEnd',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+      </>
+    ),
+    default: 'undefined',
+    description: 'Called on resize end',
   },
 ];
 
