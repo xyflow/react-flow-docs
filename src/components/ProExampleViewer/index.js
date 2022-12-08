@@ -6,6 +6,8 @@ const IFrame = chakra('iframe', {
   baseStyle: {
     width: '100%',
     height: 860,
+    borderRadius: 'sm',
+    overflow: 'hidden',
   },
 });
 
@@ -28,7 +30,7 @@ export default function ProExampleViewer({ slug }) {
       <Box
         borderRadius="lg"
         p={5}
-        bg="pink.100"
+        bg="#ffe5f1"
         border="1px solid"
         borderColor="pink.500"
         minHeight={860}
