@@ -238,6 +238,7 @@ function FlowViz({ headlineRef }) {
       defaultNodes={defaultNodes}
       defaultEdges={defaultEdges}
       ref={reactFlowRef}
+      id="hero"
     >
       <Background />
       <Controls showInteractive={false} />

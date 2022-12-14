@@ -230,6 +230,7 @@ export default function ExampleFlow() {
       fitView
       defaultNodes={nodes}
       defaultEdges={edges}
+      id="c"
     >
       <Background />
       <MiniMap nodeBorderRadius={8} nodeStrokeColor="#fff" nodeColor={nodeColor} />

@@ -110,6 +110,7 @@ export default function ExampleFlow() {
       fitView
       defaultNodes={nodes}
       defaultEdges={edges}
+      id="b"
     >
       <Background />
     </ReactFlow>
