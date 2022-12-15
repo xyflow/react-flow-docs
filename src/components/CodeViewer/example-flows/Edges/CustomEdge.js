@@ -32,12 +32,7 @@ export default function CustomEdge({
         markerEnd={markerEnd}
       />
       <text>
-        <textPath
-          href={`#${id}`}
-          style={{ fontSize: '12px' }}
-          startOffset="50%"
-          textAnchor="middle"
-        >
+        <textPath href={`#${id}`} style={{ fontSize: 12 }} startOffset="50%" textAnchor="middle">
           {data.text}
         </textPath>
       </text>

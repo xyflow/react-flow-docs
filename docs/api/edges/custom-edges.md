@@ -14,11 +14,10 @@ function Flow({ nodes, edges }) {
 ```
 
 Now you can use the new type `special` for an edge.
-The `straight`, `default` and `step` types would still be available unless you overwrote one of them.
-There is an implementation of a custom edge in the [custom edge example](/docs/examples/edges/custom-edge).
+The `straight`, `default` and `step` types are still available unless you overwrite one of them.
 With a custom edge you can create editable edges or edges with controls like a button for example.
 
-### Prop Types
+### Passed Prop Types
 
 Custom edges are wrapped. They receive the following props:
 
@@ -43,3 +42,17 @@ Custom edges are wrapped. They receive the following props:
 - `markerStart`: string or [marker config](#markerstart--markerend-options)
 - `markerEnd`: string or [marker config](#markerstart--markerend-options)
 - `interactionWidth`: number
+
+### Custom edge examples
+
+- [Custom Edge](/docs/examples/edges/custom-edge)
+- [Edge with Button](/docs/examples/edges/edge-with-button/)
+- [EdgLabelRenderer](/docs/examples/edges/edge-label-renderer/)
+
+### Helper components and functions
+
+React Flow comes with some helpers to simplify a custom edge implementation.
+
+- [Edge Utils](/docs/api/edges/edge-utils/): helpers for creating paths
+- [BaseEdge component](/docs/api/edges/base-edge/): can be used for getting interactionWidth and edge label features
+- [EdgeLabelRenderer component](/docs/api/edges/edge-label-renderer/): helper for rendering div based labels (instead of svg based labels)

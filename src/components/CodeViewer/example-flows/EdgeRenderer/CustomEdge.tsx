@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import { EdgeProps, getBezierPath, EdgeLabelRenderer } from 'reactflow';
 
 const CustomEdge: FC<EdgeProps> = ({
@@ -20,17 +20,9 @@ const CustomEdge: FC<EdgeProps> = ({
     targetPosition,
   });
 
-  const onClick = (event: MouseEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    console.log('click', data.text);
-  };
-
   return (
     <>
       <path id={id} className="react-flow__edge-path" d={edgePath} />
-
       <EdgeLabelRenderer>
         <div
           style={{

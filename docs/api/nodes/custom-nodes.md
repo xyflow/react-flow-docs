@@ -51,3 +51,10 @@ If you have controls (like a slider) or other elements inside your custom node t
 ### Allow scrolling inside a node
 
 If you want to allow scrolling inside a node or inside an element of a node you can add the class name `nowheel` to the node or the element.
+
+### Helper components
+
+React Flow comes with some helpers to give your custom nodes super powers:
+
+- [Node Resizer](/docs/api/nodes/node-resizer/): Component for adding a resize UI
+- [Node Toolbar](/docs/api/edges/base-edge/): Toolbar or tooltip component
