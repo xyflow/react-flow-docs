@@ -65,9 +65,27 @@ const props = [
   },
   {
     name: 'panOnDrag',
-    type: 'boolean',
+    type: 'boolean | number[]',
     default: 'true',
-    description: 'enables pan on drag',
+    description:
+      'Enables pan on drag. Besides a boolean you can pass an array of mouse buttons to enable panning.',
+  },
+  {
+    name: 'selectionOnDrag',
+    type: 'boolean',
+    default: 'false',
+    description: 'Starts to draw a selection on drag',
+  },
+  {
+    name: 'selectionMode',
+    type: (
+      <>
+        <Link to="/docs/api/types/#selectionmode">SelectionMode</Link>
+      </>
+    ),
+    default: 'SelectionMode.Full',
+    description:
+      'Decide if nodes needs to be fully (SelectionMode.Full) inside the selection or just partially (SelectionMode.Partial).',
   },
   {
     name: 'panOnScroll',
@@ -152,6 +170,18 @@ const props = [
     type: 'boolean',
     default: 'false',
     description: 'With this prop you can disable the keyboard accessibility features',
+  },
+  {
+    name: 'onSelectionStart',
+    type: '() => void',
+    default: 'undefined',
+    description: 'Gets called when user starts to drag a selection.',
+  },
+  {
+    name: 'onSelectionEnd',
+    type: '() => void',
+    default: 'undefined',
+    description: 'Gets called when user ends a selection.',
   },
 ];
 

@@ -47,6 +47,17 @@ const props = [
       </>
     ),
   },
+  {
+    name: 'panActivationKeyCode',
+    type: 'string or string[] or null',
+    default: "'Space'",
+    description: (
+      <>
+        While pressing the panActivationKeyCode you can pan even if <code>panOnScroll=false</code>.
+        You can set it to <code>null</code> to disable functionality
+      </>
+    ),
+  },
 ];
 
 export default props;
