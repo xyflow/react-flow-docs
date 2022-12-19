@@ -5,7 +5,6 @@ authors: ['john']
 tags: ['react-flow', 'update']
 hide_table_of_contents: true
 image: /img/blog/v10-header.png
-draft: true
 ---
 
 import Image from '@theme/IdealImage';
@@ -23,7 +22,7 @@ In the [latest minor release](https://github.com/wbkd/react-flow/releases/tag/11
   alt="a mouse click-dragging an area over 2 nodes, then dragging those nodes as a group."
 />
 
-## Supporting beyond nodes and edges with helper components
+## New helper components: beyond nodes and edges
 
 As we’ve done research on apps that use React Flow, we’ve noticed a lot of folks are custom-building a lot of similar elements (or using third-party libraries) on top of React Flow. To help with this, we’ve started to build helper components including [Edge labels](https://reactflow.dev/docs/api/edges/edge-label-renderer/), [node resizing](https://reactflow.dev/docs/api/nodes/node-resizer/), [toolbars and tooltips](https://reactflow.dev/docs/api/nodes/node-toolbar/). We’re doing this work carefully, to make sure we’re not compromising the low-level simplicity of the core library, while making sure React Flow includes all components that are needed for building a node-based app.
 
@@ -43,7 +42,7 @@ We hope to continue on this path, this will mean talking to some of you all (yay
   alt="a gif of one node being dropped on top of another node. When it intersects with the other node, the color of the node."
 />
 
-**[Resize and Rotate](https://reactflow.dev/docs/examples/nodes/resize-rotate/):** This was a Pro example, but we decided to make the source code available to everyone in our public docs to avoid trouble people were having with third-party resizing libraries.
+**[Resize and Rotate](https://reactflow.dev/docs/examples/nodes/resize-rotate/):** This was a Pro example, but we decided to make the source code available to everyone in our public docs to avoid trouble people were having with third-party resizing libraries. We also refactored the code to use the new [resizer component](https://reactflow.dev/docs/api/nodes/node-resizer/).
 
 **[Dynamic Grouping](https://reactflow.dev/docs/examples/nodes/dynamic-grouping/)** (Pro Example 💎): Grouping nodes made easy! Make new groups or add a node to an existing group by dragging a node from a drawer or using a “group nodes” button.
 
