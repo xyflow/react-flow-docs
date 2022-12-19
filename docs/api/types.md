@@ -249,6 +249,15 @@ type ResizeEventParams = {
 };
 ```
 
+### `SelectionMode`
+
+```ts
+enum SelectionMode {
+  Full = 'full',
+  Partial = 'partial',
+}
+```
+
 ### `SetCenterOptions`
 
 ```ts
