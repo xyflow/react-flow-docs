@@ -19,7 +19,11 @@ The default pan and zoom behaviour of React Flow is inspired by [slippy maps](ht
 
 ## Default Viewport Controls
 
-As mentioned above, the default controls are: pan to drag, scroll to zoom and Shift + drag to create a selection:
+As mentioned above, the default controls are:
+
+- pan: drag mouse
+- zoom: scroll
+- create selection: Shift + drag
 
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
@@ -32,10 +36,16 @@ editorOptions={editorOptions}
 
 ## Figma-like Viewport Controls
 
-If you prefer figma/sketch/design tool controls (panning = scrolling, trackpad or press space and drag, zooming = cmd and scrolling or pinch on trackpad) you can set `panOnScroll={true}` and `selectionOnDrag={true}`:
+If you prefer figma/sketch/design tool controls you can set `panOnScroll={true}` and `selectionOnDrag={true}`:
+
+- pan: scroll, middle or right mouse
+- zoom: pitch or cmd + scroll
+- create selection: drag mouse
 
 <CodeViewer
 codePath="api-flows/ZoomPan2"
 additionalFiles={['nodes.js', 'edges.js']}
 editorOptions={editorOptions}
 />
+
+In this example we also set `selectionMode={SelectionMode.Partial}` to be able to add nodes to a selection that are only partially selected.
