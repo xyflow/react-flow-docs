@@ -17,12 +17,25 @@ The default pan and zoom behaviour of React Flow is inspired by [slippy maps](ht
 - `zoomActivationKeyCode`: default `'Meta'`
 - `panActivationKeyCode`: default `'Space'` (available since 11.4.0)
 
+## Default Viewport Controls
+
+As mentioned above, the default controls are: pan to drag, scroll to zoom and Shift + drag to create a selection:
+
+import CodeViewer from '/src/components/CodeViewer';
+const editorOptions = { editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }
+
+<CodeViewer
+codePath="api-flows/ZoomPan"
+additionalFiles={['nodes.js', 'edges.js']}
+editorOptions={editorOptions}
+/>
+
+## Figma-like Viewport Controls
+
 If you prefer figma/sketch/design tool controls (panning = scrolling, trackpad or press space and drag, zooming = cmd and scrolling or pinch on trackpad) you can set `panOnScroll={true}` and `selectionOnDrag={true}`:
 
-```jsx
-import ReactFlow from 'reactflow';
-
-function Flow() {
-  return <ReactFlow panOnScroll selectionOnDrag nodes={[]} edges={[]} />;
-}
-```
+<CodeViewer
+codePath="api-flows/ZoomPan2"
+additionalFiles={['nodes.js', 'edges.js']}
+editorOptions={editorOptions}
+/>
