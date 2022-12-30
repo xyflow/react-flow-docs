@@ -38,7 +38,7 @@ editorOptions={editorOptions}
 
 If you prefer figma/sketch/design tool controls you can set `panOnScroll={true}` and `selectionOnDrag={true}`:
 
-- pan: scroll, middle or right mouse
+- pan: Space + drag mouse, scroll, middle or right mouse
 - zoom: pitch or cmd + scroll
 - create selection: drag mouse
 
