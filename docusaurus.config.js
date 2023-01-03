@@ -52,6 +52,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'job',
+        content:
+          'We are hiring! 🌱 <a target="_blank" rel="noopener noreferrer" href="https://wbkd.notion.site/Job-Opening-Open-Source-Library-Maintainer-at-React-Flow-5dc563c7f8924d05a825a13c4bd00507">Join our team</a>',
+        backgroundColor: '#f5f5f5',
+        textColor: '#56595f',
+        isCloseable: true,
+      },
       navbar: {
         title: 'React Flow',
         logo: {
