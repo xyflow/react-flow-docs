@@ -90,9 +90,7 @@ type GetSmoothStepPathParams = {
 type GetStraightPathParams {
   sourceX: number;
   sourceY: number;
-  sourcePosition?: Position;
   targetX: number;
   targetY: number;
-  targetPosition?: Position;
 }
 ```
