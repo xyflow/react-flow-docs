@@ -1,6 +1,6 @@
 ---
 slug: 'mind-map-app-with-react-flow'
-title: "Let's Build a Mind Map App with React Flow"
+title: 'Tutorial: Build a Mind Map App with React Flow'
 authors: ['moritz']
 tags: ['react-flow', 'how-to', 'mind-map']
 hide_table_of_contents: false
@@ -12,32 +12,25 @@ import { AspectRatio } from '@chakra-ui/react';
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: '40vh' };
 
-If you are coming from a far away corner of the internet and never heard of React Flow, it is an open source library for building node-based UIs. It's best for creating workflow tools, ETL pipelines and node based editors in general. A typical application built with React Flow, looks like this:
-
-<Image
-  img="/img/blog/mindmap/datablocks-screenshot.webp"
-  alt="Screenshot of datablocks application."
-/>
-
-_Screenshot of [datablocks](https://datablocks.pro) application_
-
-But there is more! You can also use it to implement diagramming tools, puzzles or gant charts with it. In this tutorial, you will learn how you can build a simple mind map tool with React Flow. If you never worked with React Flow before, I recommend you to check out the [overview](/docs/overview/terms-and-definitions/) first.
+In this tutorial, you will learn to create a simple mind map tool with React Flow that can be used for brainstorming, organizing an idea, or mapping your thoughts in a visual way. To build this app, we'll be using state management, custom nodes and edges, and more.
 
 <!--truncate-->
 
-## 🎬 Demo time already?!
+## 🎬 It's Demo Time!
 
-Before we start to get our hands dirty, I want to show you what we are going to implement today. This is it:
+Before we get our hands dirty, I want to show you the mindmapping tool we'll have by the end of this tutorial:
 
 <AspectRatio ratio={16 / 9} mb={6}>
   <iframe src="https://react-flow-mindmap.netlify.app/" />
 </AspectRatio>
 
-If you want to skip this tutorial you can find the source code on [Github](https://github.com/wbkd/react-flow-mindmap-app). In order to follow this tutorial, you should have a basic understanding about how React works. If you are new to React, I recommend to check the [official documentation](https://reactjs.org/docs/getting-started.html) first.
+If you'd like to live dangerously and dive right into the code, you can find the source code on [Github](https://github.com/wbkd/react-flow-mindmap-app).
 
 ## 👩🏻‍💻 Getting started
 
-For this tutorial we use [Vite](https://vitejs.dev/) to develop our app, but you can also use [Create React App](https://create-react-app.dev/) or any other tool you like. To scaffold a new React app with Vite you need to do:
+To do this tutorial you will need some knowledge of [React](https://reactjs.org/docs/getting-started.html) and [React Flow](/docs/overview/terms-and-definitions/) (hi, that's us! 😁 it's an open source library for building node-based UIs like workflow tools, ETL pipelines, and [more](https://reactflow.dev/showcase/).)
+
+We'll be using [Vite](https://vitejs.dev/) to develop our app, but you can also use [Create React App](https://create-react-app.dev/) or any other tool you like. To scaffold a new React app with Vite you need to do:
 
 ```bash
 npm create vite@latest reactflow-mind-map -- --template react
@@ -55,7 +48,7 @@ After the initial setup, you need to install some packages:
 npm install reactflow zustand classcat nanoid
 ```
 
-We are using [Zustand](https://github.com/pmndrs/zustand) for managing the state of our application. It's a bit like Redux but way smaller and less boiler plate code to write. Zustand is also used by React Flow so the installation comes with no additional cost. For this tutorial we are using Typescript but you can also use plain Javascript.
+We are using [Zustand](https://github.com/pmndrs/zustand) for managing the state of our application. It's a bit like Redux but way smaller and there's less boilerplate code to write. React Flow also uses Zustand, so the installation comes with no additional cost. (For this tutorial we are using Typescript but you can also use plain Javascript.)
 
 To keep it simple we are putting all of our code in the `src/App` folder. For this you need to create the `src/App` folder and add an index file with the following content:
 
@@ -64,7 +57,7 @@ To keep it simple we are putting all of our code in the `src/App` folder. For th
 ```tsx
 import ReactFlow, { Controls, Panel } from 'reactflow';
 
-// we need to import the React Flow styles to make it work
+// we have to import the React Flow styles for it to work
 import 'reactflow/dist/style.css';
 
 function Flow() {
@@ -79,9 +72,9 @@ function Flow() {
 export default Flow;
 ```
 
-This will be our main component for rendering the mind map. For now there are no nodes or edges but we added the React Flow [`Controls`](/docs/api/plugin-components/controls) component and a [`Panel`](/docs/api/plugin-components/panel) to display the title of our app.
+This will be our main component for rendering the mind map. There are no nodes or edges yet, but we added the React Flow [`Controls`](/docs/api/plugin-components/controls) component and a [`Panel`](/docs/api/plugin-components/panel) to display the title of our app.
 
-In our main.tsx (entry file for vite) we are wrapping the application with the [`ReactFlowProvider`](/docs/api/react-flow-provider/) component. This is needed to be able to use the React Flow hooks. We are also importing the newly created `App/index.tsx` and render it inside the `ReactFlowProvider.` Your main file should look like this:
+To be able to use React Flow hooks, we need to wrap the application with the [`ReactFlowProvider`](/docs/api/react-flow-provider/) component in our main.tsx (entry file for vite). We are also importing the newly created `App/index.tsx` and render it inside the `ReactFlowProvider.` Your main file should look like this:
 
 #### src/main.tsx
 
@@ -119,8 +112,7 @@ body,
 }
 ```
 
-For the sake of simplicity we are adding all styles of our app to the `index.css` file. You can also use a CSS-in-JS library like [Styled Components](/docs/examples/styling/styled-components/) or [Tailwind](/docs/examples/styling/tailwind/) for example.
-After all of this is done, you can start the development server with `npm run dev` and you should see the following:
+We are adding all styles of our app to the `index.css` file (you could also use a CSS-in-JS library like [Styled Components](/docs/examples/styling/styled-components/) or [Tailwind](/docs/examples/styling/tailwind/)). Now you can start the development server with `npm run dev` and you should see the following:
 
 <CodeViewer
   codePath="blog-flows/mindmap/GettingStarted"
@@ -131,7 +123,7 @@ After all of this is done, you can start the development server with `npm run de
 
 ## 🏪 A store for nodes and edges
 
-As mentioned above, we are using Zustand for managing the state. For this, we create a new file in our `src/App` folder called `store.ts`:
+As mentioned above, we are using Zustand for state management. For this, we create a new file in our `src/App` folder called `store.ts`:
 
 #### src/App/store.ts
 
@@ -180,7 +172,7 @@ const useStore = create<RFState>((set, get) => ({
 export default useStore;
 ```
 
-It seems like a lot of code, but it's mostly types 😇 The store keeps track of the nodes and edges and handles the change events. When a user drags a node, React Flow fires a change event, the store then applies the changes and the updated nodes get rendered. If you need more information about how to use Zustand with React Flow you can find a detailed explanation in the [how to use a state management library guide](/docs/api/hooks/use-store/).
+It seems like a lot of code, but it's mostly types 😇 The store keeps track of the nodes and edges and handles the change events. When a user drags a node, React Flow fires a change event, the store then applies the changes and the updated nodes get rendered. (You can read more about this in our [state management library guide](/docs/api/hooks/use-store/).)
 
 As you can see we start with one initial node placed at `{ x: 0, y: 0 }` of type 'mindmap'. To connect the store with our app, we use the `useStore` hook:
 
@@ -192,7 +184,7 @@ import shallow from 'zustand/shallow';
 
 import useStore, { RFState } from './store';
 
-// we need to import the React Flow styles to make it work
+// we have to import the React Flow styles for it to work
 import 'reactflow/dist/style.css';
 
 const selector = (state: RFState) => ({
@@ -202,11 +194,11 @@ const selector = (state: RFState) => ({
   onEdgesChange: state.onEdgesChange,
 });
 
-// this makes the node origin to be in the center of a node
+// this places the node origin in the center of a node
 const nodeOrigin: NodeOrigin = [0.5, 0.5];
 
 function Flow() {
-  // whenever you use multiple values, you should use shallow for making sure that the component only re-renders when one of the values change
+  // whenever you use multiple values, you should use shallow to make sure the component only re-renders when one of the values changes
   const { nodes, edges, onNodesChange, onEdgesChange } = useStore(selector, shallow);
 
   return (
@@ -236,11 +228,11 @@ We access the nodes, edges and change handlers from the store and pass them to t
   isTypescript
 />
 
-We are getting somewhere 🚀 You can move the node around and zoom in and out. But as you can see we are not done yet. We need to add some more functionality.
+You can move the node around and zoom in and out, we are getting somewhere 🚀 Now let's add some more functionality.
 
 ## ✨ Custom nodes and edges
 
-For our nodes we want to use a custom type called 'mindmap'. For this we add a new component. This is done by creating a new folder called `MindMapNode` with an index file under `src/App` with the following content:
+We want to use a custom type called 'mindmap' for our nodes. We need to add a new component for this. Let's create a new folder called `MindMapNode` with an index file under `src/App` with the following content:
 
 #### src/App/MindMapNode/index.tsx
 
@@ -265,7 +257,7 @@ function MindMapNode({ id, data }: NodeProps<NodeData>) {
 export default MindMapNode;
 ```
 
-We are using an input for displaying and editing the labels of our mind map nodes and two handles for connecting them. This is necessary for React Flow to work. It uses the handles for the start and end position of the edges.
+We are using an input for displaying and editing the labels of our mind map nodes, and two handles for connecting them. This is necessary for React Flow to work; the handles are used as the start and end position of the edges.
 
 We also add some CSS to the `index.css` file to make the nodes look a bit prettier:
 
@@ -281,8 +273,9 @@ We also add some CSS to the `index.css` file to make the nodes look a bit pretti
 }
 ```
 
-There is a [guide about custom nodes](/docs/guides/custom-nodes/) in our docs, if you want to know more about this topic.
-We are doing the same for the custom edge. Create a new folder called `MindMapEdge` with an index file under `src/App`:
+(For more on this, you can read the [guide to custom nodes](/docs/guides/custom-nodes/) in our docs.)
+
+Let's do the same for the custom edge. Create a new folder called `MindMapEdge` with an index file under `src/App`:
 
 #### src/App/MindMapEdge/index.tsx
 
@@ -333,11 +326,11 @@ Nice! We can already change the labels of our nodes by clicking in the input fie
 
 ## 🆕 New nodes
 
-We want to make it really easy for a user to create a new node. The user should be able to add a new node by clicking on a node and drag to the position where a new node should be placed. This is not something built into React Flow, but we can implement it by using the [`onConnectStart` and `onConnectEnd`](/docs/api/react-flow-props/#onconnectstart) handlers.
+We want to make it super quick for a user to create a new node. The user should be able to add a new node by clicking on a node and drag to the position where a new node should be placed. This functionality is not built into React Flow, but we can implement it by using the [`onConnectStart` and `onConnectEnd`](/docs/api/react-flow-props/#onconnectstart) handlers.
 
 We are using the start handler to remember the node that was clicked and the end handler to create the new node:
 
-#### Stuff added to src/App/index.tsx
+#### Add to src/App/index.tsx
 
 ```tsx
 const connectingNodeId = useRef<string | null>(null);
@@ -356,7 +349,7 @@ const onConnectEnd: OnConnectEnd = useCallback((event) => {
 }, []);
 ```
 
-Since our nodes are managed by the store, we create an action to add a new node and its edge. This is how our `addChildNode` action looks like:
+Since our nodes are managed by the store, we create an action to add a new node and its edge. This is how our `addChildNode` action looks:
 
 #### New action in src/store.ts
 
@@ -383,7 +376,7 @@ addChildNode: (parentNode: Node, position: XYPosition) => {
 };
 ```
 
-We are using the passed node as a parent. Normally this feature is used to implement [grouping](/docs/examples/nodes/dynamic-grouping/) or [sub flows](/docs/examples/layout/sub-flows/). Here we are using it to move all child nodes with the parent. It enables us to clean up and re-order the mind map more quickly, since we don't have to move all child nodes manually. Let's use the new action in our `onConnectEnd` handler:
+We are using the passed node as a parent. Normally this feature is used to implement [grouping](/docs/examples/nodes/dynamic-grouping/) or [sub flows](/docs/examples/layout/sub-flows/). Here we are using it to move all child nodes when their parent is moved. It enables us to clean up and re-order the mind map so that we don't have to move all child nodes manually. Let's use the new action in our `onConnectEnd` handler:
 
 #### Adjustments in src/App/index.tsx
 
@@ -408,7 +401,7 @@ const onConnectEnd: OnConnectEnd = useCallback(
 );
 ```
 
-First we are getting the `nodeInternals` from the React Flow store via `store.getState()`. `nodeInternals` is a map that contains all nodes and their current state. We need it to get the position and dimensions of the clicked node. We are then checking if the target of the onConnectEnd event is the React Flow pane. If that's the case, we want to add a new node. For this we are using our `addChildNode` and the newly created `getChildNodePosition` helper function.
+First we are getting the `nodeInternals` from the React Flow store via `store.getState()`. `nodeInternals` is a map that contains all nodes and their current state. We need it to get the position and dimensions of the clicked node. Then we check if the target of the onConnectEnd event is the React Flow pane. If it is, we want to add a new node. For this we are using our `addChildNode` and the newly created `getChildNodePosition` helper function.
 
 #### Helper function in src/App/index.tsx
 
@@ -443,7 +436,7 @@ const getChildNodePosition = (event: MouseEvent, parentNode?: Node) => {
 };
 ```
 
-This function returns the position of the new node we want to add to our store. We are using the [`project` function](/docs/api/react-flow-instance/#project) to convert screen coordinates into React Flow coordinates. As mentioned earlier, child nodes are positioned relative to their parents. That's we we need to subtract the parent position from the child node position. That was a lot to take in. Let's see it in action:
+This function returns the position of the new node we want to add to our store. We are using the [`project` function](/docs/api/react-flow-instance/#project) to convert screen coordinates into React Flow coordinates. As mentioned earlier, child nodes are positioned relative to their parents. That's why we need to subtract the parent position from the child node position. That was a lot to take in, let's see it in action:
 
 <CodeViewer
   codePath="blog-flows/mindmap/CreateNodes"
@@ -457,7 +450,7 @@ To test the new functionality you can start a connection from a handle and then 
 
 ## 🤝 Keep data in sync
 
-We can already update the labels but we are not updating the nodes data object. This is important to keep our app in sync and if we want to save our nodes on the server for example. To achieve this we add a new action called `updateNodeLabel` to the store. This actions takes a node id and a label. The implementation is pretty straight forward. We iterate over the existing nodes and update the matching one with the passed label:
+We can already update the labels but we are not updating the nodes data object. This is important to keep our app in sync and if we want to save our nodes on the server for example. To achieve this we add a new action called `updateNodeLabel` to the store. This action takes a node id and a label. The implementation is pretty straight forward: we iterate over the existing nodes and update the matching one with the passed label:
 
 #### src/store.ts
 
@@ -515,11 +508,11 @@ That was quick! The input fields of the custom nodes now display the current lab
 
 ## 💅 Simpler UX and nicer styling
 
-Functionality wise we are finished with our mind map app. We can add new nodes, update their labels and move them around. But the UX and styling could use some improvements. It's hard to move nodes around, because the area is very small, the handles are also very small which makes it hard to create new nodes. Let's fix that!
+Functionality-wise we are finished with our mind map app! We can add new nodes, update their labels and move them around. But the UX and styling could use some improvements. Let's make it easier to drag the nodes and to create new nodes!
 
 ### 1. A node as handle
 
-We don't want to show the default handles but use the whole node as a handle. This makes it easier to create nodes, because the area where you can start a new connection gets bigger. We need to style the source handle so that it gets the size of the node and hide the target handle visually. React Flow still needs it to connect the nodes but we don't need to display it since we are creating new nodes by dropping an edge on the pane. We use plain old CSS to hide the target handle and position it in the center of the node:
+Let's use the whole node as a handle, rather than displaying the default handles. This makes it easier to create nodes, because the area where you can start a new connection gets bigger. We need to style the source handle to be the size of the node and hide the target handle visually. React Flow still needs it to connect the nodes but we don't need to display it since we are creating new nodes by dropping an edge on the pane. We use plain old CSS to hide the target handle and position it in the center of the node:
 
 #### src/index.css
 
@@ -556,7 +549,7 @@ In order to make the whole node a handle, we also update the style of the source
   isTypescript
 />
 
-This works but we can't move the nodes anymore because the source handle is now the whole node and lays on top of the input field. We fix that by using the [`dragHandle` node option](/docs/api/nodes/node-options/#draghandle). It allows us to specify a selector for a DOM element that should be used as a drag handle. For this we adjust the custom node a bit:
+This works but we can't move the nodes anymore because the source handle is now the whole node and covers the input field. We fix that by using the [`dragHandle` node option](/docs/api/nodes/node-options/#draghandle). It allows us to specify a selector for a DOM element that should be used as a drag handle. For this we adjust the custom node a bit:
 
 #### src/App/MindmapNode/index.tsx
 
@@ -644,7 +637,7 @@ We add a wrapper div with the class name `inputWrapper` and a div with the class
 
 ### 2. Activate input on focus
 
-We are almost there but we need to adjust some more details. We want to start a new connection in the center of the node. For this we set the pointer events of the input to "none" and check if the user releases the button on top of the node. Only then we want to activate the input field. We can use our `onConnectEnd` function to achieve this:
+We are almost there but we need to adjust some more details. We want to start our new connection from the center of the node. For this we set the pointer events of the input to "none" and check if the user releases the button on top of the node. Only then we want to activate the input field. We can use our `onConnectEnd` function to achieve this:
 
 #### src/App/index.tsx
 
@@ -729,7 +722,7 @@ As you see we are focusing the input field if the user releases the mouse button
 
 ### 3. Dynamic width and auto focus
 
-Wow! You made it this far? Great! We are almost done. We want to have a dynamic width for the nodes based on the length of the text. To keep it simple we do a calculation based on the length of text for this:
+Almost done! We want to have a dynamic width for the nodes based on the length of the text. To keep it simple we do a calculation based on the length of text for this:
 
 #### Added effect in src/app/MindMapNode.tsx
 
@@ -741,7 +734,7 @@ useLayoutEffect(() => {
 }, [data.label.length]);
 ```
 
-We also want to focus / activate a node right after it got created:
+We also want to focus / activate a node right after it gets created:
 
 #### Added effect in src/app/MindMapNode.tsx
 
@@ -764,11 +757,11 @@ useEffect(() => {
   isTypescript
 />
 
-When you now adjust a node label, the width of the node will adjust accordingly. You can also create a new node and it will be focused right away.
+Now when you adjust a node label, the width of the node will adjust accordingly. You can also create a new node and it will be focused right away.
 
 ### 4. Centered edges and styling details
 
-This is the very last step. You may have noticed that the edges are not centered. For this we created a custom edge at the very beginning. We can now adjust it a bit, so that the edge starts in the center of the node and not at the top of the handle (which is the default behavior):
+You may have noticed that the edges are not centered. We created a custom edge at the beginning for this, and now we can adjust it a bit so that the edge starts in the center of the node and not at the top of the handle (the default behavior):
 
 #### src/App/MindMapEdge.tsx
 
@@ -801,7 +794,7 @@ More over we want the title to be a bit more subtle. We can do this by adjusting
 }
 ```
 
-You made it 💯! That's awesome! You can find the final code here:
+Nicely done! 💯 You can find the final code here:
 
 <CodeViewer
   codePath="blog-flows/mindmap/NodeAsHandle4"
@@ -814,7 +807,7 @@ You made it 💯! That's awesome! You can find the final code here:
 
 ## 👋 Final thoughts
 
-That was a huge trip! We started with an empty pane and ended with a fully functional mind map app. If you want to move on you could work on some of the following features:
+What a trip! We started with an empty pane and ended with a fully functional mind map app. If you want to move on you could work on some of the following features:
 
 - Add new nodes by clicking on the pane
 - Save and restore button to store current state to local storage
