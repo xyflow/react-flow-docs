@@ -10,7 +10,7 @@ image: /img/blog/mindmap/mindmap.png
 import Image from '@theme/IdealImage';
 import { AspectRatio } from '@chakra-ui/react';
 import CodeViewer from '/src/components/CodeViewer';
-const editorOptions = { editorHeight: '40vh' };
+const editorOptions = { editorHeight: '45vh' };
 
 In this tutorial, you will learn to create a simple mind map tool with React Flow that can be used for brainstorming, organizing an idea, or mapping your thoughts in a visual way. To build this app, we'll be using state management, custom nodes and edges, and more.
 
@@ -20,9 +20,14 @@ In this tutorial, you will learn to create a simple mind map tool with React Flo
 
 Before we get our hands dirty, I want to show you the mindmapping tool we'll have by the end of this tutorial:
 
-<AspectRatio ratio={16 / 9} mb={6}>
-  <iframe src="https://react-flow-mindmap.netlify.app/" />
-</AspectRatio>
+<CodeViewer
+  codePath="blog-flows/mindmap/App"
+  options={{ editorHeight: '60vh' }}
+  additionalFiles={['index.css', 'MindMapNode.tsx', 'MindMapEdge.tsx', 'store.ts']}
+  dependencies={{ nanoid: 'latest' }}
+  showEditor={false}
+  isTypescript
+/>
 
 If you'd like to live dangerously and dive right into the code, you can find the source code on [Github](https://github.com/wbkd/react-flow-mindmap-app).
 
@@ -786,9 +791,15 @@ export default MindMapEdge;
 
 We are passing all props to the [`getStraightPath`](/docs/api/edges/edge-utils/#getstraightpath) helper function but adjust the sourceY so that it is in the center of the node.
 
-More over we want the title to be a bit more subtle. We can do this by adjusting the color:
+More over we want the title to be a bit more subtle and choose a color for our background. We can do this by adjusting the color of the panel (we added the class name `"header"`) and the background color of the body element:
 
 ```css
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
 .header {
   color: #cdcdcd;
 }
