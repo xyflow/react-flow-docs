@@ -34,6 +34,7 @@ const useStore = create<RFState>((set, get) => ({
       type: 'mindmap',
       data: { label: 'Website' },
       position: { x: -20, y: -110 },
+      parentNode: 'root',
     },
     {
       id: '1-1',
@@ -54,6 +55,7 @@ const useStore = create<RFState>((set, get) => ({
       type: 'mindmap',
       data: { label: 'Github' },
       position: { x: -120, y: 80 },
+      parentNode: 'root',
     },
     {
       id: '2-1',
@@ -74,6 +76,7 @@ const useStore = create<RFState>((set, get) => ({
       type: 'mindmap',
       data: { label: 'React Flow Pro' },
       position: { x: 200, y: 70 },
+      parentNode: 'root',
     },
     {
       id: '3-1',

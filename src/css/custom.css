@@ -97,9 +97,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .blog-wrapper .container .table-of-contents,
 .blog-wrapper .container .table-of-contents li {
-  font-size: 14px;
-  line-height: 16px;
-  padding-bottom: 8px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.blog-wrapper .container .table-of-contents li {
+  padding-bottom: 2px;
 }
 
 .blog-wrapper .container .table-of-contents ul {

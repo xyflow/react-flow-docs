@@ -109,10 +109,10 @@ function Flow() {
       edgeTypes={edgeTypes}
       onConnectStart={onConnectStart}
       onConnectEnd={onConnectEnd}
-      nodeOrigin={nodeOrigin}
       connectionLineStyle={connectionLineStyle}
       defaultEdgeOptions={defaultEdgeOptions}
       connectionLineType={ConnectionLineType.Straight}
+      nodeOrigin={nodeOrigin}
       fitView
     >
       <Controls showInteractive={false} />
