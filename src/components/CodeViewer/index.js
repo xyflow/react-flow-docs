@@ -26,7 +26,7 @@ html, body, #root {
 
 const defaultSetup = {
   dependencies: {
-    reactflow: '11.4.0',
+    reactflow: '11.4.1',
   },
 };
 
@@ -92,7 +92,7 @@ export default function CodeViewer({
   );
 
   const editorHeight = options?.editorHeight || '70vh';
-  const panelStyle = { height: '70vh' };
+  const panelStyle = { height: editorHeight };
 
   if (!files) {
     return <div style={{ minHeight: editorHeight }} />;
@@ -115,7 +115,7 @@ export default function CodeViewer({
           {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
           {showPreview && customPreview ? (
             <>
-              <SandpackStack style={{ flex: '1 1 0%', height: '800px' }}>
+              <SandpackStack style={{ flex: '1 1 0%' }}>
                 <div className="sp-preview-container" style={{ flex: '1 1 0%', height: '100%' }}>
                   {customPreview}
                   <div

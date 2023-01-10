@@ -30,7 +30,7 @@
     "@mdx-js/react": "^1.6.21",
     "@react-three/drei": "^9.11.3",
     "@react-three/fiber": "^8.0.20",
-    "@reactflow/node-resizer": "^1.2.0",
+    "@reactflow/node-resizer": "^1.2.1",
     "@svgr/webpack": "^6.2.1",
     "clsx": "^1.2.1",
     "fathom-client": "^3.5.0",
@@ -43,7 +43,7 @@
     "react-dom": "^18.1.0",
     "react-flow-renderer": "^10.3.12",
     "react-icons": "^4.4.0",
-    "reactflow": "^11.4.0",
+    "reactflow": "^11.4.1",
     "three": "^0.141.0",
     "url-loader": "^4.1.1"
   },

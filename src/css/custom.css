@@ -95,6 +95,20 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin-bottom: 28px;
 }
 
+.blog-wrapper .container .table-of-contents,
+.blog-wrapper .container .table-of-contents li {
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.blog-wrapper .container .table-of-contents li {
+  padding-bottom: 2px;
+}
+
+.blog-wrapper .container .table-of-contents ul {
+  padding-left: 0;
+}
+
 .blog-wrapper .main-wrapper ul {
   font-size: 18px;
   line-height: 36px;
@@ -102,6 +116,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .blog-wrapper .main-wrapper header h2 a:hover {
   color: var(--ifm-color-primary);
+}
+
+.blog-wrapper code {
+  font-size: 14px;
+  font-family: 'Fira Mono', 'DejaVu Sans Mono', Menlo, Consolas, 'Liberation Mono', Monaco,
+    'Lucida Console', monospace;
 }
 
 .blog-list-page article .col--3 a {
