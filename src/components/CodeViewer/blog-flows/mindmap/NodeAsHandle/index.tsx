@@ -11,7 +11,7 @@ import ReactFlow, {
   NodeOrigin,
   ConnectionLineType,
 } from 'reactflow';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import useStore, { RFState } from './store';
 import MindMapNode from './MindMapNode';

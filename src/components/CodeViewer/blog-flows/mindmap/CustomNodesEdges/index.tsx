@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactFlow, { ConnectionLineType, Controls, NodeOrigin, Panel } from 'reactflow';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import useStore, { RFState } from './store';
 import MindMapNode from './MindMapNode';

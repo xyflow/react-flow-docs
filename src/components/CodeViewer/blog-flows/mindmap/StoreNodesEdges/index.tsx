@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactFlow, { Controls, Panel, NodeOrigin, ConnectionLineType } from 'reactflow';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import useStore, { RFState } from './store';
 

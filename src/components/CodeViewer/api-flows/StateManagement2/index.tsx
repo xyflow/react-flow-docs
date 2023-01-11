@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactFlow from 'reactflow';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import 'reactflow/dist/style.css';
 
