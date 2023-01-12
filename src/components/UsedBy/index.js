@@ -3,8 +3,8 @@ import { SimpleGrid, Flex, Box } from '@chakra-ui/react';
 
 import DoubleLoopLogo from '../../../static/img/used-by/doubleloop.svg';
 import LinkedInLogo from '../../../static/img/used-by/linkedin.svg';
-import BitDevLogo from '../../../static/img/used-by/bitdev.svg';
-import BasisLogo from '../../../static/img/used-by/basis.svg';
+import BitDevLogo from '../../../static/img/used-by/bit.svg';
+import StripeLogo from '../../../static/img/used-by/stripe.svg';
 import TypeformLogo from '../../../static/img/used-by/typeform.svg';
 import OneSignalLogo from '../../../static/img/used-by/onesignal.svg';
 
@@ -26,12 +26,12 @@ const CompanyLogo = ({ Logo, ...props }) => (
 export default function UsedBy() {
   return (
     <SimpleGrid textAlign="center" columns={[2, 3, 3, 3, 6]} spacing={4}>
-      <CompanyLogo title="linkedin.com" Logo={LinkedInLogo} />
+      <CompanyLogo title="stripe.com" Logo={StripeLogo} />
       <CompanyLogo title="onesignal.com" Logo={OneSignalLogo} />
       <CompanyLogo title="typeform.com" Logo={TypeformLogo} />
       <CompanyLogo title="doubleloop.app" Logo={DoubleLoopLogo} />
       <CompanyLogo title="bit.dev" Logo={BitDevLogo} />
-      <CompanyLogo title="getbasis.com" Logo={BasisLogo} />
+      <CompanyLogo title="linkedin.com" Logo={LinkedInLogo} />
     </SimpleGrid>
   );
 }

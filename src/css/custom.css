@@ -176,6 +176,7 @@ a.navbar__brand:hover {
   display: none;
 }
 
+.navbar--fixed-top .button__rfpro,
 .navbar__items .button__rfpro {
   color: #ffffff;
   background: var(--ifm-color-primary);
@@ -197,6 +198,7 @@ a.navbar__brand:hover {
   font-family: var(--ifm-font-family-base);
 }
 
+.navbar--fixed-top .button__rfpro:after,
 .navbar__items .button__rfpro:after {
   content: url('/img/diamond.svg');
   position: absolute;
@@ -205,6 +207,7 @@ a.navbar__brand:hover {
   top: 6px;
 }
 
+.navbar--fixed-top .button__rfpro:hover,
 .navbar__items .button__rfpro:hover {
   color: #fff;
   background: var(--ifm-color-primary-dark);

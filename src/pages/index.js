@@ -29,7 +29,6 @@ import UsedBy from '../components/UsedBy';
 export default function Home() {
   const isLargeScreen = useBreakpointValue({ base: false, lg: true });
   const showcaseProjectCount = useBreakpointValue({ base: 4, md: 2, xl: 3 });
-  const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout>
