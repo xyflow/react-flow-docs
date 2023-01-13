@@ -34,8 +34,8 @@ const [edges, setEdges] = useState(initialEdges);
 Directly beneath that, we'll add these two functions:
 
 ```js
-const onNodesChange = useCallback((changes) => setNodes(applyNodeChanges(changes, nodes)), []);
-const onEdgesChange = useCallback((changes) => setEdges(applyEdgeChanges(changes, edges)), []);
+const onNodesChange = useCallback( (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),[] );
+const onEdgesChange = useCallback( (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),[] );
 ```
 
 When you drag or select a node, the `onNodeChange` handler gets called. With help of the `applyNodeChanges` function you can then apply those changes to your current node state. Putting evetything together, it should look like this:
