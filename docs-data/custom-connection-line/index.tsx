@@ -5,7 +5,7 @@ const props = [
     description: 'x position of the source handle',
   },
   {
-    name: 'toY',
+    name: 'fromY',
     type: 'number',
     description: 'y position of the source handle',
   },
