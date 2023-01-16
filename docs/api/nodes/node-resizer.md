@@ -1,7 +1,6 @@
 ---
 title: <NodeResizer />
 sidebar_position: 6
-sidebar_class_name: new
 ---
 
 import Tabs from '@theme/Tabs';
