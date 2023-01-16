@@ -8,6 +8,7 @@ const IFrame = chakra('iframe', {
     height: 860,
     borderRadius: 'sm',
     overflow: 'hidden',
+    margin: 0,
   },
 });
 
@@ -56,21 +57,22 @@ export default function ProExampleViewer({ slug }) {
             </Button>
           </a>
         </Flex>
-
-        {isLoading && (
-          <Flex
-            background="rgba(255, 255, 255, 0.95)"
-            zIndex={1000}
-            width="100%"
-            height="100%"
-            position="absolute"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Spinner size="xl" color="pink.500" />
-          </Flex>
-        )}
-        <IFrame onLoad={onLoad} src={iframeSrc} />
+        <Box position="relative">
+          {isLoading && (
+            <Flex
+              background="rgba(255, 255, 255, 0.95)"
+              zIndex={1000}
+              width="100%"
+              height="100%"
+              position="absolute"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Spinner size="xl" color="pink.500" />
+            </Flex>
+          )}
+          <IFrame onLoad={onLoad} src={iframeSrc} />
+        </Box>
       </Box>
     </Box>
   );
