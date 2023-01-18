@@ -40,6 +40,23 @@ Your custom nodes are wrapped so that the basic functions like dragging or selec
 - `isConnectable`: boolean
 - `dragHandle`: string
 
+### Dimensions and other values from a node
+
+If you need the width and height for example, you can use the `useStore` function to access other node attributes:
+
+```js
+const size = useStore((s) => {
+  const node = s.nodeInternals.get(id);
+  
+  return {
+    width: node.width,
+    height: node.height
+  }
+});
+```
+
+This would re-render the custom node if the width or height change.
+
 ### Styling
 
 When you create a new node type you also need to implement some styling. Your custom node has no default styles.
