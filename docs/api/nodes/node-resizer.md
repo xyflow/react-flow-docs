@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import PropItems from '../../../src/components/Docs/PropItems'
 import CodeViewer from '../../../src/components/CodeViewer';
 
-The node resizer component can be used to add a resize functionality to your nodes. It renders draggable controls around the node to resize in all directions.
+The node resizer component can be used to add a resize functionality to your nodes. It renders draggable controls around the node to resize in all directions. 
 
 :::info
 The `NodeResizer` component is **not** part of the `reactflow` package. You need to install it seperately and you need reactflow >= v11.3.3 for this to work. **You always need to update the @reactflow/node-resizer** when you install a new version of reactflow!
@@ -51,6 +51,8 @@ import '@reactflow/node-resizer/dist/style.css';
 ```
 
 ### Usage Example
+
+The NodeResizer gets used in custom nodes. Beware that we are not passing width or height to a custom node. If you want to re-render your custom node on resize, you can [access the node dimensions](/docs/api/nodes/custom-nodes/#dimensions-and-other-values-from-a-node) with the useStore function. 
 
 <CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} activeFile="ResizableNode.js" codePath="api-flows/NodeResizer" applyStyles={false} additionalFiles={['ResizableNode.js', 'ResizableNodeSelected.js', 'CustomResizerNode.js']} dependencies={{ '@reactflow/node-resizer': '1.2.2' }} />
 
