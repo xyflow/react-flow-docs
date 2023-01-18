@@ -238,14 +238,26 @@ type Rect = {
 type ResizeDragEvent = D3DragEvent<HTMLDivElement, null, SubjectPosition>;
 ```
 
-### `ResizeEventParams`
+### `ResizeParams`
 
 ```ts
-type ResizeEventParams = {
+type ResizeParams = {
   x: number;
   y: number;
   width: number;
   height: number;
+};
+```
+
+### `ResizeParamsWithDirection`
+
+```ts
+type ResizeParamsWithDirection = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  direction: number[];
 };
 ```
 

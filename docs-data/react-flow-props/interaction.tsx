@@ -172,16 +172,18 @@ const props = [
     description: 'With this prop you can disable the keyboard accessibility features',
   },
   {
-    name: 'onSelectionStart',
-    type: '() => void',
-    default: 'undefined',
-    description: 'Gets called when user starts to drag a selection.',
+    name: 'autoPanOnNodeDrag',
+    type: 'boolean',
+    default: 'true',
+    description:
+      'Disables or enables moving the viewport automatically when a node is dragged out of the viewport',
   },
   {
-    name: 'onSelectionEnd',
-    type: '() => void',
-    default: 'undefined',
-    description: 'Gets called when user ends a selection.',
+    name: 'autoPanOnConnect',
+    type: 'boolean',
+    default: 'true',
+    description:
+      'Disables or enables moving the viewport automatically when a connection line is dragged out of the viewport',
   },
 ];
 

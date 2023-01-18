@@ -60,11 +60,24 @@ const props = [
       'React children that will be rendered inside the control. Can be a custom icon for example.',
   },
   {
+    name: 'shouldResize',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
+        =&gt; boolean
+      </>
+    ),
+    default: 'undefined',
+    description:
+      'This function is called before resizing and prevents the resize event if the function returns false',
+  },
+  {
     name: 'onResizeStart',
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparams">ResizeParams</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -75,7 +88,8 @@ const props = [
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
+        =&gt; void
       </>
     ),
     default: 'undefined',
@@ -86,7 +100,7 @@ const props = [
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparams">ResizeParams</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
