@@ -17,6 +17,9 @@ const redirects = {
   '#010': '#handle-no-node-id-found',
 };
 
+// edge type not founds redirects to node type not found
+redirects['011'] = redirects['#003'];
+
 // legacy codes - we changed the format but kept the old ones for backwards compatibility
 redirects['#100'] = redirects['#001'];
 redirects['#200'] = redirects['#002'];
