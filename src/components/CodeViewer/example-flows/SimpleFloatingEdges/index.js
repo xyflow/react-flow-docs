@@ -59,7 +59,6 @@ const NodeAsHandleFlow = () => {
 
   const onConnect = useCallback(
     (params) =>
-      console.log(params) ||
       setEdges((eds) =>
         addEdge({ ...params, type: 'floating', markerEnd: { type: MarkerType.Arrow } }, eds)
       ),
