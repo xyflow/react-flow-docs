@@ -64,7 +64,7 @@ const props = [
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparams">ResizeParams</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
@@ -75,7 +75,8 @@ const props = [
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
+        =&gt; void
       </>
     ),
     default: 'undefined',
@@ -86,11 +87,23 @@ const props = [
     type: (
       <>
         (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeeventparams">ResizeEventParams</Link>) =&gt; void
+        <Link to="/docs/api/types/#resizeparams">ResizeParams</Link>) =&gt; void
       </>
     ),
     default: 'undefined',
     description: 'Called on resize end',
+  },
+  {
+    name: 'shouldResize',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
+        =&gt; void
+      </>
+    ),
+    default: 'undefined',
+    description: 'Called on resize. When it returns false, the resize will be canceled.',
   },
 ];
 

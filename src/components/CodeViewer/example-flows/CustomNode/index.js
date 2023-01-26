@@ -14,6 +14,8 @@ const nodeTypes = {
   selectorNode: ColorSelectorNode,
 };
 
+const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
+
 const CustomNodeFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -117,7 +119,7 @@ const CustomNodeFlow = () => {
       connectionLineStyle={connectionLineStyle}
       snapToGrid={true}
       snapGrid={snapGrid}
-      defaultZoom={1.5}
+      defaultViewport={defaultViewport}
       fitView
       attributionPosition="bottom-left"
     >

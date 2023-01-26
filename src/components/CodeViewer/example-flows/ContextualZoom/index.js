@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'reactflow';
-import 'reactflow/dist/style.css';
 
 import ZoomNode from './ZoomNode.js';
 
+import 'reactflow/dist/style.css';
 import './index.css';
 
 const snapGrid = [20, 20];
@@ -49,6 +49,8 @@ const initialEdges = [
   },
 ];
 
+const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
+
 const ContextualZoomFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -67,7 +69,7 @@ const ContextualZoomFlow = () => {
       nodeTypes={nodeTypes}
       snapToGrid={true}
       snapGrid={snapGrid}
-      defaultZoom={1.5}
+      defaultViewport={defaultViewport}
       attributionPosition="top-right"
     >
       <MiniMap />

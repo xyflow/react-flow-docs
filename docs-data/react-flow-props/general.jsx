@@ -13,6 +13,19 @@ const props = [
     default: 'undefined',
     description: 'Called when React Flow is initialized',
   },
+  {
+    name: 'onError',
+    type: <>(code: string, message: string) =&gt; void</>,
+    default: 'undefined',
+    description: (
+      <>
+        Called when an error happens:{' '}
+        <Link to="https://github.com/wbkd/react-flow/blob/main/packages/core/src/contants.ts">
+          Error codes
+        </Link>
+      </>
+    ),
+  },
 ];
 
 export default props;

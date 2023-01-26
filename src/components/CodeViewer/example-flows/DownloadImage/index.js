@@ -24,6 +24,8 @@ const defaultEdgeOptions = {
   type: 'smoothstep',
 };
 
+const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
+
 const CustomNodeFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -44,7 +46,7 @@ const CustomNodeFlow = () => {
         connectionLineType="smoothstep"
         snapToGrid={true}
         snapGrid={snapGrid}
-        defaultZoom={1.5}
+        defaultViewport={defaultViewport}
         fitView
         attributionPosition="bottom-left"
         defaultEdgeOptions={defaultEdgeOptions}
