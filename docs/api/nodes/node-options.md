@@ -33,11 +33,11 @@ If you want to update the `data` or `style` attribute of a node it is important 
 A node uses the `Node` type:
 
 ```ts
-type Node<T = any> = {
+type Node<NodeData = any, NodeType extends string | undefined = string | undefined> = {
   id: string;
   position: XYPosition;
-  data: T;
-  type?: string;
+  data: NodeData;
+  type?: NodeType;
   style?: CSSProperties;
   className?: string;
   targetPosition?: Position;
