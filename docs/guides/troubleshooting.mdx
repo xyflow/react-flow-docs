@@ -9,7 +9,18 @@ This guide contains warnings and errors that can occur when using React Flow. We
 
 ### Warning: Seems like you have not used zustand provider as an ancestor
 
-This usually happens when you are trying to access the internal React Flow state outside of the React Flow context. A possible solution is to wrap your component with a [`<ReactFlowProvider />`](/docs/api/react-flow-provider) or move the code that is accessing the state inside a child of your React Flow instance.
+This usually happens when:
+
+**A:** You have two different version of @reactflow/core installed.<br />
+**B:** You are trying to access the internal React Flow state outside of the React Flow context.
+
+#### Solution for A
+
+Update reactflow and @reactflow/node-resizer (in case you are using it), remove node_modules and package-lock.json and reinstall the dependencies.
+
+#### Solution for B
+
+A possible solution is to wrap your component with a [`<ReactFlowProvider />`](/docs/api/react-flow-provider) or move the code that is accessing the state inside a child of your React Flow instance.
 
 <Alert status="error" py={2}>
   <AlertIcon />
