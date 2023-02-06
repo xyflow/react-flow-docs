@@ -72,7 +72,7 @@ This looks good. Let's attach these two nodes.
 
 Now that we have two nodes, let's connect them with an edge.
 
-To make an edge, we need to specify two attributes: the source node (where the edge begins) and the target node (where the edge ends). We use the `id` of the two nodes to specify this (in our example, our two nodes have ids of "A" and "B"):
+To make an edge, we need to specify two attributes: the source node (where the edge begins) and the target node (where the edge ends). We use the `id` of the two nodes to specify this (in our example, our two nodes have ids of "1" and "2"):
 
 ```js
 const edges = [{ id: '1-2', source: '1', target: '2' }];

@@ -257,7 +257,7 @@ type ResizeParamsWithDirection = {
   y: number;
   width: number;
   height: number;
-  direction: number[];
+  direction: number[]; // [1, 0] = to the right, [-1, 0] = left,  [0, -1] = top,  [0, 1] = bottom
 };
 ```
 

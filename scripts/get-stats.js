@@ -3,13 +3,10 @@ const path = require('path');
 const fs = require('fs');
 
 const GITHUB_API_URL = 'https://api.github.com/repos/wbkd/react-flow';
-const NPM_API_URL = 'https://api.npmjs.org/downloads/point/last-week/react-flow-renderer';
+const REACT_FLOW_RENDERER_DOWNLOADS_URL =
+  'https://api.npmjs.org/downloads/point/last-week/react-flow-renderer';
+const REACTFLOW_DOWNLOADS_URL = 'https://api.npmjs.org/downloads/point/last-week/reactflow';
 const OUTPUT_PATH = path.resolve(__dirname, '../static/data/stats.json');
-
-const defaultStats = {
-  stars: 12037,
-  downloads: 159000,
-};
 
 const fetchJSON = async function (url) {
   return new Promise((resolve, reject) => {
@@ -24,10 +21,20 @@ const fetchJSON = async function (url) {
 
 (async () => {
   const { stargazers_count: stars } = await fetchJSON(GITHUB_API_URL);
-  const { downloads } = await fetchJSON(NPM_API_URL);
+  const { downloads: reactFlowRendererDownloads } = await fetchJSON(
+    REACT_FLOW_RENDERER_DOWNLOADS_URL
+  );
+  const { downloads: reactFlowDownloads } = await fetchJSON(REACTFLOW_DOWNLOADS_URL);
+
+  const downloads = reactFlowRendererDownloads + reactFlowDownloads;
+
+  if (!downloads || !stars) {
+    return console.log('could not fetch downloads and stars. please try again.');
+  }
+
   const stats = {
-    stars: stars || defaultStats.stars,
-    downloads: downloads || defaultStats.downloads,
+    stars,
+    downloads,
   };
 
   console.log(`⭐️ ${stats.stars}`);

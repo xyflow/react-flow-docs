@@ -10,6 +10,7 @@ const initialNodes = [
 ];
 
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 
 const UpdateNode = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -78,7 +79,7 @@ const UpdateNode = () => {
       edges={edges}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
-      defaultZoom={1.5}
+      defaultViewport={defaultViewport}
       minZoom={0.2}
       maxZoom={4}
       attributionPosition="bottom-left"

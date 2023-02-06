@@ -47,11 +47,11 @@ If you need the width and height for example, you can use the `useStore` functio
 ```js
 const size = useStore((s) => {
   const node = s.nodeInternals.get(id);
-  
+
   return {
     width: node.width,
-    height: node.height
-  }
+    height: node.height,
+  };
 });
 ```
 
@@ -69,9 +69,10 @@ If you have controls (like a slider) or other elements inside your custom node t
 
 If you want to allow scrolling inside a node or inside an element of a node you can add the class name `nowheel` to the node or the element.
 
-### Helper components
+### Helpers
 
 React Flow comes with some helpers to give your custom nodes super powers:
 
 - [Node Resizer](/docs/api/nodes/node-resizer/): Component for adding a resize UI
 - [Node Toolbar](/docs/api/edges/base-edge/): Toolbar or tooltip component
+- [useNodeId](/docs/api/hooks/use-node-id/): hook for accessing the node id within a custom node

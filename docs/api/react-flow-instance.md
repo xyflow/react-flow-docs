@@ -91,7 +91,7 @@ The `reactFlowInstance` has the following functions:
 
 ### `fitBounds`
 
-<PropItem description={<>Fits the pane to the passed bounds (object with width x, y, width and height: <code>&#123; x: 0, y: 0, width: 100, height: 100 &#125;</code>)</>} type={<>
+<PropItem description={<>Fits the view to the passed bounds (object with width x, y, width and height: <code>&#123; x: 0, y: 0, width: 100, height: 100 &#125;</code>)</>} type={<>
 (bounds: <Link to="/docs/api/types/#rect">Rect</Link>, options?: <Link to="/docs/api/types/#fitboundsoptions">FitBoundsOptions</Link>) => void
 </>} />
 

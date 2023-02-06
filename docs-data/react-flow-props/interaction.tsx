@@ -64,6 +64,18 @@ const props = [
     ),
   },
   {
+    name: 'autoPanOnConnect',
+    type: 'boolean',
+    default: 'true',
+    description: 'Auto pan when connection line is dragged to the edge of the pane',
+  },
+  {
+    name: 'autoPanOnNodeDrag',
+    type: 'boolean',
+    default: 'true',
+    description: 'Auto pan when node is dragged to the edge of the pane',
+  },
+  {
     name: 'panOnDrag',
     type: 'boolean | number[]',
     default: 'true',

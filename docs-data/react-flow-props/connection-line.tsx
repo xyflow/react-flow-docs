@@ -3,6 +3,13 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
+    name: 'connectionRadius',
+    type: 'number',
+    default: '20',
+    description:
+      'Radius around a handle where you can drop the connection line to create a new edge',
+  },
+  {
     name: 'connectionLineType',
     type: <Link to="/docs/api/types#connectionlinetype">ConnectionLineType</Link>,
     default: '"default"',
