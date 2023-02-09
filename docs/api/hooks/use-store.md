@@ -51,7 +51,7 @@ const NodesLengthLogger = () => {
   const store = useStoreApi();
 
   const onClick = useCallback(() => {
-    const nodesLength = Array.from(state.nodeInternals.values()).length || 0;
+    const nodesLength = Array.from(store.nodeInternals.values()).length || 0;
     console.log('nodes length changed:', nodesLength);
   }, []);
 
