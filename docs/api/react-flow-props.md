@@ -83,6 +83,12 @@ import pane from '../../docs-data/react-flow-props/pane';
 
 <PropItems  props={pane} />
 
+### Selection
+
+import selection from '../../docs-data/react-flow-props/selection';
+
+<PropItems  props={selection} />
+
 ## Interaction
 
 import interaction from '../../docs-data/react-flow-props/interaction';

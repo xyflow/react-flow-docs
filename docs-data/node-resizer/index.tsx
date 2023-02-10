@@ -59,6 +59,19 @@ const props = [
     description: 'Additional class name for the resize lines',
   },
   {
+    name: 'shouldResize',
+    type: (
+      <>
+        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
+        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
+        =&gt; boolean
+      </>
+    ),
+    default: 'undefined',
+    description:
+      'This function is called before resizing and prevents the resize event if the function returns false',
+  },
+  {
     name: 'onResizeStart',
     type: (
       <>
@@ -91,18 +104,6 @@ const props = [
     ),
     default: 'undefined',
     description: 'Called on resize end',
-  },
-  {
-    name: 'shouldResize',
-    type: (
-      <>
-        (event: <Link to="/docs/api/types/#resizedragevent">ResizeDragEvent</Link>, params:{' '}
-        <Link to="/docs/api/types/#resizeparamswithdirection">ResizeParamsWithDirection</Link>)
-        =&gt; void
-      </>
-    ),
-    default: 'undefined',
-    description: 'Called on resize. When it returns false, the resize will be canceled.',
   },
 ];
 
