@@ -5,6 +5,7 @@ import DownloadButton from './DownloadButton';
 import CustomNode from './CustomNode';
 import { initialNodes, initialEdges } from './nodes-edges';
 
+import 'reactflow/dist/style.css';
 import './index.css';
 
 const connectionLineStyle = { stroke: '#ffff' };
