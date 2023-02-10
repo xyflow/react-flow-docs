@@ -1,11 +1,5 @@
 import React, { useCallback } from 'react';
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Controls, Background } from 'reactflow';
 
 import DownloadButton from './DownloadButton';
 import CustomNode from './CustomNode';
