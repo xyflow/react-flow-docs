@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Handle } from 'reactflow';
+import { Handle, Position } from 'reactflow';
 import styled from 'styled-components';
 
 const Node = styled.div`
@@ -20,11 +20,11 @@ const Node = styled.div`
 export default memo(({ data, selected }) => {
   return (
     <Node selected={selected}>
-      <Handle type="target" position="left" />
+      <Handle type="target" position={Position.Left} />
       <div>
         <strong>{data.label}</strong>
       </div>
-      <Handle type="source" position="right" />
+      <Handle type="source" position={Position.Right} />
     </Node>
   );
 });

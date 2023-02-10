@@ -10,12 +10,12 @@ To learn what a Handle is, [click here](/docs/overview/terms-and-definitions/#ha
 We export a `Handle` component as a helper for your custom nodes:
 
 ```js
-import { Handle } from 'reactflow';
+import { Handle, Position } from 'reactflow';
 
 const targetHandleWithValidation = (
   <Handle
     type="target"
-    position="left"
+    position={Position.Left}
     isValidConnection={(connection) => connection.source === 'some-id'}
     onConnect={(params) => console.log('handle onConnect', params)}
     style={{ background: '#fff' }}

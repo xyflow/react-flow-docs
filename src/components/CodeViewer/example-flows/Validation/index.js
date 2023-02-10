@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle } from 'reactflow';
+import ReactFlow, { useNodesState, useEdgesState, addEdge, Handle, Position } from 'reactflow';
 import 'reactflow/dist/style.css';
 
 import './index.css';
@@ -19,15 +19,15 @@ const onConnectEnd = (event) => console.log('on connect end', event);
 const CustomInput = () => (
   <>
     <div>Only connectable with B</div>
-    <Handle type="source" position="right" isValidConnection={isValidConnection} />
+    <Handle type="source" position={Position.Right} isValidConnection={isValidConnection} />
   </>
 );
 
 const CustomNode = ({ id }) => (
   <>
-    <Handle type="target" position="left" isValidConnection={isValidConnection} />
+    <Handle type="target" position={Position.Left} isValidConnection={isValidConnection} />
     <div>{id}</div>
-    <Handle type="source" position="right" isValidConnection={isValidConnection} />
+    <Handle type="source" position={Position.Right} isValidConnection={isValidConnection} />
   </>
 );
 

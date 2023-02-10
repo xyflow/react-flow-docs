@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 import { Input, Box, Stack, InputGroup, InputLeftAddon } from '@chakra-ui/react';
+import { Position } from 'reactflow';
+
 import Handle from './Handle';
 import Wrapper from './NodeWrapper';
 
@@ -21,7 +23,7 @@ export default memo(({ data }) => {
           </InputGroup>
         </Stack>
       </Box>
-      <Handle type="source" position="right" />
+      <Handle type="source" position={Position.Right} />
     </Wrapper>
   );
 });

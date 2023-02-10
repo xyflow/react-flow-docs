@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb } from '@chakra-ui/react';
+import { Position } from 'reactflow';
 
 import Handle from './Handle';
 import Wrapper from './NodeWrapper';
@@ -9,7 +10,7 @@ export default function SliderNode({ data }) {
 
   return (
     <Wrapper label={label}>
-      <Handle type="source" position="right" />
+      <Handle type="source" position={Position.Right} />
       <Box pl={1} pr={4}>
         <Slider
           className="nodrag"

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Handle, useStore } from 'reactflow';
+import { Handle, useStore, Position } from 'reactflow';
 
 const Placeholder = () => (
   <div className="placeholder">
@@ -17,9 +17,9 @@ export default memo(({ data }) => {
 
   return (
     <>
-      <Handle type="target" position="left" />
+      <Handle type="target" position={Position.Left} />
       {showContent ? data.content : <Placeholder />}
-      <Handle type="source" position="right" />
+      <Handle type="source" position={Position.Right} />
     </>
   );
 });

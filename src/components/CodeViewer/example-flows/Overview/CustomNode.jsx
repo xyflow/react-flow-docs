@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Handle, useReactFlow, useStoreApi } from 'reactflow';
+import { Handle, useReactFlow, useStoreApi, Position } from 'reactflow';
 
 const options = [
   {
@@ -53,7 +53,7 @@ function Select({ value, handleId, nodeId }) {
           </option>
         ))}
       </select>
-      <Handle type="source" position="right" id={handleId} />
+      <Handle type="source" position={Position.Right} id={handleId} />
     </div>
   );
 }
