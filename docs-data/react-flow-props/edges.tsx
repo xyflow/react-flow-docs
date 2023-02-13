@@ -14,6 +14,17 @@ const props = [
     description: 'Called when user clicks an edge',
   },
   {
+    name: 'onEdgeDoubleClick',
+    type: (
+      <>
+        (event: React.MouseEvent, edge:{' '}
+        <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>) =&gt; void
+      </>
+    ),
+    default: 'undefined',
+    description: 'Called when user clicks double an edge',
+  },
+  {
     name: 'onEdgeMouseEnter',
     type: (
       <>
