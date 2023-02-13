@@ -103,6 +103,7 @@ type FitViewOptions = {
   minZoom?: number;
   maxZoom?: number;
   duration?: number;
+  nodes?: (Partial<Node> & { id: string })[];
 };
 ```
 
