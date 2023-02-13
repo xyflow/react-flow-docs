@@ -26,7 +26,7 @@ function TextUpdaterNode({ data }) {
       <Handle type="target" position={Position.Top} />
       <div>
         <label htmlFor="text">Text:</label>
-        <input id="text" name="text" onChange={onChange} />
+        <input id="text" name="text" onChange={onChange} className="nodrag" />
       </div>
       <Handle type="source" position={Position.Bottom} id="a" />
       <Handle type="source" position={Position.Bottom} id="b" style={handleStyle} />
@@ -34,6 +34,8 @@ function TextUpdaterNode({ data }) {
   );
 }
 ```
+
+As you see we've added the class name "nodrag" to the input. This prevents dragging within the input field and lets us select text for example.
 
 ## Adding the Node Type
 
