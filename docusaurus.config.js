@@ -24,6 +24,16 @@ const config = {
         disableInDev: false,
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'svelte',
+        path: 'svelte',
+        routeBasePath: 'svelte',
+        sidebarPath: require.resolve('./svelteSidebars.js'),
+        // ... other options
+      },
+    ],
   ],
   presets: [
     [
@@ -71,25 +81,36 @@ const config = {
             docId: 'introduction',
             position: 'right',
             label: 'Docs',
+            docsPluginId: 'default',
+            className: 'default-only',
+          },
+          {
+            type: 'doc',
+            docId: 'index',
+            position: 'right',
+            label: 'Svelte Docs',
+            docsPluginId: 'svelte',
+            className: 'svelte-only',
           },
           {
             type: 'doc',
             docId: 'api/react-flow-props',
             position: 'right',
             label: 'API',
+            className: 'default-only',
           },
           {
             type: 'doc',
             docId: 'examples/overview',
             position: 'right',
             label: 'Examples',
+            className: 'default-only',
           },
           { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/wbkd/react-flow',
             position: 'right',
             html: '<b>Github</b>',
-            // className: 'hide-svg-icon',
           },
           {
             type: 'search',
@@ -198,7 +219,7 @@ const config = {
             ],
           },
         ],
-        copyright: `<a href="mailto:info@reactflow.dev">info@reactflow.dev</a> — Copyright © 2022 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
+        copyright: `<a href="mailto:info@reactflow.dev">info@reactflow.dev</a> — Copyright © 2023 <a href="https://webkid.io" target="_blank">webkid GmbH</a>. All rights reserved.`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/github'),

@@ -45,11 +45,12 @@ export default function CodeViewer({
   showEditor = true,
   showPreview = true,
   isTypescript = false,
+  isSvelte = false,
   customPreview = null,
   sandpackOptions = {},
 }) {
   const [files, setFiles] = useState(null);
-  const scriptExtension = isTypescript ? 'tsx' : 'js';
+  const scriptExtension = isSvelte ? 'svelte' : isTypescript ? 'tsx' : 'js';
 
   useEffect(() => {
     const loadFiles = async () => {
@@ -100,10 +101,12 @@ export default function CodeViewer({
 
   options.readOnly = !!customPreview;
 
+  const template = isSvelte ? 'svelte' : isTypescript ? 'react-ts' : 'react';
+
   return (
     <div style={{ minHeight: editorHeight, marginBottom: 20 }}>
       <SandpackProvider
-        template={isTypescript ? 'react-ts' : 'react'}
+        template={template}
         options={sandpackOptions}
         customSetup={customSetup}
         files={{

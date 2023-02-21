@@ -57,6 +57,12 @@ const sidebars = {
       id: 'api/react-flow-props',
       label: 'API Reference',
     },
+    {
+      type: 'link',
+      href: '/svelte',
+      label: 'Svelte Docs',
+      className: 'new',
+    },
   ],
   examplesSidebar: [
     {

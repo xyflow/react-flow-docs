@@ -316,3 +316,21 @@ a.navbar__brand:hover {
     padding-bottom: 50px;
   }
 }
+
+html.plugin-id-svelte {
+  --ifm-color-primary: #ff6700;
+  --ifm-color-primary-dark: #993e00;
+  --ifm-color-primary-darker: #662900;
+  --ifm-color-primary-darkest: #331500;
+  --ifm-color-primary-light: #ffa466;
+  --ifm-color-primary-lighter: #ffc299;
+  --ifm-color-primary-lightest: #ffe1cc;
+}
+
+html.plugin-id-default .navbar__item.svelte-only {
+  display: none;
+}
+
+html.plugin-id-svelte .navbar__item.default-only {
+  display: none;
+}

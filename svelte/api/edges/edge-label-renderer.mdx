@@ -1,0 +1,35 @@
+---
+title: <EdgeLabelRenderer />
+sidebar_position: 9
+---
+
+import CodeViewer from '../../../src/components/CodeViewer';
+
+Edges are SVG based. If you want to render more complex labels you can use the ` <EdgeLabelRenderer />` component to access a div based renderer. The `<EdgeLabelRenderer />` is a portal that renders the label in a div that is positioned on top of the edges. You can see an example usage of the component in the [edge label renderer example](/docs/examples/edges/edge-label-renderer/).
+
+:::info
+The `EdgeLabelRenderer` component is available in `reactflow` version **11.2** and higher.
+:::
+
+:::caution Mouse events
+
+The ` <EdgeLabelRenderer />` has no pointer events by default. If you want to add mouse interactions you need to set `pointerEvents: all` and add the class name `nopan` on the label or the element you want to interact with.
+
+:::
+
+### Usage Example
+
+<CodeViewer
+  options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }}
+  codePath="example-flows/EdgeRenderer"
+  applyStyles={false}
+  additionalFiles={['CustomEdge.tsx']}
+  isTypescript
+  activeFile="CustomEdge.tsx"
+/>
+
+### Prop Types
+
+You can pass the following props to the `<EdgeLabelRenderer />` component:
+
+- `children`: ReactNode
