@@ -8,6 +8,7 @@ image: /img/blog/v10-header.png
 ---
 
 import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
 
 Hello again! I am super excited to share the latest improvements of React Flow. The new auto pan features and connection radius makes it way easier to connect nodes and work with bigger flows. On top of that we improved the usability on touch devices.
 
@@ -21,7 +22,7 @@ After working a bit with Blender geometry nodes I knew that I wanted to add this
 
 ## Connection radius
 
-There are [several](/docs/examples/nodes/easy-connect/) [ways](/docs/examples/nodes/proximity-connect/) to connect nodes. The built-in way is to drag a connection line from one handle to another. To make this easier we added the [`connectionRadius` prop](/docs/api/react-flow-props/#connectionradius-1). The connection radius specifies the radius around a handle where you can drop the connection line. There is no need to drop it directly above a handle any more 🙌.
+There are [several](/docs/examples/nodes/easy-connect/) [ways](/docs/examples/nodes/proximity-connect/) to connect nodes. The built-in way is to drag a connection line from one handle to another. To make this easier we added the [`connectionRadius` prop](/docs/api/react-flow-props/#connectionradius-1). The connection radius specifies the radius around a handle where you can drop the connection line. There is no need to drop it directly above a handle any more <Emoji content="🙌" />.
 
 <Image img="/img/blog/v11-5/connection-radius.gif" alt="Conneciton radius demo." />
 
@@ -43,7 +44,7 @@ type MyCustomNode = Node<MyCustomNodeData, 'custom-node-type'>;
 
 This allows you to create more specific node types that are aware of their `data` structure and `type`.
 
-# 👉 Node Resizer 2.0 👈
+# <Emoji content="👉" /> Node Resizer 2.0 <Emoji content="👈" />
 
 We also released a new major version of the [`@reactflow/node-resizer` package](/docs/api/nodes/node-resizer/). You can now pass a `shouldResize` handler that allows you to cancel a resize event. In addition we added a `direction` attribute to the resize params for `onResize` and `shouldResize`.
 

@@ -9,8 +9,9 @@ blogSidebarCount: 0
 ---
 
 import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
 
-A lot has happened since we published our last blog post six months ago. We got our first pro subscribers, we hired John who helps us with the docs, communication and community and we are all working full time on React Flow 🥳. Today we are releasing a new major version with lots of new features and very few breaking changes (unlike the last major update..).
+A lot has happened since we published our last blog post six months ago. We got our first pro subscribers, we hired John who helps us with the docs, communication and community and we are all working full time on React Flow <Emoji content="🥳" />. Today we are releasing a new major version with lots of new features and very few breaking changes (unlike the last major update..).
 
 <!--truncate-->
 
@@ -76,7 +77,7 @@ Furthermore we've implemented a [`useNodesInitialized` hook](/docs/api/hooks/use
 
 ### New Hooks
 
-In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ 😵‍💫). One idea is to replace some props through hooks. With this release we are adding the [`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) and the [`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
+In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ <Emoji content="😵‍💫" />). One idea is to replace some props through hooks. With this release we are adding the [`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) and the [`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
 
 ### Miscellaneous
 
@@ -86,4 +87,4 @@ The background got a [new variant `cross`](/docs/api/plugin-components/backgroun
 
 React Flow is not just the library. It's the website with the docs and the examples, the pro platform and also the community on Github and Discord! In the upcoming weeks and months we want to make the onboarding for developers and especially beginner developers easier. For that we are working on an in-depth getting started guide and easier to understand docs in general. We are also rebrushing the pro platform so that you can get more out of the pro examples.
 
-Thanks for being a part of the React Flow community, and happy coding! ✌🏻
+Thanks for being a part of the React Flow community, and happy coding! <Emoji content="✌🏻" />
