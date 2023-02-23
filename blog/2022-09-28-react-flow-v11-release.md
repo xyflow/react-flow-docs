@@ -25,7 +25,7 @@ A lot has happened since we published our last blog post six months ago. We got 
 - Better selectable edges with a new `interactionWidth` option
 - New hooks: `useNodesInitialized`, `useOnViewportChange` and `useOnSelectionChange`
 
-## 🎉 A New Package Name
+## <Emoji content="🎉" /> A New Package Name
 
 The biggest change, is that we got a new package name! A very nice person gave us the [`reactflow` npm package](https://www.npmjs.com/reactflow) name and we also got the [`@reactflow` organization](https://www.npmjs.com/org/reactflow). So from now on, you can install React Flow via:
 
@@ -49,7 +49,7 @@ import 'reactflow/dist/style.css';
 
 Looks nice, right? Under the hood we are publishing packages separately in the `@reactflow` organization. These packages are used by the main `reactflow` package and also can be [used separately](/docs/overview/packages/). For this we've rebuilt React Flow to a monorepo powered by [turborepo](https://turborepo.org/), [Rollup](https://rollupjs.org/) and [Vite](https://vitejs.dev/).
 
-## ✨ New Features
+## <Emoji content="✨" /> New Features
 
 For this release, we focused on accessibility (nothing better for a v11 release than a11y!) and edges, with some other smaller updates and stability fixes along the way.
 
