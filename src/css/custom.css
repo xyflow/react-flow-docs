@@ -132,6 +132,16 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-size: 90%;
 }
 
+.blog-wrapper #post-content li {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.blog-wrapper figcaption {
+  padding-bottom: 12px;
+  color: #666;
+}
+
 .blog-list-page article .col--3 a:hover {
   background: var(--ifm-color-primary-dark);
 }
