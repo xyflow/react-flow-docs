@@ -74,5 +74,5 @@ If you want to allow scrolling inside a node or inside an element of a node you 
 React Flow comes with some helpers to give your custom nodes super powers:
 
 - [Node Resizer](/docs/api/nodes/node-resizer/): Component for adding a resize UI
-- [Node Toolbar](/docs/api/edges/base-edge/): Toolbar or tooltip component
+- [Node Toolbar](/docs/api/nodes/node-toolbar/): Toolbar or tooltip component
 - [useNodeId](/docs/api/hooks/use-node-id/): hook for accessing the node id within a custom node
