@@ -14,13 +14,11 @@ export type EmojiProps = {
 // from the accessibility tree entirely if not.
 //
 export default function Emoji({ content, label }: EmojiProps) {
-  if (label) {
-    return (
-      <span role="img" aria-label={label}>
-        {content}
-      </span>
-    );
-  } else {
-    return <span aria-hidden="true">{content}</span>;
-  }
+  return label ? (
+    <span role="img" aria-label={label}>
+      {content}
+    </span>
+  ) : (
+    <span aria-hidden="true">{content}</span>
+  );
 }
