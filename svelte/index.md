@@ -1,20 +1,20 @@
 ---
-title: React Flow for Svelte
+title: Svelte Flow
 sidebar_label: Introduction
 sidebar_position: 0
 ---
 
 import CodeViewer from '../src/components/CodeViewer';
 
-Welcome to React Flow for Svelte. Read our blog post on the svelte version to get started. This documentation is in very early stages, too. You can find more detailed information on the core concepts in our React docs.
+Welcome to Svelte Flow. Read our blog post on the svelte version to get started. This documentation is in very early stages, too. You can find more detailed information on the core concepts in our React docs.
 
 :::caution
-React Flow for Svelte is in a very early alpha stage. You can support and speed up the development process by sending us bug reports and feedback to info@reactflow.dev
+Svelte Flow is in a very early alpha stage. You can support and speed up the development process by sending us bug reports and feedback to info@reactflow.dev
 :::
 
 ## Installation
 
-The React Flow Svelte package is published on npm as [`@reactflow/svelte`](https://npmjs.com/package/@reactflow/svelte).
+The Svelte Flow package is published on npm as [`@reactflow/svelte`](https://npmjs.com/package/@reactflow/svelte).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -43,7 +43,7 @@ pnpm add @reactflow/svelte@0.0.1-alpha
   </TabItem>
 </Tabs>
 
-This is the documentation for the svelte alpha version.
+This is the documentation for the Svelte Flow alpha version.
 
 ## Getting Started
 

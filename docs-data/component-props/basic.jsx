@@ -141,29 +141,73 @@ const props = {
       name: 'nodes',
       type: (
         <>
-          <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
+          <Link to="/svelte/api/nodes/node-options/#typescript">Node</Link>[]
         </>
       ),
-      default: '[]',
       description: (
         <>
-          Array of <Link to="/docs/api/nodes/node-options">nodes</Link>
+          Array of <Link to="/svelte/api/nodes/node-options">nodes</Link>
         </>
       ),
+      required: true,
     },
     {
       name: 'edges',
       type: (
         <>
-          <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
+          <Link to="/svelte/api/edges/edge-options/#typescript">Edge</Link>[]
         </>
       ),
-      default: '[]',
       description: (
         <>
-          Array of <Link to="/docs/api/edges/edge-options">edges</Link>
+          Array of <Link to="/svelte/api/edges/edge-options">edges</Link>
         </>
       ),
+      required: true,
+    },
+    {
+      name: 'nodeTypes',
+      type: 'object',
+      default: '{ input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode }',
+      description: (
+        <>
+          Object with <Link to="/svelte/api/nodes/node-types/">node types</Link>
+        </>
+      ),
+    },
+    {
+      name: 'edgeTypes',
+      type: 'object',
+      default:
+        '{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }',
+      description: (
+        <>
+          Object with <Link to="/svelte/api/edges/edge-types/">edge types</Link>
+        </>
+      ),
+    },
+    {
+      name: 'nodeOrigin',
+      type: '[number, number] (number between 0 - 1)',
+      default: '[0,0]}',
+      description: (
+        <>
+          Position origin [x-origin, y-origin]. center = <code>[0.5, 0.5]</code>, bottom-right ={' '}
+          <code>[1, 1]</code>
+        </>
+      ),
+    },
+    {
+      name: 'style',
+      type: 'string',
+      default: 'undefined',
+      description: 'CSS string that is applied to the wrapper div',
+    },
+    {
+      name: 'class',
+      type: 'string',
+      default: 'undefined',
+      description: 'Additional class name for the wrapper div',
     },
   ],
 };

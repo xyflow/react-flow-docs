@@ -27,19 +27,19 @@ import SvelteFlow, { SvelteFlowProps } from '@reactflow/svelte';
 
 ## Basic Props
 
-import basic from '../../docs-data/react-flow-props/basic';
+import basic from '../../docs-data/component-props/basic';
 
 <PropItems props={basic} />
 
 ## Flow View
 
-import flowview from '../../docs-data/react-flow-props/flowview';
+import flowview from '../../docs-data/component-props/flowview';
 
 <PropItems  props={flowview} />
 
 ## Edge Specific Props
 
-import edgeSpecific from '../../docs-data/react-flow-props/edge-specific';
+import edgeSpecific from '../../docs-data/component-props/edge-specific';
 
 <PropItems  props={edgeSpecific} />
 
@@ -47,55 +47,55 @@ import edgeSpecific from '../../docs-data/react-flow-props/edge-specific';
 
 ### General
 
-import general from '../../docs-data/react-flow-props/general';
+import general from '../../docs-data/component-props/general';
 
 <PropItems props={general} />
 
 ### Nodes
 
-import nodes from '../../docs-data/react-flow-props/nodes';
+import nodes from '../../docs-data/component-props/nodes';
 
 <PropItems  props={nodes} />
 
 ### Edges
 
-import edges from '../../docs-data/react-flow-props/edges';
+import edges from '../../docs-data/component-props/edges';
 
 <PropItems props={edges} />
 
 ### Connections
 
-import connections from '../../docs-data/react-flow-props/connections';
+import connections from '../../docs-data/component-props/connections';
 
 <PropItems props={connections} />
 
 ### Pane
 
-import pane from '../../docs-data/react-flow-props/pane';
+import pane from '../../docs-data/component-props/pane';
 
 <PropItems  props={pane} />
 
 ### Selection
 
-import selection from '../../docs-data/react-flow-props/selection';
+import selection from '../../docs-data/component-props/selection';
 
 <PropItems  props={selection} />
 
 ## Interaction
 
-import interaction from '../../docs-data/react-flow-props/interaction';
+import interaction from '../../docs-data/component-props/interaction';
 
 <PropItems  props={interaction} />
 
 ## Connection Line
 
-import connectionLine from '../../docs-data/react-flow-props/connection-line';
+import connectionLine from '../../docs-data/component-props/connection-line';
 
 <PropItems  props={connectionLine} />
 
 ## Keys
 
-import keys from '../../docs-data/react-flow-props/keys';
+import keys from '../../docs-data/component-props/keys';
 
 <PropItems props={keys} />
 
@@ -105,6 +105,6 @@ import keys from '../../docs-data/react-flow-props/keys';
 These options are only intended for subscribers of [React Flow Pro](https://pro.reactflow.dev). If you’re considering removing the attribution, please make sure to read our [Remove Attribution](/docs/guides/remove-attribution) guide first.
 :::
 
-import pro from '../../docs-data/react-flow-props/pro';
+import pro from '../../docs-data/component-props/pro';
 
 <PropItems props={pro} />

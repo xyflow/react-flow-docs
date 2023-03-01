@@ -1,5 +1,5 @@
 ---
-title: ReactFlow Instance
+title: React Flow Instance
 sidebar_position: 2
 ---
 
