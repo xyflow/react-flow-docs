@@ -7,15 +7,31 @@ const context = new AudioContext();
 context.suspend();
 
 const makeAmp = (id, position) => {
-  return { id, data: { gain: 0.5 }, position, type: 'amp' };
+  const data = { gain: 0.5 };
+  const node = { id, data, position, type: 'amp' };
+  const audioNode = context.createGain();
+
+  audioNode.gain.value = data.gain;
+  return [node, audioNode];
 };
 
 const makeDac = (id, position) => {
-  return { id, data: {}, position, type: 'dac' };
+  const data = {};
+  const node = { id, data, position, type: 'dac' };
+  const audioNode = context.destination;
+
+  return [node, audioNode];
 };
 
 const makeOsc = (id, position) => {
-  return { id, type: 'osc', data: { frequency: 220, type: 'square' }, position };
+  const data = { frequency: 220, type: 'sine' };
+  const node = { id, data, position, type: 'osc' };
+  const audioNode = context.createOscillator();
+
+  audioNode.frequency.value = data.frequency;
+  audioNode.type = data.type;
+  audioNode.start();
+  return [node, audioNode];
 };
 
 const defaultNodes = [
@@ -24,32 +40,10 @@ const defaultNodes = [
   makeDac(nanoid(6), { x: 0, y: 400 }),
 ];
 
-const defaultAudioNodes = defaultNodes.reduce((audioNodes, { id, type, data }) => {
-  switch (type) {
-    case 'osc': {
-      const node = context.createOscillator();
-      node.frequency.value = data.frequency;
-      node.type = data.type;
-      node.start();
-      return audioNodes.set(id, node);
-    }
-
-    case 'amp': {
-      const node = context.createGain();
-      node.gain.value = data.gain;
-      return audioNodes.set(id, node);
-    }
-
-    case 'dac': {
-      const node = context.destination;
-      return audioNodes.set(id, node);
-    }
-  }
-}, new Map());
-
 const useStore = create((set, get) => ({
   // WEB AUDIO STATE & METHODS -------------------------------------------------
   context: context,
+  audioNodes: defaultNodes.reduce((map, [{ id }, node]) => map.set(id, node), new Map()),
   state: context.state,
 
   resume: async () => {
@@ -71,10 +65,8 @@ const useStore = create((set, get) => ({
     }
   },
 
-  audioNodes: defaultAudioNodes,
-
   // NODES STATE & METHODS -----------------------------------------------------
-  nodes: defaultNodes,
+  nodes: defaultNodes.map(([node]) => node),
 
   onNodesChange: (changes) => {
     set({
@@ -88,12 +80,7 @@ const useStore = create((set, get) => ({
 
     switch (type) {
       case 'osc': {
-        const node = makeOsc(id, position);
-        const audioNode = context.createOscillator();
-        audioNode.frequency.value = node.data.frequency;
-        audioNode.type = node.data.type;
-        audioNode.start();
-
+        const [node, audioNode] = makeOsc(id, position);
         return set({
           nodes: [...get().nodes, node],
           audioNodes: get().audioNodes.set(id, audioNode),
@@ -101,9 +88,7 @@ const useStore = create((set, get) => ({
       }
 
       case 'amp': {
-        const node = makeAmp(id, position);
-        const audioNode = context.createGain();
-        audioNode.gain.value = data.gain;
+        const [node, audioNode] = makeAmp(id, position);
 
         return set({
           nodes: [...get().nodes, node],
@@ -112,8 +97,7 @@ const useStore = create((set, get) => ({
       }
 
       case 'dac': {
-        const node = makeDac(id, position);
-        const audioNode = context.destination;
+        const [node, audioNode] = makeDac(id, position);
 
         return set({
           nodes: [...get().nodes, node],
