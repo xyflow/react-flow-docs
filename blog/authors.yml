@@ -15,3 +15,9 @@ john:
   title: Community Manager
   url: http://johnrobbdesign.com/
   image_url: https://github.com/johnrobbjr.png
+
+hayleigh:
+  name: Hayleigh Thompson
+  title: Developer Relations
+  url: https://twitter.com/hayleigh-dot-dev
+  image_url: https://github.com/hayleigh-dot-dev.png
