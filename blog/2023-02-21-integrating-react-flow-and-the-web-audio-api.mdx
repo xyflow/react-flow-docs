@@ -1,0 +1,534 @@
+---
+slug: 'react-flow-and-the-web-audio-api'
+title: 'Tutorial: Integrating React Flow and the Web Audio API'
+authors: ['hayleigh']
+tags: ['react-flow', 'web-audio-api', 'how-to']
+hide_table_of_contents: false
+---
+
+import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
+import { AspectRatio } from '@chakra-ui/react';
+import CodeViewer from '/src/components/CodeViewer';
+const editorOptions = { editorHeight: '45vh' };
+
+The Web Audio API gives us everything we need to do real-time synthesis and
+audio processing in the browser. Audio nodes are arranged into a graph, with
+individual nodes representing sound sources, processing modules, and audio
+outputs. React Flow is a library for building interactive node-based editors...
+it's a match made in heaven!
+
+<!--truncate-->
+
+<Image
+  img="/img/blog/webaudio/bleep-cafe.png"
+  alt="A screenshot of bleep.cafe, a Web Audio playground build with React Flow"
+/>
+
+A little while ago I shared a project on the [React Flow Discord](https://discord.gg/RVmnytFmGW)
+showing off a small playground for messing with the Web Audio API called
+[bleep.cafe](https://bleep.cafe). It seemed to go down quite well - everyone loves
+messing with sounds - so today we'll be taking a look at how we can put together
+something similar. Even if you're not interested in the Web Audio API, this
+tutorial will show you one way to use React Flow to go beyond the basics and
+start integrating with stateful libraries from the outside world.
+
+## <Emoji content="🎬"/> But first, a demo!
+
+Before we get into the details, let's take a proper look at what we'll be making:
+
+<CodeViewer
+  codePath="blog-flows/webaudio/Demo"
+  additionalFiles={[
+    'store.js',
+    'components/sidebar.js',
+    'nodes/amp.js',
+    'nodes/dac.js',
+    'nodes/osc.js',
+  ]}
+  options={{ editorHeight: '50vh' }}
+  dependencies={{ nanoid: 'latest', zustand: '4.1.1' }}
+  showEditor={false}
+  sandpackOptions={{
+    externalResources: ['https://cdn.tailwindcss.com'],
+  }}
+/>
+
+<!-- MDX parses things differently if a component is the first thing on a line
+(and it ignores whitespace) so I've put a zero-width space here to get it to
+do the right thing. -->
+
+&#8203<Emoji content="🚨" /> **Note**: This and many other examples in this tutorial _make sounds_. To
+avoid creating an avant garde masterpiece, remember to **mute each example**
+before moving on.
+
+If you're the type of person to skip to the end of the book to see what all the
+fuss is about, you can find the complete code on [GitHub](https://github.com/wbkd/react-flow-webaudio-app).
+For everyone else, let's get started!
+
+## <Emoji content="🏃‍♀️"/> Getting up to speed with the Web Audio API
+
+First, we need to take a look at what the Web Audio API is and how it works.
+Here's what you need to know:
+
+1. The [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+   let's us do real-time audio in the browser. All that processing happens in a
+   seperate thread running native code, so it's pretty powerful.
+
+2. Individual [`AudioNodes`](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode)
+   provide an interface for our JavaScript code to manipulate the audio processing
+   graph and do all sorts of things. There are nodes for generating tones, playing
+   audio files, filtering out certain frequencies, and a bunch more.
+
+3. An [`AudioContext`](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext)
+   acts as the brain <Emoji content="🧠"/> for the whole signal processing graph.
+   We can suspend and resume audio processing, create new nodes, and query some
+   information about the audio engine itself.
+
+But how does it feel to _use_? Let's take a look at a simple synthesiser:
+
+```js
+const ctx = new AudioContext();
+
+const osc = ctx.createOscillator();
+const amp = ctx.createGain();
+const out = ctx.destination;
+
+osc.frequency.value = 440;
+osc.type = 'triangle';
+
+amp.gain.value = 0.5;
+
+osc.connect(amp).connect(out);
+osc.start();
+```
+
+Here we have a basic sound source (an oscillator) generating a constant tone at
+440Hz. That's connected to a gain node to control the volume, and from there it
+goes to the audio destination (our speakers).
+
+It's not too hard to imagine how this might look as a React Flow graph: we have
+a few different node types (oscillator, gain, and a destination), there's some
+data stored on each of them, and we have a couple edges to connect them up.
+
+<CodeViewer
+  codePath="blog-flows/webaudio/ExampleSynthFlow"
+  options={{ editorHeight: '50vh' }}
+  showEditor={false}
+  additionalFiles={['nodes.js', 'edges.js']}
+  dependencies={{ zustand: '4.1.1' }}
+  isTypescript
+/>
+
+Of course, this doesn't quite cut it; we're not even making sounds yet! So let's
+get to it <Emoji content="💪"/>.
+
+## <Emoji content="🏗️"/> Scaffolding the project
+
+First thing's first we need to set up a fresh React project. You'll need a bit
+of knowledge of both [React](https://reactjs.com) and [React Flow](https://reactflow.dev)
+(that's us!) to follow along, but you don't need to be an expert.
+
+We'll be using [Vite](https://vitejs.dev) to get things up and running today but
+you could use whatever you like; swap out Vite for Create-React-App or use
+TypeScript instead of JavaScript. To scaffold a new project, run:
+
+```sh
+$ npm create vite@latest reactflow-web-audio -- --template react
+```
+
+Besides React Flow, we also need a handful of dependencies:
+[`zustand`](https://github.com/pmndrs/zustand) for state management, and
+[`nanoid`](https://github.com/ai/nanoid) to generate unique node IDs. We'll also
+add [`tailwindcss`](https://tailwindcss.com) for styling but that's up to you:
+CSS is cool too!
+
+```sh
+$ npm install reactflow zustand nanoid tailwindcss
+```
+
+Zustand is actually what we use for state management in React Flow under the hood
+so we can add it to our project for free! Nanoid is a tiny library for generating
+unique IDs. It's totally a quality of life thing you can do without if you want:
+we're using it here so we can focus on the interesting bits.
+
+Go ahead and modify `main.jsx` to match the following:
+
+```jsx title="./src/main.jsx"
+// 👇 Don't forget to import the styles!
+import 'reactflow/dist/style.css';
+import './index.css';
+
+import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ReactFlowProvider } from 'reactflow';
+
+const root = document.querySelector('#root');
+
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
+    <div className="w-screen h-screen">
+      <ReactFlowProvider>
+        <App />
+      </ReactFlowProvider>
+    </div>
+  </React.StrictMode>
+);
+```
+
+It's important for the parent of the React Flow component to have a width and a
+height to work properly so we've added a wrapper `<div>` that takes up the whole
+screen. We're also wrapping our app in a `<ReactFlowProvider>` so we can make use
+of different React Flow hooks later on.
+
+Next, we'll create an empty flow in our `App.jsx` component. We'll keep coming
+back to this as we add more functionality, but right now we just want to get
+something on the screen:
+
+```jsx title="./src/App.jsx"
+import React from 'react';
+import ReactFlow, { Panel } from 'reactflow';
+
+export default function App() {
+  return (
+    <ReactFlow>
+      <Panel position="top-right">{/* ... */}</Panel>
+      <Panel position="top-left">
+        <span className="font-mono text-gray-500 text-xs">
+          <a href="https://reactflow.dev">React Flow</a> + Web Audio = 💕
+        </span>
+      </Panel>
+    </ReactFlow>
+  );
+}
+```
+
+The [`<Panel>`](https://reactflow.dev/docs/api/plugin-components/panel/) component
+lets us position content on top of the canvas. We've created two: one to display
+a title for the app and link to the React Flow docs, and another that we'll come
+back to later.
+
+### 1. Create a store
+
+A Zustand store will the state of our React Flow graph and expose some functions
+to update that state. The most basic store is one that keeps track of our graph's
+nodes and edges, and exposes two functions that React Flow will call to update
+them internally (like when we move a node around).
+
+```js title="./src/store.js"
+import { applyNodeChanges, applyEdgeChanges } from 'reactflow';
+import create from 'zustand';
+
+export const useStore = create((set, get) => ({
+  nodes: [],
+  edges: [],
+
+  onNodesChange(changes) {
+    set({
+      nodes: applyNodeChanges(changes, get().nodes),
+    });
+  },
+
+  onEdgesChange(changes) {
+    set({
+      edges: applyEdgeChanges(changes, get().edges),
+    });
+  },
+}));
+```
+
+For now, we'll add just one more method to create a new edge whenever we make a
+connection between two nodes:
+
+```js
+export const useStore = create((set, get) => ({
+  // ...
+
+  addEdge(data) {
+    const id = `${data.target}->${data.source}`;
+    const edge = { id, ...data };
+
+    set({
+      edges: [...get().edges, edge],
+    });
+  },
+}));
+```
+
+When we add a connection between two nodes, React Flow will give us an object
+with all the data related to that connection: the id of the source and target
+nodes and the id of each handle if applicable. To create a valid
+[`Edge`](https://reactflow.dev/docs/api/edges/edge-options/#edge) we just need to
+give it a unique `id`. We're not using `nanoid` for this (we'll use that for nodes later)
+because we'll need a reliable way of looking up nodes based on edge id in the future.
+
+We have enough to hop back to our `<App/>` component and hook up our store to
+React Flow:
+
+```jsx title="./src/App.jsx"
+import React from 'react';
+import ReactFlow, { Panel } from 'reactflow';
+// highlight-start
+import shallow from 'zustand/shallow';
+import useStore from './store';
+// highlight-end
+
+// highlight-start
+const selector = (store) => ({
+  nodes: store.nodes,
+  edges: store.edges,
+  onNodesChange: store.onNodesChange,
+  onEdgesChange: store.onEdgesChange,
+  addEdge: store.addEdge,
+});
+// highlight-end
+
+export default function App() {
+  // highlight-start
+  const { nodes, edges, onNodesChange, onEdgesChange, addEdge } = useStore(selector, shallow);
+  // highlight-end
+
+  return (
+    <ReactFlow
+      // highlight-start
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={addEdge}
+      // highlight-end
+    >
+      <Panel position="top-right">{/* ... */}</Panel>
+      <Panel position="top-left">
+        <span className="font-mono text-gray-500 text-xs">
+          <a href="https://reactflow.dev">React Flow</a> + Web Audio = 💕
+        </span>
+      </Panel>
+    </ReactFlow>
+  );
+}
+```
+
+The added code is highlighted in the snippet above. We've defined a `selector`
+function to extract the state we need from our store. Because we've only just
+started, this turns out to be all of it, but as we add more functionality this
+selector will ensure we don't cause unecessary re-renders.
+
+With the selector defined, we then pass that to our `useStore` hook along with
+the `shallow` equality function provided by zustand and destructure all the bits
+of state we need. Finally, we pass those on to our `<ReactFlow/>` component as
+props. This is enough to have a working React Flow graph that we can interact with...
+if we had any nodes in it! We'll get on to that in a second, but first let's take
+a quick look at what we have so far.
+
+<CodeViewer
+  codePath="blog-flows/webaudio/EmptyWithStoreFlow"
+  options={{ editorHeight: '50vh' }}
+  additionalFiles={['store.js']}
+  dependencies={{ zustand: '4.1.1' }}
+/>
+
+Not particularly exciting, but it's good to know we haven't broken anything yet
+either!
+
+### 2. Set up custom nodes
+
+Great, now we have an empty flow ready for us to build on. We'll skip showing off
+the default nodes and dive straight into implementing our own cusotm ones. For
+this tutorial we'll focus on the three Web Audio nodes we've already seen: an
+oscillator, a gain node, and a destination (output) node.
+
+Start by creating some helpers in `store.js` to make it easier to create new
+node objects. We'll use these helpers while we're developing to quickly hardcode
+nodes into our flow, and then they'll be useful again when we add the sidebar to
+create nodes from the UI.
+
+```js title="./src/store.js"
+const makeAmp = (id, position) => {
+  const data = { gain: 0.5 };
+  return { id, data, position, type: 'amp' };
+};
+
+const makeDac = (id, position) => {
+  const data = {};
+  return { id, data, position, type: 'dac' };
+};
+
+const makeOsc = (id, position) => {
+  const data = { freq: 220, type: 'square' };
+  return { id, data, position, type: 'osc' };
+};
+```
+
+Start by creating a `nodes/` directory and adding a file for each of the three
+node types. Let's start with the oscillator and a scaffold for two functions that
+looks something like this:
+
+```js title="./src/nodes/osc.jsx"
+// A helper to use when creating new React Flow nodes.
+export function newOscillator() {
+  return {};
+}
+
+// A custom component to render in the flow.
+export default function Oscillator() {
+  return null;
+}
+```
+
+If we look at the Web Audio docs for [OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode)
+we can see there are a few properties we might want to control. For this tutorial
+we'll focus on the `frequency` and `type` properties. Our `newOscillator` helper
+will be called whenever we want to add a new node to the React Flow graph, and
+we'll always call it with the `id` of the new node and its `position`:
+
+```js
+export function newOscillator(id, position) {
+  return {
+    id,
+    type: 'oscillator',
+    data: { frequency: 220, type: 'square' },
+    position,
+  };
+}
+```
+
+We've automatically set the `type` to `"oscillator"` - this will be useful in a
+minute when we want React Flow to actually _render_ the right custom component -
+and we've also defaulted the `frequency` and `type` properties to some sensible
+values.
+
+Moving on to the component, we need some controls to update those properties
+and a [`<Handle>`](https://reactflow.dev/docs/api/nodes/handle/) so we can
+connect it to other nodes. First, add some imports to the module:
+
+```jsx
+import React, { useState } from 'react';
+import { Handle, Position } from 'reactflow';
+```
+
+```jsx
+export default function Oscillator({ data }) {
+  return null;
+}
+```
+
+### 3. Add the sidebar
+
+## <Emoji content="🔈"/> Do sound to it
+
+```js
+// TODO: code
+```
+
+### 1. Handle edge and node changes
+
+### 2. Hook up UI controls
+
+```js
+// TODO: code
+```
+
+## <Emoji content="💅"/> Making it pretty
+
+## <Emoji content="👋"/> Final thoughts
+
+The approach we looked at today was a quick and dirty approach to getting something
+going ASAP, but there are some pitfalls you should know about before you get
+carried away:
+
+- **We can't serialise these React Flow graphs** if we use them this way. The `data`
+  in each node is a reference to a stateful `AudioNode` object, and trying to
+  `JSON.stringify` that will just give you back `"{}"`.
+- On account of all that state, we've made some pretty heavy assumptions in our
+  React components and custom nodes. The glaring flaw in this approach is that
+  **our UI will get out of sync with the audio graph** if we change the state of
+  those audio nodes outside of our React app.
+
+I mentioned at the beginning of this post my project [bleep.cafe](https://bleep.cafe),
+and you may be wondering how I solved these problems over there. The answer involves
+an entirely separate engine for managing the audio graph, and all the complexity
+that comes with it. Depending on your needs you might get a lot of mileage out of
+something like [behave-graph](https://github.com/bhouston/behave-graph) but that's
+beyond what we can cover in one blog post <Emoji content="😅" />.
+
+With all that in mind, I can still think of ways to take the project further. There
+are plenty of Web Audio nodes we didn't take a look at today, like a pretty
+sophisticated [reverb node](https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode).
+We could use an [`AnalyserNode`](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode)
+behind the scenes to get live audio data, and then create custom
+[animated edges](https://reactflow.dev/docs/examples/edges/custom-edge/).
+
+If you implement any of these ideas or come up with something entirely new, we'd
+love to hear about it! You can find us over on [Discord](https://discord.gg/RVmnytFmGW)
+or on Twitter [@reactflowdev](https://twitter.com/reactflowdev)! React Flow is an
+independent company financed by its users. If you want to support us you can
+[sponsor us on Github](https://github.com/sponsors/wbkd) or
+[subscribe to one of our Pro plans](https://pro.reactflow.dev/). Catch you in the
+next one <Emoji content="👋" />.
+
+- Pitfalls?
+  - Can't serialise rf graph
+- React Flow pro example?
+- Adding more nodes
+- Make it more interactive!
+- Audio visualiser
+
+---
+
+<!-- A little while ago I shared a project I had started working on to the folks in the
+[React Flow Discord](https://discord.gg/RVmnytFmGW). It's a small playground for
+messing with the Web Audio API called [bleep.cafe](https://bleep.cafe), and folks
+seemed to quite like the idea. Today we'll be taking a look at how to build
+something similar for ourselves. Even if you're not interested in the Web Audio
+API, this tutorial will show you how to use React Flow with other external stateful
+libraries.
+
+## 🏃‍♀️ Getting up to speed with the Web Audio API
+
+Before we can start playing with some sounds, we need a crash course in what the
+Web Audio API is and how it works. Here's what you need to know:
+
+- An `AudioContext` represents an audio processing graph build from different
+  audio nodes. It contains methods to create those audio nodes, manage the audio
+  engine, and decode audio files.
+- An `AudioNode` is a JavaScript object that represents an audio source, some
+  audio processing module, or an audio output. Importantly, the sound generation
+  and processing is done in a separate thread running _native code_: The objects
+  themselves just provide an interface for us to control them from JavaScript.
+- Audio nodes are connected together in a graph. Different nodes have different
+  inputs and outputs.
+
+We can put all that together to create a simple synthesiser like so:
+
+Great, we've created a slightly annoying constant tone. Not the most exciting
+thing out there, but it's a start. That's enough to get us going, so...
+
+## 🥱 What about React Flow?
+
+React Flow's whole thing is making it easy to build interactive node-based
+editors. The same Web Audio graph can be rendered and controlled by React Flow
+like so:
+
+-->
+
+- Background
+  - bleep.cafe
+  - web audio + react flow = 💕
+- Show off web audio playground
+- Introduce Web Audio API
+  - AudioContext
+  - Audio nodes / native code
+  - Connected in a graph
+- Scaffolding a project
+  - Creating a Store
+  - Setting up custom nodes
+- Storing web audio nodes in react flow nodes
+- Handling edges and graph changes
+- Making it pretty
+- Wrap up
+  - Pitfalls?
+  - React Flow pro example?
+  - Adding more nodes
+  - Make it more interactive!
