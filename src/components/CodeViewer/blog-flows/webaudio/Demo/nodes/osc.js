@@ -2,13 +2,6 @@ import { Handle, Position } from 'reactflow';
 import React from 'react';
 import useStore from '../store';
 
-export const makeOsc = (id, position, ctx) => {
-  const node = ctx.createOscillator();
-  node.start();
-
-  return { id, type: 'osc', data: { node, freq: 220, type: 'square' }, position };
-};
-
 export default function Osc({ id, data }) {
   const { setFreq, setType } = useStore((state) => ({
     setFreq: (frequency) => state.updateNode(id, { frequency }),

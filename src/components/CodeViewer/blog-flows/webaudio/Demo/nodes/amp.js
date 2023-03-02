@@ -2,13 +2,6 @@ import { Handle, Position } from 'reactflow';
 import React, { useCallback, useState } from 'react';
 import useStore from '../store';
 
-export const makeAmp = (id, position, ctx) => {
-  const node = ctx.createGain();
-  node.gain.value = 0.5;
-
-  return { id, data: { node }, position, type: 'amp' };
-};
-
 export default function Amp({ id, data }) {
   const setGain = useStore((state) => (gain) => state.updateNode(id, { gain }));
 
