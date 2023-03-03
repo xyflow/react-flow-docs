@@ -29,9 +29,13 @@ A little while ago I shared a project on the [React Flow Discord](https://discor
 showing off a small playground for messing with the Web Audio API called
 [bleep.cafe](https://bleep.cafe). It seemed to go down quite well - everyone loves
 messing with sounds - so today we'll be taking a look at how we can put together
-something similar. Even if you're not interested in the Web Audio API, this
-tutorial will show you one way to use React Flow to go beyond the basics and
-start integrating with stateful libraries from the outside world.
+something similar.
+
+Buckle up folks, this is going to be quite a long one. We'll walk through building
+an entire React Flow app from scratch, see how we can use React Flow to interact
+with the Web Audio API, and learn a few tricks and fancy things along the way too.
+Even if you're not interested in the Web Audio API you might still want to stick
+around anyway: who doesn't like making beeps and boops, right?
 
 ## <Emoji content="🎬"/> But first, a demo!
 
@@ -41,6 +45,7 @@ Before we get into the details, let's take a proper look at what we'll be making
   codePath="blog-flows/webaudio/Demo"
   additionalFiles={[
     'store.js',
+    'audio.js',
     'components/sidebar.js',
     'nodes/amp.js',
     'nodes/dac.js',
@@ -111,15 +116,6 @@ It's not too hard to imagine how this might look as a React Flow graph: we have
 a few different node types (oscillator, gain, and a destination), there's some
 data stored on each of them, and we have a couple edges to connect them up.
 
-<CodeViewer
-  codePath="blog-flows/webaudio/ExampleSynthFlow"
-  options={{ editorHeight: '50vh' }}
-  showEditor={false}
-  additionalFiles={['nodes.js', 'edges.js']}
-  dependencies={{ zustand: '4.1.1' }}
-  isTypescript
-/>
-
 Of course, this doesn't quite cut it; we're not even making sounds yet! So let's
 get to it <Emoji content="💪"/>.
 
@@ -140,11 +136,11 @@ $ npm create vite@latest reactflow-web-audio -- --template react
 Besides React Flow, we also need a handful of dependencies:
 [`zustand`](https://github.com/pmndrs/zustand) for state management, and
 [`nanoid`](https://github.com/ai/nanoid) to generate unique node IDs. We'll also
-add [`tailwindcss`](https://tailwindcss.com) for styling but that's up to you:
+be adding [`tailwindcss`](https://tailwindcss.com) for styling but that's up to you:
 CSS is cool too!
 
 ```sh
-$ npm install reactflow zustand nanoid tailwindcss
+$ npm install reactflow zustand nanoid
 ```
 
 Zustand is actually what we use for state management in React Flow under the hood
@@ -218,6 +214,7 @@ them internally (like when we move a node around).
 
 ```js title="./src/store.js"
 import { applyNodeChanges, applyEdgeChanges } from 'reactflow';
+import { nanoid } from 'nanoid';
 import create from 'zustand';
 
 export const useStore = create((set, get) => ({
@@ -246,7 +243,7 @@ export const useStore = create((set, get) => ({
   // ...
 
   addEdge(data) {
-    const id = `${data.target}->${data.source}`;
+    const id = nanoid(6);
     const edge = { id, ...data };
 
     set({
@@ -256,12 +253,11 @@ export const useStore = create((set, get) => ({
 }));
 ```
 
-When we add a connection between two nodes, React Flow will give us an object
-with all the data related to that connection: the id of the source and target
-nodes and the id of each handle if applicable. To create a valid
-[`Edge`](https://reactflow.dev/docs/api/edges/edge-options/#edge) we just need to
-give it a unique `id`. We're not using `nanoid` for this (we'll use that for nodes later)
-because we'll need a reliable way of looking up nodes based on edge id in the future.
+The data passed to `addEdge` comes from React Flow's
+[`onConnect`](https://reactflow.dev/docs/api/react-flow-props/#onconnect) callback
+and contains everything to create a new edge _except_ for an id. We could do any
+number of things to come up with an id for the edge but seeing as we pulled in
+nanoid for this project, we're just going to use that.
 
 We have enough to hop back to our `<App/>` component and hook up our store to
 React Flow:
@@ -312,32 +308,28 @@ export default function App() {
 
 The added code is highlighted in the snippet above. We've defined a `selector`
 function to extract the state we need from our store. Because we've only just
-started, this turns out to be all of it, but as we add more functionality this
+started this turns out to be all of it, but as we add more functionality the
 selector will ensure we don't cause unecessary re-renders.
 
 With the selector defined, we then pass that to our `useStore` hook along with
-the `shallow` equality function provided by zustand and destructure all the bits
+the `shallow` equality function provided by zustand, and destructure all the bits
 of state we need. Finally, we pass those on to our `<ReactFlow/>` component as
 props. This is enough to have a working React Flow graph that we can interact with...
 if we had any nodes in it! We'll get on to that in a second, but first let's take
 a quick look at what we have so far.
-
-<CodeViewer
-  codePath="blog-flows/webaudio/EmptyWithStoreFlow"
-  options={{ editorHeight: '50vh' }}
-  additionalFiles={['store.js']}
-  dependencies={{ zustand: '4.1.1' }}
-/>
 
 Not particularly exciting, but it's good to know we haven't broken anything yet
 either!
 
 ### 2. Set up custom nodes
 
-Great, now we have an empty flow ready for us to build on. We'll skip showing off
-the default nodes and dive straight into implementing our own cusotm ones. For
-this tutorial we'll focus on the three Web Audio nodes we've already seen: an
-oscillator, a gain node, and a destination (output) node.
+Great, now we have an empty flow ready for us to build on. We're going to dive
+right into implementing our own custom nodes and skip looking at the default nodes
+completely. If you're entirely new to React Flow make sure you check out our
+[docs](https://reactflow.dev/docs/introduction/) and try to keep up!
+
+For this tutorial, we'll focus on the three Web Audio nodes we've already seen:
+an oscillator, a gain node, and a destination (output) node.
 
 Start by creating some helpers in `store.js` to make it easier to create new
 node objects. We'll use these helpers while we're developing to quickly hardcode
@@ -345,6 +337,11 @@ nodes into our flow, and then they'll be useful again when we add the sidebar to
 create nodes from the UI.
 
 ```js title="./src/store.js"
+const makeOsc = (id, position) => {
+  const data = { frequency: 220, type: 'square' };
+  return { id, data, position, type: 'osc' };
+};
+
 const makeAmp = (id, position) => {
   const data = { gain: 0.5 };
   return { id, data, position, type: 'amp' };
@@ -354,83 +351,410 @@ const makeDac = (id, position) => {
   const data = {};
   return { id, data, position, type: 'dac' };
 };
-
-const makeOsc = (id, position) => {
-  const data = { freq: 220, type: 'square' };
-  return { id, data, position, type: 'osc' };
-};
 ```
 
-Start by creating a `nodes/` directory and adding a file for each of the three
-node types. Let's start with the oscillator and a scaffold for two functions that
-looks something like this:
+You can look at the docs for each Web Audio node to discover what properties
+additional properties they might have.
 
-```js title="./src/nodes/osc.jsx"
-// A helper to use when creating new React Flow nodes.
-export function newOscillator() {
-  return {};
-}
+If we now update our initial `nodes` in the store to include a few of these nodes
+we'll finally have something on the screen!
 
-// A custom component to render in the flow.
-export default function Oscillator() {
-  return null;
-}
-```
+React Flow doesn't know how to render our custom nodes like `'osc'` yet, so it
+just shows a default node instead. To fix that, create a `nodes/` directory and
+add a file for each of the three node types.
 
-If we look at the Web Audio docs for [OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode)
-we can see there are a few properties we might want to control. For this tutorial
-we'll focus on the `frequency` and `type` properties. Our `newOscillator` helper
-will be called whenever we want to add a new node to the React Flow graph, and
-we'll always call it with the `id` of the new node and its `position`:
+Taking a look at the oscillator node, we need our custom node to have three things:
 
-```js
-export function newOscillator(id, position) {
-  return {
-    id,
-    type: 'oscillator',
-    data: { frequency: 220, type: 'square' },
-    position,
-  };
-}
-```
+1. A slider input for the `frequency` property.
+2. A dropdown input for the `type` property.
+3. A source handle to represent the node's output.
 
-We've automatically set the `type` to `"oscillator"` - this will be useful in a
-minute when we want React Flow to actually _render_ the right custom component -
-and we've also defaulted the `frequency` and `type` properties to some sensible
-values.
-
-Moving on to the component, we need some controls to update those properties
-and a [`<Handle>`](https://reactflow.dev/docs/api/nodes/handle/) so we can
-connect it to other nodes. First, add some imports to the module:
-
-```jsx
-import React, { useState } from 'react';
+```jsx title="./src/nodes/Oscillator.jsx"
+import React from 'react';
 import { Handle, Position } from 'reactflow';
-```
 
-```jsx
-export default function Oscillator({ data }) {
-  return null;
+export default function Oscillator({ id, data }) {
+  return (
+    <div>
+      <div>
+        <span>osc</span>
+
+        <label>
+          <span>freq: </span>
+          <input
+            className="nodrag"
+            type="range"
+            min="10"
+            max="2000"
+            step="0.1"
+            value={data.frequency}
+          />
+          <span>{data.frequency.toFixed(0)}Hz</span>
+        </label>
+
+        <label>
+          <span>type: </span>
+          <select className="nodrag" value={data.type}>
+            <option value="sine">sine</option>
+            <option value="square">square</option>
+            <option value="sawtooth">sawtooth</option>
+            <option value="triangle">triangle</option>
+          </select>
+        </label>
+      </div>
+
+      <Handle className="w-2 h-2" type="source" position={Position.Bottom} />
+    </div>
+  );
 }
 ```
 
-### 3. Add the sidebar
+<!-- MDX parses things differently if a component is the first thing on a line
+(and it ignores whitespace) so I've put a zero-width space here to get it to
+do the right thing. -->
+
+&#8203<Emoji content="🚨" /> **Note**: Pay attention to the `nodrag` class being
+applied to both the `<input>` and `<select>` elements. This is important to
+prevent React Flow from capturing the mouse events and dragging the node around.
+
+We have some controls now, but if we try to interact with them we'll see that
+they don't do anything. The value of each input is set by the respective `data`
+property, but we haven't hooked up any event handlers to update that data when
+things change.
+
+To do that, we need to hop back over to our store and add a new action `updateNode`.
+This will take an `id` and a partial `data` object, and update the corresponding
+node with that new data.
+
+```js title="./src/store.js"
+export const useStore = create((set, get) => ({
+  // ...
+
+  // highlight-start
+  updateNode(id, data) {
+    set({
+      nodes: get().nodes.map((node) =>
+        node.id === id ? { ...node, data: Object.assign(node.data, data) } : node
+      ),
+    });
+  },
+  // highlight-end
+
+  // ...
+}));
+```
+
+Finally, we'll take another look at our oscillator custom node and add some event
+handling:
+
+```jsx title="./src/nodes/Oscillator.jsx"
+import { Handle, Position } from 'reactflow';
+import React from 'react';
+// highlight-start
+import useStore from '../store';
+// highlight-end
+
+export default function Oscillator({ id, data }) {
+  // highlight-start
+  const { setFrequency, setType } = useStore((state) => ({
+    setFrequency: (frequency) => state.updateNode(id, { frequency }),
+    setType: (type) => state.updateNode(id, { type }),
+  }));
+  // highlight-end
+
+  return (
+    <div>
+      <div>
+        <span>osc</span>
+
+        <label>
+          <span>freq: </span>
+          <input
+            className="nodrag"
+            type="range"
+            min="10"
+            max="2000"
+            step="0.1"
+            value={data.frequency}
+            // highlight-start
+            onChange={(e) => setFrequency(+e.target.value)}
+            // highlight-end
+          />
+          <span>{data.frequency.toFixed(0)}Hz</span>
+        </label>
+
+        <label>
+          <span>type: </span>
+          <select
+            className="nodrag"
+            value={data.type}
+            // highlight-start
+            onChange={(e) => setType(e.target.value)}
+            // highlight-end
+          >
+            <option value="sine">sine</option>
+            <option value="square">square</option>
+            <option value="sawtooth">sawtooth</option>
+            <option value="triangle">triangle</option>
+          </select>
+        </label>
+      </div>
+
+      <Handle className="w-2 h-2" type="source" position={Position.Bottom} />
+    </div>
+  );
+}
+```
+
+The process for adding a gain node is very similar, so we'll leave that aside
+and instead turn our attention to the `dac`. Dac stands for "digital to analog
+converter", and it's generally the last node in a signal chain. Most of the time,
+it represents our speakers, so if we want to hear something we need to conenct
+it to the dac.
+
+The only control for this node will be to mute or unmute the output of the entire
+signal chain. That might be a bit difficult to do given that we don't have any
+audio processing happening yet, but we can at least add a flag to our store and
+toggle it when the mute button is clicked.
+
+```js title="./src/store.js"
+export const useStore = create((set, get) => ({
+  // ...
+
+  // highlight-start
+  isRunning: false,
+
+  toggleDSP() {
+    set({ isRunning: !get().isRunning });
+  },
+  // highlight-end
+
+  // ...
+}));
+```
+
+&#8203<Emoji content="💡" /> DSP stands for "digital signal processing" and in
+this context means "toggle the audio processing on and off".
+
+```jsx title="./src/nodes/Dac.jsx"
+import { Handle, Position } from 'reactflow';
+import React from 'react';
+// highlight-start
+import useStore from '../store';
+// highlight-end
+
+export default function Dac({ id, data }) {
+  // highlight-start
+  const { mute, toggleMute } = useStore((state) => ({
+    mute: state.mute,
+    toggleMute: state.toggleMute,
+  }));
+  // highlight-end
+
+  return (
+    <div>
+      <Handle type="target" position={Position.Top} />
+
+      <div>
+        <button onClick={toggleDSP}>
+          {isSuspended ? (
+            <span role="img" aria-label="unmute">
+              🔇
+            </span>
+          ) : (
+            <span role="img" aria-label="mute">
+              🔈
+            </span>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+OK we have our custom nodes set up, the final piece of the puzzle is to tell React
+Flow how to render them. Jump back over to our `<App/>` component and add the
+following:
+
+```jsx title="./src/App.jsx"
+// highlight-start
+import Amp from './nodes/Amp';
+import Dac from './nodes/Dac';
+import Osc from './nodes/Osc';
+// highlight-end
+
+const nodeTypes = {
+  // highlight-start
+  amp: Amp,
+  dac: Dac,
+  osc: Osc,
+  // highlight-end
+};
+
+export default function App() {
+  // ...
+
+  return (
+    <div className="App">
+      <ReactFlow
+        // ...
+        // highlight-start
+        nodeTypes={nodeTypes}
+        // highlight-end
+      >
+        {/* ... */}
+      </ReactFlow>
+    </div>
+  );
+}
+```
+
+The keys in our `nodeTypes` object should match the `type` property of the nodes
+in your React Flow graph (bonus points if you decided to use TypeScript for this).
+If you've been following along, you should be able to run the app now and see the
+custom nodes in action!
 
 ## <Emoji content="🔈"/> Do sound to it
 
-```js
-// TODO: code
+Whew, that's a lot of words so far before we've actually made any sound. Let's
+change that!
+
+We've been using zustand for managing the state of our UI; because our audio code
+is separate from our UI code, we'll manage it slightly different. Create a new
+file called `audio.js` and add the following:
+
+```js title="./src/audio.js"
+const context = new AudioContext();
+const nodes = new Map();
 ```
+
+As we said earlier the context acts as the brain for our signal processing, so
+we create one at the top of this module and use it throughout. Because connecting
+audio nodes together forms a graph (that's what makes React Flow such a good fit)
+we'll actually want a few functions similar to what's in our store. Specifically:
+
+- `addAudioNode` to create a new audio node with data from a React Flow node.
+- `updateAudioNode` to update the data of an existing audio node.
+- `deleteAudioNode` to disconnect a node from the graph and remove it.
+- `connectAudioNodes` to connect two nodes together.
+- `disconnectAudioNodes` to disconnect two nodes.
 
 ### 1. Handle edge and node changes
 
+We'll step through the implementation of each of these functions in order, starting
+with `addNode`. This function will be called whenever a new node is added to the
+React Flow graph, and we'll use that node's data to construct an audio node.
+
+```js
+export function addAudioNode({ id, type, data }) {
+  switch (type) {
+    case 'osc': {
+      const node = context.createOscillator();
+      node.type = data.type;
+      node.frequency.value = data.frequency;
+      node.start();
+      nodes.set(id, node);
+      break;
+    }
+
+    case 'amp': {
+      const node = context.createGain();
+      node.gain.value = data.gain;
+      nodes.set(id, node);
+      break;
+    }
+
+    case 'dac': {
+      const node = context.destination;
+      nodes.set(id, node);
+      break;
+    }
+  }
+}
+```
+
+Updating an audio node is slightly more involved because we need to handle the
+`data` object being potential partial (aka missing some properties). Nothing we
+can't deal with, though:
+
+```js
+export function updateAudioNode({ id, data }) {
+  const node = nodes.get(id);
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key in node && node[key] instanceof AudioParam) {
+      node[key].value = value;
+    } else {
+      node[key] = value;
+    }
+  });
+}
+```
+
+As before, we have to pay attention to whether the property we're setting is an
+`AudioParam` or not. We're iterating over the object's entries to cover the case
+where we're only updating a subset of the node's properties.
+
+Deleting a node is trivial. We just need to disconnect it from the graph and
+remove it from our nodes map:
+
+```js
+export function deleteAudioNode({ id }) {
+  const node = nodes.get(id);
+  node.disconnect();
+  node.stop?.();
+  nodes.delete(id);
+}
+```
+
+For completeness we also stop the node if it can be (for now that just includes
+oscillator nodes, but there are others that can be stopped too) although this
+isn't strictly necessary.
+
+&#8203<Emoji content="🤨" /> **Why do some properties have a `value` property?**
+The Web Audio API makes a distinction between simple object properties and ones
+that are [`AudioParams`](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam).
+The docs are a good place to go to read more about what they are, but for now we
+just need to know that `frequency` and `gain` are both `AudioParams` and need to
+be set using the `value` property.
+
 ### 2. Hook up UI controls
+
+The last piece in the puzzle is to hook our UI controls up to our audio nodes.
+This turns out to be trivial because we've already done the hard work of setting
+up our state management. All we need to do is call out to our audio functions from
+the various actions we defined in our store.
+
+```js title="./src/store.js"
+import ...
+// highlight-start
+import {
+  addAudioNode,
+  updateAudioNode,
+  deleteAudioNode,
+  connectAudioNodes,
+  disconnectAudioNodes
+} from './audio';
+// highlight-end
+
+// ...
+
+export const useStore = create((set, get) => ({
+  // ...
+```
+
+## <Emoji content="✨" /> Adding features and polish
+
+### 1. A sidebar for adding nodes
+
+### 2. Fancier audio nodes
+
+### 3. Handling keyboard events
 
 ```js
 // TODO: code
 ```
-
-## <Emoji content="💅"/> Making it pretty
 
 ## <Emoji content="👋"/> Final thoughts
 
