@@ -1,4 +1,5 @@
 import { applyNodeChanges, applyEdgeChanges } from 'reactflow';
+import { nanoid } from 'nanoid';
 import create from 'zustand';
 
 export const useStore = create((set, get) => ({
@@ -18,7 +19,7 @@ export const useStore = create((set, get) => ({
   },
 
   addEdge(data) {
-    const id = `${data.target}->${data.source}`;
+    const id = nanoid(6);
     const edge = { id, ...data };
 
     set({
