@@ -1,37 +1,39 @@
+import {
+  addAudioNode,
+  connectAudioNodes,
+  disconnectAudioNodes,
+  isSuspended,
+  removeAudioNode,
+  resumeContext,
+  suspendContext,
+  updateAudioNode,
+} from './audio';
 import { applyEdgeChanges, applyNodeChanges } from 'reactflow';
-
-import create from 'zustand';
 import { nanoid } from 'nanoid';
-
-const context = new AudioContext();
-context.suspend();
+import create from 'zustand';
 
 const makeAmp = (id, position) => {
   const data = { gain: 0.5 };
   const node = { id, data, position, type: 'amp' };
-  const audioNode = context.createGain();
+  addAudioNode(node);
 
-  audioNode.gain.value = data.gain;
-  return [node, audioNode];
+  return node;
 };
 
 const makeDac = (id, position) => {
   const data = {};
   const node = { id, data, position, type: 'dac' };
-  const audioNode = context.destination;
+  addAudioNode(node);
 
-  return [node, audioNode];
+  return node;
 };
 
 const makeOsc = (id, position) => {
   const data = { frequency: 220, type: 'sine' };
   const node = { id, data, position, type: 'osc' };
-  const audioNode = context.createOscillator();
+  addAudioNode(node);
 
-  audioNode.frequency.value = data.frequency;
-  audioNode.type = data.type;
-  audioNode.start();
-  return [node, audioNode];
+  return node;
 };
 
 const defaultNodes = [
@@ -42,36 +44,33 @@ const defaultNodes = [
 
 const useStore = create((set, get) => ({
   // WEB AUDIO STATE & METHODS -------------------------------------------------
-  context: context,
-  audioNodes: defaultNodes.reduce((map, [{ id }, node]) => map.set(id, node), new Map()),
-  state: context.state,
+  isSuspended: isSuspended(),
 
   resume: async () => {
-    await context.resume();
-    set({ state: context.state });
+    await resumeContext();
+    set({ isSuspended: isSuspended() });
   },
 
   suspend: async () => {
-    await context.suspend();
-    set({ state: context.state });
+    await suspendContext();
+    set({ isSuspended: isSuspended() });
   },
 
-  toggleState: async () => {
-    switch (get().state) {
-      case 'running':
-        return get().suspend();
-      case 'suspended':
-        return get().resume();
-    }
-  },
+  toggleDSP: () => (get().isSuspended ? get().resume() : get().suspend()),
 
   // NODES STATE & METHODS -----------------------------------------------------
-  nodes: defaultNodes.map(([node]) => node),
+  nodes: defaultNodes,
 
   onNodesChange: (changes) => {
     set({
       nodes: applyNodeChanges(changes, get().nodes),
     });
+  },
+
+  onNodesDelete: (nodes) => {
+    for (const { id } of nodes) {
+      removeAudioNode({ id });
+    }
   },
 
   addNode: (type) => {
@@ -80,46 +79,32 @@ const useStore = create((set, get) => ({
 
     switch (type) {
       case 'osc': {
-        const [node, audioNode] = makeOsc(id, position);
+        const node = makeOsc(id, position);
         return set({
           nodes: [...get().nodes, node],
-          audioNodes: get().audioNodes.set(id, audioNode),
         });
       }
 
       case 'amp': {
-        const [node, audioNode] = makeAmp(id, position);
-
+        const node = makeAmp(id, position);
         return set({
           nodes: [...get().nodes, node],
-          audioNodes: get().audioNodes.set(id, audioNode),
         });
       }
 
       case 'dac': {
-        const [node, audioNode] = makeDac(id, position);
-
+        const node = makeDac(id, position);
         return set({
           nodes: [...get().nodes, node],
-          audioNodes: get().audioNodes.set(id, audioNode),
         });
       }
     }
   },
 
   updateNode: (id, data) => {
-    const audioNode = get().audioNodes.get(id);
-
-    Object.entries(data).forEach(([key, value]) => {
-      if (key in audioNode && audioNode[key] instanceof AudioParam) {
-        audioNode[key].value = value;
-      } else if (key in audioNode) {
-        audioNode[key] = value;
-      }
-    });
+    updateAudioNode({ id, data });
 
     set({
-      audioNodes: get().audioNodes.set(id, audioNode),
       nodes: get().nodes.map((node) =>
         node.id === id ? { ...node, data: { ...node.data, ...data } } : node
       ),
@@ -131,34 +116,20 @@ const useStore = create((set, get) => ({
 
   onEdgesChange: (changes) => {
     set({
-      edges: applyEdgeChanges(
-        changes.map((change) => {
-          switch (change.type) {
-            case 'remove': {
-              const [sourceId, targetId] = change.id.split('->');
-              const source = get().audioNodes.get(sourceId);
-              const target = get().audioNodes.get(targetId);
-
-              source.disconnect(target);
-              return change;
-            }
-
-            default:
-              return change;
-          }
-        }),
-        get().edges
-      ),
+      edges: applyEdgeChanges(changes, get().edges),
     });
   },
 
+  onEdgesDelete: (edges) => {
+    for (const { source, target } of edges) {
+      disconnectAudioNodes({ source, target });
+    }
+  },
+
   addEdge: (data) => {
-    const source = get().audioNodes.get(data.source);
-    const target = get().audioNodes.get(data.target);
+    connectAudioNodes({ source: data.source, target: data.target });
 
-    source.connect(target);
-
-    const id = `${data.source}->${data.target}`;
+    const id = nanoid(6);
     const edge = { id, ...data };
 
     set({ edges: [...get().edges, edge] });

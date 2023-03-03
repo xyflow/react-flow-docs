@@ -14,16 +14,19 @@ const nodeTypes = { osc: Osc, amp: Amp, dac: Dac };
 const edgeTypes = {};
 
 function Flow() {
-  const { nodes, edges, onNodesChange, onEdgesChange, addEdge } = useStore(
-    (store) => ({
-      nodes: store.nodes,
-      edges: store.edges,
-      onNodesChange: store.onNodesChange,
-      onEdgesChange: store.onEdgesChange,
-      addEdge: store.addEdge,
-    }),
-    shallow
-  );
+  const { nodes, edges, onNodesChange, onNodesDelete, onEdgesChange, onEdgesDelete, addEdge } =
+    useStore(
+      (store) => ({
+        nodes: store.nodes,
+        edges: store.edges,
+        onNodesChange: store.onNodesChange,
+        onNodesDelete: store.onNodesDelete,
+        onEdgesChange: store.onEdgesChange,
+        onEdgesDelete: store.onEdgesDelete,
+        addEdge: store.addEdge,
+      }),
+      shallow
+    );
 
   return (
     <ReactFlow
@@ -31,7 +34,9 @@ function Flow() {
       nodes={nodes}
       edges={edges}
       onNodesChange={onNodesChange}
+      onNodesDelete={onNodesDelete}
       onEdgesChange={onEdgesChange}
+      onEdgesDelete={onEdgesDelete}
       onConnect={addEdge}
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}

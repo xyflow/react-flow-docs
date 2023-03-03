@@ -5,27 +5,28 @@ import { shallow } from 'zustand/shallow';
 import useStore from '../store';
 
 export default function Dac() {
-  const { state, toggleState } = useStore(
+  const { isSuspended, toggleDSP } = useStore(
     (store) => ({
-      state: store.state,
-      toggleState: store.toggleState,
+      isSuspended: store.isSuspended,
+      toggleDSP: store.toggleDSP,
     }),
     shallow
   );
 
   return (
     <>
-      <Handle className="h-2 w-2" type="target" position={Position.Top} />
       <div className="transition group px-2 py-3 bg-white rounded-xl shadow hover:shadow-xl">
+        <Handle className="h-2 w-2" type="target" position={Position.Top} />
+
         <div className="flex flex-col p-2">
-          <button onClick={toggleState}>
-            {state === 'running' ? (
-              <span role="img" aria-label="mute">
-                🔈
-              </span>
-            ) : (
+          <button onClick={toggleDSP}>
+            {isSuspended ? (
               <span role="img" aria-label="unmute">
                 🔇
+              </span>
+            ) : (
+              <span role="img" aria-label="mute">
+                🔈
               </span>
             )}
           </button>
