@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  fontweight: 700;
+  font-weight: 700;
 }
 
 .react-flow__node.annotation {
