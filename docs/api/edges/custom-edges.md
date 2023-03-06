@@ -39,8 +39,8 @@ Custom edges are wrapped. They receive the following props:
 - `targetY`: number
 - `sourcePosition`: 'left' | 'top' | 'right' | 'bottom'
 - `targetPosition`: 'left' | 'top' | 'right' | 'bottom'
-- `markerStart`: string or [marker config](#markerstart--markerend-options)
-- `markerEnd`: string or [marker config](#markerstart--markerend-options)
+- `markerStart`: string or [marker config](/docs/api/edges/edge-options/#edgemarker)
+- `markerEnd`: string or [marker config](/docs/api/edges/edge-options/#edgemarker)
 - `interactionWidth`: number
 
 ### Custom edge examples
