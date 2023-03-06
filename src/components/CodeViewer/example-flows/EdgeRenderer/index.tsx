@@ -13,6 +13,7 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 
 import CustomEdge from './CustomEdge';
+import CustomEdgeStartEnd from './CustomEdgeStartEnd';
 
 const initialNodes: Node[] = [
   {
@@ -22,8 +23,8 @@ const initialNodes: Node[] = [
     position: { x: 0, y: 0 },
   },
   { id: '2', data: { label: 'Node 2' }, position: { x: 0, y: 400 } },
-
-  { id: '3', data: { label: 'Node 3' }, position: { x: 400, y: 400 } },
+  { id: '3', data: { label: 'Node 3' }, position: { x: 400, y: 0 } },
+  { id: '4', data: { label: 'Node 4' }, position: { x: 400, y: 400 } },
 ];
 
 const initialEdges: Edge[] = [
@@ -32,23 +33,25 @@ const initialEdges: Edge[] = [
     source: '1',
     target: '2',
     data: {
-      text: 'edge label',
+      label: 'edge label',
     },
     type: 'custom',
   },
   {
-    id: 'e1-3',
-    source: '1',
-    target: '3',
+    id: 'e3-4',
+    source: '3',
+    target: '4',
     data: {
-      text: 'another one',
+      startLabel: 'start edge label',
+      endLabel: 'end edge label',
     },
-    type: 'custom',
+    type: 'start-end',
   },
 ];
 
 const edgeTypes: EdgeTypes = {
   custom: CustomEdge,
+  'start-end': CustomEdgeStartEnd,
 };
 
 const EdgesFlow = () => {
