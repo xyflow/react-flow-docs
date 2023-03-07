@@ -270,7 +270,7 @@ export default () => {
             diagrams
           </Text>
           <Flex>
-            <Link to="/docs/introduction">
+            <Link to="/docs/quickstart">
               <Button mr={2} variant="primary" colorScheme="pink">
                 <Text as="span" fontFamily="mono" mr={2}>
                   {'{}'}

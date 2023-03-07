@@ -24,4 +24,4 @@ The type of the Background Prop Types are exported as `BackgroundProps`.
 
 ### Npm Package
 
-The background component is published under `@reactflow/background` and can also be [installed and used separately](/docs/overview/packages/#reactflowbackground).
+The background component is published under `@reactflow/background` and can also be [installed and used separately](/docs/concepts/packages/#reactflowbackground).

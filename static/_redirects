@@ -1,5 +1,4 @@
 # docs 
-/docs/              /docs/introduction
 /docs/getting-started/             /docs/getting-started/installation
 /docs/theming/             /docs/guides/theming
 /docs/api/component-props/            /docs/api/react-flow-props
@@ -71,3 +70,11 @@
 
 /docs/examples/use-react-flow-hook                    /docs/examples/misc/use-react-flow-hook
 /docs/examples/provider                    /docs/examples/misc/provider
+
+# new sidebar
+/docs/              /docs/quickstart
+/docs/introduction/                    /docs/concepts/introduction
+/docs/overview/terms-and-definitions/                    /docs/concepts/terms-and-definitions
+/docs/overview/core-concepts/                    /docs/concepts/core-concepts
+/docs/overview/plugin-components/                   /docs/concepts/plugin-components
+/docs/overview/packages/                    /docs/concepts/packages
