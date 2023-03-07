@@ -1,4 +1,3 @@
-import 'reactflow/dist/style.css';
 import React, { useCallback } from 'react';
 import ReactFlow, {
   MiniMap,
@@ -8,6 +7,8 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from 'reactflow';
+
+import 'reactflow/dist/style.css';
 
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },

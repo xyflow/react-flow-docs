@@ -148,9 +148,10 @@ That and a handful of nodes and edges are all we need to get something going! Ge
 rid of everything inside `App.jsx` and add the following:
 
 ```jsx
-import 'reactflow/dist/style.css';
 import React from 'react';
 import ReactFlow from 'reactflow';
+
+import 'reactflow/dist/style.css';
 
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
@@ -161,7 +162,7 @@ const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 export default function App() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow nodes={nodes} edges={edges} />
+      <ReactFlow nodes={initialNodes} edges={initialEdges} />
     </div>
   );
 }
@@ -186,9 +187,10 @@ to add three things:
 Fortunately for you, we provide some hooks to make this easy!
 
 ```jsx
-import 'reactflow/dist/style.css';
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge } from 'reactflow';
+
+import 'reactflow/dist/style.css';
 
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
@@ -223,7 +225,6 @@ Finally, React Flow ships with some plugins out of the box for things like a
 [`<Controls />`](/docs/api/plugin-components/controls).
 
 ```jsx
-import 'reactflow/dist/style.css';
 import React, { useCallback } from 'react';
 import ReactFlow, {
   Minimap,
@@ -233,6 +234,8 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from 'reactflow';
+
+import 'reactflow/dist/style.css';
 
 const initialNodes = [
   { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
