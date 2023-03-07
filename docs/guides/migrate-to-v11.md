@@ -33,7 +33,7 @@ React Flow 11 only works with **React 17** or greater
 - **Pan over nodes** when they are not draggable (`draggable=false` or `nodesDraggable` false)
   - you can disable this behaviour by adding the class name `nopan` to a wrapper of a custom node
 - **[`<BaseEdge />`](/docs/api/edges/base-edge) component** that makes it easier to build custom edges
-- **[Separately installable packages](/docs/overview/packages/)**
+- **[Separately installable packages](/docs/concepts/packages/)**
   - @reactflow/core
   - @reactflow/background
   - @reactflow/controls
@@ -173,6 +173,6 @@ const Flow = () => {
 export default Flow;
 ```
 
-### 6. Pan over nodes 
+### 6. Pan over nodes
 
 In the previous versions you couldn't pan over nodes even if they were not draggable. In v11, you can pan over nodes when `nodesDraggable=false` or node option `draggable=false`. If you want the old behaviour back, you can add the class name `nopan` to the wrappers of your custom nodes.
