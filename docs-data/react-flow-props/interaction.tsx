@@ -183,20 +183,6 @@ const props = [
     default: 'false',
     description: 'With this prop you can disable the keyboard accessibility features',
   },
-  {
-    name: 'autoPanOnNodeDrag',
-    type: 'boolean',
-    default: 'true',
-    description:
-      'Disables or enables moving the viewport automatically when a node is dragged out of the viewport',
-  },
-  {
-    name: 'autoPanOnConnect',
-    type: 'boolean',
-    default: 'true',
-    description:
-      'Disables or enables moving the viewport automatically when a connection line is dragged out of the viewport',
-  },
 ];
 
 export default props;
