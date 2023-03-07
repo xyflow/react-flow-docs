@@ -109,7 +109,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Introduction',
+                label: 'Quickstart',
                 to: '/docs/quickstart',
               },
               {
