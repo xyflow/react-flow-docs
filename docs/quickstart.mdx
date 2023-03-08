@@ -221,13 +221,13 @@ export default function App() {
 ## Some extra goodies
 
 Finally, React Flow ships with some plugins out of the box for things like a
-[`<Minimap />`](/docs/api/plugin-components/minimap) or viewport
+[`<MiniMap />`](/docs/api/plugin-components/minimap) or viewport
 [`<Controls />`](/docs/api/plugin-components/controls).
 
 ```jsx
 import React, { useCallback } from 'react';
 import ReactFlow, {
-  Minimap,
+  MiniMap,
   Controls,
   Background,
   useNodesState,
@@ -259,7 +259,7 @@ export default function App() {
         onConnect={onConnect}
       >
         <Controls />
-        <Minimap />
+        <MiniMap />
         <Background variant="dots" gap={12} size={1} />
       </ReactFlow>
     </div>
