@@ -23,16 +23,34 @@ const props = [
       'This flag can be used to toggle the visibility of the resizer, useful if you want to display the controls only if a node is selected',
   },
   {
+    name: 'keepAspectRatio',
+    type: 'boolean',
+    default: 'false',
+    description: 'This flag can be used to keep the dimensions of the node while resizing',
+  },
+  {
     name: 'minWidth',
     type: 'number',
     default: '10',
     description: 'The minimal width of the node to which it can be resized',
   },
   {
+    name: 'maxWidth',
+    type: 'number',
+    default: 'Number.MAX_INT',
+    description: 'The maximum width of the node to which it can be resized',
+  },
+  {
     name: 'minHeight',
     type: 'number',
     default: '10',
     description: 'The minimal height of the node to which it can be resized',
+  },
+  {
+    name: 'maxHeight',
+    type: 'number',
+    default: 'Number.MAX_INT',
+    description: 'The maximum height of the node to which it can be resized',
   },
   {
     name: 'handleStyle',
