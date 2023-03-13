@@ -23,16 +23,34 @@ const props = [
       'The type of the control. Handles are used for the corners of a node, the lines are used for the sides of a node.',
   },
   {
+    name: 'keepAspectRatio',
+    type: 'boolean',
+    default: 'false',
+    description: 'This flag can be used to keep the dimensions of the node while resizing',
+  },
+  {
     name: 'minWidth',
     type: 'number',
     default: '10',
     description: 'The minimal width of the node to which it can be resized',
   },
   {
+    name: 'maxWidth',
+    type: 'number',
+    default: 'Number.MAX_INT',
+    description: 'The maximum width of the node to which it can be resized',
+  },
+  {
     name: 'minHeight',
     type: 'number',
     default: '10',
     description: 'The minimal height of the node to which it can be resized',
+  },
+  {
+    name: 'maxHeight',
+    type: 'number',
+    default: 'Number.MAX_INT',
+    description: 'The maximum height of the node to which it can be resized',
   },
   {
     name: 'color',
