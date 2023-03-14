@@ -74,7 +74,7 @@ function Flow() {
 
 ### Internal actions
 
-The actions are also stored in the global state. You will not need this in most cases but you can use the internal actions that are defined in the [store](https://github.com/wbkd/react-flow/blob/main/src/store/index.ts):
+The actions are also stored in the global state. You will not need this in most cases but you can use the internal actions that are defined in the [store](https://github.com/wbkd/react-flow/blob/main/packages/core/src/store/index.ts):
 
 ```js
 import { useEffect } from 'react';
