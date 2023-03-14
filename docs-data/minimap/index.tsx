@@ -48,6 +48,12 @@ const props = [
     default: "''",
     description: 'Node class name',
   },
+   {
+    name: 'nodeComponent',
+    type: 'React Node',
+    default: "undefined",
+    description: 'Custom component for a node.',
+  },
   {
     name: 'maskColor',
     type: 'string',
