@@ -157,6 +157,12 @@ const props = [
     description: 'Enables to select nodes on drag',
   },
   {
+    name: 'elevateNodesOnSelect',
+    type: 'boolean',
+    default: 'false',
+    description: 'Nodes get a higher zIndex if they are selected and this prop is set to true',
+  },
+  {
     name: 'connectOnClick',
     type: 'boolean',
     default: 'true',
