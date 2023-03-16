@@ -23,9 +23,31 @@ import options from '../../../docs-data/minimap';
 
 <PropItems props={options} />
 
+## Custom MiniMap Nodes
+
+You can swap out the default component used for nodes in the minimap with whatever
+you want by setting the `nodeComponent` prop on the `<MiniMap />` component. Below
+is the same example as before, but now we're rendering a circle
+instead of a rectangle!
+
+<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} codePath="api-flows/MiniMapCustomNode" applyStyles={false} additionalFiles={['nodes.js', 'edges.js', 'MiniMapNode.js']} />
+
+:::info You must use SVG
+
+For performance reasons, the minimap is rendered as an SVG. This means that you
+**must** use SVG elements for your custom node component if you want it to work
+properly.
+:::
+
+### Custom Node Prop Types
+
+import customNodeOptions from '../../../docs-data/minimap/custom-node';
+
+<PropItems props={customNodeOptions} />
+
 ### Typescript
 
-The interface of the MiniMap Prop Types are exported as `MiniMapProps`.
+The interface of both the `<MiniMap />` and custom node props are exported as `MiniMapProps` and `MiniMapNodeProps` respectively.
 
 ### Npm Package
 

@@ -48,10 +48,15 @@ const props = [
     default: "''",
     description: 'Node class name',
   },
-   {
+  {
     name: 'nodeComponent',
-    type: 'React Node',
-    default: "undefined",
+    type: (
+      <>
+        React.ComponentType(
+        {<Link to="#custom-node-prop-types">MiniMapNodeProps</Link>})
+      </>
+    ),
+    default: 'undefined',
     description: 'Custom component for a node.',
   },
   {
