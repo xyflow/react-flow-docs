@@ -9,7 +9,7 @@ import {
   applyEdgeChanges,
   XYPosition,
 } from 'reactflow';
-import create from 'zustand';
+import { create } from 'zustand';
 import { nanoid } from 'nanoid/non-secure';
 
 export type RFState = {
