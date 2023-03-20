@@ -1,15 +1,14 @@
 ---
-slug: 'test-slug-abc'
-title: 'Spring Update test title'
+slug: 'spring-update-2023'
+title: 'Spring update, what's new behind the scenes at React Flow'
 authors: ['john']
 tags: ['react-flow', 'update']
 hide_table_of_contents: true
-image: /img/blog/v10-header.png
+image: '/img/blog/v10-header.png'
 ---
 
-<!--
 import Image from '@theme/IdealImage';
-import Emoji from '/src/components/Emoji'; -->
+import Emoji from '/src/components/Emoji';
 
 The React Flow team grows again, new features in v11.5.0, language explorations, and talking money, all since the new year.
 
