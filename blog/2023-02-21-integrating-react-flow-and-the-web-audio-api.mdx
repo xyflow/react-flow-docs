@@ -64,13 +64,21 @@ Start by creating a new AudioContext and putting together the nodes we need. We
 want an OscillatorNode to generate some tones and a GainNode to control the volume.
 
 ```js
+//create the brain of our audio-processing graph
 const ctx = new AudioContext();
+
+//Generate a sine wave
 const osc = ctx.createOscillator();
+
+//Generate a variable that will control the amplitude of the sin wave
 const amp = ctx.createGain();
 
+//multiply the value of the oscillator and the amplitude by connecting the two nodes
 osc.connect(amp);
-amp.connect(ctx.audioDestination);
 
+osc.connect(ctx.destination);
+
+//start generating those tones!
 osc.start();
 ```
 
@@ -160,12 +168,12 @@ made in TypeScript) so it's a breeze to use!
 npm create vite@latest -- --template react
 ```
 
-We only need two additional dependencies for this project: `zustand` as our simple
+We only need three additional dependencies for this project: `reactflow` for our UI, `zustand` as our simple
 state management library (that's what we use under the hood at React Flow) and
 `nanoid` as a lightweight id generator.
 
 ```bash
-npm install zustand nanoid
+npm install zustand nanoid reactflow
 ```
 
 Vite will have gone and helpfully scaffolded a little React app for us, but we're
@@ -186,6 +194,7 @@ const root = document.querySelector('#root');
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
+    // React flow needs to be inside an element with a known height and width to work
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlowProvider>
         <App />
@@ -288,7 +297,7 @@ actions and get something working.
 
 ```jsx title="./src/App.jsx"
 import React from 'react';
-import ReactFlow from 'reactflow';
+import ReactFlow, { Background } from 'reactflow';
 import shallow from 'zustand/shallow';
 import useStore from './store';
 
