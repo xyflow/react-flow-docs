@@ -74,7 +74,11 @@ type NodeData = {
   value: number;
 };
 
-type CustomNode = Node<NodeData>;
+type CustomNode = Node<NodeData>
+
+export default function MyCustomeNode({data} : NodeProps<NodeData>) {
+  return <div>A big number: {data.value}</div>
+}
 ```
 
 You can also pass your custom node data type to any function or hook that returns nodes, for example the `useReactFlow` hook:
