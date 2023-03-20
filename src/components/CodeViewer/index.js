@@ -112,7 +112,7 @@ export default function CodeViewer({
         }}
       >
         <SandpackLayout>
-          {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
+          {showEditor && <SandpackCodeEditor style={panelStyle} />}
           {showPreview && customPreview ? (
             <>
               <SandpackStack style={{ flex: '1 1 0%' }}>

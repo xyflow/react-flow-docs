@@ -337,7 +337,6 @@ a.navbar__brand:hover {
 .next-steps__item {
   display: flex;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: var(--ifm-pagination-nav-border-radius);
