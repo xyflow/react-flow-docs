@@ -1,0 +1,62 @@
+---
+slug: 'test-slug-abc'
+title: 'Spring Update test title'
+authors: ['john']
+tags: ['react-flow', 'update']
+hide_table_of_contents: true
+image: /img/blog/v10-header.png
+---
+
+import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
+
+The React Flow team grows again, new features in v11.5.0, language explorations, and talking money, all since the new year.
+
+<!--truncate-->
+
+To kick it off, v11.5.0 was released! 🎉 It comes with Auto pan, snappy connections, error handling, the NodeResizer component, and more goodies that I won’t get into deeply here, because there’s already a [write-up about the release](https://reactflow.dev/blog/react-flow-v-11-5/) by Moritz.
+
+v.11.6.0 was released too 🎊🎊 What’s new:
+
+- isValidConnection prop for the ReactFlow component (no need to pass it to every Handle)
+- nodeComponent prop for the MiniMap ([thanks Hayleigh](https://github.com/wbkd/react-flow/pull/2906)!)
+- An option to specify if updateEdge should replace the edge id or create a new one ([thanks Braks](https://github.com/wbkd/react-flow/pull/2847)!)
+
+## Fresh Resources
+
+- [How to make a mindmap app](https://reactflow.dev/blog/mind-map-app-with-react-flow/) with React Flow in this step-by-step guide by Moritz
+- New Codesandbox shortcuts! Use [new.reactflow.dev/react-js](https://new.reactflow.dev/react-js) or [new.reactflow.dev/react-ts](https://new.reactflow.dev/react-js) to create a brand new
+- New Pro examples: [Undo / Redo](https://reactflow.dev/docs/examples/interaction/undo-and-redo/), and [Helper Lines](https://reactflow.dev/docs/examples/interaction/helper-lines/) (we love this one), as well as a total refresh of [Expand / Collapse](https://reactflow.dev/docs/examples/layout/expand-collapse/)
+- [We wrote an article about money in the open source world](https://reactflow.dev/blog/asking-for-money-for-open-source/), and how we make ours.
+- [John explains React Flow in a 60 second video](https://www.youtube.com/watch?v=aUBWE41a900), so we can finally tell our parents what we do at work.
+
+## Say hello to Hayleigh 👋🏻
+
+She’s the newest member of the React Flow team! She's an enthusiast of Gleam, Elm, and her two cats Ada and Haskell. You’ve probably already seen her around the discord server, github, or anywhere else really. We’re super happy to have her with us!
+
+## Around the community
+
+- [Collaborative Flowchart example](https://liveblocks.io/examples/collaborative-flowchart/zustand) from Liveblocks using React Flow (we got almost 100 new twitter followers from one tweet about this 😄)
+- React Flow 💕 Nhost. [Here’s why](https://nhost.io/customers/react-flow).
+- We did some work with the team at [Patterns](https://www.patterns.app/) last year and they successfully launched last month- congrats!! 🚀
+
+## What might be next?
+
+- We’ve been exploring how we can generalize React Flow, so that it’s not entirely written in React, but also vanilla JS. This could allow React Flow to be adapted more easily to other languages (Svelte Flow, anyone?)
+- We have gotten a couple of paid subscriptions from organizations who we don’t want to support because they violate [basic human rights](https://www.un.org/en/about-us/universal-declaration-of-human-rights). We’ve already denied service and refunded one subscriber, and we’re finding out how we can make sure this doesn’t happen again. [https://firstdonoharm.dev/](https://firstdonoharm.dev/) has been a great resource as we figure out how to do this better.
+- We’re also thinking about how to give our docs a refresh. They’ve grown organically, and they’ve grown large- it’s time for some trimming and reshaping to let them grow again more comfortably.
+
+## News from Berlin
+
+We were just at [FOSS Backstage Berlin](https://23.foss-backstage.de/) last week. We learned about OSPOs, open roadmaps, restorative justice in open source communities, and more. We think we’ll be back again next year!
+
+We’ve moved! Same address, same floor, just 10 meters further away from the kitchen, in a slightly more comfortable room, with the same banging noise for an hour each morning as the previous room. Feels like home.
+
+<Image
+  img="/img/blog/2023-spring/new-room.jpeg"
+  alt="a white brick wall with binders and a printer on the wooden floor in front of it."
+/>
+
+That’s all for now! Thanks for being here ✌🏻
+
+The React Flow team
