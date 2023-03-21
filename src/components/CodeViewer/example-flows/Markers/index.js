@@ -51,7 +51,7 @@ const defaultEdges = [
     label: 'default arrow',
   },
   {
-    id: 'C->B',
+    id: 'C->D',
     source: 'C',
     target: 'D',
     markerEnd: {
