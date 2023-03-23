@@ -9,12 +9,13 @@ image: '/img/blog/v10-header.png'
 
 import Image from '@theme/IdealImage';
 import Emoji from '/src/components/Emoji';
+import ReactPlayer from 'react-player';
 
-To kick it off, v11.5.0 was released! 🎉 It comes with Auto pan, snappy connections, error handling, the NodeResizer component, and more goodies that I won’t get into deeply here, because there’s already a [write-up about the release](https://reactflow.dev/blog/react-flow-v-11-5/) by Moritz.
+To kick it off, v11.5.0 was released! 🎉 It comes with Auto pan, snappy connections, error handling, the NodeResizer component, and more goodies that I won’t get into here, because there’s already a [write-up about the release](https://reactflow.dev/blog/react-flow-v-11-5/) by Moritz.
 
 <!--truncate-->
 
-v.11.6.0 was released too 🎊🎊 with:
+v.11.6.0 was released too! 🎊🎊 This one came with:
 
 - isValidConnection prop for the ReactFlow component (no need to pass it to every Handle)
 - nodeComponent prop for the MiniMap ([thanks Hayleigh](https://github.com/wbkd/react-flow/pull/2906)!)
@@ -22,11 +23,19 @@ v.11.6.0 was released too 🎊🎊 with:
 
 ## Fresh Resources
 
-- [How to make a mindmap app](https://reactflow.dev/blog/mind-map-app-with-react-flow/) with React Flow in this step-by-step guide by Moritz
+<div style={{ position: 'relative', paddingTop: '56.25%' }}>
+  <ReactPlayer
+    controls
+    url="https://www.youtube.com/watch?v=aUBWE41a900"
+    style={{ position: 'absolute', top: 0, left: 0 }}
+  />
+</div>
+
+- John explains React Flow in a 60 second video, so we can finally tell our parents what we do at work. This is a part of our improvements to the [Quickstart page](https://reactflow.dev/docs/quickstart/) in our docs
+- [Make your own mindmap app](https://reactflow.dev/blog/mind-map-app-with-react-flow/) with React Flow in this step-by-step guide by Moritz
 - Codesandbox shortcuts! Use [new.reactflow.dev/react-js](https://new.reactflow.dev/react-js) or [new.reactflow.dev/react-ts](https://new.reactflow.dev/react-js) to create a brand new
 - New Pro examples: [Undo / Redo](https://reactflow.dev/docs/examples/interaction/undo-and-redo/), and [Helper Lines](https://reactflow.dev/docs/examples/interaction/helper-lines/) (we love this one), as well as a total refresh of [Expand / Collapse](https://reactflow.dev/docs/examples/layout/expand-collapse/)
 - [We wrote an article about money in the open source world](https://reactflow.dev/blog/asking-for-money-for-open-source/), and how we make ours. This got featured on javascript weekly and a few other places!
-- [John explains React Flow in a 60 second video](https://www.youtube.com/watch?v=aUBWE41a900), so we can finally tell our parents what we do at work.
 
 ## Say hello to Hayleigh 👋🏻
 
@@ -38,11 +47,13 @@ She’s the newest member of the React Flow team! She's an enthusiast of Gleam, 
 - React Flow 💕 Nhost. [Here’s why](https://nhost.io/customers/react-flow).
 - We did some work with the team at [Patterns](https://www.patterns.app/) last year and they successfully launched last month- congrats!! 🚀
 
-## What might be next?
+## What's next?
 
-- We’ve been exploring how we can generalize the core of React Flow, so that it’s not entirely written in React, but also vanilla JS. This could allow React Flow to be adapted more easily to other languages. If "Svelte Flow" sounds interesting to you, [shoot us an email](mailto:info@reactflow.dev), we'd love to talk 👀
-- We have gotten a couple of paid subscriptions from organizations who we don’t want to support because they violate [basic human rights](https://www.un.org/en/about-us/universal-declaration-of-human-rights). We’ve already denied service and refunded one subscriber, and we’re finding out how we can make sure this doesn’t happen again. [https://firstdonoharm.dev/](https://firstdonoharm.dev/) has been a great resource as we figure out how to do this better.
-- We’re also thinking about how to give our docs a refresh. They’ve grown organically, and they’ve grown large- it’s time for some trimming and reshaping to let them grow again more comfortably.
+We’ve been exploring how we can generalize the core of React Flow, so that it could be adapted more easily to other frameworks. If "Svelte Flow" sounds interesting to you, [send us an email](mailto:info@reactflow.dev), we'd love to talk 👀
+
+We got a paid subscription from an organization who we don't want to support because they violate [basic human rights](https://www.un.org/en/about-us/universal-declaration-of-human-rights). We’ve already denied service and refunded them, and we're working on adjusting our terms of service using [https://firstdonoharm.dev/](https://firstdonoharm.dev/) as a template to prevent this from happening again.
+
+We’re also thinking about how to give our docs a refresh. They’ve grown organically, and they’ve grown large- it’s time for some trimming and reshaping to let them grow again more comfortably.
 
 ## News from Berlin
 
