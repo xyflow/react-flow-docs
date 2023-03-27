@@ -32,4 +32,4 @@ The interface of the NodeToolbar Prop Types are exported as`NodeToolbarProps`.
 
 ### Npm Package
 
-The NodeToolbar component is published under `@reactflow/node-toolbar` and can also be [installed and used separately](/docs/overview/packages/#node-toolbar).
+The NodeToolbar component is published under `@reactflow/node-toolbar` and can also be [installed and used separately](/docs/concepts/packages/#node-toolbar).

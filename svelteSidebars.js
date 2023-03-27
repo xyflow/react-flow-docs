@@ -20,7 +20,7 @@ const sidebars = {
     },
     {
       type: 'link',
-      href: '/docs/introduction',
+      href: '/docs/quickstart',
       label: 'React Docs',
     },
   ],
