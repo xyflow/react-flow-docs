@@ -52,6 +52,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // announcementBar: {
+      //   id: 'v11-5',
+      //   content: '✨ New features! <a href="/blog/react-flow-v-11-5/">v11.5.0</a> Release ✨',
+      //   backgroundColor: '#f5f5f5',
+      //   textColor: '#56595f',
+      //   isCloseable: true,
+      // },
       navbar: {
         title: 'React Flow',
         logo: {
