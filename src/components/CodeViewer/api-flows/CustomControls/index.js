@@ -7,10 +7,10 @@ import defaultEdges from './edges.js';
 function CustomControls() {
   return (
     <Controls>
-      <ControlButton onClick={() => console.log('action')}>
+      <ControlButton onClick={() => console.log('action')} title="action">
         <div>1</div>
       </ControlButton>
-      <ControlButton onClick={() => console.log('another action')}>
+      <ControlButton onClick={() => console.log('another action')} title="another action">
         <div>2</div>
       </ControlButton>
     </Controls>
