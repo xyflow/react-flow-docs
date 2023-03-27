@@ -64,6 +64,7 @@
   --ifm-link-decoration: none;
   --ifm-link-hover-decoration: none;
   --ifm-z-index-fixed: 100;
+  --ifm-h4-font-size: 1.15rem;
 }
 
 html {
@@ -325,6 +326,34 @@ a.navbar__brand:hover {
   nav.menu {
     padding-bottom: 50px;
   }
+}
+
+.next-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1rem;
+}
+
+.next-steps__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  padding: var(--ifm-global-spacing);
+}
+
+.next-steps__item:hover {
+  border-color: var(--ifm-pagination-nav-color-hover);
+  text-decoration: none;
+}
+
+.next-steps__item-sublabel {
+  color: var(--ifm-color-content-secondary);
+  font-size: var(--ifm-h5-font-size);
+  font-weight: var(--ifm-font-weight-semibold);
+  margin-bottom: 0.25rem;
 }
 
 html.plugin-id-svelte {

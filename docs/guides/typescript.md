@@ -21,6 +21,8 @@ import ReactFlow, {
   Connection,
 } from 'reactflow';
 
+import CustomNode from './CustomNode';
+
 const initialNodes: Node[] = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 5, y: 5 } },
   { id: '2', data: { label: 'Node 2' }, position: { x: 5, y: 100 } },
@@ -32,20 +34,28 @@ const fitViewOptions: FitViewOptions = {
   padding: 0.2,
 };
 
+const defaultEdgeOptions: DefaultEdgeOptions = {
+  animated: true,
+};
+
+const nodeTypes: NodeTypes = {
+  custom: CustomNode,
+};
+
 function Flow() {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
 
-  const onNodesChange = useCallback(
-    (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds)),
+  const onNodesChange: OnNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
     [setNodes]
   );
-  const onEdgesChange = useCallback(
-    (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+  const onEdgesChange: OnEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges]
   );
-  const onConnect = useCallback(
-    (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
+  const onConnect: OnConnect = useCallback(
+    (connection) => setEdges((eds) => addEdge(connection, eds)),
     [setEdges]
   );
 
@@ -58,6 +68,8 @@ function Flow() {
       onConnect={onConnect}
       fitView
       fitViewOptions={fitViewOptions}
+      defaultEdgeOptions={defaultEdgeOptions}
+      nodeTypes={nodeTypes}
     />
   );
 }
@@ -75,6 +87,10 @@ type NodeData = {
 };
 
 type CustomNode = Node<NodeData>;
+
+function MyCustomNode({ data }: NodeProps<NodeData>) {
+  return <div>A big number: {data.value}</div>;
+}
 ```
 
 You can also pass your custom node data type to any function or hook that returns nodes, for example the `useReactFlow` hook:

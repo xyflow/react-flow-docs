@@ -8,6 +8,7 @@ image: /img/blog/mindmap/mindmap.png
 ---
 
 import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
 import { AspectRatio } from '@chakra-ui/react';
 import CodeViewer from '/src/components/CodeViewer';
 const editorOptions = { editorHeight: '45vh' };
@@ -16,7 +17,7 @@ In this tutorial, you will learn to create a simple mind map tool with React Flo
 
 <!--truncate-->
 
-## 🎬 It's Demo Time!
+## <Emoji content="🎬" /> It's Demo Time!
 
 Before we get our hands dirty, I want to show you the mindmapping tool we'll have by the end of this tutorial:
 
@@ -31,9 +32,9 @@ Before we get our hands dirty, I want to show you the mindmapping tool we'll hav
 
 If you'd like to live dangerously and dive right into the code, you can find the source code on [Github](https://github.com/wbkd/react-flow-mindmap-app).
 
-## 👩🏻‍💻 Getting started
+## <Emoji content="👩🏻‍💻" /> Getting started
 
-To do this tutorial you will need some knowledge of [React](https://reactjs.org/docs/getting-started.html) and [React Flow](/docs/overview/terms-and-definitions/) (hi, that's us! 😁 it's an open source library for building node-based UIs like workflow tools, ETL pipelines, and [more](https://reactflow.dev/showcase/).)
+To do this tutorial you will need some knowledge of [React](https://reactjs.org/docs/getting-started.html) and [React Flow](/docs/concepts/terms-and-definitions/) (hi, that's us! <Emoji content="😁" /> it's an open source library for building node-based UIs like workflow tools, ETL pipelines, and [more](https://reactflow.dev/showcase/).)
 
 We'll be using [Vite](https://vitejs.dev/) to develop our app, but you can also use [Create React App](https://create-react-app.dev/) or any other tool you like. To scaffold a new React app with Vite you need to do:
 
@@ -127,7 +128,7 @@ We are adding all styles of our app to the `index.css` file (you could also use 
   isTypescript
 />
 
-## 🏪 A store for nodes and edges
+## <Emoji content="🏪" /> A store for nodes and edges
 
 As mentioned above, we are using Zustand for state management. For this, we create a new file in our `src/App` folder called `store.ts`:
 
@@ -144,7 +145,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
 } from 'reactflow';
-import create from 'zustand';
+import { create } from 'zustand';
 
 export type RFState = {
   nodes: Node[];
@@ -178,7 +179,7 @@ const useStore = create<RFState>((set, get) => ({
 export default useStore;
 ```
 
-It seems like a lot of code, but it's mostly types 😇 The store keeps track of the nodes and edges and handles the change events. When a user drags a node, React Flow fires a change event, the store then applies the changes and the updated nodes get rendered. (You can read more about this in our [state management library guide](/docs/api/hooks/use-store/).)
+It seems like a lot of code, but it's mostly types <Emoji content="😇" /> The store keeps track of the nodes and edges and handles the change events. When a user drags a node, React Flow fires a change event, the store then applies the changes and the updated nodes get rendered. (You can read more about this in our [state management library guide](/docs/api/hooks/use-store/).)
 
 As you can see we start with one initial node placed at `{ x: 0, y: 0 }` of type 'mindmap'. To connect the store with our app, we use the `useStore` hook:
 
@@ -235,9 +236,9 @@ We access the nodes, edges and change handlers from the store and pass them to t
   isTypescript
 />
 
-You can move the node around and zoom in and out, we are getting somewhere 🚀 Now let's add some more functionality.
+You can move the node around and zoom in and out, we are getting somewhere <Emoji content="🚀" /> Now let's add some more functionality.
 
-## ✨ Custom nodes and edges
+## <Emoji content="✨" /> Custom nodes and edges
 
 We want to use a custom type called 'mindmap' for our nodes. We need to add a new component for this. Let's create a new folder called `MindMapNode` with an index file under `src/App` with the following content:
 
@@ -332,7 +333,7 @@ and then pass the newly created types to the React Flow component.
 
 Nice! We can already change the labels of our nodes by clicking in the input field and typing something.
 
-## 🆕 New nodes
+## <Emoji content="🆕" /> New nodes
 
 We want to make it super quick for a user to create a new node. The user should be able to add a new node by clicking on a node and drag to the position where a new node should be placed. This functionality is not built into React Flow, but we can implement it by using the [`onConnectStart` and `onConnectEnd`](/docs/api/react-flow-props/#onconnectstart) handlers.
 
@@ -456,7 +457,7 @@ This function returns the position of the new node we want to add to our store. 
 
 To test the new functionality you can start a connection from a handle and then end it on the pane. You should see a new node being added to the mind map.
 
-## 🤝 Keep data in sync
+## <Emoji content="🤝" /> Keep data in sync
 
 We can already update the labels but we are not updating the nodes data object. This is important to keep our app in sync and if we want to save our nodes on the server for example. To achieve this we add a new action called `updateNodeLabel` to the store. This action takes a node id and a label. The implementation is pretty straight forward: we iterate over the existing nodes and update the matching one with the passed label:
 
@@ -514,7 +515,7 @@ export default MindMapNode;
 
 That was quick! The input fields of the custom nodes now display the current label of the nodes. You could take your nodes data, save it on the server and then load it again.
 
-## 💅 Simpler UX and nicer styling
+## <Emoji content="💅" /> Simpler UX and nicer styling
 
 Functionality-wise we are finished with our mind map app! We can add new nodes, update their labels and move them around. But the UX and styling could use some improvements. Let's make it easier to drag the nodes and to create new nodes!
 
@@ -808,7 +809,7 @@ body {
 }
 ```
 
-Nicely done! 💯 You can find the final code here:
+Nicely done! <Emoji content="💯" /> You can find the final code here:
 
 <CodeViewer
   codePath="blog-flows/mindmap/NodeAsHandle4"
@@ -819,7 +820,7 @@ Nicely done! 💯 You can find the final code here:
   isTypescript
 />
 
-## 👋 Final thoughts
+## <Emoji content="👋" /> Final thoughts
 
 What a trip! We started with an empty pane and ended with a fully functional mind map app. If you want to move on you could work on some of the following features:
 

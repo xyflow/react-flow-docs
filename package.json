@@ -20,17 +20,17 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.11",
     "@chakra-ui/react": "^2.3.5",
-    "@codesandbox/sandpack-react": "^1.14.2",
+    "@codesandbox/sandpack-react": "^2.1.10",
     "@docsearch/js": "^3.3.0",
-    "@docusaurus/core": "^2.2.0",
-    "@docusaurus/plugin-ideal-image": "^2.2.0",
-    "@docusaurus/preset-classic": "^2.2.0",
+    "@docusaurus/core": "^2.3.1",
+    "@docusaurus/plugin-ideal-image": "^2.3.1",
+    "@docusaurus/preset-classic": "^2.3.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mdx-js/react": "^1.6.21",
     "@react-three/drei": "^9.11.3",
     "@react-three/fiber": "^8.0.20",
-    "@reactflow/node-resizer": "^2.0.0",
+    "@reactflow/node-resizer": "^2.1.0",
     "@svgr/webpack": "^6.2.1",
     "clsx": "^1.2.1",
     "fathom-client": "^3.5.0",
@@ -45,10 +45,10 @@
     "react-flow-renderer": "^10.3.12",
     "react-icons": "^4.4.0",
     "react-player": "^2.11.2",
-    "reactflow": "^11.5.6",
+    "reactflow": "^11.6.1",
     "three": "^0.141.0",
     "url-loader": "^4.1.1",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.6"
   },
   "browserslist": {
     "production": [
@@ -63,7 +63,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.2.0",
+    "@docusaurus/module-type-aliases": "^2.3.1",
     "@notionhq/client": "^1.0.4",
     "@tsconfig/docusaurus": "^1.0.5",
     "dotenv": "^16.0.1",

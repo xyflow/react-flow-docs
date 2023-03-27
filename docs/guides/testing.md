@@ -11,7 +11,7 @@ If you are using Cypress or Playwright no additional setup is needed. You can re
 
 ## Using Jest
 
-If you are using [Jest](https://jestjs.io/), you need to mock some features in order to be able to run your tests. You can do that by adding the following lines to your `setupTests` file (or inside a `beforeEach`):
+If you are using [Jest](https://jestjs.io/), you need to mock some features in order to be able to run your tests. You can do that by adding this file to your project. Calling `mockReactFlow()` in a `setupTests` file (or inside a `beforeEach`) will trigger the necessary overrides.
 
 ```ts
 // To make sure that the tests are working, it's important that you are using
@@ -32,8 +32,6 @@ class ResizeObserver {
   disconnect() {}
 }
 
-global.ResizeObserver = ResizeObserver;
-
 class DOMMatrixReadOnly {
   m22: number;
   constructor(transform: string) {
@@ -41,30 +39,39 @@ class DOMMatrixReadOnly {
     this.m22 = scale !== undefined ? +scale : 1;
   }
 }
-// @ts-ignore
-global.DOMMatrixReadOnly = DOMMatrixReadOnly;
 
-Object.defineProperties(global.HTMLElement.prototype, {
-  offsetHeight: {
-    get() {
-      return parseFloat(this.style.height) || 1;
+// Only run the shim once when requested
+let init = false;
+
+export const mockReactFlow = () => {
+  if (init) return;
+  init = true;
+  
+  global.ResizeObserver = ResizeObserver;
+  
+  // @ts-ignore
+  global.DOMMatrixReadOnly = DOMMatrixReadOnly;
+
+  Object.defineProperties(global.HTMLElement.prototype, {
+    offsetHeight: {
+      get() {
+        return parseFloat(this.style.height) || 1;
+      },
     },
-  },
-  offsetWidth: {
-    get() {
-      return parseFloat(this.style.width) || 1;
+    offsetWidth: {
+      get() {
+        return parseFloat(this.style.width) || 1;
+      },
     },
-  },
-});
+  });
 
-(global.SVGElement as any).prototype.getBBox = () => ({
-  x: 0,
-  y: 0,
-  width: 0,
-  height: 0,
-});
-
-export {};
+  (global.SVGElement as any).prototype.getBBox = () => ({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  });
+};
 ```
 
 If you want to test mouse events with jest (for example inside your custom nodes), you need to disable `d3-drag` as it does not work outside of the browser:

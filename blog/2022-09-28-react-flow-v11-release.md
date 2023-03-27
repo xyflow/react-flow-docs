@@ -9,8 +9,9 @@ blogSidebarCount: 0
 ---
 
 import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
 
-A lot has happened since we published our last blog post six months ago. We got our first pro subscribers, we hired John who helps us with the docs, communication and community and we are all working full time on React Flow 🥳. Today we are releasing a new major version with lots of new features and very few breaking changes (unlike the last major update..).
+A lot has happened since we published our last blog post six months ago. We got our first pro subscribers, we hired John who helps us with the docs, communication and community and we are all working full time on React Flow <Emoji content="🥳" />. Today we are releasing a new major version with lots of new features and very few breaking changes (unlike the last major update..).
 
 <!--truncate-->
 
@@ -24,7 +25,7 @@ A lot has happened since we published our last blog post six months ago. We got 
 - Better selectable edges with a new `interactionWidth` option
 - New hooks: `useNodesInitialized`, `useOnViewportChange` and `useOnSelectionChange`
 
-## 🎉 A New Package Name
+## <Emoji content="🎉" /> A New Package Name
 
 The biggest change, is that we got a new package name! A very nice person gave us the [`reactflow` npm package](https://www.npmjs.com/reactflow) name and we also got the [`@reactflow` organization](https://www.npmjs.com/org/reactflow). So from now on, you can install React Flow via:
 
@@ -46,9 +47,9 @@ import 'reactflow/dist/style.css';
 </ReactFlow>
 ```
 
-Looks nice, right? Under the hood we are publishing packages separately in the `@reactflow` organization. These packages are used by the main `reactflow` package and also can be [used separately](/docs/overview/packages/). For this we've rebuilt React Flow to a monorepo powered by [turborepo](https://turborepo.org/), [Rollup](https://rollupjs.org/) and [Vite](https://vitejs.dev/).
+Looks nice, right? Under the hood we are publishing packages separately in the `@reactflow` organization. These packages are used by the main `reactflow` package and also can be [used separately](/docs/concepts/packages/). For this we've rebuilt React Flow to a monorepo powered by [turborepo](https://turborepo.org/), [Rollup](https://rollupjs.org/) and [Vite](https://vitejs.dev/).
 
-## ✨ New Features
+## <Emoji content="✨" /> New Features
 
 For this release, we focused on accessibility (nothing better for a v11 release than a11y!) and edges, with some other smaller updates and stability fixes along the way.
 
@@ -76,7 +77,7 @@ Furthermore we've implemented a [`useNodesInitialized` hook](/docs/api/hooks/use
 
 ### New Hooks
 
-In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ 😵‍💫). One idea is to replace some props through hooks. With this release we are adding the [`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) and the [`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
+In the future we want to get rid of some `<ReactFlow />` component props (there are 140+ <Emoji content="😵‍💫" />). One idea is to replace some props through hooks. With this release we are adding the [`useOnViewportChange`](/docs/api/hooks/use-on-viewport-change) and the [`useOnSelectionChange`](/docs/api/hooks/use-on-selection-change) hook. Before this release you could only listen to a viewport change by using `onMoveStart`, `onMove` and `onMoveEnd`. With the new `useOnViewportChange` hook, you can easily listen to changes in every component.
 
 ### Miscellaneous
 
@@ -86,4 +87,4 @@ The background got a [new variant `cross`](/docs/api/plugin-components/backgroun
 
 React Flow is not just the library. It's the website with the docs and the examples, the pro platform and also the community on Github and Discord! In the upcoming weeks and months we want to make the onboarding for developers and especially beginner developers easier. For that we are working on an in-depth getting started guide and easier to understand docs in general. We are also rebrushing the pro platform so that you can get more out of the pro examples.
 
-Thanks for being a part of the React Flow community, and happy coding! ✌🏻
+Thanks for being a part of the React Flow community, and happy coding! <Emoji content="✌🏻" />

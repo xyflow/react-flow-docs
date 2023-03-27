@@ -26,7 +26,7 @@ html, body, #root {
 
 const defaultSetup = {
   dependencies: {
-    reactflow: '11.5.6',
+    reactflow: '11.6.1',
   },
 };
 
@@ -115,7 +115,7 @@ export default function CodeViewer({
         }}
       >
         <SandpackLayout>
-          {showEditor && <SandpackCodeEditor {...options} style={panelStyle} />}
+          {showEditor && <SandpackCodeEditor style={panelStyle} />}
           {showPreview && customPreview ? (
             <>
               <SandpackStack style={{ flex: '1 1 0%' }}>

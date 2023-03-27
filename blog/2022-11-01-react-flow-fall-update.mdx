@@ -10,6 +10,7 @@ image: /img/blog/v10-header.png
 import NewsletterSignup from '../src/components/NewsletterSignup/inline';
 
 import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
 
 Howdy! Here’s a dispatch straight from our desks about what’s happened in the last couple of months at React Flow: updates, news, and a peek behind-the-scenes. Here we go.
 
@@ -17,9 +18,9 @@ Howdy! Here’s a dispatch straight from our desks about what’s happened in th
 
 ## Launching v11 and post-release housekeeping
 
-React Flow v11 went live in early October (woohoo! 🎉), and Moritz wrote a [whole blog post](https://reactflow.dev/blog/react-flow-v11/) all about it if you haven't seen yet.
+React Flow v11 went live in early October (woohoo! <Emoji content="🎉" />), and Moritz wrote a [whole blog post](https://reactflow.dev/blog/react-flow-v11/) all about it if you haven't seen yet.
 
-Post-launch, we took a few weeks to tend to our current structures. We made some fixes to accessibility updates from v11 (thanks to some wonderful user feedback 💕), added the new props `nodesFocusable` and `edgesFocusable` to make the keyboard handling better configurable , and took some time to refocus ourselves for the end of the year. (Shout-out to Supabase for the inspiration on [post-release weeks](https://github.com/supabase/supabase/releases/tag/0.22.09).)
+Post-launch, we took a few weeks to tend to our current structures. We made some fixes to accessibility updates from v11 (thanks to some wonderful user feedback <Emoji content="💕" />), added the new props `nodesFocusable` and `edgesFocusable` to make the keyboard handling better configurable , and took some time to refocus ourselves for the end of the year. (Shout-out to Supabase for the inspiration on [post-release weeks](https://github.com/supabase/supabase/releases/tag/0.22.09).)
 
 Slowly but surely, folks are starting to use our new package name. `react-flow-renderer` is dead, long live `reactflow`! (data from [npmtrends](https://npmtrends.com/react-flow-renderer-vs-reactflow))
 
@@ -29,12 +30,12 @@ Slowly but surely, folks are starting to use our new package name. `react-flow-r
 
 We’ve added a bunch of new examples to the docs including:
 
-- [Collision Detection](https://reactflow.dev/docs/examples/interaction/collision-detection/)
-- [Easy Connect](https://reactflow.dev/docs/examples/nodes/easy-connect/)
-- [Download Image](https://reactflow.dev/docs/examples/misc/download-image/)
-- [Tailwind Implementation](https://reactflow.dev/docs/examples/styling/tailwind/)
-- [Turborepo style](https://reactflow.dev/docs/examples/styling/turbo-flow/)
-- [Light / Dark Mode](https://reactflow.dev/docs/examples/styling/styled-components/)
+- [Collision Detection](/docs/examples/interaction/collision-detection/)
+- [Easy Connect](/docs/examples/nodes/easy-connect/)
+- [Download Image](/docs/examples/misc/download-image/)
+- [Tailwind Implementation](/docs/examples/styling/tailwind/)
+- [Turborepo style](/docs/examples/styling/turbo-flow/)
+- [Light / Dark Mode](/docs/examples/styling/styled-components/)
 - [Workflow Builder](https://pro.reactflow.dev/examples/workflow-builder) (aka the “taco flow” for Pro subscribers)
 
 <Image
@@ -57,7 +58,7 @@ We’ll be sharing out some of those findings from our research at our lightning
   alt="a node with a dot on each side. Each dot is called a handle"
 />
 
-We also **added some basic explainers to the docs** (answering questions like [“what is a handle?”](https://reactflow.dev/docs/overview/terms-and-definitions/#handles)) to encourage easier onboarding for folks who are new to React Flow.
+We also **added some basic explainers to the docs** (answering questions like [“what is a handle?”](/docs/concepts/terms-and-definitions/#handles)) to encourage easier onboarding for folks who are new to React Flow.
 
 We also changed our docs to make it clear that **anyone is allowed to remove the attribution** (even without a subscription). React Flow is under an [MIT License](https://github.com/wbkd/react-flow/blob/main/LICENSE), so you can do anything you want with the code.
 

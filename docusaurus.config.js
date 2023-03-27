@@ -78,7 +78,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'introduction',
+            docId: 'quickstart',
             position: 'right',
             label: 'Docs',
             docsPluginId: 'default',
@@ -130,8 +130,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Introduction',
-                to: '/docs/introduction',
+                label: 'Quickstart',
+                to: '/docs/quickstart',
               },
               {
                 label: 'Guides',

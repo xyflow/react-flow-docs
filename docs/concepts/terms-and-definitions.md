@@ -1,6 +1,6 @@
 ---
 title: Terms and Definitions
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 In this part of the docs we are explaining some basic React Flow terms and definition. Three things you’ll be using a lot in React Flow are nodes, edges, and handles.
