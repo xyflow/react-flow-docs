@@ -1,5 +1,11 @@
 const props = [
   {
+    name: 'id',
+    type: 'string',
+    default: undefined,
+    description: 'Needed if you want to display multiple backgrounds',
+  },
+  {
     name: 'variant',
     type: "'lines', 'dots' or 'cross'",
     default: "'dots'",
@@ -7,7 +13,7 @@ const props = [
   },
   {
     name: 'gap',
-    type: 'number or  [number, number]',
+    type: 'number or [number, number]',
     default: '25',
     description:
       'Gap between the patterns. You can pass an array with two numbers to specify an x- and a y-gap.',
@@ -23,6 +29,12 @@ const props = [
     type: 'number',
     default: '1',
     description: "Line width for 'lines' or 'cross'",
+  },
+  {
+    name: 'offset',
+    type: 'number',
+    default: '2',
+    description: 'Pattern offset',
   },
   {
     name: 'color',

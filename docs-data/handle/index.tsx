@@ -38,6 +38,18 @@ const props = [
     description: 'boolean (this prop gets passed to your custom node component)',
   },
   {
+    name: 'isConnectableStart',
+    type: 'boolean',
+    default: 'true',
+    description: "if set to false, you can't start a connection from this handle",
+  },
+  {
+    name: 'isConnectableEnd',
+    type: 'boolean',
+    default: 'true',
+    description: "if set to false, you can't end a connection at this handle",
+  },
+  {
     name: 'style',
     type: 'CSSProperties',
     default: 'undefined',

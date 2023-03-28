@@ -17,10 +17,7 @@ We recommend to use the [`reactflow` package](https://www.npmjs.com/package/reac
 - [`@reactflow/controls`](/docs/api/plugin-components/controls)
 - [`@reactflow/minimap`](/docs/api/plugin-components/minimap)
 - [`@reactflow/node-toolbar`](/docs/api/nodes/node-toolbar)
-
-These packages are not part of the main package and need to be installed separately:
-
-- [`@reactflow/node-resizer`](/docs/api/nodes/node-resizer)
+- [`@reactflow/node-resizer`](/docs/api/nodes/node-resizer) (since v11.7.0)
 
 #### Installation
 

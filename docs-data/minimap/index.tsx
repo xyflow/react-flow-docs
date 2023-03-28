@@ -78,6 +78,18 @@ const props = [
     description: 'Inner mask stroke width',
   },
   {
+    name: 'inversePan',
+    type: 'boolean',
+    default: false,
+    description: 'Determines if map should pan in the opposite direction',
+  },
+  {
+    name: 'zoomStep',
+    type: 'number',
+    default: 10,
+    description: 'Zoom step for zoomable minimap',
+  },
+  {
     name: 'onClick',
     type: 'function',
     default: 'undefined',

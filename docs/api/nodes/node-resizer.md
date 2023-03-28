@@ -12,42 +12,15 @@ import CodeViewer from '../../../src/components/CodeViewer';
 The node resizer component can be used to add a resize functionality to your nodes. It renders draggable controls around the node to resize in all directions.
 
 :::info
-The `NodeResizer` component is **not** part of the `reactflow` package. You need to install it separately and you need reactflow >= v11.3.3 for this to work.
+Since `reactflow@11.7.0` the `NodeResizer` component is part of the `reactflow` package. If you are using a version < 11.7.0, you need to install it separately.
 :::
-
-### Installation
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
-
-```bash
-npm install @reactflow/node-resizer
-```
-
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-
-```bash
-yarn add @reactflow/node-resizer
-```
-
-  </TabItem>
-    <TabItem value="pnpm" label="pnpm">
-
-```bash
-pnpm add @reactflow/node-resizer
-```
-
-  </TabItem>
-</Tabs>
 
 ### Getting Started
 
-The `node-resizer` package exports two components: `NodeResizer` and `NodeResizeControl`. You need to import the default styles, too.
+The `reactflow` package exports two node resizer related components: `NodeResizer` and `NodeResizeControl`.
 
 ```jsx
-import { NodeResizer, NodeResizeControl } from '@reactflow/node-resizer';
-import '@reactflow/node-resizer/dist/style.css';
+import { NodeResizer, NodeResizeControl } from 'reactflow';
 ```
 
 ### Usage Example

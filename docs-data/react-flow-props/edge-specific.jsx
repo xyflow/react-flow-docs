@@ -26,6 +26,12 @@ const props = [
     default: '10',
     description: 'The radius around the edge end which can be used for updating the edge',
   },
+  {
+    name: 'edgesUpdatable',
+    type: 'boolean',
+    default: 'true',
+    description: 'Defines if edges can be updated. onEdgeUpdate has to be set too.',
+  },
 ];
 
 export default props;

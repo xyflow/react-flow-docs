@@ -5,7 +5,7 @@ sidebar_position: 4
 
 import PropItems from '../../../src/components/Docs/PropItems'
 
-To learn what a Handle is, [click here](/docs/concepts/terms-and-definitions/#handles).
+To learn what a Handle is, you can check out the [Handle section](/docs/concepts/terms-and-definitions/#handles) in the terms and definitions.
 
 We export a `Handle` component as a helper for your custom nodes:
 
