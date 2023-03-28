@@ -1,8 +1,5 @@
 import { memo } from 'react';
-import { Handle, Position } from 'reactflow';
-
-import { NodeResizeControl } from '@reactflow/node-resizer';
-import '@reactflow/node-resizer/dist/style.css';
+import { Handle, Position, NodeResizeControl } from 'reactflow';
 
 const controlStyle = {
   background: 'transparent',

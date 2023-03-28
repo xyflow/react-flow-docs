@@ -10,7 +10,7 @@ function Flow() {
 
   return (
     <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} fitView>
-      <Background color="#99b3ec" variant={variant} />
+      <Background color="#ccc" variant={variant} />
       <Panel>
         <div>variant:</div>
         <button onClick={() => setVariant('dots')}>dots</button>

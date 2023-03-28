@@ -1,9 +1,5 @@
-import { memo, FC } from 'react';
-import { Handle, Position, NodeProps } from 'reactflow';
-
-import { NodeResizer } from '@reactflow/node-resizer';
-
-import '@reactflow/node-resizer/dist/style.css';
+import { memo } from 'react';
+import { Handle, Position, NodeResizer } from 'reactflow';
 
 const ResizableNode = ({ data }) => {
   return (

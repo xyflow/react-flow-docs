@@ -12,6 +12,12 @@ The Background component comes with three background variants: **dots**, **lines
 
 <CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} codePath="api-flows/Background" applyStyles={false} additionalFiles={['nodes.js', 'edges.js']} />
 
+### Background Combinations
+
+It's possible to add multiple `Background` components. Be aware that you need to add a unique id to each Background if you want to do this:
+
+<CodeViewer options={{ editorHeight: 500, editorWidthPercentage: 45, wrapContent: true }} codePath="api-flows/BackgroundCombine" applyStyles={false} additionalFiles={['nodes.js', 'edges.js']} />
+
 ### Prop Types
 
 import options from '../../../docs-data/background';
