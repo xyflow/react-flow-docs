@@ -159,7 +159,7 @@ const props = [
   {
     name: 'elevateNodesOnSelect',
     type: 'boolean',
-    default: 'false',
+    default: 'true',
     description: 'Nodes get a higher zIndex if they are selected and this prop is set to true',
   },
   {
