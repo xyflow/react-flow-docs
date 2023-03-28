@@ -14,10 +14,15 @@ This hook can only be used if the component that uses it, is wrapped with a [`Re
 ### Usage
 
 ```js
+import { useEffect } from 'react';
 import ReactFlow, { useNodesInitialized } from 'reactflow';
 
+const options = {
+  includeHiddenNodes: false, // this is the default
+};
+
 function KeyLogger() {
-  const nodesInitialized = useNodesInitialized();
+  const nodesInitialized = useNodesInitialized(options);
 
   useEffect(() => {
     if (nodesInitialized) {
@@ -31,4 +36,4 @@ function KeyLogger() {
 
 ### Typescript
 
-`useNodesInitialized(): boolean`
+`useNodesInitialized({ includeHiddenNodes }: UseNodesInitializedOptions): boolean`

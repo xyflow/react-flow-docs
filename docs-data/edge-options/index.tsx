@@ -53,6 +53,16 @@ const options = [
     description: 'If true, the edge will not be rendered',
   },
   {
+    name: 'updatable',
+    type: (
+      <>
+        boolean or <Link to="/docs/api/types/#handletype">HandleType</Link>
+      </>
+    ),
+    description:
+      'String (id for a svg marker that you need to define yourself) or a marker configuration object',
+  },
+  {
     name: 'interactionWidth',
     type: 'number',
     description:
