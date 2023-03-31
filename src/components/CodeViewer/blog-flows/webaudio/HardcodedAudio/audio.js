@@ -1,7 +1,19 @@
 const context = new AudioContext();
 const nodes = new Map();
 
-nodes.set('output', context.destination);
+const osc = context.createOscillator();
+osc.frequency.value = 220;
+osc.type = 'square';
+osc.start();
+
+const amp = context.createGain();
+amp.gain.value = 0.5;
+
+const out = context.destination;
+
+nodes.set('a', osc);
+nodes.set('b', amp);
+nodes.set('c', out);
 
 export function isRunning() {
   return context.state === 'running';
@@ -9,28 +21,6 @@ export function isRunning() {
 
 export function toggleAudio() {
   return isRunning() ? context.suspend() : context.resume();
-}
-
-export function createAudioNode(id, type, data) {
-  switch (type) {
-    case 'osc': {
-      const node = context.createOscillator();
-      node.frequency.value = data.frequency;
-      node.type = data.type;
-      node.start();
-
-      nodes.set(id, node);
-      break;
-    }
-
-    case 'amp': {
-      const node = context.createGain();
-      node.gain.value = data.gain;
-
-      nodes.set(id, node);
-      break;
-    }
-  }
 }
 
 export function updateAudioNode(id, data) {

@@ -6,14 +6,13 @@ import Osc from './nodes/Osc';
 import Amp from './nodes/Amp';
 import Out from './nodes/Out';
 
+import 'reactflow/dist/style.css';
+
 const nodeTypes = {
   osc: Osc,
   amp: Amp,
   out: Out,
 };
-
-import 'reactflow/dist/style.css';
-import './index.css';
 
 const selector = (store) => ({
   nodes: store.nodes,

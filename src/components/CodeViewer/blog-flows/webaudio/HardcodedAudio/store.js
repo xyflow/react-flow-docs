@@ -4,7 +4,6 @@ import { create } from 'zustand';
 import {
   isRunning,
   toggleAudio,
-  createAudioNode,
   updateAudioNode,
   removeAudioNode,
   connect,
@@ -12,7 +11,11 @@ import {
 } from './audio';
 
 export const useStore = create((set, get) => ({
-  nodes: [{ id: 'output', type: 'out', position: { x: 0, y: 0 } }],
+  nodes: [
+    { id: 'a', type: 'osc', data: { frequency: 220, type: 'square' }, position: { x: 0, y: 0 } },
+    { id: 'b', type: 'amp', data: { gain: 0.5 }, position: { x: -100, y: 250 } },
+    { id: 'c', type: 'out', position: { x: 100, y: 500 } },
+  ],
   edges: [],
   isRunning: isRunning(),
 
@@ -26,32 +29,6 @@ export const useStore = create((set, get) => ({
     set({
       nodes: applyNodeChanges(changes, get().nodes),
     });
-  },
-
-  createNode(type, x, y) {
-    const id = nanoid();
-
-    switch (type) {
-      case 'osc': {
-        const data = { frequency: 440, type: 'sine' };
-        const position = { x: 0, y: 0 };
-
-        createAudioNode(id, type, data);
-        set({ nodes: [...get().nodes, { id, type, data, position }] });
-
-        break;
-      }
-
-      case 'amp': {
-        const data = { gain: 0.5 };
-        const position = { x: 0, y: 0 };
-
-        createAudioNode(id, type, data);
-        set({ nodes: [...get().nodes, { id, type, data, position }] });
-
-        break;
-      }
-    }
   },
 
   updateNode(id, data) {

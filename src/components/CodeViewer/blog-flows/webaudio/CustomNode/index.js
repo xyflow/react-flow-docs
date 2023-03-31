@@ -4,12 +4,11 @@ import { shallow } from 'zustand/shallow';
 import { useStore } from './store';
 import Osc from './nodes/Osc';
 
+import 'reactflow/dist/style.css';
+
 const nodeTypes = {
   osc: Osc,
 };
-
-import 'reactflow/dist/style.css';
-import './index.css';
 
 const selector = (store) => ({
   nodes: store.nodes,
