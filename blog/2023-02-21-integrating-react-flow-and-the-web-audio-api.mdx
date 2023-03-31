@@ -31,7 +31,13 @@ Without further ado...
 
 ## A demo!
 
-[Demo flow showcasing everything]
+<CodeViewer
+  codePath="blog-flows/webaudio/Demo"
+  options={{ editorHeight: '75vh' }}
+  additionalFiles={['store.js', 'audio.js', 'nodes/Osc.js', 'nodes/Amp.js', 'nodes/Out.js']}
+  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
+  showEditor={false}
+/>
 
 :::caution This and other examples in this tutorial _make sound_.
 
@@ -199,7 +205,7 @@ and gain nodes and use React Flow to interactively build audio-processing graphs
 For now though, we need to put together an empty React Flow app.
 
 We already have a React app set up with Vite, so we'll keep using that. If you
-skipped over the last section we ran `npm create vite@latest -- --template react`
+skipped over the last section, we ran `npm create vite@latest -- --template react`
 to get started. You can use whatever bundler and/or dev server you like, though.
 Nothing here is vite specific.
 
@@ -211,9 +217,8 @@ under the hood at React Flow) and `nanoid` as a lightweight id generator.
 npm install reactflow zustand nanoid
 ```
 
-Vite will have gone and helpfully scaffolded a little React app for us, but we're
-going to go and replace most of it anyway. Go ahead and modify `main.jsx` to
-match the following:
+We're going to remove everything from our Web Audio crash course and start from
+scratch. Start by modifying `main.jsx` to match the following:
 
 ```jsx title="./src/main.jsx"
 import App from './App';
@@ -241,7 +246,7 @@ ReactDOM.createRoot(root).render(
 
 There are three important things to pay attention to here:
 
-1. You need to remember to import the React Flow CSS styles to make sure everything
+1. You need to remember to **import the React Flow CSS styles** to make sure everything
    works correctly.
 2. The React Flow renderer needs to be inside an element with a known height and width,
    so we've set the containing `<div />` to take up the entire screen.
@@ -320,10 +325,10 @@ export const useStore = create((set, get) => ({
 ```
 
 Zustand is dead simple to use. We create a function that receives both a `set` and
-a `get` function and returns an object with our initial state and the actions we
-can use to update that state. Updates happen immutably and we can use the `set`
-function for that. The `get` function is how we read the current state. And that's
-it for zustand.
+a `get` function and returns an object with our initial state along with the actions
+we can use to update that state. Updates happen immutably and we can use the `set`
+function for that. The `get` function is how we read the current state. And...
+that's it for zustand.
 
 The `changes` argument in both `onNodesChange` and `onEdgesChange` represents
 events like a node or edge being moved or deleted. Fortunately, React Flow provides
@@ -407,7 +412,7 @@ const useStore = create((set, get) => ({
   options={{ editorHeight: '50vh' }}
   additionalFiles={['store.js']}
   dependencies={{ nanoid: 'latest', zustand: '4.3.6' }}
-  showEditor={false}
+  showEditor={true}
 />
 
 ### 2. Custom nodes
@@ -499,7 +504,7 @@ node's `frequency`, for example, we could just call `updateNode(id, { frequency:
 Now we just need to bring the action into our `<Osc />` component and call it
 whenever an input changes.
 
-```jsx title="./src/nodes/Osc.jsx
+```jsx title="./src/nodes/Osc.jsx"
 import React from 'react';
 import { Handle } from 'reactflow';
 import { shallow } from 'zustand/shallow';
@@ -563,6 +568,7 @@ import ReactFlow from 'reactflow';
 import { shallow } from 'zustand/shallow';
 
 import { useStore } from './store';
+// highlight-next-line
 import Osc from './nodes/Osc';
 
 const selector = (store) => ({
@@ -573,9 +579,11 @@ const selector = (store) => ({
   addEdge: store.addEdge,
 });
 
+// highlight-start
 const nodeTypes = {
   osc: Osc,
 };
+// highlight-end
 
 export default function App() {
   const store = useStore(selector, shallow);
@@ -583,6 +591,7 @@ export default function App() {
   return (
     <ReactFlow
       nodes={store.nodes}
+      // highlight-next-line
       nodeTypes={nodeTypes}
       edges={store.edges}
       onNodesChange={store.onNodesChange}
@@ -624,13 +633,13 @@ const useStore = create((set, get) => ({
 <CodeViewer
   codePath="blog-flows/webaudio/CustomNode"
   options={{ editorHeight: '50vh' }}
-  additionalFiles={['index.css', 'store.js', 'nodes/Osc.js']}
-  dependencies={{ nanoid: 'latest', zustand: '4.3.6' }}
+  additionalFiles={['store.js', 'nodes/Osc.js']}
+  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
   showEditor={false}
 />
 
 Implementing a gain node is pretty much the same process, so we'll leave that one
-down to you. Instead, we'll turn our attention to the output node. This node we
+down to you. Instead, we'll turn our attention to the output node. This node will
 have no parameters control, but we do want to toggle signal processing on and off.
 That's a bit difficult right now when we haven't implemented any audio code yet,
 so in the meantime we'll add a just flag to our store and an action to toggle it.
@@ -689,13 +698,13 @@ export default function Out({ id, data }) {
 }
 ```
 
-If we add a lick of paint to everything, things are shaping up quite nicely!
+Things are starting to shape up quite nicely!
 
 <CodeViewer
   codePath="blog-flows/webaudio/CustomNodes"
   options={{ editorHeight: '50vh' }}
-  additionalFiles={['index.css', 'store.js', 'nodes/Osc.js', 'nodes/Out.js', 'nodes/Amp.js']}
-  dependencies={{ nanoid: 'latest', zustand: '4.3.6' }}
+  additionalFiles={['store.js', 'nodes/Osc.js', 'nodes/Out.js', 'nodes/Amp.js']}
+  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
   showEditor={false}
 />
 
@@ -927,7 +936,43 @@ export const useStore = create((set, get) => ({
 Et voilà, we did it! We've now put enough together to actually _make sounds_!
 Let's see what we have in action.
 
-[Demo flow showcasing a hardcoding graph producing real-time audio]
+<CodeViewer
+  codePath="blog-flows/webaudio/HardcodedAudio"
+  options={{ editorHeight: '50vh' }}
+  additionalFiles={['store.js', 'audio.js', 'nodes/Osc.js', 'nodes/Amp.js', 'nodes/Out.js']}
+  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
+  showEditor={false}
+/>
+
+:::info
+
+We hardcoded a couple of nodes in our store early on in this blog post but our
+audio graph doesn't know anything about them! In the next section we'll do away
+with all these hardcoded nodes and set up how to create them dynamically, but
+just for this demo you _also_ need to hardcode some nodes in your audio graph.
+
+Here's how we did it:
+
+```js
+const context = new AudioContext();
+const nodes = new Map();
+
+const osc = context.createOscillator();
+osc.frequency.value = 220;
+osc.type = 'square';
+osc.start();
+
+const amp = context.createGain();
+amp.gain.value = 0.5;
+
+const out = context.destination;
+
+nodes.set('a', osc);
+nodes.set('b', amp);
+nodes.set('c', out);
+```
+
+:::
 
 ### 4. Creating new nodes
 
@@ -1053,9 +1098,16 @@ that can:
 - Delete nodes and connections
 - Start and stop audio processing
 
-With a lick of paint we have something that looks quite fancy.
+Here's the demo from the beginning, but this time you can see the source code to
+make sure you haven't missed anything.
 
-[Rerender the demo flow showcasing a fully functional audio graph editor]
+<CodeViewer
+  codePath="blog-flows/webaudio/Demo"
+  options={{ editorHeight: '75vh' }}
+  additionalFiles={['store.js', 'audio.js', 'nodes/Osc.js', 'nodes/Amp.js', 'nodes/Out.js']}
+  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
+  showEditor={true}
+/>
 
 ## Final thoughts
 
