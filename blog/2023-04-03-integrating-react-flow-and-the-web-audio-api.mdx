@@ -88,17 +88,17 @@ We want an OscillatorNode to generate some tones and a GainNode to control the v
 
 ```js title="./src/App.jsx"
 // Create the brain of our audio-processing graph
-const ctx = new AudioContext();
+const context = new AudioContext();
 
 // Create an oscillator node to generate tones
-const osc = ctx.createOscillator();
+const osc = context.createOscillator();
 
 // Create a gain node to control the volume
-const amp = ctx.createGain();
+const amp = context.createGain();
 
 // Pass the oscillator's output through the gain node and to our speakers
 osc.connect(amp);
-amp.connect(ctx.destination);
+amp.connect(context.destination);
 
 // Start generating those tones!
 osc.start();
@@ -116,12 +116,12 @@ the pitch of the oscillator node and the volume of the gain node.
 ```jsx
 import React from 'react';
 
-const ctx = new AudioContext();
-const osc = ctx.createOscillator();
-const amp = ctx.createGain();
+const context = new AudioContext();
+const osc = context.createOscillator();
+const amp = context.createGain();
 
 osc.connect(amp);
-amp.connect(ctx.destination);
+amp.connect(context.destination);
 
 osc.start();
 
