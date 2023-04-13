@@ -21,13 +21,13 @@ state management, implementing custom nodes, and adding interactivity.
 
 <!--truncate-->
 
-For the most part this tutorial will go step-by-step. We may skip over some bits
-here and there, but for the most part [@todo remove one "for the most part"?] if you're new to React Flow you should be
-able to follow along and have something working by the end. If you're already a
-React Flow pro you might want to read the first section covering the Web Audio
-API and then jump to the third to see how things are tied together!
+This tutorial will go step-by-step. We may skip over some bits here and there,
+but for the most part if you're new to React Flow you should be able to follow
+along and have something working by the end. If you're already a React Flow wizard
+you might want to read the first section covering the Web Audio API and then jump
+to the third to see how things are tied together!
 
-Without further ado...
+But first...
 
 ## A demo!
 
@@ -70,9 +70,10 @@ Here are the highlights you need to know:
 
 They say show don't tell, but doing is even better. Let's see some of this stuff
 in action and build our first Web Audio app! We won't be doing anything too wild:
-we'll make a simple mouse theremin [@todo maybe add a link here? I didn't know what this is]. We'll use React for these examples and everything
-else moving forward (we're called React Flow after all!) and [`vite`](https://vitejs.dev)
-to handle bundling and hot reloading.
+we'll make a simple mouse [theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-).
+We'll use React for these examples and everything else moving forward (we're called
+React Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and
+hot reloading.
 
 If you prefer another bundler like parcel or Create React App that's cool too, they
 all do largely the same thing. You could also choose to use TypeScript instead
@@ -210,7 +211,7 @@ to get started. You can use whatever bundler and/or dev server you like, though.
 Nothing here is vite specific.
 
 We only need three additional dependencies for this project: `reactflow` for our
-UI (duh) [@todo what does "duh" mean? :D], `zustand` as our simple state management library (that's what we use
+UI (obviously!), `zustand` as our simple state management library (that's what we use
 under the hood at React Flow) and `nanoid` as a lightweight id generator.
 
 ```bash
@@ -386,7 +387,7 @@ export default function App() {
 OK that look's a bit weird, what's this `selector` thing all about? Zustand let's
 us supply a selector function to pluck out the exact bits of state we need from
 the store. Combined with the `shallow` equality function, this means we typically
-don't have re-renders when state we don't care about changes. [@todo is shallow necessary here?]
+don't have re-renders when state we don't care about changes.
 
 Right now, our store is small and we actually want everything from it to help
 render our React Flow graph, but as we expand on it this selector will make sure
@@ -421,7 +422,7 @@ OK great, we have an interactive React Flow instance we can start playing with.
 We added some dummy nodes but they're just the default unstyled ones right now.
 In this step we'll add three custom nodes with interactive controls: an oscillator
 node and controls for the pitch and waveform type, a gain node and a control for
-the volume, and an output node and a button to toggle DSP [@todo maybe explain DSP?] on and off.
+the volume, and an output node and a button to toggle audio processing on and off.
 
 Let's create a new folder, `nodes/`, and create a file for each custom node we
 want to create. Starting with the oscillator we need two controls and a source
@@ -489,7 +490,7 @@ export const useStore = create((set, get) => ({
     set({
       nodes: get().nodes.map(node =>
         node.id === id
-          ? { ...node, data: Object.assign(node.data, data) } // @todo replace with spread?
+          ? { ...node, data: { ...node.data, ...data } }
           : node
       )
     })
@@ -848,7 +849,7 @@ at once!
 
 ### 2. Edge changes
 
-We're tantalizingly close to actually making some sounds! All that's left is to
+We're getting super close to actually making some sounds! All that's left is to
 handle changes to our graph's edges. Like with node changes, we already have an
 action to handle creating new edges and we're also implicitly handling removed
 edges in `onEdgesChange`.
