@@ -114,9 +114,9 @@ For our app, we'll track the mouse's position on the screen and use that to set
 the pitch of the oscillator node and the volume of the gain node.
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
-const ctx = new AudioContext()
+const ctx = new AudioContext();
 const osc = ctx.createOscillator();
 const amp = ctx.createGain();
 
@@ -127,19 +127,15 @@ osc.start();
 
 // highlight-start
 const updateValues = (e) => {
-  const freq = (e.clientX / window.innerWidth) * 1000
-  const gain = e.clientY / window.innerHeight
+  const freq = (e.clientX / window.innerWidth) * 1000;
+  const gain = e.clientY / window.innerHeight;
 
-  osc.frequency.value = freq
-  amp.gain.value = gain
-}
+  osc.frequency.value = freq;
+  amp.gain.value = gain;
+};
 
-export default App() {
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}
-      onMouseMove={updateValues}
-    />
-  )
+export default function App() {
+  return <div style={{ width: '100vw', height: '100vh' }} onMouseMove={updateValues} />;
 }
 // highlight-end
 ```
@@ -169,7 +165,7 @@ const toggleAudio = () => {
 }
 // highlight-end
 
-export default App() {
+export default function App() {
   return (
     <div ...
       // highlight-start
