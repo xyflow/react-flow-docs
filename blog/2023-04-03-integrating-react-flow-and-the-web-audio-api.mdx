@@ -158,11 +158,11 @@ to resume the context if it's suspended.
 // highlight-start
 const toggleAudio = () => {
   if (context.state === 'suspended') {
-    context.resume()
+    context.resume();
   } else {
-    context.suspend()
+    context.suspend();
   }
-}
+};
 // highlight-end
 
 export default function App() {
@@ -172,8 +172,8 @@ export default function App() {
       onClick={toggleAudio}
       // highlight-end
     />
-  )
-}
+  );
+};
 ```
 
 And that's everything we need to start making some sounds with the Web Audio API!
@@ -392,11 +392,13 @@ dummy nodes to your store:
 
 ```js title="./store.jsx"
 const useStore = create((set, get) => ({
+  // highlight-start
   nodes: [
     { id: 'a', data: { label: 'oscillator' }, position: { x: 0, y: 0 } },
     { id: 'b', data: { label: 'gain' }, position: { x: 50, y: 50 } },
     { id: 'c', data: { label: 'output' }, position: { x: -50, y: 100 } }
   ],
+  // highlight-end
   ...
 }));
 ```
@@ -456,8 +458,8 @@ export default function Osc({ id, data }) {
 
       <Handle type="source" position="bottom" />
     </div>
-  )
-}
+  );
+};
 ```
 
 :::info "nodrag" is important.
@@ -486,7 +488,7 @@ export const useStore = create((set, get) => ({
           ? { ...node, data: { ...node.data, ...data } }
           : node
       )
-    })
+    });
   },
 
   ...
@@ -501,16 +503,20 @@ whenever an input changes.
 ```jsx title="./src/nodes/Osc.jsx"
 import React from 'react';
 import { Handle } from 'reactflow';
+// highlight-next-line
 import { shallow } from 'zustand/shallow';
 
 import { useStore } from '../store';
 
+// highlight-start
 const selector = (id) => (store) => ({
   setFrequency: (e) => store.updateNode(id, { frequency: +e.target.value }),
   setType: (e) => store.updateNode(id, { type: e.target.value }),
 });
+// highlight-end
 
 export default function Osc({ id, data }) {
+  // highlight-next-line
   const { setFrequency, setType } = useStore(selector(id), shallow);
 
   return (
@@ -526,6 +532,7 @@ export default function Osc({ id, data }) {
             min="10"
             max="1000"
             value={data.frequency}
+            // highlight-next-line
             onChange={setFrequency}
           />
           <span>{data.frequency}Hz</span>
@@ -533,6 +540,7 @@ export default function Osc({ id, data }) {
 
         <label>
           <span>Waveform:</span>
+          // highlight-next-line
           <select className="nodrag" value={data.type} onChange={setType}>
             <option value="sine">sine</option>
             <option value="triangle">triangle</option>
@@ -556,7 +564,7 @@ The last piece of the puzzle is to tell React Flow how to render our custom node
 For that we need to create a `nodeTypes` object: the keys should correspond to a
 node's `type` and the value will be the React component to render.
 
-```jsx title"./src/App.jsx"
+```jsx title="./src/App.jsx"
 import React from 'react';
 import ReactFlow from 'reactflow';
 import { shallow } from 'zustand/shallow';
@@ -601,7 +609,8 @@ export default function App() {
 :::info Avoid unnecessary renders.
 
 It's important to define `nodeTypes` outside of the `<App />` component (or use
-React's `useMemo`) to avoid recomputing it ever render.
+React's [`useMemo`](https://react.dev/reference/react/useMemo)) to avoid recomputing
+it every render.
 :::
 
 If you've got the dev server running, don't panic if things haven't changed yet!
@@ -632,6 +641,17 @@ const useStore = create((set, get) => ({
   showEditor={false}
 />
 
+:::info Stuck on styling?
+
+If you're just implementing the code from this post as you go along, you'll
+see that your custom node doesn't look like the one in the preview above. To keep
+things easy to digest, we've left out styling in the code snippets.
+
+To learn how to style your custom nodes, check out our docs on
+[theming](https://reactflow.dev/docs/guides/theming/) or our example using
+[Tailwind](https://reactflow.dev/docs/examples/styling/tailwind/).
+:::
+
 Implementing a gain node is pretty much the same process, so we'll leave that one
 down to you. Instead, we'll turn our attention to the output node. This node will
 have no parameters control, but we do want to toggle signal processing on and off.
@@ -645,7 +665,7 @@ const useStore = create((set, get) => ({
   isRunning: false,
 
   toggleAudio() {
-    set({ isRunning: !get().isRunning })
+    set({ isRunning: !get().isRunning });
   },
 
   ...
@@ -753,14 +773,14 @@ Now we'll want to update our `updateNode` action in the store to call this funct
 as part of the update:
 
 ```js title="./src/store.js"
-import { updateAudioNode } from './audio'
+import { updateAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
 
   updateNode(id, data) {
-    updateAudioNode(id, data)
-    set({ nodes: ... })
+    updateAudioNode(id, data);
+    set({ nodes: ... });
   },
 
   ...
@@ -795,7 +815,7 @@ export function removeAudioNode(id) {
   <TabItem value="store.js" label="store.js">
 
 ```js
-import { ..., removeAudioNode } from './audio'
+import { ..., removeAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -817,10 +837,10 @@ export const useStore = create((set, get) => ({
 const selector = store => ({
   ...,
   onNodesDelete: store.removeNodes
-})
+});
 
 export default function App() {
-  const store = useStore(selector, shallow)
+  const store = useStore(selector, shallow);
 
   return (
     <ReactFlow
@@ -830,7 +850,7 @@ export default function App() {
       <Background />
     </ReactFlow>
   )
-}
+};
 ```
 
   </TabItem>
@@ -867,7 +887,7 @@ export function connect(sourceId, targetId) {
   <TabItem value="./src/store.js" label="./src/store.js">
 
 ```js
-import { ..., connect } from './audio'
+import { ..., connect } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -875,7 +895,7 @@ export const useStore = create((set, get) => ({
   addEdge(data) {
     ...
 
-    connect(data.source, data.target)
+    connect(data.source, data.target);
   },
 
   ...
@@ -921,8 +941,8 @@ export const useStore = create((set, get) => ({
 
   toggleAudio() {
     toggleAudio().then(() => {
-      set({ isRunning: isRunning() })
-    })
+      set({ isRunning: isRunning() });
+    });
   }
 }));
 ```
@@ -1008,7 +1028,7 @@ by nanoid and we'll hardcode some initial data for each of the node types, so th
 only thing we need to pass in is the type of node to create:
 
 ```js title="./src/store.js"
-import { ..., createAudioNode } from './audio'
+import { ..., createAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -1018,23 +1038,23 @@ export const useStore = create((set, get) => ({
 
     switch(type) {
       case 'osc': {
-        const data = { frequency: 440, type: 'sine' }
-        const position = { x: 0, y: 0 }
+        const data = { frequency: 440, type: 'sine' };
+        const position = { x: 0, y: 0 };
 
-        createAudioNode(id, type, data)
-        set({ nodes: [...get().nodes, { id, type, data, position }] })
+        createAudioNode(id, type, data);
+        set({ nodes: [...get().nodes, { id, type, data, position }] });
 
-        break
+        break;
       }
 
       case 'amp': {
-        const data = { gain: 0.5 }
-        const position = { x: 0, y: 0 }
+        const data = { gain: 0.5 };
+        const position = { x: 0, y: 0 };
 
-        createAudioNode(id, type, data)
-        set({ nodes: [...get().nodes, { id, type, data, position }] })
+        createAudioNode(id, type, data);
+        set({ nodes: [...get().nodes, { id, type, data, position }] });
 
-        break
+        break;
       }
     }
   }
@@ -1070,7 +1090,7 @@ export default function App() {
       <Background />
     </ReactFlow>
   );
-}
+};
 ```
 
 We don't need anything fancy here, just a couple of buttons that trigger the
