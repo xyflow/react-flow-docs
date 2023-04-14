@@ -103,6 +103,8 @@ import connectionLine from '../../docs-data/react-flow-props/connection-line';
 
 ## Keys
 
+Use these props to disable the backspace or delete key and more.
+
 import keys from '../../docs-data/react-flow-props/keys';
 
 <PropItems props={keys} />
