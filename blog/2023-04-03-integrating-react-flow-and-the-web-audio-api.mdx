@@ -739,6 +739,43 @@ The way we'll manage our audio graph is by hooking into the different actions in
 our store. So we might connect two audio nodes when the `addEdge` action is called,
 or update an audio node's properties when `updateNode` is called, and so on.
 
+:::warning Hardcoded nodes
+
+We hardcoded a couple of nodes in our store earlier on in this post but our audio
+graph doesn't know anything about them! For the finished project we can do away
+with all these hardcoded bits, but for now it's **really important** that we also
+hardcode some audio nodes.
+
+Here's how we did it:
+
+```js
+const context = new AudioContext();
+const nodes = new Map();
+
+// highlight-start
+const osc = context.createOscillator();
+osc.frequency.value = 220;
+osc.type = 'square';
+osc.start();
+// highlight-end
+
+// highlight-start
+const amp = context.createGain();
+amp.gain.value = 0.5;
+// highlight-end
+
+// highlight-next-line
+const out = context.destination;
+
+// highlight-start
+nodes.set('a', osc);
+nodes.set('b', amp);
+nodes.set('c', out);
+// highlight-end
+```
+
+:::
+
 ### 1. Node changes
 
 Right now, there are two types of node changes that can happen in our graph and
@@ -957,36 +994,6 @@ Let's see what we have in action.
   dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
   showEditor={false}
 />
-
-:::info
-
-We hardcoded a couple of nodes in our store early on in this blog post but our
-audio graph doesn't know anything about them! In the next section we'll do away
-with all these hardcoded nodes and set up how to create them dynamically, but
-just for this demo you _also_ need to hardcode some nodes in your audio graph.
-
-Here's how we did it:
-
-```js
-const context = new AudioContext();
-const nodes = new Map();
-
-const osc = context.createOscillator();
-osc.frequency.value = 220;
-osc.type = 'square';
-osc.start();
-
-const amp = context.createGain();
-amp.gain.value = 0.5;
-
-const out = context.destination;
-
-nodes.set('a', osc);
-nodes.set('b', amp);
-nodes.set('c', out);
-```
-
-:::
 
 ### 4. Creating new nodes
 
