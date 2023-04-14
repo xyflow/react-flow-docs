@@ -68,23 +68,26 @@ Here are the highlights you need to know:
 
 ### Hello, sound!
 
-They say show don't tell, but doing is even better. Let's see some of this stuff
+Let's see some of this stuff
 in action and build our first Web Audio app! We won't be doing anything too wild:
 we'll make a simple mouse [theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-).
 We'll use React for these examples and everything else moving forward (we're called
 React Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and
 hot reloading.
 
+:::info
+
 If you prefer another bundler like parcel or Create React App that's cool too, they
 all do largely the same thing. You could also choose to use TypeScript instead
 of JavaScript. To keep things simple we won't use it today, but React Flow is
 fully typed (and written entirely in TypeScript) so it's a breeze to use!
+:::
 
 ```bash
 npm create vite@latest -- --template react
 ```
 
-Vite will helpfully scaffold out a simple React application for us. We can delete
+Vite will scaffold out a simple React application for us. We can delete
 the assets and jump right into `App.jsx`. Remove the demo component generated for
 us and start by creating a new AudioContext and putting together the nodes we need.
 We want an OscillatorNode to generate some tones and a GainNode to control the volume.
@@ -156,7 +159,7 @@ but for now it's enough to know that you need to use `.value` to set the value
 of an `AudioParam` rather than just assigning a value to the property directly.
 :::
 
-If you try this example as it is, you'll probably find that nothing happens. An
+Nothing happens in this example as-is. That's because an
 AudioContext often starts in a suspended state in an attempt to avoid ads hijacking
 our speakers. We can fix that easily by adding a click handler on the `<div />`
 to resume the context if it's suspended.
@@ -193,24 +196,19 @@ Here's what we put together, in case you weren't following along at home:
   showEditor={false}
 />
 
-If you're already familiar with React Flow, you can comfortably skip over the
-next section and head straight on over to [making some sounds](#do-sound-to-it).
-For everyone else, let's take a look at how to build a React Flow project from
-scratch.
+
+Now let's take a look at how to build a React Flow project from scratch.
+
+:::info
+If you're already familiar with React Flow, you can comfortably skip ahead to [making some sounds](#do-sound-to-it).
+:::
 
 ## Scaffolding a React Flow project
 
-With that done, we can now turn our attention to React Flow and the rest of the
-tutorial. Later on we'll take what we've learned about the Web Audio API, oscillators,
-and gain nodes and use React Flow to interactively build audio-processing graphs.
-For now though, we need to put together an empty React Flow app.
+Once we've set up our React Flow project, we'll combine it with what we've learned about the Web Audio API, oscillators,
+and gain nodes to build interactive audio-processing graphs. But first, we need to put together an empty React Flow app.
 
-We already have a React app set up with Vite, so we'll keep using that. If you
-skipped over the last section, we ran `npm create vite@latest -- --template react`
-to get started. You can use whatever bundler and/or dev server you like, though.
-Nothing here is vite specific.
-
-We only need three additional dependencies for this project: `reactflow` for our
+We already have a React app set up with Vite, so we'll keep using that. We only need three additional dependencies for this project: `reactflow` for our
 UI (obviously!), `zustand` as our simple state management library (that's what we use
 under the hood at React Flow) and `nanoid` as a lightweight id generator.
 
@@ -384,7 +382,7 @@ export default function App() {
 }
 ```
 
-OK that look's a bit weird, what's this `selector` thing all about? Zustand let's
+So what's this weird `selector` thing all about? Zustand let's
 us supply a selector function to pluck out the exact bits of state we need from
 the store. Combined with the `shallow` equality function, this means we typically
 don't have re-renders when state we don't care about changes.
@@ -420,9 +418,10 @@ const useStore = create((set, get) => ({
 
 OK great, we have an interactive React Flow instance we can start playing with.
 We added some dummy nodes but they're just the default unstyled ones right now.
-In this step we'll add three custom nodes with interactive controls: an oscillator
-node and controls for the pitch and waveform type, a gain node and a control for
-the volume, and an output node and a button to toggle audio processing on and off.
+In this step we'll add three custom nodes with interactive controls:
+1. an oscillator node and controls for the pitch and waveform type
+2. a gain node and a control for the volume
+3. an output node and a button to toggle audio processing on and off.
 
 Let's create a new folder, `nodes/`, and create a file for each custom node we
 want to create. Starting with the oscillator we need two controls and a source
@@ -639,8 +638,7 @@ const useStore = create((set, get) => ({
   showEditor={false}
 />
 
-Implementing a gain node is pretty much the same process, so we'll leave that one
-down to you. Instead, we'll turn our attention to the output node. This node will
+Implementing a gain node is pretty much the same process, so we'll leave that one to you. Instead, we'll turn our attention to the output node. This node will
 have no parameters control, but we do want to toggle signal processing on and off.
 That's a bit difficult right now when we haven't implemented any audio code yet,
 so in the meantime we'll add just a flag to our store and an action to toggle it.
