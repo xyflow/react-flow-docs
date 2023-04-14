@@ -21,22 +21,42 @@ state management, implementing custom nodes, and adding interactivity.
 
 <!--truncate-->
 
-This tutorial will go step-by-step. We may skip over some bits here and there,
-but for the most part if you're new to React Flow you should be able to follow
-along and have something working by the end. If you're already a React Flow wizard
-you might want to read the first section covering the Web Audio API and then jump
-to the third to see how things are tied together!
+<figure>
+  <img
+    src="/img/blog/webaudio/bleep-cafe.png"
+    alt="A screenshot of bleep.cafe, a visual audio programming environment. In
+    it, there are four nodes connected together: an xy pad, an oscillator node,
+    a volume node, and a master output."
+  />
+  <figcaption>
+    This is <a href="https://bleep.cafe">bleep.cafe</a>. We're going to learn everything we need to
+    know to build something just like it!
+  </figcaption>
+</figure>
+
+A while back I shared a project I was working on to the React Flow
+[discord server](https://discord.com/invite/RVmnytFmGW). It's called
+[bleep.cafe](https://bleep.cafe) and it's a little web app for learning digital
+synthesis all inside the browser. A lot of folks were interested to see how something
+like that was put together: most people don't even know **their browser has a whole
+synth engine built in!**
+
+This tutorial will take us step-by-step to build something similar. We may skip
+over some bits here and there, but for the most part if you're new to React Flow
+_or_ the Web Audio API you should be able to follow along and have something
+working by the end.
+
+If you're already a React Flow wizard you might want to read the first section
+covering the Web Audio API and then jump to the third to see how things are tied
+together!
 
 But first...
 
 ## A demo!
 
-<CodeViewer
-  codePath="blog-flows/webaudio/Demo"
-  options={{ editorHeight: '75vh' }}
-  additionalFiles={['store.js', 'audio.js', 'nodes/Osc.js', 'nodes/Amp.js', 'nodes/Out.js']}
-  dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
-  showEditor={false}
+<iframe
+  style={{ height: '75vh', width: '100%' }}
+  src="https://wbkd.github.io/react-flow-web-audio/"
 />
 
 :::caution This and other examples in this tutorial _make sound_.
@@ -68,12 +88,12 @@ Here are the highlights you need to know:
 
 ### Hello, sound!
 
-They say show don't tell, but doing is even better. Let's see some of this stuff
-in action and build our first Web Audio app! We won't be doing anything too wild:
-we'll make a simple mouse [theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-).
-We'll use React for these examples and everything else moving forward (we're called
-React Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and
-hot reloading.
+Let's see some of this stuff in action and build our first Web Audio app! We won't
+be doing anything too wild: we'll make a simple mouse
+[theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-). We'll
+use React for these examples and everything else moving forward (we're called React
+Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and hot
+reloading.
 
 If you prefer another bundler like parcel or Create React App that's cool too, they
 all do largely the same thing. You could also choose to use TypeScript instead
@@ -84,24 +104,24 @@ fully typed (and written entirely in TypeScript) so it's a breeze to use!
 npm create vite@latest -- --template react
 ```
 
-Vite will helpfully scaffold out a simple React application for us. We can delete
-the assets and jump right into `App.jsx`. Remove the demo component generated for
-us and start by creating a new AudioContext and putting together the nodes we need.
-We want an OscillatorNode to generate some tones and a GainNode to control the volume.
+Vite will scaffold out a simple React application for us, but can delete the assets
+and jump right into `App.jsx`. Remove the demo component generated for us and start
+by creating a new AudioContext and putting together the nodes we need. We want
+an OscillatorNode to generate some tones and a GainNode to control the volume.
 
 ```js title="./src/App.jsx"
 // Create the brain of our audio-processing graph
-const ctx = new AudioContext();
+const context = new AudioContext();
 
 // Create an oscillator node to generate tones
-const osc = ctx.createOscillator();
+const osc = context.createOscillator();
 
 // Create a gain node to control the volume
-const amp = ctx.createGain();
+const amp = context.createGain();
 
 // Pass the oscillator's output through the gain node and to our speakers
 osc.connect(amp);
-amp.connect(ctx.destination);
+amp.connect(context.destination);
 
 // Start generating those tones!
 osc.start();
@@ -117,32 +137,28 @@ For our app, we'll track the mouse's position on the screen and use that to set
 the pitch of the oscillator node and the volume of the gain node.
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
-const ctx = new AudioContext()
-const osc = ctx.createOscillator();
-const amp = ctx.createGain();
+const context = new AudioContext();
+const osc = context.createOscillator();
+const amp = context.createGain();
 
 osc.connect(amp);
-amp.connect(ctx.destination);
+amp.connect(context.destination);
 
 osc.start();
 
 // highlight-start
 const updateValues = (e) => {
-  const freq = (e.clientX / window.innerWidth) * 1000
-  const gain = e.clientY / window.innerHeight
+  const freq = (e.clientX / window.innerWidth) * 1000;
+  const gain = e.clientY / window.innerHeight;
 
-  osc.frequency.value = freq
-  amp.gain.value = gain
-}
+  osc.frequency.value = freq;
+  amp.gain.value = gain;
+};
 
-export default App() {
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}
-      onMouseMove={updateValues}
-    />
-  )
+export default function App() {
+  return <div style={{ width: '100vw', height: '100vh' }} onMouseMove={updateValues} />;
 }
 // highlight-end
 ```
@@ -165,22 +181,22 @@ to resume the context if it's suspended.
 // highlight-start
 const toggleAudio = () => {
   if (context.state === 'suspended') {
-    context.resume()
+    context.resume();
   } else {
-    context.suspend()
+    context.suspend();
   }
-}
+};
 // highlight-end
 
-export default App() {
+export default function App() {
   return (
     <div ...
       // highlight-start
       onClick={toggleAudio}
       // highlight-end
     />
-  )
-}
+  );
+};
 ```
 
 And that's everything we need to start making some sounds with the Web Audio API!
@@ -193,16 +209,20 @@ Here's what we put together, in case you weren't following along at home:
   showEditor={false}
 />
 
+Now let's put this knowledge to one side and take a look at how to build a React
+Flow project from scratch.
+
+:::info Already a React Flow pro?
 If you're already familiar with React Flow, you can comfortably skip over the
 next section and head straight on over to [making some sounds](#do-sound-to-it).
 For everyone else, let's take a look at how to build a React Flow project from
 scratch.
+:::
 
 ## Scaffolding a React Flow project
 
-With that done, we can now turn our attention to React Flow and the rest of the
-tutorial. Later on we'll take what we've learned about the Web Audio API, oscillators,
-and gain nodes and use React Flow to interactively build audio-processing graphs.
+Later on we'll take what we've learned about the Web Audio API, oscillators, and
+gain nodes and use React Flow to interactively build audio-processing graphs.
 For now though, we need to put together an empty React Flow app.
 
 We already have a React app set up with Vite, so we'll keep using that. If you
@@ -384,10 +404,10 @@ export default function App() {
 }
 ```
 
-OK that look's a bit weird, what's this `selector` thing all about? Zustand let's
-us supply a selector function to pluck out the exact bits of state we need from
-the store. Combined with the `shallow` equality function, this means we typically
-don't have re-renders when state we don't care about changes.
+So what's this `selector` thing all about? Zustand let's us supply a selector
+function to pluck out the exact bits of state we need from the store. Combined
+with the `shallow` equality function, this means we typically don't have re-renders
+when state we don't care about changes.
 
 Right now, our store is small and we actually want everything from it to help
 render our React Flow graph, but as we expand on it this selector will make sure
@@ -399,11 +419,13 @@ dummy nodes to your store:
 
 ```js title="./store.jsx"
 const useStore = create((set, get) => ({
+  // highlight-start
   nodes: [
     { id: 'a', data: { label: 'oscillator' }, position: { x: 0, y: 0 } },
     { id: 'b', data: { label: 'gain' }, position: { x: 50, y: 50 } },
     { id: 'c', data: { label: 'output' }, position: { x: -50, y: 100 } }
   ],
+  // highlight-end
   ...
 }));
 ```
@@ -420,9 +442,11 @@ const useStore = create((set, get) => ({
 
 OK great, we have an interactive React Flow instance we can start playing with.
 We added some dummy nodes but they're just the default unstyled ones right now.
-In this step we'll add three custom nodes with interactive controls: an oscillator
-node and controls for the pitch and waveform type, a gain node and a control for
-the volume, and an output node and a button to toggle audio processing on and off.
+In this step we'll add three custom nodes with interactive controls:
+
+1. An oscillator node and controls for the pitch and waveform type.
+2. A gain node and a control for the volume
+3. An output node and a button to toggle audio processing on and off.
 
 Let's create a new folder, `nodes/`, and create a file for each custom node we
 want to create. Starting with the oscillator we need two controls and a source
@@ -463,8 +487,8 @@ export default function Osc({ id, data }) {
 
       <Handle type="source" position="bottom" />
     </div>
-  )
-}
+  );
+};
 ```
 
 :::info "nodrag" is important.
@@ -493,7 +517,7 @@ export const useStore = create((set, get) => ({
           ? { ...node, data: { ...node.data, ...data } }
           : node
       )
-    })
+    });
   },
 
   ...
@@ -508,16 +532,20 @@ whenever an input changes.
 ```jsx title="./src/nodes/Osc.jsx"
 import React from 'react';
 import { Handle } from 'reactflow';
+// highlight-next-line
 import { shallow } from 'zustand/shallow';
 
 import { useStore } from '../store';
 
+// highlight-start
 const selector = (id) => (store) => ({
   setFrequency: (e) => store.updateNode(id, { frequency: +e.target.value }),
   setType: (e) => store.updateNode(id, { type: e.target.value }),
 });
+// highlight-end
 
 export default function Osc({ id, data }) {
+  // highlight-next-line
   const { setFrequency, setType } = useStore(selector(id), shallow);
 
   return (
@@ -533,6 +561,7 @@ export default function Osc({ id, data }) {
             min="10"
             max="1000"
             value={data.frequency}
+            // highlight-next-line
             onChange={setFrequency}
           />
           <span>{data.frequency}Hz</span>
@@ -540,6 +569,7 @@ export default function Osc({ id, data }) {
 
         <label>
           <span>Waveform:</span>
+          // highlight-next-line
           <select className="nodrag" value={data.type} onChange={setType}>
             <option value="sine">sine</option>
             <option value="triangle">triangle</option>
@@ -563,7 +593,7 @@ The last piece of the puzzle is to tell React Flow how to render our custom node
 For that we need to create a `nodeTypes` object: the keys should correspond to a
 node's `type` and the value will be the React component to render.
 
-```jsx title"./src/App.jsx"
+```jsx title="./src/App.jsx"
 import React from 'react';
 import ReactFlow from 'reactflow';
 import { shallow } from 'zustand/shallow';
@@ -608,7 +638,8 @@ export default function App() {
 :::info Avoid unnecessary renders.
 
 It's important to define `nodeTypes` outside of the `<App />` component (or use
-React's `useMemo`) to avoid recomputing it ever render.
+React's [`useMemo`](https://react.dev/reference/react/useMemo)) to avoid recomputing
+it every render.
 :::
 
 If you've got the dev server running, don't panic if things haven't changed yet!
@@ -639,8 +670,19 @@ const useStore = create((set, get) => ({
   showEditor={false}
 />
 
+:::info Stuck on styling?
+
+If you're just implementing the code from this post as you go along, you'll
+see that your custom node doesn't look like the one in the preview above. To keep
+things easy to digest, we've left out styling in the code snippets.
+
+To learn how to style your custom nodes, check out our docs on
+[theming](https://reactflow.dev/docs/guides/theming/) or our example using
+[Tailwind](https://reactflow.dev/docs/examples/styling/tailwind/).
+:::
+
 Implementing a gain node is pretty much the same process, so we'll leave that one
-down to you. Instead, we'll turn our attention to the output node. This node will
+to you. Instead, we'll turn our attention to the output node. This node will
 have no parameters control, but we do want to toggle signal processing on and off.
 That's a bit difficult right now when we haven't implemented any audio code yet,
 so in the meantime we'll add just a flag to our store and an action to toggle it.
@@ -652,7 +694,7 @@ const useStore = create((set, get) => ({
   isRunning: false,
 
   toggleAudio() {
-    set({ isRunning: !get().isRunning })
+    set({ isRunning: !get().isRunning });
   },
 
   ...
@@ -726,6 +768,43 @@ The way we'll manage our audio graph is by hooking into the different actions in
 our store. So we might connect two audio nodes when the `addEdge` action is called,
 or update an audio node's properties when `updateNode` is called, and so on.
 
+:::warning Hardcoded nodes
+
+We hardcoded a couple of nodes in our store earlier on in this post but our audio
+graph doesn't know anything about them! For the finished project we can do away
+with all these hardcoded bits, but for now it's **really important** that we also
+hardcode some audio nodes.
+
+Here's how we did it:
+
+```js
+const context = new AudioContext();
+const nodes = new Map();
+
+// highlight-start
+const osc = context.createOscillator();
+osc.frequency.value = 220;
+osc.type = 'square';
+osc.start();
+// highlight-end
+
+// highlight-start
+const amp = context.createGain();
+amp.gain.value = 0.5;
+// highlight-end
+
+// highlight-next-line
+const out = context.destination;
+
+// highlight-start
+nodes.set('a', osc);
+nodes.set('b', amp);
+nodes.set('c', out);
+// highlight-end
+```
+
+:::
+
 ### 1. Node changes
 
 Right now, there are two types of node changes that can happen in our graph and
@@ -760,14 +839,14 @@ Now we'll want to update our `updateNode` action in the store to call this funct
 as part of the update:
 
 ```js title="./src/store.js"
-import { updateAudioNode } from './audio'
+import { updateAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
 
   updateNode(id, data) {
-    updateAudioNode(id, data)
-    set({ nodes: ... })
+    updateAudioNode(id, data);
+    set({ nodes: ... });
   },
 
   ...
@@ -802,7 +881,7 @@ export function removeAudioNode(id) {
   <TabItem value="store.js" label="store.js">
 
 ```js
-import { ..., removeAudioNode } from './audio'
+import { ..., removeAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -824,10 +903,10 @@ export const useStore = create((set, get) => ({
 const selector = store => ({
   ...,
   onNodesDelete: store.removeNodes
-})
+});
 
 export default function App() {
-  const store = useStore(selector, shallow)
+  const store = useStore(selector, shallow);
 
   return (
     <ReactFlow
@@ -837,7 +916,7 @@ export default function App() {
       <Background />
     </ReactFlow>
   )
-}
+};
 ```
 
   </TabItem>
@@ -874,7 +953,7 @@ export function connect(sourceId, targetId) {
   <TabItem value="./src/store.js" label="./src/store.js">
 
 ```js
-import { ..., connect } from './audio'
+import { ..., connect } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -882,7 +961,7 @@ export const useStore = create((set, get) => ({
   addEdge(data) {
     ...
 
-    connect(data.source, data.target)
+    connect(data.source, data.target);
   },
 
   ...
@@ -928,8 +1007,8 @@ export const useStore = create((set, get) => ({
 
   toggleAudio() {
     toggleAudio().then(() => {
-      set({ isRunning: isRunning() })
-    })
+      set({ isRunning: isRunning() });
+    });
   }
 }));
 ```
@@ -944,36 +1023,6 @@ Let's see what we have in action.
   dependencies={{ nanoid: 'latest', zustand: '4.3.6', twind: 'latest' }}
   showEditor={false}
 />
-
-:::info
-
-We hardcoded a couple of nodes in our store early on in this blog post but our
-audio graph doesn't know anything about them! In the next section we'll do away
-with all these hardcoded nodes and set up how to create them dynamically, but
-just for this demo you _also_ need to hardcode some nodes in your audio graph.
-
-Here's how we did it:
-
-```js
-const context = new AudioContext();
-const nodes = new Map();
-
-const osc = context.createOscillator();
-osc.frequency.value = 220;
-osc.type = 'square';
-osc.start();
-
-const amp = context.createGain();
-amp.gain.value = 0.5;
-
-const out = context.destination;
-
-nodes.set('a', osc);
-nodes.set('b', amp);
-nodes.set('c', out);
-```
-
-:::
 
 ### 4. Creating new nodes
 
@@ -1015,7 +1064,7 @@ by nanoid and we'll hardcode some initial data for each of the node types, so th
 only thing we need to pass in is the type of node to create:
 
 ```js title="./src/store.js"
-import { ..., createAudioNode } from './audio'
+import { ..., createAudioNode } from './audio';
 
 export const useStore = create((set, get) => ({
   ...
@@ -1025,23 +1074,23 @@ export const useStore = create((set, get) => ({
 
     switch(type) {
       case 'osc': {
-        const data = { frequency: 440, type: 'sine' }
-        const position = { x: 0, y: 0 }
+        const data = { frequency: 440, type: 'sine' };
+        const position = { x: 0, y: 0 };
 
-        createAudioNode(id, type, data)
-        set({ nodes: [...get().nodes, { id, type, data, position }] })
+        createAudioNode(id, type, data);
+        set({ nodes: [...get().nodes, { id, type, data, position }] });
 
-        break
+        break;
       }
 
       case 'amp': {
-        const data = { gain: 0.5 }
-        const position = { x: 0, y: 0 }
+        const data = { gain: 0.5 };
+        const position = { x: 0, y: 0 };
 
-        createAudioNode(id, type, data)
-        set({ nodes: [...get().nodes, { id, type, data, position }] })
+        createAudioNode(id, type, data);
+        set({ nodes: [...get().nodes, { id, type, data, position }] });
 
-        break
+        break;
       }
     }
   }
@@ -1077,7 +1126,7 @@ export default function App() {
       <Background />
     </ReactFlow>
   );
-}
+};
 ```
 
 We don't need anything fancy here, just a couple of buttons that trigger the
