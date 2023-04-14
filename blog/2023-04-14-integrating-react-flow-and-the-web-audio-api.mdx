@@ -21,11 +21,34 @@ state management, implementing custom nodes, and adding interactivity.
 
 <!--truncate-->
 
-This tutorial will go step-by-step. We may skip over some bits here and there,
-but for the most part if you're new to React Flow you should be able to follow
-along and have something working by the end. If you're already a React Flow wizard
-you might want to read the first section covering the Web Audio API and then jump
-to the third to see how things are tied together!
+<figure>
+  <img
+    src="/img/blog/webaudio/bleep-cafe.png"
+    alt="A screenshot of bleep.cafe, a visual audio programming environment. In
+    it, there are four nodes connected together: an xy pad, an oscillator node,
+    a volume node, and a master output."
+  />
+  <figcaption>
+    This is <a href="https://bleep.cafe">bleep.cafe</a>. We're going to learn everything we need to
+    know to build something just like it!
+  </figcaption>
+</figure>
+
+A while back I shared a project I was working on to the React Flow
+[discord server](https://discord.com/invite/RVmnytFmGW). It's called
+[bleep.cafe](https://bleep.cafe) and it's a little web app for learning digital
+synthesis all inside the browser. A lot of folks were interested to see how something
+like that was put together: most people don't even know **their browser has a whole
+synth engine built in!**
+
+This tutorial will take us step-by-step to build something similar. We may skip
+over some bits here and there, but for the most part if you're new to React Flow
+_or_ the Web Audio API you should be able to follow along and have something
+working by the end.
+
+If you're already a React Flow wizard you might want to read the first section
+covering the Web Audio API and then jump to the third to see how things are tied
+together!
 
 But first...
 
@@ -65,12 +88,12 @@ Here are the highlights you need to know:
 
 ### Hello, sound!
 
-They say show don't tell, but doing is even better. Let's see some of this stuff
-in action and build our first Web Audio app! We won't be doing anything too wild:
-we'll make a simple mouse [theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-).
-We'll use React for these examples and everything else moving forward (we're called
-React Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and
-hot reloading.
+Let's see some of this stuff in action and build our first Web Audio app! We won't
+be doing anything too wild: we'll make a simple mouse
+[theremin](http://www.thereminworld.com/Article/14232/what-s-a-theremin-). We'll
+use React for these examples and everything else moving forward (we're called React
+Flow after all!) and [`vite`](https://vitejs.dev) to handle bundling and hot
+reloading.
 
 If you prefer another bundler like parcel or Create React App that's cool too, they
 all do largely the same thing. You could also choose to use TypeScript instead
@@ -81,10 +104,10 @@ fully typed (and written entirely in TypeScript) so it's a breeze to use!
 npm create vite@latest -- --template react
 ```
 
-Vite will helpfully scaffold out a simple React application for us. We can delete
-the assets and jump right into `App.jsx`. Remove the demo component generated for
-us and start by creating a new AudioContext and putting together the nodes we need.
-We want an OscillatorNode to generate some tones and a GainNode to control the volume.
+Vite will scaffold out a simple React application for us, but can delete the assets
+and jump right into `App.jsx`. Remove the demo component generated for us and start
+by creating a new AudioContext and putting together the nodes we need. We want
+an OscillatorNode to generate some tones and a GainNode to control the volume.
 
 ```js title="./src/App.jsx"
 // Create the brain of our audio-processing graph
@@ -186,16 +209,20 @@ Here's what we put together, in case you weren't following along at home:
   showEditor={false}
 />
 
+Now let's put this knowledge to one side and take a look at how to build a React
+Flow project from scratch.
+
+:::info Already a React Flow pro?
 If you're already familiar with React Flow, you can comfortably skip over the
 next section and head straight on over to [making some sounds](#do-sound-to-it).
 For everyone else, let's take a look at how to build a React Flow project from
 scratch.
+:::
 
 ## Scaffolding a React Flow project
 
-With that done, we can now turn our attention to React Flow and the rest of the
-tutorial. Later on we'll take what we've learned about the Web Audio API, oscillators,
-and gain nodes and use React Flow to interactively build audio-processing graphs.
+Later on we'll take what we've learned about the Web Audio API, oscillators, and
+gain nodes and use React Flow to interactively build audio-processing graphs.
 For now though, we need to put together an empty React Flow app.
 
 We already have a React app set up with Vite, so we'll keep using that. If you
@@ -377,10 +404,10 @@ export default function App() {
 }
 ```
 
-OK that look's a bit weird, what's this `selector` thing all about? Zustand let's
-us supply a selector function to pluck out the exact bits of state we need from
-the store. Combined with the `shallow` equality function, this means we typically
-don't have re-renders when state we don't care about changes.
+So what's this `selector` thing all about? Zustand let's us supply a selector
+function to pluck out the exact bits of state we need from the store. Combined
+with the `shallow` equality function, this means we typically don't have re-renders
+when state we don't care about changes.
 
 Right now, our store is small and we actually want everything from it to help
 render our React Flow graph, but as we expand on it this selector will make sure
@@ -415,9 +442,11 @@ const useStore = create((set, get) => ({
 
 OK great, we have an interactive React Flow instance we can start playing with.
 We added some dummy nodes but they're just the default unstyled ones right now.
-In this step we'll add three custom nodes with interactive controls: an oscillator
-node and controls for the pitch and waveform type, a gain node and a control for
-the volume, and an output node and a button to toggle audio processing on and off.
+In this step we'll add three custom nodes with interactive controls:
+
+1. An oscillator node and controls for the pitch and waveform type.
+2. A gain node and a control for the volume
+3. An output node and a button to toggle audio processing on and off.
 
 Let's create a new folder, `nodes/`, and create a file for each custom node we
 want to create. Starting with the oscillator we need two controls and a source
@@ -653,7 +682,7 @@ To learn how to style your custom nodes, check out our docs on
 :::
 
 Implementing a gain node is pretty much the same process, so we'll leave that one
-down to you. Instead, we'll turn our attention to the output node. This node will
+to you. Instead, we'll turn our attention to the output node. This node will
 have no parameters control, but we do want to toggle signal processing on and off.
 That's a bit difficult right now when we haven't implemented any audio code yet,
 so in the meantime we'll add just a flag to our store and an action to toggle it.
