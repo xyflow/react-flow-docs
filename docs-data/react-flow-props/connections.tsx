@@ -46,6 +46,16 @@ const props = [
     default: 'undefined',
     description: 'Called after user stops a connection by click (called after onConnect)',
   },
+  {
+    name: 'isValidConnection',
+    type: (
+      <>
+        (edge: <Link to="/docs/api/edges/edge-options/#edge">Edge</Link>) =&gt; boolean
+      </>
+    ),
+    default: 'undefined',
+    description: 'Callback that returns true/false if a connection is valid/invalid.',
+  },
 ];
 
 export default props;
