@@ -47,6 +47,7 @@ export default function CodeViewer({
   isTypescript = false,
   customPreview = null,
   sandpackOptions = {},
+  showOpenInCodeSandbox = true,
 }) {
   const [files, setFiles] = useState(null);
   const scriptExtension = isTypescript ? 'tsx' : 'js';
@@ -128,7 +129,7 @@ export default function CodeViewer({
               </SandpackStack>
             </>
           ) : (
-            <SandpackPreview style={panelStyle} />
+            <SandpackPreview style={panelStyle} showOpenInCodeSandbox={showOpenInCodeSandbox} />
           )}
         </SandpackLayout>
       </SandpackProvider>
