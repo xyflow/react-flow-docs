@@ -103,6 +103,8 @@ import connectionLine from '../../docs-data/react-flow-props/connection-line';
 
 ## Keys
 
+Use these props to disable or change the node and edge delete key (default is backspace) or the keys to draw a selection box:
+
 import keys from '../../docs-data/react-flow-props/keys';
 
 <PropItems props={keys} />
