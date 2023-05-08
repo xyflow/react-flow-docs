@@ -1,5 +1,16 @@
 import React from 'react';
-import { useStoreApi, useReactFlow } from 'reactflow';
+import { useStoreApi, useReactFlow, Panel } from 'reactflow';
+
+const panelStyle = {
+  color: '#777',
+  fontSize: 12,
+};
+
+const buttonStyle = {
+  fontSize: 12,
+  marginRight: 5,
+  marginTop: 5,
+};
 
 export default () => {
   const store = useStoreApi();
@@ -21,13 +32,21 @@ export default () => {
   };
 
   return (
-    <aside>
+    <Panel position="top-left" style={panelStyle}>
       <div className="description">
         This is an example of how you can use the zoom pan helper hook
       </div>
-      <button onClick={focusNode}>focus node</button>
-      <button onClick={zoomIn}>zoom in</button>
-      <button onClick={zoomOut}>zoom out</button>
-    </aside>
+      <div>
+        <button onClick={focusNode} style={buttonStyle}>
+          focus node
+        </button>
+        <button onClick={zoomIn} style={buttonStyle}>
+          zoom in
+        </button>
+        <button onClick={zoomOut} style={buttonStyle}>
+          zoom out
+        </button>
+      </div>
+    </Panel>
   );
 };

@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ReactFlow, { useNodesState, useEdgesState } from 'reactflow';
+import ReactFlow, { useNodesState, useEdgesState, Panel } from 'reactflow';
 
 import { nodes as initialNodes, edges as initialEdges } from './initial-elements';
 
 import 'reactflow/dist/style.css';
 import './style.css';
+
+const panelStyle = {
+  fontSize: 12,
+  color: '#777',
+};
 
 const CollisionDetectionFlow = () => {
   // this ref stores the current dragged node
@@ -81,7 +86,6 @@ const CollisionDetectionFlow = () => {
 
   return (
     <div className="container">
-      <div className="instructions">Drop any node on top of another node to swap their colors</div>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -91,7 +95,11 @@ const CollisionDetectionFlow = () => {
         onNodeDragStart={onNodeDragStart}
         onNodeDrag={onNodeDrag}
         onNodeDragStop={onNodeDragStop}
-      />
+      >
+        <Panel position="top-left" style={panelStyle}>
+          Drop any node on top of another node to swap their colors
+        </Panel>
+      </ReactFlow>
     </div>
   );
 };

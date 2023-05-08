@@ -21,36 +21,35 @@ const defaultEdgeOptions = {
 
 const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 
-const CustomNodeFlow = () => {
+const DownloadImageFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   return (
-    <div className="wrapper" id="download-image">
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      nodeTypes={nodeTypes}
+      connectionLineStyle={connectionLineStyle}
+      connectionLineType="smoothstep"
+      snapToGrid={true}
+      snapGrid={snapGrid}
+      defaultViewport={defaultViewport}
+      fitView
+      attributionPosition="bottom-left"
+      defaultEdgeOptions={defaultEdgeOptions}
+      className="download-image"
+    >
+      <Controls />
+      <Background gap={25} />
       <DownloadButton />
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodeTypes={nodeTypes}
-        connectionLineStyle={connectionLineStyle}
-        connectionLineType="smoothstep"
-        snapToGrid={true}
-        snapGrid={snapGrid}
-        defaultViewport={defaultViewport}
-        fitView
-        attributionPosition="bottom-left"
-        defaultEdgeOptions={defaultEdgeOptions}
-      >
-        <Controls />
-        <Background gap={25} />
-      </ReactFlow>
-    </div>
+    </ReactFlow>
   );
 };
 
-export default CustomNodeFlow;
+export default DownloadImageFlow;

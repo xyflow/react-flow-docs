@@ -1,11 +1,16 @@
 import React, { useCallback } from 'react';
-import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from 'reactflow';
+import ReactFlow, {
+  addEdge,
+  ConnectionLineType,
+  Panel,
+  useNodesState,
+  useEdgesState,
+} from 'reactflow';
 import dagre from 'dagre';
-import 'reactflow/dist/style.css';
 
 import { initialNodes, initialEdges } from './nodes-edges.js';
 
-import './index.css';
+import 'reactflow/dist/style.css';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -76,21 +81,20 @@ const LayoutFlow = () => {
   );
 
   return (
-    <div className="layoutflow">
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        connectionLineType={ConnectionLineType.SmoothStep}
-        fitView
-      />
-      <div className="controls">
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      connectionLineType={ConnectionLineType.SmoothStep}
+      fitView
+    >
+      <Panel position="top-right">
         <button onClick={() => onLayout('TB')}>vertical layout</button>
         <button onClick={() => onLayout('LR')}>horizontal layout</button>
-      </div>
-    </div>
+      </Panel>
+    </ReactFlow>
   );
 };
 

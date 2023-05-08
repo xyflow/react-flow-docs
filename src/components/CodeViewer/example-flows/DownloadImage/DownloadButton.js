@@ -1,4 +1,5 @@
 import React from 'react';
+import { Panel } from 'reactflow';
 import { toPng } from 'html-to-image';
 
 function downloadImage(dataUrl) {
@@ -27,9 +28,11 @@ function DownloadButton() {
   };
 
   return (
-    <button className="download-btn" onClick={onClick}>
-      Download Image
-    </button>
+    <Panel position="top-right">
+      <button className="download-btn" onClick={onClick}>
+        Download Image
+      </button>
+    </Panel>
   );
 }
 

@@ -5,10 +5,9 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   useReactFlow,
+  Panel,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-
-import './index.css';
 
 const flowKey = 'example-flow';
 
@@ -71,11 +70,11 @@ const SaveRestore = () => {
       onConnect={onConnect}
       onInit={setRfInstance}
     >
-      <div className="save__controls">
+      <Panel position="top-right">
         <button onClick={onSave}>save</button>
         <button onClick={onRestore}>restore</button>
         <button onClick={onAdd}>add node</button>
-      </div>
+      </Panel>
     </ReactFlow>
   );
 };

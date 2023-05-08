@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
 import ReactFlow, { ReactFlowProvider, addEdge, useNodesState, useEdgesState } from 'reactflow';
+
+import Buttons from './Buttons';
+
 import 'reactflow/dist/style.css';
-
-import Sidebar from './Sidebar';
-
-import './index.css';
 
 const initialNodes = [
   {
@@ -33,21 +32,18 @@ const ProviderFlow = () => {
   const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   return (
-    <div className="zoompanflow">
-      <ReactFlowProvider>
-        <div className="reactflow-wrapper">
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
-            fitView
-          />
-        </div>
-        <Sidebar />
-      </ReactFlowProvider>
-    </div>
+    <ReactFlowProvider>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        fitView
+      >
+        <Buttons />
+      </ReactFlow>
+    </ReactFlowProvider>
   );
 };
 

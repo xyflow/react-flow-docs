@@ -1,5 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'reactflow';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+  Panel,
+} from 'reactflow';
+
 import 'reactflow/dist/style.css';
 
 const initialNodes = [
@@ -35,14 +43,6 @@ const initialEdges = [
   },
   { id: 'interaction-e1-3', source: 'interaction-1', target: 'interaction-3' },
 ];
-
-const buttonWrapperStyle = {
-  position: 'absolute',
-  left: 10,
-  top: 10,
-  zIndex: 4,
-  textTransform: 'none',
-};
 
 const onNodeDragStart = (event, node) => console.log('drag start', node);
 const onNodeDragStop = (event, node) => console.log('drag stop', node);
@@ -95,7 +95,7 @@ const InteractionFlow = () => {
       <MiniMap />
       <Controls />
 
-      <div style={buttonWrapperStyle}>
+      <Panel position="topleft">
         <div>
           <label htmlFor="draggable">
             <input
@@ -231,7 +231,7 @@ const InteractionFlow = () => {
             capture onElementClick
           </label>
         </div>
-      </div>
+      </Panel>
     </ReactFlow>
   );
 };

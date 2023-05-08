@@ -6,10 +6,9 @@ import ReactFlow, {
   Background,
   ReactFlowProvider,
   useReactFlow,
+  Panel,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-
-import './index.css';
 
 const initialNodes = [
   {
@@ -32,7 +31,7 @@ const initialEdges = [
   { id: 'e1-3', source: '1', target: '3' },
 ];
 
-const SmoothTransition = () => {
+const ZoomTransition = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
@@ -51,13 +50,12 @@ const SmoothTransition = () => {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       fitView
-      className="transition"
     >
-      <div className="controls">
+      <Panel position="top-right">
         <button onClick={() => zoomIn({ duration: 800 })}>zoom in</button>
         <button onClick={() => zoomOut({ duration: 800 })}>zoom out</button>
         <button onClick={handleTransform}>pan to center(0,0,1)</button>
-      </div>
+      </Panel>
       <Background />
     </ReactFlow>
   );
@@ -65,6 +63,6 @@ const SmoothTransition = () => {
 
 export default () => (
   <ReactFlowProvider>
-    <SmoothTransition />
+    <ZoomTransition />
   </ReactFlowProvider>
 );

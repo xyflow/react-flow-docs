@@ -1,5 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls } from 'reactflow';
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  addEdge,
+  MiniMap,
+  Controls,
+  Panel,
+} from 'reactflow';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { nodes as initialNodes, edges as initialEdges } from './nodes-edges';
@@ -45,7 +52,7 @@ const ControlsStyled = styled(Controls)`
   }
 `;
 
-const Flow = () => {
+const Flow = ({ children }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
@@ -63,6 +70,7 @@ const Flow = () => {
     >
       <MiniMapStyled />
       <ControlsStyled />
+      {children}
     </ReactFlowStyled>
   );
 };
@@ -77,10 +85,11 @@ export default () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <button onClick={toggleMode} style={{ position: 'absolute', zIndex: 100, left: 10, top: 10 }}>
-        switch mode
-      </button>
-      <Flow />
+      <Flow>
+        <Panel position="top-left">
+          <button onClick={toggleMode}>switch mode</button>
+        </Panel>
+      </Flow>
     </ThemeProvider>
   );
 };
