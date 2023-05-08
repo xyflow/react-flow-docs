@@ -29,7 +29,7 @@ const props = [
     type: 'function',
     default: 'undefined',
     description:
-      "Receives a connection { target: 'some-id', source: 'another-id', sourceHandle: 'source handle id or null', targetHandle: 'target handle id or null' } as param, returns a boolean",
+      "Better use isValidConnection of the ReactFlow component. This validation doesn't work on edge updates for example. Receives a connection { target: string, source: string, sourceHandle: string | null, targetHandle: string | null } as param, returns a boolean",
   },
   {
     name: 'isConnectable',
