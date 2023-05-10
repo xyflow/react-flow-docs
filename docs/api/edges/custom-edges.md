@@ -45,8 +45,7 @@ Custom edges are wrapped. They receive the following props:
 
 ### Custom edge examples
 
-- [Custom Edge](/docs/examples/edges/custom-edge)
-- [Edge with Button](/docs/examples/edges/edge-with-button/)
+- [Custom Edge](/docs/examples/edges/custom-edge) (edge with button, bi-directional edge, self-connecting edge)
 - [EdgeLabelRenderer](/docs/examples/edges/edge-label-renderer/)
 
 ### Helper components and functions

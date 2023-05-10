@@ -53,7 +53,7 @@
 
 /docs/examples/edges                  /docs/examples/edges/custom-edge
 /docs/examples/updatable-edge                  /docs/examples/edges/updatable-edge
-/docs/examples/edge-with-button                  /docs/examples/edges/edge-with-button
+/docs/examples/edge-with-button                  /docs/examples/edges/custom-edge
 /docs/examples/edge-types                  /docs/examples/edges/edge-types
 /docs/examples/custom-connectionline            /docs/examples/edges/custom-connectionline
 
