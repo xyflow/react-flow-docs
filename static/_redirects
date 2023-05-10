@@ -24,7 +24,7 @@
 /examples/custom-node/              /docs/examples/custom-node
 /examples/update-node/              /docs/examples/update-node
 /examples/edges/              /docs/examples/edges
-/examples/edge-with-button/              /docs/examples/edge-with-button
+/examples/edge-with-button/              /docs/examples/edges/custom-edge
 /examples/updatable-edge/              /docs/examples/updatable-edge
 /examples/horizontal/              /docs/examples/horizontal
 /examples/interaction/              /docs/examples/interaction
@@ -42,6 +42,7 @@
 /examples/contextual-zoom-features              /docs/examples/contextual-zoom
 /examples/drag-handle              /docs/examples/drag-handle
 /examples/floating-edges              /docs/examples/floating-edges
+/docs/examples/edges/edge-with-button  /docs/examples/edges/custom-edge
 
 # example categories
 /docs/examples/update-node              /docs/examples/nodes/update-node
