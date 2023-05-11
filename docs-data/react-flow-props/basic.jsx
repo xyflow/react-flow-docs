@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'nodes',
+    name: 'nodes?',
     type: (
       <>
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
@@ -17,7 +17,7 @@ const props = [
     ),
   },
   {
-    name: 'edges',
+    name: 'edges?',
     type: (
       <>
         <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
@@ -31,7 +31,7 @@ const props = [
     ),
   },
   {
-    name: 'defaultNodes',
+    name: 'defaultNodes?',
     type: (
       <>
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]
@@ -45,7 +45,7 @@ const props = [
     ),
   },
   {
-    name: 'defaultEdges',
+    name: 'defaultEdges?',
     type: (
       <>
         <Link to="/docs/api/edges/edge-options/#typescript">Edge</Link>[]
@@ -59,40 +59,37 @@ const props = [
     ),
   },
   {
-    name: 'onNodesChange',
+    name: 'onNodesChange?',
     type: (
       <>
         (nodeChanges: <Link to="/docs/api/types/#nodechange">NodeChange</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description:
       'Called on drag, select and remove - handler for adding interactivity for a controlled flow',
   },
   {
-    name: 'onEdgesChange',
+    name: 'onEdgesChange?',
     type: (
       <>
         (edgeChanges: <Link to="/docs/api/types/#edgechange">EdgeChange</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description:
       'Called on select and remove - handler for adding interactivity for a controlled flow',
   },
   {
-    name: 'onConnect',
+    name: 'onConnect?',
     type: (
       <>
         (connection: <Link to="/docs/api/types/#connection">Connection</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Called when user connects two nodes in a controlled flow',
   },
   {
-    name: 'nodeTypes',
-    type: 'object',
+    name: 'nodeTypes?',
+    type: '{ [key: string]: React.ComponentType<NodeProps> }',
     default: '{ input: InputNode, default: DefaultNode, output: OutputNode, group: GroupNode }',
     description: (
       <>
@@ -101,8 +98,8 @@ const props = [
     ),
   },
   {
-    name: 'edgeTypes',
-    type: 'object',
+    name: 'edgeTypes?',
+    type: '{ [key: string]: React.ComponentType<EdgeProps> }',
     default:
       '{ default: BezierEdge, straight: StraightEdge, step: StepEdge, smoothstep: SmoothStepEdge }',
     description: (
@@ -112,26 +109,24 @@ const props = [
     ),
   },
   {
-    name: 'nodeOrigin',
-    type: '[number, number] (number between 0 - 1)',
-    default: '[0,0]}',
+    name: 'nodeOrigin?',
+    type: '[number, number]',
+    default: '[0,0]',
     description: (
       <>
         Position origin [x-origin, y-origin]. center = <code>[0.5, 0.5]</code>, bottom-right ={' '}
-        <code>[1, 1]</code>
+        <code>[1, 1]</code>. Values should be between <code>0</code> and <code>1</code>.
       </>
     ),
   },
   {
-    name: 'style',
+    name: 'style?',
     type: 'CSSProperties',
-    default: 'undefined',
     description: 'CSS properties for the wrapper div',
   },
   {
-    name: 'className',
+    name: 'className?',
     type: 'string',
-    default: 'undefined',
     description: 'Additional class name for the wrapper div',
   },
 ];

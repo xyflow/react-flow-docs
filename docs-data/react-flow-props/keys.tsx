@@ -2,8 +2,8 @@ import React from 'react';
 
 const props = [
   {
-    name: 'deleteKeyCode',
-    type: 'string or string[] or null',
+    name: 'deleteKeyCode?',
+    type: 'string | string[] | null',
     default: "'Backspace'",
     description: (
       <>
@@ -13,8 +13,8 @@ const props = [
     ),
   },
   {
-    name: 'selectionKeyCode',
-    type: 'string or string[] or null',
+    name: 'selectionKeyCode?',
+    type: 'string | string[] | null',
     default: "'Shift'",
     description: (
       <>
@@ -24,8 +24,8 @@ const props = [
     ),
   },
   {
-    name: 'multiSelectionKeyCode',
-    type: 'string or string[] or null',
+    name: 'multiSelectionKeyCode?',
+    type: 'string | string[] | null',
     default: "'Meta'",
     description: (
       <>
@@ -35,8 +35,8 @@ const props = [
     ),
   },
   {
-    name: 'zoomActivationKeyCode',
-    type: 'string or string[] or null',
+    name: 'zoomActivationKeyCode?',
+    type: 'string | string[] | null',
     default: "'Meta'",
     description: (
       <>
@@ -48,8 +48,8 @@ const props = [
     ),
   },
   {
-    name: 'panActivationKeyCode',
-    type: 'string or string[] or null',
+    name: 'panActivationKeyCode?',
+    type: 'string | string[] | null',
     default: "'Space'",
     description: (
       <>

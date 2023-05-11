@@ -3,28 +3,26 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'connectionRadius',
+    name: 'connectionRadius?',
     type: 'number',
     default: '20',
     description:
       'Radius around a handle where you can drop the connection line to create a new edge',
   },
   {
-    name: 'connectionLineType',
+    name: 'connectionLineType?',
     type: <Link to="/docs/api/types#connectionlinetype">ConnectionLineType</Link>,
-    default: '"default"',
+    default: "'default'",
     description: 'Available types are: "default" (bezier), "smoothstep", "step" and "straight".',
   },
   {
-    name: 'connectionLineStyle',
+    name: 'connectionLineStyle?',
     type: 'CSSProperties',
-    default: 'undefined',
     description: 'Connection style as SVG attributes',
   },
   {
-    name: 'connectionLineComponent',
-    type: 'React component',
-    default: 'undefined',
+    name: 'connectionLineComponent?',
+    type: 'React.Component',
     description: (
       <>
         Custom connection line component
@@ -33,9 +31,8 @@ const props = [
     ),
   },
   {
-    name: 'connectionLineWrapperStyles',
+    name: 'connectionLineWrapperStyles?',
     type: 'CSSProperties',
-    default: 'undefined',
     description: 'Styles for the connection line SVG wrapper',
   },
 ];
