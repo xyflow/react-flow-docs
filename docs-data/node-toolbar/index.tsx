@@ -9,6 +9,12 @@ const props = [
     description: 'The position of the toolbar relative the node.',
   },
   {
+    name: 'align?',
+    type: <Link to="/docs/api/types/#align">Align</Link>,
+    default: "'center'",
+    description: 'The alignment of the toolbar.',
+  },
+  {
     name: 'offset?',
     type: 'number',
     default: '10',

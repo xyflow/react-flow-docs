@@ -19,12 +19,13 @@ import { useUpdateNodeInternals } from 'reactflow';
 function UpdateNodeButton() {
   const updateNodeInternals = useUpdateNodeInternals();
 
+  // you can pass a string or an array of strings to update multiple node internals
   return <button onClick={() => updateNodeInternals('node-id')}></button>;
 }
 ```
 
 ### Typescript
 
-The returned function has the type `UpdateNodeInternal`. Which is `(nodeId: string) => void;`:
+The returned function has the type `UpdateNodeInternal = (nodeId: string | string[]) => void;`:
 
 `useUpdateNodeInternals(): UpdateNodeInternals`

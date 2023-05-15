@@ -5,6 +5,12 @@ sidebar_position: 10
 
 On this site we collect all types that don't have a place on one of the existing sites.
 
+### `Align`
+
+```ts
+type Align = 'start' | 'center' | 'end';
+```
+
 ### `Connection`
 
 ```ts
