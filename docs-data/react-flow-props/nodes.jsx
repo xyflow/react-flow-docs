@@ -3,18 +3,17 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'onNodeClick',
+    name: 'onNodeClick?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Called when user clicks a node',
   },
   {
-    name: 'onNodeDragStart',
+    name: 'onNodeDragStart?',
     type: 'function',
     type: (
       <>
@@ -23,11 +22,10 @@ const props = [
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node drag start',
   },
   {
-    name: 'onNodeDrag',
+    name: 'onNodeDrag?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
@@ -35,11 +33,10 @@ const props = [
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node drag',
   },
   {
-    name: 'onNodeDragStop',
+    name: 'onNodeDragStop?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
@@ -47,78 +44,74 @@ const props = [
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node drag stop',
   },
   {
-    name: 'onNodeMouseEnter',
+    name: 'onNodeMouseEnter?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node mouse enter',
   },
   {
-    name: 'onNodeMouseMove',
+    name: 'onNodeMouseMove?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node mouse move',
   },
   {
-    name: 'onNodeMouseLeave',
+    name: 'onNodeMouseLeave?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node mouse leave',
   },
   {
-    name: 'onNodeContextMenu',
+    name: 'onNodeContextMenu?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node context menu',
   },
   {
-    name: 'onNodeDoubleClick',
+    name: 'onNodeDoubleClick?',
     type: (
       <>
         (event: React.MouseEvent, node:{' '}
         <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Node double click',
   },
   {
-    name: 'onNodesDelete',
+    name: 'onNodesDelete?',
     type: (
       <>
         (nodes: <Link to="/docs/api/nodes/node-options/#typescript">Node</Link>[]) =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Called when nodes get deleted',
   },
   {
-    name: 'onNodesChange',
-    type: <>(nodeChanges: NodeChange[]) =&gt; void</>,
-    default: 'undefined',
+    name: 'onNodesChange?',
+    type: (
+      <>
+        (nodeChanges: <Link to="/docs/api/types/#nodechange">NodeChange</Link>[]) =&gt; void
+      </>
+    ),
     description: 'Handler for adding interactivity for a controlled flow',
   },
 ];

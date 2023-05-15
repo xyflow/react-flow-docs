@@ -85,14 +85,14 @@ const props = [
     type: 'number',
   },
   {
-    name: 'style?',
+    name: 'style',
     description: 'Any styles set on the React Flow node.',
     type: 'CSSProperties',
   },
   {
-    name: 'onClick?',
+    name: 'onClick',
     description: 'An optional click handler for the minimap node.',
-    type: '(event: MouseEvent, id: string) => void',
+    type: '(event: React.MouseEvent, id: string) => void',
   },
 ];
 

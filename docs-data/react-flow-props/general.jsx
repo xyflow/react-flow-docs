@@ -3,20 +3,18 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'onInit',
+    name: 'onInit?',
     type: (
       <>
         (reactFlowInstance: <Link to="/docs/api/react-flow-instance/">ReactFlowInstance</Link>)
         =&gt; void
       </>
     ),
-    default: 'undefined',
     description: 'Called when React Flow is initialized',
   },
   {
-    name: 'onError',
+    name: 'onError?',
     type: <>(code: string, message: string) =&gt; void</>,
-    default: 'undefined',
     description: (
       <>
         Called when an error happens:{' '}

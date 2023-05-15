@@ -3,9 +3,8 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'proOptions',
-    type: 'object',
-    default: 'undefined',
+    name: 'proOptions?',
+    type: 'object (see below)',
     description: (
       <>
         This object contains options that are only intended for subscribers of{' '}
@@ -17,7 +16,7 @@ const props = [
     ),
   },
   {
-    name: 'proOptions.hideAttribution',
+    name: 'proOptions.hideAttribution?',
     type: 'boolean',
     default: 'false',
     description: (

@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'nodesDraggable',
+    name: 'nodesDraggable?',
     type: 'boolean',
     default: 'true',
     description: (
@@ -12,13 +12,13 @@ const props = [
         <code>draggable</code> node option.{' '}
         <strong>
           If you want to use mouse handlers for non-draggable nodes, you need to add the class name
-          "nopan" to the node.
+          <code>"nopan"</code> to the node.
         </strong>
       </>
     ),
   },
   {
-    name: 'nodesConnectable',
+    name: 'nodesConnectable?',
     type: 'boolean',
     default: 'true',
     description: (
@@ -29,7 +29,7 @@ const props = [
     ),
   },
   {
-    name: 'nodesFocusable',
+    name: 'nodesFocusable?',
     type: 'boolean',
     default: 'true',
     description: (
@@ -41,7 +41,7 @@ const props = [
     ),
   },
   {
-    name: 'edgesFocusable',
+    name: 'edgesFocusable?',
     type: 'boolean',
     default: 'true',
     description: (
@@ -53,7 +53,7 @@ const props = [
     ),
   },
   {
-    name: 'elementsSelectable',
+    name: 'elementsSelectable?',
     type: 'boolean',
     default: 'true',
     description: (
@@ -64,43 +64,39 @@ const props = [
     ),
   },
   {
-    name: 'autoPanOnConnect',
+    name: 'autoPanOnConnect?',
     type: 'boolean',
     default: 'true',
     description: 'Auto pan when connection line is dragged to the edge of the pane',
   },
   {
-    name: 'autoPanOnNodeDrag',
+    name: 'autoPanOnNodeDrag?',
     type: 'boolean',
     default: 'true',
     description: 'Auto pan when node is dragged to the edge of the pane',
   },
   {
-    name: 'panOnDrag',
+    name: 'panOnDrag?',
     type: 'boolean | number[]',
     default: 'true',
     description:
       'Enables pan on drag. Besides a boolean you can pass an array of mouse buttons to enable panning.',
   },
   {
-    name: 'selectionOnDrag',
+    name: 'selectionOnDrag?',
     type: 'boolean',
     default: 'false',
     description: 'Starts to draw a selection on drag',
   },
   {
-    name: 'selectionMode',
-    type: (
-      <>
-        <Link to="/docs/api/types/#selectionmode">SelectionMode</Link>
-      </>
-    ),
+    name: 'selectionMode?',
+    type: <Link to="/docs/api/types/#selectionmode">SelectionMode</Link>,
     default: 'SelectionMode.Full',
     description:
       'Decide if nodes needs to be fully (SelectionMode.Full) inside the selection or just partially (SelectionMode.Partial).',
   },
   {
-    name: 'panOnScroll',
+    name: 'panOnScroll?',
     type: 'boolean',
     default: 'false',
     description: (
@@ -111,9 +107,8 @@ const props = [
     ),
   },
   {
-    name: 'panOnScrollSpeed',
+    name: 'panOnScrollSpeed?',
     type: 'number',
-    default: 'undefined',
     description: (
       <>
         Controls how fast the canvas is moved while using the mousewheel. Only has an effect if{' '}
@@ -122,59 +117,50 @@ const props = [
     ),
   },
   {
-    name: 'panOnScrollMode',
-    type: (
-      <>
-        <Link to="/docs/api/types/#panonscrollmode">PanOnScrollMode</Link> ('free', 'vertical' or
-        'horizontal')
-      </>
-    ),
+    name: 'panOnScrollMode?',
+    type: <Link to="/docs/api/types/#panonscrollmode">PanOnScrollMode</Link>,
     default: "'free'",
     description: 'Enables certain scroll directions',
   },
   {
-    name: 'zoomOnScroll',
+    name: 'zoomOnScroll?',
     type: 'boolean',
     default: 'true',
     description: 'Zoom the graph in and out using the mousewheel or trackpad',
   },
   {
-    name: 'zoomOnPinch',
+    name: 'zoomOnPinch?',
     type: 'boolean',
     default: 'true',
     description: 'Zoom the graph in and out using pinch',
   },
   {
-    name: 'zoomOnDoubleClick',
+    name: 'zoomOnDoubleClick?',
     type: 'boolean',
     default: 'true',
     description: 'Enables zoom on double click',
   },
   {
-    name: 'selectNodesOnDrag',
+    name: 'selectNodesOnDrag?',
     type: 'boolean',
     default: 'true',
     description: 'Enables to select nodes on drag',
   },
   {
-    name: 'elevateNodesOnSelect',
+    name: 'elevateNodesOnSelect?',
     type: 'boolean',
     default: 'true',
     description: 'Nodes get a higher zIndex if they are selected and this prop is set to true',
   },
   {
-    name: 'connectOnClick',
+    name: 'connectOnClick?',
     type: 'boolean',
     default: 'true',
     description: 'Enables to create connections on touch devices and via mouse click',
   },
   {
-    name: 'connectionMode',
-    type: (
-      <>
-        <Link to="/docs/api/types/#connectionmode">ConnectionMode</Link> ('strict' or 'loose')
-      </>
-    ),
+    name: 'connectionMode?',
+    type: <Link to="/docs/api/types/#connectionmode">ConnectionMode</Link>,
     default: "'strict'",
     description: (
       <>
@@ -184,7 +170,7 @@ const props = [
     ),
   },
   {
-    name: 'disableKeyboardA11y',
+    name: 'disableKeyboardA11y?',
     type: 'boolean',
     default: 'false',
     description: 'With this prop you can disable the keyboard accessibility features',
