@@ -2,17 +2,12 @@ import { Handle, Position, useStore } from 'reactflow';
 
 const connectionNodeIdSelector = (state) => state.connectionNodeId;
 
-export default function CustomNode({ id, isConnectable }) {
+export default function CustomNode({ id }) {
   const connectionNodeId = useStore(connectionNodeIdSelector);
-  const endHandle = useStore((s) => s.connectionEndHandle);
 
   const isConnecting = !!connectionNodeId;
   const isTarget = connectionNodeId && connectionNodeId !== id;
-
-  const targetHandleStyle = { zIndex: isTarget ? 3 : 1 };
   const label = isTarget ? 'Drop here' : 'Drag to connect';
-
-  console.log(isConnecting, endHandle);
 
   return (
     <div className="customNode">
@@ -23,16 +18,12 @@ export default function CustomNode({ id, isConnectable }) {
           backgroundColor: isTarget ? '#ffcce3' : '#ccd9f6',
         }}
       >
-        <Handle
-          className="targetHandle"
-          style={{ zIndex: 2 }}
-          position={Position.Right}
-          type="source"
-        />
+        {!isConnecting && (
+          <Handle className="customHandle" position={Position.Right} type="source" />
+        )}
 
         <Handle
-          className="targetHandle"
-          style={targetHandleStyle}
+          className="customHandle"
           position={Position.Left}
           type="target"
           isConnectableStart={false}
