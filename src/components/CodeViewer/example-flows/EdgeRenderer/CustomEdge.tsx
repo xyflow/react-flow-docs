@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { EdgeProps, getBezierPath, EdgeLabelRenderer } from 'reactflow';
+import { EdgeProps, getBezierPath, EdgeLabelRenderer, BaseEdge } from 'reactflow';
 
 const CustomEdge: FC<EdgeProps> = ({
   id,
@@ -22,7 +22,7 @@ const CustomEdge: FC<EdgeProps> = ({
 
   return (
     <>
-      <path id={id} className="react-flow__edge-path" d={edgePath} />
+      <BaseEdge path={edgePath} id={id} />
       <EdgeLabelRenderer>
         <div
           style={{
