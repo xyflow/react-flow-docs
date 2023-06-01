@@ -22,7 +22,7 @@ const CustomEdge: FC<EdgeProps> = ({
 
   return (
     <>
-      <BaseEdge path={edgePath} id={id} />
+      <BaseEdge id={id} path={edgePath} />
       <EdgeLabelRenderer>
         <div
           style={{

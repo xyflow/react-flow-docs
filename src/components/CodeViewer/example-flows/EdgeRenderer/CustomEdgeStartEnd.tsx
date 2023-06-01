@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { EdgeProps, getBezierPath, EdgeLabelRenderer } from 'reactflow';
+import { EdgeProps, getBezierPath, EdgeLabelRenderer, BaseEdge } from 'reactflow';
 
 // this is a little helper component to render the actual edge label
 function EdgeLabel({ transform, label }: { transform: string; label: string }) {
@@ -42,7 +42,7 @@ const CustomEdge: FC<EdgeProps> = ({
 
   return (
     <>
-      <path id={id} className="react-flow__edge-path" d={edgePath} />
+      <BaseEdge id={id} path={edgePath} />
       <EdgeLabelRenderer>
         {data.startLabel && (
           <EdgeLabel
