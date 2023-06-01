@@ -2,35 +2,27 @@ import React, { useMemo } from 'react';
 import { getConnectedEdges, Handle, useNodeId, useStore } from 'reactflow';
 
 const selector = (s) => ({
-    nodeInternals: s.nodeInternals,
-    edges: s.edges,
+  nodeInternals: s.nodeInternals,
+  edges: s.edges,
 });
 
 const CustomHandle = (props) => {
-    const { nodeInternals, edges } = useStore(selector);
-    const nodeId = useNodeId();
+  const { nodeInternals, edges } = useStore(selector);
+  const nodeId = useNodeId();
 
-    const isHandleConnectable = useMemo(() => {
-        if (typeof props.isConnectable === 'function') {
-            const node = nodeInternals.get(nodeId);
-            const connectedEdges = getConnectedEdges([node], edges);
+  const isConnectable = useMemo(() => {
+    const node = nodeInternals.get(nodeId);
+    const connectedEdges = getConnectedEdges([node], edges);
+    const maxConnections = props.maxConnections ?? Infinity;
 
-            return props.isConnectable({ node, connectedEdges });
-        }
+    // The `isConnectable` prop can be passed to any Handle to enable/disable
+    // it: it's part of React Flow!
+    //
+    // https://reactflow.dev/docs/api/nodes/handle/#isconnectable
+    return props.isConnectable && connectedEdges.length < maxConnections;
+  }, [nodeInternals, edges, nodeId, props.isConnectable, props.maxConnections]);
 
-        if (typeof props.isConnectable === 'number') {
-            const node = nodeInternals.get(nodeId);
-            const connectedEdges = getConnectedEdges([node], edges);
-
-            return connectedEdges.length < props.isConnectable;
-        }
-
-        return props.isConnectable;
-    }, [nodeInternals, edges, nodeId, props.isConnectable]);
-
-    return (
-        <Handle {...props} isConnectable={isHandleConnectable}></Handle>
-    );
+  return <Handle {...props} type="target" isConnectable={isConnectable}></Handle>;
 };
 
 export default CustomHandle;
