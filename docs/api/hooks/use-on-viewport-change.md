@@ -31,7 +31,7 @@ function ViewportChangeLogger() {
 ### Typescript
 
 ```js
-useViewport({
+useOnViewportChange({
   onStart?: (viewport: Viewport) => void,
   onChange?: (viewport: Viewport) => void,
   onEnd?: (viewport: Viewport) => void
