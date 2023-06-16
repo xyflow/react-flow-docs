@@ -80,7 +80,7 @@ function Flow() {
 When you are working with [custom nodes](/docs/api/nodes/custom-nodes) you can define the data type by passing a parameter:
 
 ```ts
-import { Node } from 'reactflow';
+import { Node, NodeProps } from 'reactflow';
 
 type NodeData = {
   value: number;
