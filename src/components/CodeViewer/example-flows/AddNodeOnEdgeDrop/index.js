@@ -31,7 +31,7 @@ const AddNodeOnEdgeDrop = () => {
   const connectingNodeId = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-  const { project } = useReactFlow();
+  const { project, getZoom } = useReactFlow();
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   const onConnectStart = useCallback((_, { nodeId }) => {
@@ -49,7 +49,7 @@ const AddNodeOnEdgeDrop = () => {
         const newNode = {
           id,
           // we are removing the half of the node width (75) to center the new node
-          position: project({ x: event.clientX - left - 75, y: event.clientY - top }),
+          position: project({ x: event.clientX - left - 75 * getZoom(), y: event.clientY - top }),
           data: { label: `Node ${id}` },
         };
 
