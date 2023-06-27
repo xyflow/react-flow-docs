@@ -3,22 +3,20 @@ import Link from '@docusaurus/Link';
 
 const props = [
   {
-    name: 'type?',
+    name: 'type',
     type: "'source' | 'target'",
-    default: "'source'",
     description: 'Defines the handle type',
+  },
+  {
+    name: 'position',
+    type: <Link to="/docs/api/types/#position">Position</Link>,
+    description: 'Handle position',
   },
   {
     name: 'id?',
     type: 'string',
     description:
       'You only need this when you have multiple source or target handles (otherwise the node id is used)',
-  },
-  {
-    name: 'position?',
-    type: "'left' | 'right' | 'top' | 'bottom'",
-    default: "'top' if type == 'target' | 'bottom' if type == 'source'",
-    description: 'Handle position',
   },
   {
     name: 'onConnect?',

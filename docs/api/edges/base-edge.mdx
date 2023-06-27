@@ -38,6 +38,10 @@ You can pass the following props to the `<BaseEdge />` component:
 - `labelBgPadding`: number
 - `labelBgBorderRadius`: number
 - `style`: svg attributes
-- `markerStart`: string or [marker config](/docs/api/edges/edge-options/#edgemarker)
-- `markerEnd`: string or [marker config](/docs/api/edges/edge-options/#edgemarker)
+- `markerStart`: string
+- `markerEnd`: string
 - `interactionWidth`: number - if `0`, no extra helper edge will be rendered
+
+### Custom Marker
+
+If you want to use an edge marker with a `BaseEdge` component, you need to pass the `markerStart` or `markerEnd` props of `EdgeProps` to the `BaseEdge`.

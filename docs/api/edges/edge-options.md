@@ -42,6 +42,10 @@ You can find an example with different edges in the [edge types example](/docs/e
 - `orient`: defines rotation - `'auto'` | `'auto-start-reverse'` | `number` (optional)
 - `strokeWidth`
 
+## Markers
+
+An edge is a SVG path. SVG paths have a [markerStart](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-start) and a [markerEnd](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end) attribute. In SVG world you can create a [marker definition](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end#example) and then use the id on an SVG path element. React Flow comes with two predefined markers. An arrow and a closed arrow. The marker definitions get created dynamically if one of the edges use the `markerStart` or `markerEnd` option. If you want to create a custom marker, you can add marker definitions within your app and use the ids as markerStart and markerEnd edge options as seen in the [Edge Marker example](/docs/examples/edges/markers/).
+
 ## Typescript
 
 ### Edge

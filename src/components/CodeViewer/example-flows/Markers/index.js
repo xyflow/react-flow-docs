@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactFlow, { Background, MarkerType } from 'reactflow';
+
 import 'reactflow/dist/style.css';
+
+import CustomEdge from './CustomEdge';
 
 const defaultNodes = [
   {
@@ -37,6 +40,11 @@ const defaultNodes = [
     id: 'G',
     position: { x: 20, y: 450 },
     data: { label: 'G' },
+  },
+  {
+    id: 'H',
+    position: { x: 450, y: 500 },
+    data: { label: 'H' },
   },
 ];
 
@@ -76,6 +84,7 @@ const defaultEdges = [
     id: 'E->F',
     source: 'E',
     target: 'F',
+    // this id gets defined by the marker definition you can see in the React component below
     markerEnd: 'logo',
     label: 'custom marker',
   },
@@ -95,7 +104,21 @@ const defaultEdges = [
       stroke: '#FF0072',
     },
   },
+  {
+    id: 'E->H',
+    source: 'E',
+    target: 'H',
+    markerEnd: {
+      type: MarkerType.Arrow,
+      color: '#FF0072',
+    },
+    label: 'custom edge with marker',
+  },
 ];
+
+const edgeTypes = {
+  custom: CustomEdge,
+};
 
 export default function MarkersExample() {
   return (
@@ -188,7 +211,7 @@ export default function MarkersExample() {
           </marker>
         </defs>
       </svg>
-      <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges}>
+      <ReactFlow defaultNodes={defaultNodes} defaultEdges={defaultEdges} edgeTypes={edgeTypes}>
         <Background />
       </ReactFlow>
     </>
