@@ -4,7 +4,7 @@ sidebar_position: 5
 ---
 
 import CodeViewer from '/src/components/CodeViewer';
-const editorOptions = { editorHeight: 500 };
+const editorOptions = { editorHeight: '50vh' };
 
 We regularly get asked how to handle layouting in React Flow. While we could build
 some basic layouting into React Flow, we believe that **you know your app's
@@ -21,8 +21,8 @@ testing out the different layouting options.
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow1-Empty"
-  editorOptions={editorOptions}
-  applyStyles={false}
+  options={editorOptions}
+  applyStyles={true}
   additionalFiles={['nodes-edges.js']}
 />
 
@@ -60,7 +60,7 @@ to organise your flows into a tree, _we highly recommend dagre_.
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow2-Dagre"
-  editorOptions={editorOptions}
+  options={editorOptions}
   applyStyles={false}
   additionalFiles={['nodes-edges.js']}
   dependencies={{ '@dagrejs/dagre': 'latest' }}
@@ -103,7 +103,7 @@ layouts, and enclosure diagrams.
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow3-D3-Hierarchy"
-  editorOptions={editorOptions}
+  options={editorOptions}
   applyStyles={false}
   additionalFiles={['nodes-edges.js']}
   dependencies={{ 'd3-hierarchy': 'latest' }}
@@ -133,7 +133,7 @@ First, let's see what it does:
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow4-D3-Force"
-  editorOptions={editorOptions}
+  options={editorOptions}
   applyStyles={false}
   additionalFiles={['nodes-edges.js', 'collide.js']}
   dependencies={{ 'd3-force': 'latest', 'd3-quadtree': 'latest' }}
@@ -176,7 +176,7 @@ to d3-force: the constraints
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow5-Cola"
-  editorOptions={editorOptions}
+  options={editorOptions}
   applyStyles={false}
   additionalFiles={['nodes-edges.js']}
   dependencies={{ webcola: 'latest' }}
@@ -193,7 +193,7 @@ provides a huge number of options for configuring the layout of your graph.
 
 <CodeViewer
   codePath="api-flows/LayoutingFlow6-Elkjs"
-  editorOptions={editorOptions}
+  options={editorOptions}
   applyStyles={false}
   additionalFiles={['nodes-edges.js']}
   dependencies={{ elkjs: 'latest' }}
