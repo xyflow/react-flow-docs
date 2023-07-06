@@ -13,14 +13,11 @@ import 'reactflow/dist/style.css';
 
 const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
 
-const getNodeDimensions = ({ id }) =>
-  document.querySelector(`[data-id="${id}"]`).getBoundingClientRect();
-
 const getLayoutedElements = (nodes, edges, options) => {
   g.setGraph({ rankdir: options.direction });
 
   edges.forEach((edge) => g.setEdge(edge.source, edge.target));
-  nodes.forEach((node) => g.setNode(node.id, getNodeDimensions(node)));
+  nodes.forEach((node) => g.setNode(node.id, node));
 
   Dagre.layout(g);
 
