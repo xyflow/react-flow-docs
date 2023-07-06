@@ -28,36 +28,13 @@ testing out the different layouting options.
 
 ## Layouting Nodes
 
-For layouting nodes we have a few options, you may want to consider:
+For layouting nodes, there are a few third-party libraries that we think are worth
+checking out:
 
-<div className="next-steps" style={{ margin: '0 0 var(--ifm-paragraph-margin-bottom)' }}>
-  <a className="next-steps__item" href="https://github.com/dagrejs/dagre">
-    <span className="next-steps__item-sublabel">Directed graph layout for JavaScript</span>
-    <span>
-      dagre <sup>⬈</sup>
-    </span>
-  </a>
-  <a className="next-steps__item" href="https://github.com/d3/d3-hierarchy">
-    <span className="next-steps__item-sublabel">
-      2D layout algorithms for visualizing hierarchical data.
-    </span>
-    <span>
-      d3-hierarchy <sup>⬈</sup>
-    </span>
-  </a>
-  <a className="next-steps__item" href="https://github.com/kieler/elkjs">
-    <span className="next-steps__item-sublabel">ELK's layout algorithms for JavaScript</span>
-    <span>
-      elkjs <sup>⬈</sup>
-    </span>
-  </a>
-  <a className="next-steps__item" href="#honourable-mentions">
-    <span className="next-steps__item-sublabel">
-      Alternatives we haven't had time to explore yet
-    </span>
-    <span>Honourable mentions</span>
-  </a>
-</div>
+- Dagre
+- D3-Hierarchy
+- D3-Force
+- ELK
 
 We've loosely ordered these options from simplest to most complex, where dagre
 is largely a drop-in solution and elkjs is a full-blown highly configurable
@@ -69,6 +46,9 @@ you can refer back to [here](https://reactflow.dev/docs/examples/layout/dagre/)
 and [here](https://reactflow.dev/docs/examples/layout/elkjs/).
 
 ### Dagre
+
+- Repo: https://github.com/dagrejs/dagre
+- Docs: https://github.com/dagrejs/dagre/wiki#configuring-the-layout
 
 Dagre is a simple library for layouting directed graphs. It has minimal configuration
 options and a focus on speed over choosing the most optimal layout. If you need
@@ -109,6 +89,9 @@ see.
 
 ### D3-Hierarchy
 
+- Repo: https://github.com/d3/d3-hierarchy
+- Docs: https://d3js.org/d3-hierarchy
+
 When you know your graph is a tree with a single root node, d3-hierarchy can
 provide a handful of interesting layouting options. While the library can layout
 a simple tree just fine, it also has layouting algorithms for tree maps, partition
@@ -130,6 +113,9 @@ choice if you're displaying lots of different node types.
 :::
 
 ### D3-Force
+
+- Repo: https://github.com/d3/d3-force
+- Docs: https://d3js.org/d3-force
 
 Force something more interesting than a tree, a force-directed layout might be
 the way to go. D3-Force is a physics-based layouting library that can be used
@@ -193,6 +179,9 @@ to d3-force: the constraints
 /> -->
 
 ### Elkjs
+
+- Repo: https://github.com/kieler/elkjs
+- Docs: https://eclipse.dev/elk/reference.html (good luck!)
 
 Elkjs is certainly the most configurable option available, but it's also the most
 complicated. Elkjs is a Java library that's been ported to JavaScript, and it
