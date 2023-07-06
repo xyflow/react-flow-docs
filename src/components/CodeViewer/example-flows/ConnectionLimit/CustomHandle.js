@@ -1,36 +1,33 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { getConnectedEdges, Handle, useNodeId, useStore } from 'reactflow';
 
-const selector = (s) => ({
-    nodeInternals: s.nodeInternals,
-    edges: s.edges,
-});
+const selector =
+  (nodeId, isConnectable = true, maxConnections = Infinity) =>
+  (s) => {
+    // If the user props say this handle is not connectable, we don't need to
+    // bother checking anything else.
+    if (!isConnectable) return false;
+
+    const node = s.nodeInternals.get(nodeId);
+    const connectedEdges = getConnectedEdges([node], s.edges);
+
+    return connectedEdges.length < maxConnections;
+  };
 
 const CustomHandle = (props) => {
-    const { nodeInternals, edges } = useStore(selector);
-    const nodeId = useNodeId();
+  const nodeId = useNodeId();
+  const isConnectable = useStore(
+    useCallback(selector(nodeId, props.isConnectable, props.maxConnections), [
+      nodeId,
+      props.isConnectable,
+      props.maxConnections,
+    ])
+  );
 
-    const isHandleConnectable = useMemo(() => {
-        if (typeof props.isConnectable === 'function') {
-            const node = nodeInternals.get(nodeId);
-            const connectedEdges = getConnectedEdges([node], edges);
-
-            return props.isConnectable({ node, connectedEdges });
-        }
-
-        if (typeof props.isConnectable === 'number') {
-            const node = nodeInternals.get(nodeId);
-            const connectedEdges = getConnectedEdges([node], edges);
-
-            return connectedEdges.length < props.isConnectable;
-        }
-
-        return props.isConnectable;
-    }, [nodeInternals, edges, nodeId, props.isConnectable]);
-
-    return (
-        <Handle {...props} isConnectable={isHandleConnectable}></Handle>
-    );
+  // The `isConnectable` prop is a part of React Flow, all we need to do is give
+  // it the bool we calculated above and React Flow can handle the logic to disable
+  // it for us.
+  return <Handle {...props} type="target" isConnectable={isConnectable} />;
 };
 
 export default CustomHandle;

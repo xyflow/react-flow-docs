@@ -1,17 +1,27 @@
 ---
 sidebar_label: Connection Limit
 title: Connection Limit
-description: This is an example of a custom node limiting the amount of connections a handle can have using the `isConnectalbe` prop.
 hide_table_of_contents: true
 ---
+
 import CodeViewer from '/src/components/CodeViewer';
 
-This is an example of a custom node with a custom handle that can limit the amount of connections a handle can have using the `isConnectable` prop.
-You can use a boolean, a number (the number of max. connections the handle should have) or a callback function that returns a boolean
-as an arg for the `isConnectable` prop of the CustomHandle component.
+This example shows how to implement a custom handle that can limit the number of
+connections it can have. It works in tandem with the existing [`isConnectable`](https://reactflow.dev/docs/api/nodes/handle/#isconnectable)
+prop so you can always completely disable a handle if you need to. All you need
+to do is provide a `maxConnections` prop to the handle. If you leave it out, it'll
+assume there's no limit.
+
+To see it in action, try and connect `Node 1` to the middle target node or `Node 2`
+to the first target node. You'll see that it doesn't work! Try connecting both
+nodes to the bottom target node that has no connection limit, and everything will
+behave as normal.
 
 <CodeViewer
   codePath="example-flows/ConnectionLimit"
-  additionalFiles={['CustomNode.js', 'CustomHandle.js']}
+  additionalFiles={['CustomNode.js', 'CustomHandle.js', 'nodes-edges.js']}
 />
 
+If you're feeling fancy you could extend this example to let `maxConnections`
+be a function can calculates that maximum dynamically, but we'll leave that down
+to you!
