@@ -1,0 +1,15 @@
+---
+title: Node Context Menus
+hide_table_of_contents: true
+---
+
+import CodeViewer from '/src/components/CodeViewer';
+
+The [`onNodeContextMenu`](/docs/api/react-flow-props/#onnodecontextmenu) event
+can be used to show a custom menu when right-clicking a node. This example shows
+a simple menu with buttons to duplicate or delete the clicked node.
+
+<CodeViewer
+  codePath="example-flows/ContextMenu"
+  additionalFiles={['ContextMenu.js', 'nodes-edges.js', 'style.css']}
+/>
