@@ -16,19 +16,19 @@ const Flow = () => {
   const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), [setEdges]);
 
   const onNodeContextMenu = useCallback(
-    (e, node) => {
+    (event, node) => {
       // Prevent native context menu from showing
-      e.preventDefault();
+      event.preventDefault();
 
       // Calculate position of the context menu. We want to make sure it
       // doesn't get positioned off-screen.
       const pane = ref.current.getBoundingClientRect();
       setMenu({
         id: node.id,
-        top: e.clientY < pane.height - 200 && e.clientY,
-        left: e.clientX < pane.width - 200 && e.clientX,
-        right: e.clientX >= pane.width - 200 && pane.width - e.clientX,
-        bottom: e.clientY >= pane.height - 200 && pane.height - e.clientY,
+        top: event.clientY < pane.height - 200 && event.clientY,
+        left: event.clientX < pane.width - 200 && event.clientX,
+        right: event.clientX >= pane.width - 200 && pane.width - event.clientX,
+        bottom: event.clientY >= pane.height - 200 && pane.height - event.clientY,
       });
     },
     [setMenu]
