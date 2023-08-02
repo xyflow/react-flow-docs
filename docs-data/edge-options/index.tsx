@@ -19,12 +19,12 @@ const options = [
   },
   {
     name: 'sourceHandle?',
-    type: 'string',
+    type: 'string | null',
     description: 'You only need this when you have multiple handles',
   },
   {
     name: 'targetHandle?',
-    type: 'string',
+    type: 'string | null',
     description: 'You only need this when you have multiple handles',
   },
   {
