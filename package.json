@@ -22,9 +22,9 @@
     "@chakra-ui/react": "^2.3.5",
     "@codesandbox/sandpack-react": "^2.1.10",
     "@docsearch/js": "^3.3.0",
-    "@docusaurus/core": "^2.3.1",
-    "@docusaurus/plugin-ideal-image": "^2.3.1",
-    "@docusaurus/preset-classic": "^2.3.1",
+    "@docusaurus/core": "^2.4.1",
+    "@docusaurus/plugin-ideal-image": "^2.4.1",
+    "@docusaurus/preset-classic": "^2.4.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mdx-js/react": "^1.6.21",
@@ -44,10 +44,10 @@
     "react-flow-renderer": "^10.3.12",
     "react-icons": "^4.4.0",
     "react-player": "^2.11.2",
-    "reactflow": "^11.7.4",
+    "reactflow": "^11.8.0",
     "three": "^0.141.0",
     "url-loader": "^4.1.1",
-    "zustand": "^4.3.6"
+    "zustand": "^4.4.1"
   },
   "browserslist": {
     "production": [
@@ -62,7 +62,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.3.1",
+    "@docusaurus/module-type-aliases": "^2.4.1",
     "@notionhq/client": "^1.0.4",
     "@tsconfig/docusaurus": "^1.0.5",
     "dotenv": "^16.0.1",

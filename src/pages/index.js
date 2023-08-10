@@ -49,7 +49,7 @@ export default function Home() {
       <Box color="white" bgColor="purple.800">
         <Box maxWidth="container.xl" mx="auto" px={3} py={8}>
           <SimpleGrid columns={[1, null, 2]}>
-            <Stats />
+            <Stats variant="react" />
             <Box>
               <Text fontSize="lg">
                 React Flow is a MIT-licensed open source library. You can help us to ensure the
