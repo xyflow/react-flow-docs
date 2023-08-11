@@ -7,7 +7,7 @@ This hook returns the nodes. The component that uses this hook re-renders whenev
 
 :::caution
 
-This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
+This hook can only be used if the component that uses it is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
 
 :::
 
