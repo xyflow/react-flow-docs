@@ -7,7 +7,7 @@ This hook returns `true` when all nodes are initialized (measured by react flow 
 
 :::caution
 
-This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
+This hook can only be used if the component that uses it is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
 
 :::
 
