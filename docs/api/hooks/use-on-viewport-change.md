@@ -7,7 +7,7 @@ This hook lets you listen to viewport changes. You can pass an object with an `o
 
 :::caution
 
-This hook can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
+This hook can only be used if the component that uses it is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/) or if it's a child of the `<ReactFlow />` component.
 
 :::
 
