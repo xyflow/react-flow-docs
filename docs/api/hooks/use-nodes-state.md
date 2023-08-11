@@ -6,7 +6,7 @@ sidebar_position: 11
 This helper hook creates a new local state to store React Flow nodes. It is very similar to React's `useState` but exposes a `onNodesChange` function that can be passed as a prop to the `ReactFlow` component. This makes it easier to quickly create controlled flows without the need to implement the `onNodesChange` function.
 
 :::caution
-This hook has been added for prototyping and reducing boilerplate in the React Flow examples. It can be used in production but we recommend to use a [state management library like Zustand](/docs/guides/state-management/).
+This hook has been added for prototyping and reducing boilerplate in the React Flow examples. It can be used in production, but we recommend using a [state management library like Zustand](/docs/guides/state-management/) instead.
 :::
 
 ### Usage
