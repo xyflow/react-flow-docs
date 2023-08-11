@@ -7,7 +7,7 @@ This hook returns the viewport (`{ x: number, y: number, zoom: number }`). The c
 
 :::caution
 
-Hooks can only be used if the component that uses it, is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
+Hooks can only be used if the component that uses it is wrapped with a [`ReactFlowProvider`](/docs/api/react-flow-provider/).
 
 :::
 
