@@ -6,7 +6,7 @@ sidebar_position: 3
 import PropItems from '../../../src/components/Docs/PropItems'
 import CodeViewer from '../../../src/components/CodeViewer';
 
-The Minimap component adds an interactive Minimap to React Flow that shows the whole graph. You can use the `MiniMap` plugin by passing it as a children to the `ReactFlow` component.
+The Minimap component adds an interactive Minimap to React Flow that shows the whole graph. You can use the `MiniMap` plugin by passing it as a child to the `ReactFlow` component.
 
 :::info Interactive Minimap
 

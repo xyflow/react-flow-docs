@@ -6,7 +6,7 @@ sidebar_position: 1
 import PropItems from '../../../src/components/Docs/PropItems'
 import CodeViewer from '../../../src/components/CodeViewer';
 
-The Background component comes with three background variants: **dots**, **lines** and **cross**. You can use it by passing it as a children to the `ReactFlow` component.
+The Background component comes with three background variants: **dots**, **lines** and **cross**. You can use it by passing it as a child to the `ReactFlow` component.
 
 ### Usage Example
 
