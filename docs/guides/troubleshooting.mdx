@@ -411,3 +411,12 @@ This warning occurs when you are trying to specify a marker type that is not bui
 ### Handle: No node id found.
 
 This warning occurs when you try to use a `<Handle />` component outside of a custom node component.
+
+### Node with id "${id}" does not exist, it may have been removed....
+
+This warning occurs when you have a custom node that removes itself on some click event _and_ you have an `onNodeClick` handler on your `<ReactFlow>` component. A common cause is a custom node with a delete button that calls `setNodes` when clicked. By the time the event bubbles up to the node's click handler, it has already been removed from the internal store and there's not much left for React Flow to do!
+
+Thare are two ways to prevent this warning:
+
+1. Call `preventDefault` or `stopPropagation` on the click event where you remove the node. This will stop the event bubbling up and the `onNodeClick` handler _will not be called_.
+2. Wrap the call to `setNodes` that removes the node in a `setTimeout` or `requestAnimationFrame` to ensure that the node is removed _after_ the `onNodeClick` handler has been called.
