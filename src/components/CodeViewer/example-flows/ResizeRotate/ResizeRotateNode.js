@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Handle, Position, useUpdateNodeInternals } from 'reactflow';
+import { Handle, Position, useUpdateNodeInternals, NodeResizer } from 'reactflow';
 import { drag } from 'd3-drag';
 import { select } from 'd3-selection';
-import { NodeResizer } from '@reactflow/node-resizer';
 
-import '@reactflow/node-resizer/dist/style.css';
 import styles from './style.module.css';
 
 export default function ResizeRotateNode({
