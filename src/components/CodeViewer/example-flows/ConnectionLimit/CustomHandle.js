@@ -14,13 +14,13 @@ const selector =
     return connectedEdges.length < maxConnections;
   };
 
-const CustomHandle = (props) => {
+const CustomHandle = ({ maxConnections, ...props }) => {
   const nodeId = useNodeId();
   const isConnectable = useStore(
-    useCallback(selector(nodeId, props.isConnectable, props.maxConnections), [
+    useCallback(selector(nodeId, props.isConnectable, maxConnections), [
       nodeId,
       props.isConnectable,
-      props.maxConnections,
+      maxConnections,
     ])
   );
 
