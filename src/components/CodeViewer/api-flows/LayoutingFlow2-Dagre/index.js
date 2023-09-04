@@ -25,7 +25,8 @@ const getLayoutedElements = (nodes, edges, options) => {
     nodes: nodes.map((node) => {
       const { x, y } = g.node(node.id);
 
-      return { ...node, position: { x, y } };
+      const position = { x: x - node.width / 2, y: y - node.height / 2 };
+      return { ...node, position };
     }),
     edges,
   };
