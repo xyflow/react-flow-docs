@@ -38,7 +38,7 @@ const onNodesChange = useCallback( (changes) => setNodes((nds) => applyNodeChang
 const onEdgesChange = useCallback( (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),[] );
 ```
 
-When you drag or select a node, the `onNodeChange` handler gets called. With help of the `applyNodeChanges` function you can then apply those changes to your current node state. Putting evetything together, it should look like this:
+When you drag or select a node, the `onNodeChange` handler gets called. With help of the `applyNodeChanges` function you can then apply those changes to your current node state. Putting everything together, it should look like this:
 
 <CodeViewer codePath="api-flows/MakeItInteractive1" applyStyles={false} options={editorOptions} />
 
