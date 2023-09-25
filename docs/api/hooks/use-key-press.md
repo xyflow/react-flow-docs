@@ -3,7 +3,7 @@ title: useKeyPress
 sidebar_position: 8
 ---
 
-This hook returns if the passed key is pressed. The component that uses this hook re-renders whenever the returned boolean changes. The hook expects one paramter "keyCode" which can be:
+This hook returns if the passed key is pressed. The component that uses this hook re-renders whenever the returned boolean changes. The hook expects one parameter "keyCode" which can be:
 
 - a `string` like `"Space"` (event.code or event.key) for a **single key**
 - a `string` like `"Meta+s"` (event.code or event.key combined with a + sign) for a **key combination**
