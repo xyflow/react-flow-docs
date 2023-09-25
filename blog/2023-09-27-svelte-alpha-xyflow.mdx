@@ -9,9 +9,6 @@ image: '/img/blog/v10-header.png'
 
 import Image from '@theme/IdealImage';
 import Emoji from '/src/components/Emoji';
-import ReactPlayer from 'react-player';
-
-# Team Update – Welcoming Peter, Svelte alpha, changing our name, and v11.9.0
 
 Good to see you again friends. We have big “official” updates incoming, but in the meantime, we wanted to share what’s been going on over here for the past months. **TL;DR,** Try out the Svelte Flow alpha, many fixed React Flow bugs, our name will change to “xyflow” soon, and we have a new core team member.
 
@@ -32,6 +29,7 @@ Recent releases in the past months have led to:
 - Better default positions for edge labels, step edge labels
 - Improved step edge routing and label positions
 - Latest Zustand version supported
+- Compatibility with Astro, Remix, and older setups like webpack4 and React 17
 
 And so, so many bugs have been squashed. Old bugs, new bugs. We feel like 6 year olds who just found an ant hill.
 
@@ -45,7 +43,7 @@ For those with keen eyes, you may have noticed a xyflow branch in the react-flow
 npm install @xyflow/svelte
 ```
 
-People have been using the React Flow docs for now while we build out the Svelte Flow docs. Of course this is alpha software, so the API is likely to change.
+You can check out our [Github Readme](https://github.com/wbkd/react-flow/tree/xyflow/packages/svelte#svelte-flow-alpha) and reference our React Flow docs while we work on fleshing out our Svelte Flow docs. Because we are in alpha, the API is likely to change.
 
 What would be the biggest help for us is if you share it with anyone you know who uses Svelte, or if you use Svelte yourself, try it out and submit and bugs or issues you encounter (our [Discord](https://discord.gg/TmAJQbwWDM) is a great place for discussion)- we assume there are many 😄
 
@@ -61,7 +59,7 @@ Launching Svelte Flow also means we are maintaining two libraries instead of one
 
 Also a bonus along the way to building Svelte Flow was that we generalized the React Flow core into vanilla JS, allowing us to refactor and clean up the foundation of our library. This could allow us to more easily port the library to other languages in the future.
 
-# **Fresh paint and a new name: xyflow 🎨**
+# Soon: Fresh paint and changing our name 🎨
 
 <figure>
   <img
@@ -73,7 +71,7 @@ Also a bonus along the way to building Svelte Flow was that we generalized the R
 
 Once Svelte Flow started to materialize, we quickly realized “React Flow” is an inflexible name. Just imagine “npm install reactflow/svelte” 😬😬
 
-“xyflow” will be the roof that React Flow and Svelte Flow live under. We like that “xy” can represent a variable (”xy” can be replaced with “react” or “svelte” to create the names of the individual libraries), as well as the xy coordinates of a graph. And you pronounce it like… erm… we’ll have to get back to you on that one.
+“xyflow” will soon be the roof that React Flow and Svelte Flow live under. We like that “xy” can represent a variable (”xy” can be replaced with “react” or “svelte” to create the names of the individual libraries), as well as the xy coordinates of a graph. And you pronounce it like… erm… we’ll have to get back to you on that one.
 
 There will be package name changes as a result, and we’ll give clear instructions on how to make this change as soon as we “officially” launch all of this.
 
@@ -85,9 +83,21 @@ Hayleigh went to DevRelCon in London, where she brought back a bunch of findings
 
 John gave another talk about money in open source in Portland, Oregon at FOSSY. This one’s 20 minutes with Q&A, so it’s our most comprehensive share on the topic yet. You can watch it [here](https://archive.org/details/fossy2023_Dear_Open_Source_lets_do_a_bet).
 
-_(Matt Yonkovit was running this conference track, and also invited John onto [his podcast](https://www.youtube.com/watch?v=Msc7Qc2rwT0&pp=ygUXam9obiByb2JiIG1hdHQgeW9ua292aXQ%3D) to talk a bit more about the topic)._
-
 Moritz and John held the first React Flow “Town Hall,” where we opened up our Discord for live questions from anyone who wanted to ask. We were looking for a way to be transparent about what’s coming up next at React Flow, without sticking to the structure of a roadmap. We’ll definitely be doing it again, it was a lot of fun!
+
+# Open Sourcing our Pro Platform 🎁
+
+Our Pro platform allows subscribers to access the code and tutorials of our "Pro Examples," and the code for the subscriber back-end has always been private. On our quest to allow more open source projects to be fairly compensated for their work, Christopher has been refactoring our Pro Platform from the ground up.
+
+<figure>
+  <img
+    src="/img/blog/2023-svelte-alpha-xyflow/dashboard.jpeg"
+    alt="A screenshot with a code example called Force Layout, with a tutorial below it."
+  />
+  <figcaption>Our Pro Platform, soon to be open source</figcaption>
+</figure>
+
+We hope other companies like us might use it in the future to build their own SaaS. If you're interested in this, please reach out to us, we'd love to know how this could work for you.
 
 # Whew.
 
