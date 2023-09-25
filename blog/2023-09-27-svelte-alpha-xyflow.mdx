@@ -1,0 +1,102 @@
+---
+slug: 'svelte-alpha-xyflow'
+title: 'Team Update – Welcoming Peter, Svelte alpha, changing our name, and v11.9.0'
+authors: 'john'
+tags: ['react-flow', 'update']
+hide_table_of_contents: true
+image: '/img/blog/v10-header.png'
+---
+
+import Image from '@theme/IdealImage';
+import Emoji from '/src/components/Emoji';
+import ReactPlayer from 'react-player';
+
+# Team Update – Welcoming Peter, Svelte alpha, changing our name, and v11.9.0
+
+Good to see you again friends. We have big “official” updates incoming, but in the meantime, we wanted to share what’s been going on over here for the past months. **TL;DR,** Try out the Svelte Flow alpha, many fixed React Flow bugs, our name will change to “xyflow” soon, and we have a new core team member.
+
+<!--truncate-->
+
+# Welcome Peter to the core team! 👋🏻
+
+As team member #5, Peter is joining us from the worlds of computer graphics, interactive audio-visual installation work, film, all while coding libraries and tools along the way. In the past months he's developed an enthusiasm for Svelte while working on a film production tool, and has already made some much-needed changes to Svelte Flow alpha ⚡️
+
+You’ll be seeing Peter around on our Discord and Github, and he’ll be joining us in our Berlin office. We’re excited to have him join our team 😊
+
+# React Flow: less bugs, improved performance 🧼
+
+Recent releases in the past months have led to:
+
+- Improved performance from fixing a minimap bug
+- Better key defaults and scroll behavior for Windows users
+- Better default positions for edge labels, step edge labels
+- Improved step edge routing and label positions
+- Latest Zustand version supported
+
+And so, so many bugs have been squashed. Old bugs, new bugs. We feel like 6 year olds who just found an ant hill.
+
+Hayleigh has been hard at work restructuring our docs, which were much needed for some care and sorting after a couple of years of organic growth. You’ll see these updates with the release of our website redesign (keep reading for more on this).
+
+# Svelte Flow Alpha is Live! 🎉
+
+For those with keen eyes, you may have noticed a xyflow branch in the react-flow repo, and that’s because we’ve ported React Flow to Svelte, and now you can install it and try it out!! 🚀
+
+```jsx
+npm install @xyflow/svelte
+```
+
+People have been using the React Flow docs for now while we build out the Svelte Flow docs. Of course this is alpha software, so the API is likely to change.
+
+What would be the biggest help for us is if you share it with anyone you know who uses Svelte, or if you use Svelte yourself, try it out and submit and bugs or issues you encounter (our [Discord](https://discord.gg/TmAJQbwWDM) is a great place for discussion)- we assume there are many 😄
+
+There’s already a a Svelte Flow Alpha app out in the wild! https://ffmpeg.lav.io/
+
+As usual, it’s MIT Licensed.
+
+### What’s the plan with Svelte Flow?
+
+Just like with React Flow we expect to hear about a lot of bugs and feature requests in the weeks and months after launch, and we’re going to pay attention to those and respond to all of the requests that we can. At this point, we’re hoping people try it out, build things, and we’ll keep our ears and inboxes open to feedback. Most of all, we’re looking forward to seeing what people build!
+
+Launching Svelte Flow also means we are maintaining two libraries instead of one. As you saw above, our team has gotten a little bigger to help us out with that.
+
+Also a bonus along the way to building Svelte Flow was that we generalized the React Flow core into vanilla JS, allowing us to refactor and clean up the foundation of our library. This could allow us to more easily port the library to other languages in the future.
+
+# **Fresh paint and a new name: xyflow 🎨**
+
+<figure>
+  <img
+    src="/img/blog/2023-svelte-alpha-xyflow/xyflow-banner.png"
+    alt="A screenshot of a header of a page. The title says Wire your ideas with xyflow."
+  />
+  <figcaption>A sneak peek of the new website</figcaption>
+</figure>
+
+Once Svelte Flow started to materialize, we quickly realized “React Flow” is an inflexible name. Just imagine “npm install reactflow/svelte” 😬😬
+
+“xyflow” will be the roof that React Flow and Svelte Flow live under. We like that “xy” can represent a variable (”xy” can be replaced with “react” or “svelte” to create the names of the individual libraries), as well as the xy coordinates of a graph. And you pronounce it like… erm… we’ll have to get back to you on that one.
+
+There will be package name changes as a result, and we’ll give clear instructions on how to make this change as soon as we “officially” launch all of this.
+
+And all of this is going to come with a fresh website, thanks to the brilliant [Facu Montanaro](https://facumontanaro.com/) 👏🏻
+
+# We went into the real world! Ahhh
+
+Hayleigh went to DevRelCon in London, where she brought back a bunch of findings on how we can better help folks using React Flow and the ecosystems around it. The videos from the conference should be dropping soon [here](https://developerrelations.com/event/devrelcon-london-2023).
+
+John gave another talk about money in open source in Portland, Oregon at FOSSY. This one’s 20 minutes with Q&A, so it’s our most comprehensive share on the topic yet. You can watch it [here](https://archive.org/details/fossy2023_Dear_Open_Source_lets_do_a_bet).
+
+_(Matt Yonkovit was running this conference track, and also invited John onto [his podcast](https://www.youtube.com/watch?v=Msc7Qc2rwT0&pp=ygUXam9obiByb2JiIG1hdHQgeW9ua292aXQ%3D) to talk a bit more about the topic)._
+
+Moritz and John held the first React Flow “Town Hall,” where we opened up our Discord for live questions from anyone who wanted to ask. We were looking for a way to be transparent about what’s coming up next at React Flow, without sticking to the structure of a roadmap. We’ll definitely be doing it again, it was a lot of fun!
+
+# Whew.
+
+Ok that was a lot. Thanks for letting us get all of that off our chest. We’ll be posting again soon once we do an official launch of _gestures broadly at everything_
+
+Thanks for being a part of the journey!
+
+✌🏻
+
+The Rea… xyflow team
+
+Christopher, Hayleigh, John, Moritz, and Peter
