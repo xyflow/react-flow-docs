@@ -26,7 +26,7 @@ html, body, #root {
 
 const defaultSetup = {
   dependencies: {
-    reactflow: '11.8.2',
+    reactflow: '11.9.2',
   },
 };
 
