@@ -120,6 +120,17 @@ const props = [
     ),
   },
   {
+    name: 'nodeDragThreshold?',
+    type: 'number',
+    default: '0',
+    description: (
+      <>
+        With a threshold greater than zero you can delay node drag events. If threshold equals 1,
+        you need to drag the node 1 pixel before a drag event is fired.
+      </>
+    ),
+  },
+  {
     name: 'style?',
     type: 'CSSProperties',
     description: 'CSS properties for the wrapper div',
