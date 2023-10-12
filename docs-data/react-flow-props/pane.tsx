@@ -6,7 +6,7 @@ const props = [
     name: 'onMove?',
     type: (
       <>
-        (event: MouseEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
+        (event: MouseEvent | TouchEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
         void
       </>
     ),
@@ -16,7 +16,7 @@ const props = [
     name: 'onMoveStart?',
     type: (
       <>
-        (event: MouseEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
+        (event: MouseEvent | TouchEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
         void
       </>
     ),
@@ -26,7 +26,7 @@ const props = [
     name: 'onMoveEnd?',
     type: (
       <>
-        (event: MouseEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
+        (event: MouseEvent | TouchEvent, viewport: <Link to="/docs/api/types/#viewport">Viewport</Link>) =&gt;
         void
       </>
     ),
