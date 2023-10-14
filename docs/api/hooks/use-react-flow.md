@@ -3,7 +3,7 @@ title: useReactFlow
 sidebar_position: 1
 ---
 
-The `useReactFlow` hook returns the [React Flow instance](/docs/api/react-flow-instance) to manipulate nodes, edges and the viewport and get informations about the current state. You can find the list of functions on the [React Flow instance](/docs/api/react-flow-instance) page.
+The `useReactFlow` hook returns the [React Flow instance](/docs/api/react-flow-instance) to manipulate nodes, edges and the viewport and get information about the current state. You can find the list of functions on the [React Flow instance](/docs/api/react-flow-instance) page.
 
 :::caution
 
