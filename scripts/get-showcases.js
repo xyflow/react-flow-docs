@@ -22,10 +22,20 @@ const downloadImage = (source, target) => {
   const { results } = await notion.databases.query({
     database_id: SHOWCASES_DATABASE_ID,
     filter: {
-      property: 'published',
-      checkbox: {
-        equals: true,
-      },
+      and: [
+        {
+          property: 'published',
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: 'library',
+          rich_text: {
+            equals: 'react',
+          },
+        },
+      ],
     },
     sorts: [
       {
