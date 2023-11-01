@@ -1,6 +1,11 @@
-# React Flow Documentation
+# Legacy React Flow Docs
 
-This repo contains the source code of the [React Flow Website](https://reactflow.dev). It is built with [Docusaurus](https://docusaurus.io/).
+> [!WARNING]  
+> This repo contains older versions ([v10](https://v10.reactflow.dev/), [v11](https://react-flow.netlify.app/)) of the React Flow website. The [current website](https://reactflow.dev) is being developed in the [xyflow/web](https://github.com/xyflow/web) repo.
+
+---
+
+This website is built with [Docusaurus](https://docusaurus.io/).
 
 ### Installation
 
