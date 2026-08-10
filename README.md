@@ -1,7 +1,7 @@
 # Legacy React Flow Docs
 
 > [!WARNING]  
-> This repo contains older versions ([v10](https://v10.reactflow.dev/), [v11](https://react-flow.netlify.app/)) of the React Flow website. The [current website](https://reactflow.dev) is being developed in the [xyflow/web](https://github.com/xyflow/web) repo.
+> This repo contains older versions ([v10](https://v10.reactflow.dev/), [v11](https://react-flow.netlify.app/)) of the React Flow website.
 
 ---
 
